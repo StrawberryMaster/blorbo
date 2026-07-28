@@ -1,0 +1,510 @@
+/* From https://github.com/girlrrys/larry-ao3-skin
+ * adjusted for readability & other cleanups
+ */
+
+/* header & primary navigation */
+#header {
+  background-color: #1E375D;
+  background-image: url("https://i.pinimg.com/originals/b5/c8/d1/b5c8d1d7d169fe3cea9047e02c49a4e3.jpg");
+  background-repeat: no-repeat;
+  background-position: center 0%;
+  background-size: cover;
+  min-height: 160px;
+  box-shadow: 0 0 4px #000;
+  position: relative;
+}
+
+#header .primary {
+  background: #1E375D;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+#header .heading {
+  height: 15em;
+  margin-left: 0;
+  position: relative;
+  left: -40px;
+}
+
+#header .logo,
+#header .heading sup {
+  visibility: hidden;
+}
+
+#header h1.heading a,
+#header h1.heading a:visited,
+#header h1.heading a:hover {
+  color: #BDC8DC !important;
+  font-family: "Garamond", serif !important;
+  background: #1E375D;
+  border: 1px solid #476792;
+  padding: 6px 16px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px #1E375D inset;
+}
+
+#greeting a.dropdown-toggle,
+#header .actions a,
+#header a:visited,
+#header .primary .open a,
+#header .primary .dropdown:hover a,
+#header .primary .dropdown a:focus {
+  color: #BDC8DC !important;
+}
+
+#greeting .menu,
+#header .dropdown .menu,
+#header .dropdown:hover a,
+#header .actions a:hover,
+#header .actions a:focus,
+#header .open a,
+#header .menu,
+#small_login {
+  background: #1E375D;
+}
+
+#greeting img.icon {
+  display: none;
+}
+
+/* global base & typography */
+body {
+  color: #BDC8DC;
+}
+
+#outer.wrapper {
+  background: #1E375D;
+  background-image: url("https://i.postimg.cc/K4SFz6ks/IMG-3747.jpg");
+  background-size: 16% auto;
+  background-repeat: repeat;
+  background-position: center top;
+  color: #BDC8DC;
+}
+
+#inner.wrapper {
+  margin: 0 4%;
+}
+
+#main,
+#inner.wrapper,
+.listbox .index,
+.work.own,
+.thread .even,
+.javascript {
+  background: #1E375D;
+}
+
+#main .heading,
+.heading,
+.group .heading {
+  color: #BDC8DC !important;
+}
+
+#main a {
+  color: #BDC8DC;
+}
+
+#main a:hover {
+  background: #1E375D;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.blurb h4 a:visited {
+  color: #9fb2cf !important;
+}
+
+.relationships .tag,
+.work .relationships a.tag,
+dd.relationship.tags a {
+  background: none;
+  color: #BDC8DC !important;
+  font-weight: bold;
+}
+
+/* workskin & reading readability */
+#workskin {
+  line-height: 1.6;
+  font-size: 1.05em;
+  padding: 1.25em;
+  color: #BDC8DC !important;
+}
+
+#workskin,
+#workskin * {
+  color: #BDC8DC !important;
+}
+
+#workskin a {
+  text-decoration: underline;
+}
+
+#workskin a:hover {
+  color: #ffffff !important;
+}
+
+/* action buttons & navigation controls */
+#main .actions a,
+#main .actions a:link,
+#main .actions a:visited,
+#main .action,
+#main .action:link,
+#main .action:visited,
+#main .actions input[type="submit"],
+#main .actions button,
+#main input[type="submit"],
+#main input[type="button"],
+#main input[type="reset"],
+#main button,
+#main .actions label,
+.actions a,
+.actions a:focus,
+.actions button,
+.actions li input,
+.actions li input[type="submit"],
+input[type="submit"],
+.actions li label,
+ul.navigation.actions li a,
+.action:link,
+.actions a:link {
+  background: #1E375D;
+  border: 1px solid #BDC8DC;
+  color: #BDC8DC;
+  border-radius: 5px;
+  padding: 0.35em 0.75em;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+#main .actions a:hover,
+#main .action:hover,
+#main .actions input[type="submit"]:hover,
+#main .actions button:hover,
+#main input[type="submit"]:hover,
+#main button:hover,
+.actions a:hover,
+.action:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: #BDC8DC !important;
+  color: #1E375D !important;
+  border-color: #BDC8DC !important;
+  cursor: pointer;
+}
+
+.current,
+#dashboard .current {
+  background: #1E375D !important;
+  color: #BDC8DC !important;
+  border: 1px solid #BDC8DC !important;
+  border-radius: 5px;
+}
+
+span.submit.actions input.button,
+#header form.search input[type="submit"] {
+  display: none !important;
+}
+
+/* forms, inputs & fieldsets */
+form dl,
+fieldset,
+fieldset fieldset,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff,
+input,
+select,
+select:focus,
+textarea,
+span.symbol.question,
+.own {
+  background: #1E375D !important;
+  color: #BDC8DC !important;
+  border: 1px solid #BDC8DC;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #ffffff !important;
+  outline: none;
+}
+
+#header #search .text,
+form.search input[type="text"],
+form.search input[type="submit"],
+.autocomplete div.dropdown ul {
+  background: #1E375D !important;
+  color: #BDC8DC !important;
+  border: 1px solid #626C7B;
+}
+
+#header #search .text {
+  width: 5em;
+}
+
+.search [role="tooltip"] {
+  background: #1E375D;
+  color: #d8cbb0 !important;
+  border: 1px solid #1E375D;
+}
+
+form.verbose legend,
+.verbose form legend {
+  background: #1E375D;
+  color: #BDC8DC;
+  border: 1px solid #BDC8DC;
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+}
+
+.filtering .filters #leave_filters {
+  background: #1E375D;
+  color: #BDC8DC;
+}
+
+.filters .expander {
+  color: #BDC8DC !important;
+  font-weight: bold;
+}
+
+.autocomplete li.added,
+.post .meta dd ul li.added,
+label,
+label.required {
+  color: #BDC8DC;
+}
+
+span.delete {
+  background: #1E375D;
+}
+
+span.delete a,
+.delete a {
+  color: #BDC8DC;
+  font-weight: bold;
+}
+
+.delete a,
+span.delete {
+  box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.25);
+}
+
+/* blurbs, tags & meta tables */
+li.blurb {
+  border: 1px solid #BDC8DC;
+}
+
+dl.meta,
+dl.stats,
+dl.stats dd,
+dl.stats dt,
+dl.meta dd,
+dl.meta dt,
+.stats,
+.meta {
+  color: #BDC8DC !important;
+}
+
+dl.meta {
+  border: 1px solid #BDC8DC;
+}
+
+.listbox .index,
+.listbox,
+fieldset fieldset.listbox,
+.group.listbox,
+.group.listbox .index,
+.dashboard fieldset fieldset.listbox .index {
+  background: #1E375D;
+}
+
+.reading h4.viewed,
+dl.index dd,
+table,
+th,
+dt.child,
+.thread .even,
+.secondary,
+.work.navigation .download,
+.javascript .work.navigation .download .secondary,
+.ui-datepicker tr:hover,
+.dropdown {
+  background: #1E375D;
+}
+
+h4.heading.byline {
+  background: #1E375D;
+  color: #BDC8DC;
+}
+
+.statistics .index li:nth-of-type(2n) {
+  background: #1E375D;
+}
+
+#stat_chart svg {
+  filter: invert(90%) sepia(80%) brightness(65%) hue-rotate(5deg) saturate(90%);
+}
+
+/* notices, alerts & popups */
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash,
+.comment,
+.draft,
+.draft .wrapper,
+#header h2,
+.unread,
+span.unread,
+span.replied,
+.event .userstuff,
+.ui-sortable li,
+.dynamic form,
+div.dynamic {
+  color: #BDC8DC;
+  background: #1E375D;
+  border: 1px solid #BDC8DC;
+}
+
+.notice a,
+.comment_notice a,
+.kudos_notice a,
+ul.notes a,
+.caution a,
+.error a,
+.comment_error a,
+.kudos_error a,
+.alert.flash a {
+  color: #BDC8DC;
+  font-weight: bold;
+}
+
+#modal {
+  background: #1E375D;
+  color: #BDC8DC;
+  border: 2px solid #BDC8DC;
+}
+
+.splash .module h3,
+.splash .module h3 * {
+  color: #BDC8DC;
+  border-bottom: 2px solid #BDC8DC;
+  font-family: "Garamond", serif !important;
+}
+
+.splash .favorite li:nth-of-type(2n+1) a,
+.splash .favorite li:nth-of-type(2n+2) a {
+  color: #BDC8DC;
+  font-weight: bold;
+  font-variant: small-caps;
+  font-size: 110%;
+  background: #1E375D;
+}
+
+.splash .favorite li:nth-of-type(2n+1) a:hover,
+.splash .favorite li:nth-of-type(2n+2) a:hover {
+  color: #1E375D;
+  font-weight: bold;
+  font-variant: small-caps;
+  background: #BDC8DC;
+}
+
+/* dashboard & footer */
+#dashboard {
+  border: none !important;
+}
+
+#dashboard,
+#dashboard .primary,
+#dashboard .navigation {
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+#dashboard.own {
+  border-top: 5px solid #BDC8DC;
+  border-bottom: 5px solid #BDC8DC;
+}
+
+#dashboard a,
+#dashboard span {
+  color: #BDC8DC;
+}
+
+#dashboard a:hover {
+  background: #1E375D;
+  color: #BDC8DC !important;
+}
+
+#footer,
+#footer .group,
+#footer ul,
+#footer li {
+  background: #1E375D !important;
+  color: #BDC8DC !important;
+  border-top: 3px solid #BDC8DC;
+}
+
+#footer a,
+#footer .heading {
+  color: #BDC8DC !important;
+}
+
+/* resets & box-shadow cleanups */
+body,
+.group,
+.group .group,
+.region,
+.flash,
+fieldset,
+fieldset fieldset ul,
+form dl,
+textarea,
+#main .verbose legend,
+.verbose fieldset,
+.notice,
+ul.notes,
+input,
+textarea,
+table,
+th,
+td:hover,
+tr:hover,
+.symbol .question:hover,
+#modal,
+.ui-sortable li,
+.required .autocomplete,
+.autocomplete .notice,
+.system .intro,
+.comment_error,
+.kudos_error,
+div.dynamic,
+.dynamic form,
+#ui-datepicker-div,
+.ui-datepicker table,
+.annotation {
+  box-shadow: none;
+}
+
+.dashboard > .group {
+  border: none;
+}
+
+.dashboard .group .group {
+  border: 0.1px solid #7C8694 !important;
+}

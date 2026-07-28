@@ -1,0 +1,926 @@
+/* From https://github.com/coldtothetouchh/Vamp-Byler-AO3-Skin
+ * adjusted for readability & other cleanups
+ */
+
+/* global base & typography */
+html,
+body {
+  max-width: 100%;
+  color: #c9bfb8;
+}
+
+#outer.wrapper {
+  background: #0e0808 url("https://raw.githubusercontent.com/coldtothetouchh/Vamp-Byler-AO3-Skin/refs/heads/main/red-linen.png") repeat center top;
+  padding-top: 0;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  color: #c9bfb8;
+}
+
+#inner.wrapper {
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: #1a0f0f url("https://raw.githubusercontent.com/coldtothetouchh/Vamp-Byler-AO3-Skin/refs/heads/main/red-linen.png") repeat;
+}
+
+#main,
+.listbox .index,
+.work.own,
+.thread .even {
+  background: #1a0f0f url("https://raw.githubusercontent.com/coldtothetouchh/Vamp-Byler-AO3-Skin/refs/heads/main/red-linen.png") repeat;
+  color: #c9bfb8;
+}
+
+h1, h2, h3, h4, h5, h6,
+.heading,
+legend,
+label {
+  color: #c9bfb8;
+}
+
+h2 {
+  font-size: 1.286em;
+  line-height: 1.2;
+  margin: 0.5375em 0;
+}
+
+/* links & interactive text */
+a,
+a:link {
+  color: #d67070 !important;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #b05c5c !important;
+}
+
+a:hover,
+a:focus {
+  color: #e8c4b0 !important;
+  text-decoration: underline;
+}
+
+#workskin a,
+.userstuff a,
+.blurb p a {
+  text-decoration: underline;
+}
+
+.blurb h4 a:link,
+#footer h4,
+.system .latest h3,
+.splash .module h3,
+.system .tweets h3 {
+  color: #d67070;
+}
+
+.required {
+  color: #c9bfb8;
+}
+
+/* header & navigation */
+#header {
+  background-image: url("https://i.pinimg.com/originals/10/a3/fc/10a3fcfb20de65c97bf33ed2f3e0472a.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center 30px;
+  background-color: #0e0808;
+  margin: 0;
+  min-height: 460px;
+  position: relative;
+}
+
+#header h1,
+#header .heading {
+  min-height: 460px;
+  height: auto;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#header h1 a {
+  color: #c9bfb8 !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-indent: -9999px;
+  z-index: 2;
+}
+
+#header .logo,
+#header h1 sup,
+#header h1 a span,
+#greeting .icon,
+#header .button,
+#header .landmark {
+  display: none !important;
+}
+
+#header .primary {
+  background: #2a0e0e;
+  box-shadow: none;
+  color: #c9bfb8;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+#header .primary li:first-child {
+  margin-left: 0;
+}
+
+#header .primary li,
+#header .primary li a,
+#greeting li,
+#greeting li a {
+  color: #c9bfb8;
+}
+
+#header .dropdown .menu,
+#header .primary .dropdown .menu,
+#greeting .dropdown .menu {
+  z-index: 100;
+  position: absolute;
+  border: 1px solid #4a1f1f;
+  background: #2a0e0e;
+}
+
+#header .actions a:hover,
+#header .actions a:focus,
+#header .dropdown:hover a,
+#header .open a,
+#header .dropdown .menu a,
+#header .dropdown .menu,
+#greeting .dropdown .menu,
+#greeting .dropdown .menu a {
+  background: #2a0e0e;
+  color: #c9bfb8;
+}
+
+#header .dropdown .menu a:hover,
+#header .dropdown .menu a:focus {
+  background: #3d1515;
+  color: #e8c4b0;
+}
+
+/* greeting bar */
+#greeting {
+  background: #2a0e0e;
+  box-shadow: none;
+  color: #c9bfb8;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  border-bottom: 1px solid #4a1f1f;
+  font-size: 1em;
+}
+
+#greeting ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#greeting li {
+  display: inline-block;
+  border-right: 1px solid #4a1f1f;
+  margin-top: 0;
+  padding: 0.4em 0.8em;
+  white-space: nowrap;
+}
+
+#greeting li:last-child {
+  border-right: none;
+}
+
+#greeting .dropdown .menu li {
+  display: block;
+  border-right: none;
+  padding: 0.3em 0.6em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+#greeting .menu {
+  width: 16em;
+}
+
+#greeting .current,
+#greeting .dropdown:hover li,
+#greeting .dropdown:focus li {
+  box-shadow: none;
+  background: #2a0e0e;
+  color: #c9bfb8;
+}
+
+/* workskin & reading readability */
+#workskin {
+  text-align: left;
+  line-height: 1.6;
+  font-size: 1.05em;
+  color: #c9bfb8;
+  border: 30px solid transparent;
+  border-image: url("https://raw.githubusercontent.com/coldtothetouchh/Vamp-Byler-AO3-Skin/refs/heads/main/lace-border.png") 20% round;
+  margin-top: 2em;
+  padding: 1.25em;
+}
+
+#workskin h2 {
+  font-size: 2.2em;
+  color: #d67070;
+}
+
+#workskin p,
+#workskin li,
+#workskin dd,
+#workskin dt,
+#workskin span,
+#workskin div {
+  color: #c9bfb8;
+}
+
+#workskin a {
+  color: #d67070 !important;
+  text-decoration: underline;
+}
+
+#workskin a:hover {
+  color: #e8c4b0 !important;
+}
+
+.workskin .notes {
+  font-size: 90%;
+}
+
+/* action buttons & navigation controls */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+ul.work.navigation.actions li a,
+ul.work.navigation.actions li button,
+#main ul.work.navigation.actions li a,
+#main ul.work.navigation.actions li button,
+#main .actions a,
+#main .actions button,
+#main .actions input[type="submit"],
+#workskin ~ ul.work.navigation.actions li a,
+body#chapters ul.work.navigation.actions a,
+body#chapters ul.work.navigation.actions button,
+body#works ul.work.navigation.actions a,
+body#works ul.work.navigation.actions button {
+  background: #2a0e0e !important;
+  color: #c9bfb8 !important;
+  border: 1px solid #4a1f1f !important;
+  border-radius: 10px !important;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+button:hover,
+ul.work.navigation.actions li a:hover,
+ul.work.navigation.actions li button:hover,
+#main ul.work.navigation.actions li a:hover,
+#main ul.work.navigation.actions li button:hover {
+  background: #3d1515 !important;
+  color: #e8c4b0 !important;
+  border-color: #b05c5c !important;
+}
+
+ul.work.navigation.actions {
+  padding-top: 0;
+  background: none;
+}
+
+.current,
+#dashboard .current {
+  background: #3d1515 !important;
+  color: #e8c4b0 !important;
+  border: 1px solid #b05c5c !important;
+}
+
+/* forms, fieldsets & inputs */
+textarea,
+input,
+select,
+option,
+.toggled form,
+.dynamic form,
+.autocomplete .dropdown ul,
+.autocomplete .dropdown ul li,
+.autocomplete input {
+  background-color: #120a0a;
+  color: #c9bfb8;
+  border: 1px solid #4a1f1f;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  background-color: #1a0f0f;
+  border-color: #b05c5c;
+  outline: none;
+}
+
+.filters .submit input {
+  color: #e8c4b0;
+  background: #3d1515;
+  border: 1px solid #2a0e0e;
+  border-radius: 10px;
+  box-shadow: 0 0 4px #000;
+}
+
+.filters fieldset {
+  border-radius: 20px;
+}
+
+.listbox,
+.bookmark .user,
+.bookmark .user .header,
+.reading h4.viewed,
+li.relationships a,
+.dropdown,
+fieldset fieldset.listbox,
+fieldset,
+form dl,
+fieldset dl dl,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff,
+.dynamic form fieldset,
+.toggled form fieldset,
+.toggled form dl,
+.secondary .toggled form,
+.secondary form,
+.required .autocomplete {
+  background-color: #2a0e0e;
+  border-color: #4a1f1f;
+}
+
+.comment h4.byline,
+#main .verbose legend,
+.unread,
+.child,
+.unwrangled,
+.unreviewed,
+.verbose fieldset,
+.draft,
+form ul.notes,
+#modal,
+.ui-sortable li,
+.comment_notice,
+.kudos_notice,
+div.dynamic,
+#ui-datepicker-div,
+.ui-datepicker table {
+  background-color: #2a0e0e;
+  border-color: #4a1f1f;
+}
+
+form .notice,
+ul.notes,
+.caution {
+  background-color: #351515;
+  border-color: #6b2c2c;
+  color: #c9bfb8;
+}
+
+.alert.flash,
+.error,
+.comment_error,
+.kudos_error {
+  background: #3a0a0a;
+  color: #e8c4b0;
+  border-color: #8a2020;
+}
+
+/* blurbs, tags & lace borders */
+li.blurb,
+.listbox li.blurb {
+  background: #1a0f0f url("https://raw.githubusercontent.com/coldtothetouchh/Vamp-Byler-AO3-Skin/refs/heads/main/red-linen.png") repeat;
+  border: 20px solid transparent;
+  border-image: url("https://raw.githubusercontent.com/coldtothetouchh/Vamp-Byler-AO3-Skin/refs/heads/main/lace-border.png") 20% round;
+  box-shadow: 0 0 4px #000;
+  color: #c9bfb8;
+}
+
+li.comment:not(.child) {
+  border: 15px solid transparent;
+  border-image: url("https://raw.githubusercontent.com/coldtothetouchh/Vamp-Byler-AO3-Skin/refs/heads/main/lace-border.png") 20% round;
+  margin-bottom: 1em;
+}
+
+li.comment,
+ol.thread,
+ol.comment.index.group,
+li.thread {
+  border: none;
+}
+
+.blurb .header {
+  border-bottom: 2px solid #4a1f1f;
+}
+
+dl.meta,
+dl.index dd,
+.statistics .index li:nth-of-type(even),
+#ibox_wrapper,
+#ibox_content {
+  background: #1a0f0f url("https://raw.githubusercontent.com/coldtothetouchh/Vamp-Byler-AO3-Skin/refs/heads/main/red-linen.png") repeat;
+  color: #c9bfb8;
+}
+
+dl.meta {
+  font-size: 90%;
+  border-color: #4a1f1f;
+}
+
+.bookmark .user {
+  border-radius: 5px;
+  box-shadow: none;
+  font-size: 90%;
+}
+
+.bookmark .user .module {
+  border: none;
+}
+
+.reading h4.viewed {
+  border: 1px dashed #4a1f1f;
+  box-shadow: none;
+  font-size: 90%;
+}
+
+.icon {
+  border: 2px solid #c9bfb8;
+}
+
+.comment div.icon {
+  border-bottom: none;
+}
+
+/* tag categories & relationship headers */
+ul.tags li.warnings,
+ul.tags li.relationships,
+ul.tags li.characters,
+ul.tags li.freeforms {
+  display: inline-block;
+  margin: 0;
+  padding: 2px;
+}
+
+ul.tags li.warnings:first-child:before {
+  content: "Warnings: ";
+  color: #c9bfb8;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+li.warnings + li.relationships:before {
+  content: "Relationships: ";
+  color: #c9bfb8;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+li.relationships + li.characters:before,
+li.warnings + li.characters:before {
+  content: "Characters: ";
+  color: #c9bfb8;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+li.characters + li.freeforms:before,
+li.warnings + li.freeforms:before,
+li.relationships + li.freeforms:before {
+  content: "Additional Tags: ";
+  color: #c9bfb8;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+ul.tags li.relationships a,
+dd.relationship.tags a {
+  color: #d67070;
+}
+
+ul.tags li.relationships a:before,
+dd.relationship.tags a:before {
+  content: "🔆🌀 ";
+}
+
+a.tag,
+a.tag:visited,
+a.tag:link {
+  display: inline-block;
+  padding: 2px 7px 2px 4px;
+  margin: 2px 0;
+  border-radius: 6px;
+  border: 1px solid #4a1f1f;
+  color: #c9bfb8;
+}
+
+a.tag:hover,
+a.tag:focus {
+  border-color: #b05c5c;
+  color: #e8c4b0;
+  background: #3d1515;
+}
+
+/* custom required tag badges */
+.blurb ul.required-tags {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.3em;
+  margin-top: 0.35em;
+  margin-bottom: 0;
+}
+
+.blurb ul.required-tags,
+.blurb ul.required-tags li,
+.blurb ul.required-tags li a,
+.blurb ul.required-tags li span {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: capitalize;
+  line-height: 1;
+  color: #c9bfb8;
+}
+
+.blurb ul.required-tags > li > a > span.warnings,
+.blurb ul.required-tags > li > a > span:not(:is(.warning-yes, .warning-choosenotto))::before {
+  display: block;
+  margin-block: 0.15em;
+  padding-block: 0.25em;
+  padding-inline: 0.35em;
+  border-radius: 5px;
+  color: #c9bfb8;
+  background: transparent !important;
+  border: 1px solid #4a1f1f;
+  font-weight: bold;
+}
+
+.required-tags .warning-yes::before,
+.required-tags .rating-explicit::before {
+  color: #e8c4b0 !important;
+  font-weight: bold;
+}
+
+.required-tags .warning-choosenotto {
+  background: transparent !important;
+  border-color: #4a1f1f !important;
+}
+
+.index:not(.prompt) .required-tags .warning-choosenotto::before {
+  content: "No Warnings";
+  font-weight: bold;
+}
+
+.required-tags .warning-yes {
+  background: transparent !important;
+  border-color: #8a2020 !important;
+}
+
+.index:not(.prompt) .required-tags .warning-yes::before {
+  content: "Warnings";
+  font-weight: bold;
+}
+
+.required-tags .warning-no {
+  background: transparent !important;
+  border-color: #4a1f1f !important;
+}
+
+.required-tags .external-work::before {
+  content: "External Work";
+  background: transparent !important;
+  border-color: #4a1f1f !important;
+  font-weight: bold;
+}
+
+.required-tags .complete-no[Title*="in Progress" i]::before {
+  content: "In Progress";
+  background: transparent !important;
+  border-color: #6b2c2c !important;
+  font-weight: bold;
+}
+
+.required-tags .complete-no[Title*="Unfulfilled" i]::before {
+  content: "Unfulfilled";
+  background: transparent !important;
+  border-color: #6b2c2c !important;
+  font-weight: bold;
+}
+
+.required-tags .complete-yes[Title*="Complete" i]::before {
+  content: "Complete";
+  background: transparent !important;
+  border-color: #4a1f1f !important;
+  font-weight: bold;
+}
+
+.required-tags .complete-yes[Title*="Filled" i]::before {
+  content: "Fulfilled";
+  background: transparent !important;
+  border-color: #4a1f1f !important;
+  font-weight: bold;
+}
+
+.required-tags .category-femslash::before {
+  content: "F/F";
+  background: transparent !important;
+  border-color: #b05c5c !important;
+  font-weight: bold;
+}
+
+.required-tags .category-het::before {
+  content: "F/M";
+  background: transparent !important;
+  border-color: #b05c5c !important;
+  font-weight: bold;
+}
+
+.required-tags .category-gen::before {
+  content: "Gen";
+  background: transparent !important;
+  border-color: #4a1f1f !important;
+  font-weight: bold;
+}
+
+.required-tags .category-slash::before {
+  content: "M/M";
+  background: transparent !important;
+  border-color: #b05c5c !important;
+  font-weight: bold;
+}
+
+.required-tags .category-multi::before {
+  content: "Multi";
+  background: transparent !important;
+  border-color: #b05c5c !important;
+  font-weight: bold;
+}
+
+.required-tags .category-other::before {
+  content: "Other";
+  background: transparent !important;
+  border-color: #4a1f1f !important;
+  font-weight: bold;
+}
+
+.required-tags .category-none::before {
+  content: "No Category";
+  background: transparent !important;
+  border-color: #4a1f1f !important;
+  font-weight: bold;
+}
+
+.required-tags .rating-general-audience::before {
+  content: "Gen";
+  background: transparent !important;
+  border-color: #4a1f1f !important;
+  font-weight: bold;
+}
+
+.required-tags .rating-teen::before {
+  content: "Teen";
+  background: transparent !important;
+  border-color: #4a1f1f !important;
+  font-weight: bold;
+}
+
+.required-tags .rating-mature::before {
+  content: "Mature";
+  background: transparent !important;
+  border-color: #6b2c2c !important;
+  font-weight: bold;
+}
+
+.required-tags .rating-explicit::before {
+  content: "Explicit";
+  background: transparent !important;
+  border-color: #8a2020 !important;
+  font-weight: bold;
+}
+
+.required-tags .rating-notrated::before {
+  content: "Not Rated";
+  background: transparent !important;
+  border-color: #4a1f1f !important;
+  font-weight: bold;
+}
+
+/* kudos & profile graphics */
+p.kudos {
+  position: relative;
+  margin-top: 5px;
+  display: block;
+  text-align: center;
+  background-image: none !important;
+}
+
+p.kudos::after {
+  content: none;
+}
+
+.kudos_notice .icon,
+.kudos_notice img,
+#kudos_comment_count img,
+p.kudos img,
+p.kudos .icon,
+#kudos,
+#kudos p,
+#kudos .icon,
+dd.kudos .icon,
+dd.kudos img,
+.kudos img,
+.kudos .icon {
+  background-image: none !important;
+}
+
+.kudos_notice {
+  position: relative;
+  padding-top: 180px;
+  text-align: center;
+  background-image: none !important;
+}
+
+.kudos_notice::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 140px;
+  background: url("https://raw.githubusercontent.com/coldtothetouchh/Vamp-Byler-AO3-Skin/refs/heads/main/VampMikeTextGraphic.png") no-repeat center center !important;
+  background-size: contain !important;
+}
+
+/* dashboard & user home module */
+#dashboard,
+#dashboard.own {
+  background: #1a0f0f url("https://raw.githubusercontent.com/coldtothetouchh/Vamp-Byler-AO3-Skin/refs/heads/main/red-linen.png") repeat;
+  color: #c9bfb8;
+  border: 2px solid #4a1f1f;
+  box-shadow: 0 0 2px #000;
+}
+
+#dashboard ul {
+  background: transparent;
+  border: none;
+}
+
+#dashboard .secondary {
+  background-color: #0e0808;
+  box-shadow: none;
+}
+
+#dashboard a:hover,
+#dashboard a:focus,
+#dashboard .current {
+  background: #3d1515;
+  color: #e8c4b0;
+}
+
+#footer {
+  border: none;
+  background: none;
+}
+
+#footer .menu a,
+#footer .menu {
+  color: #c9bfb8;
+}
+
+.user.home .primary.header.module {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2em 1em 1.5em;
+  position: static;
+  overflow: visible;
+}
+
+.user.home .primary.header.module * {
+  position: static;
+  float: none;
+  clear: both;
+}
+
+.user.home .primary.header.module p.icon {
+  order: 1;
+  margin: 0 0 0.6em 0;
+  width: auto;
+  height: auto;
+  display: block;
+  position: relative;
+}
+
+.user.home .primary.header.module p.icon a {
+  display: inline-block;
+  position: relative;
+  padding: 18px;
+}
+
+.user.home .primary.header.module p.icon img.icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 0;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  display: block;
+  margin: 0 auto;
+}
+
+.user.home .primary.header.module p.icon a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("https://raw.githubusercontent.com/coldtothetouchh/Vamp-Byler-AO3-Skin/refs/heads/main/lace-profile-square.png") no-repeat center center;
+  background-size: contain;
+  display: block;
+}
+
+.user.home .primary.header.module h2.heading {
+  order: 2;
+  margin: 0 0 0.8em 0;
+  font-size: 1.4em;
+  letter-spacing: 0.05em;
+  color: #e8c4b0;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.user.home .primary.header.module ul.navigation.actions {
+  order: 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.user.home .primary.header.module ul.navigation.actions li {
+  margin: 0.25em 0.3em;
+  display: inline-block;
+  width: auto;
+}
+
+.user.home .primary.header.module ul.navigation.actions li a,
+.user.home .primary.header.module ul.navigation.actions li input[type="submit"] {
+  display: inline-block;
+  padding: 0.4em 1em;
+  background: #1a0f0f !important;
+  color: #c9bfb8 !important;
+  border: 1px solid #4a1f1f !important;
+  border-radius: 10px !important;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.user.home .primary.header.module ul.navigation.actions li a:hover,
+.user.home .primary.header.module ul.navigation.actions li input[type="submit"]:hover {
+  background: #3d1515 !important;
+  color: #e8c4b0 !important;
+  border-color: #b05c5c !important;
+}

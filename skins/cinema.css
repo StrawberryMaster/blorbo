@@ -1,0 +1,521 @@
+/* From https://archiveofourown.org/works/67308886/chapters/173876368
+ * adjusted for readability & other cleanups
+ */
+
+/* global base & cinema typography */
+body {
+  background: #000000;
+  color: #ffffff;
+}
+
+#outer.wrapper,
+#inner.wrapper,
+#main,
+.work.own,
+.javascript {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* links & interactive states */
+#main a,
+a:link {
+  color: #de324e;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #b8283f;
+}
+
+#main a:hover,
+a:hover {
+  color: #ffffff;
+  background: #de324e;
+  text-decoration: underline;
+}
+
+/* header & navigation */
+#header {
+  background-image: url("https://i.pinimg.com/originals/bf/40/05/bf4005258d35b798bc6f5c6d914b9620.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-color: #000000;
+  position: relative;
+}
+
+#header .heading {
+  height: 15em;
+}
+
+#header .heading a {
+  color: #ffffff;
+}
+
+#header .primary {
+  background: #000000;
+  border-bottom: 1px solid #878787;
+}
+
+#header h2 {
+  background: #878787 !important;
+  color: #000000;
+}
+
+#greeting a.dropdown-toggle,
+#header .actions a {
+  color: #ffffff !important;
+}
+
+#greeting .menu,
+#header .dropdown .menu,
+#header .dropdown:hover a,
+.dropdown {
+  background: #000000;
+  border: 1px solid #878787;
+}
+
+#header #search .text {
+  width: 7em;
+  background: #878787;
+  color: #000000 !important;
+  border: 1px solid #000000;
+}
+
+form.search input[type="text"],
+form.search input[type="submit"],
+.autocomplete div.dropdown ul {
+  background: #cdcdcd !important;
+  border: none;
+  color: #000000;
+  display: block;
+}
+
+span.submit.actions input.button {
+  display: none;
+}
+
+/* workskin & reading readability */
+#workskin {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+  font-size: 1.05em;
+  padding: 1.25em;
+  color: #ffffff;
+  background: #000000;
+}
+
+#workskin p {
+  margin-bottom: 1.5em;
+}
+
+#workskin a {
+  color: #de324e;
+  text-decoration: underline;
+}
+
+#workskin a:hover {
+  color: #ffffff;
+  background: #de324e;
+}
+
+/* action buttons & navigation controls */
+#main .actions a,
+#main .actions a:link,
+#main .actions a:visited,
+#main .action,
+#main .action:link,
+#main .action:visited,
+#main .actions input[type="submit"],
+#main .actions button,
+#main input[type="submit"],
+#main input[type="button"],
+#main input[type="reset"],
+#main button,
+#main .actions label,
+.actions a,
+.actions a:focus,
+.actions input:focus,
+.action:focus,
+.actions li input,
+.actions li input[type="submit"],
+input[type="submit"],
+.actions li label,
+ul.navigation.actions li a,
+.action:link,
+li.mark button,
+li.chapter button,
+li.download button,
+.actions a:link {
+  background: #cdcdcd;
+  border: 1px solid #878787;
+  color: #000000 !important;
+  border-radius: 5px;
+  padding: 0.35em 0.75em;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.2;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#main .actions a:hover,
+#main .action:hover,
+#main .actions input[type="submit"]:hover,
+#main .actions button:hover,
+#main input[type="submit"]:hover,
+#main button:hover,
+.actions a:hover,
+.action:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: #de324e !important;
+  color: #ffffff !important;
+  border-color: #de324e !important;
+  cursor: pointer;
+}
+
+li.mark button {
+  background: #cdcdcd !important;
+  color: #de324e !important;
+  border: 1px solid #878787 !important;
+}
+
+.current,
+#dashboard .current {
+  background: #de324e !important;
+  color: #ffffff !important;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* forms, fieldsets & inputs */
+fieldset {
+  background-image: url("https://images.pexels.com/photos/4722577/pexels-photo-4722577.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #878787;
+  border-radius: 6px;
+}
+
+form dl,
+fieldset dl dl,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff {
+  display: block;
+  background: rgba(0, 0, 0, 0.85);
+  border: none;
+  color: #ffffff;
+  margin: 0.643em;
+  padding: 0.643em;
+  box-shadow: none;
+}
+
+fieldset dl,
+fieldset.actions,
+fieldset dl fieldset dl {
+  background: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  clear: right;
+  box-shadow: none;
+}
+
+fieldset fieldset,
+fieldset dl dl,
+form blockquote.userstuff {
+  background: rgba(0, 0, 0, 0.85);
+  color: #cdcdcd;
+}
+
+input,
+textarea {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #878787;
+  box-shadow: none;
+  padding: 0.3em;
+}
+
+textarea:focus,
+input:focus {
+  border-color: #de324e;
+  outline: none;
+}
+
+form.verbose legend,
+.verbose form legend {
+  background: #878787;
+  color: #000000;
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+}
+
+label,
+label.required,
+.autocomplete li.added,
+.post .meta dd ul li.added {
+  color: #cdcdcd;
+}
+
+span.delete {
+  background: #de324e;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+span.delete a {
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.toggled form,
+.dynamic form {
+  padding: 0.5em;
+  border: 1px solid #878787;
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: none;
+  color: #ffffff;
+}
+
+/* blurbs, tags & meta lists */
+li.blurb {
+  background: #000000;
+  border: 1px solid #878787;
+  border-radius: 6px;
+  margin-bottom: 1.5em;
+}
+
+dl.meta {
+  border: 1px solid #878787;
+  background: #000000;
+}
+
+.listbox > .heading,
+.listbox .heading a:visited {
+  margin: 0;
+  color: #ffffff;
+  background: #878787;
+  padding: 0.25em;
+}
+
+.listbox .index {
+  width: auto;
+  padding: 0.643em;
+  float: none;
+  clear: right;
+  color: #ffffff;
+  background: #000000;
+  box-shadow: none;
+}
+
+.listbox a {
+  color: #ffffff !important;
+}
+
+.listbox,
+fieldset fieldset.listbox {
+  background: #000000;
+  border: 1px solid #878787;
+}
+
+.reading h4.viewed,
+dl.index dd,
+table,
+th,
+dt.child {
+  background: #111111;
+  color: #ffffff;
+}
+
+.warnings .tag,
+.work .warning a.tag,
+dd.warning.tags a {
+  border: 1px solid #878787;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #000000 !important;
+  font-weight: bold;
+  padding: 2px 5px;
+}
+
+.relationships .tag,
+.work .relationships a.tag,
+dd.relationship.tags a {
+  background: none;
+  color: #de324e !important;
+  font-weight: bold;
+}
+
+.characters .tag,
+.work .characters a.tag,
+dt.character.tags,
+dd.character.tags a,
+.freeforms .tag,
+.work .freeforms a.tag,
+dt.freeform.tags,
+dd.freeform.tags a {
+  color: #ffffff !important;
+}
+
+.bookmark .user,
+.bookmark .user .module {
+  background: #000000 !important;
+  border: none;
+}
+
+#chapter_index {
+  min-width: 10em;
+}
+
+/* comments & thread layout */
+fieldset.comments,
+.comment .userstuff {
+  border: 1px solid #878787;
+  color: #ffffff;
+}
+
+li.comment {
+  border: 1px solid #878787;
+  background: #000000;
+}
+
+.comment div.icon {
+  border-bottom: 5px solid #878787;
+}
+
+h4.heading.byline {
+  background: #878787;
+  color: #000000;
+}
+
+.thread .even {
+  background: #1a1a1a;
+  border: 1px solid #878787;
+  color: #ffffff;
+}
+
+.unread {
+  background: #000000;
+  border: 2px dashed #878787 !important;
+}
+
+span.unread {
+  background: #878787;
+  color: #000000;
+}
+
+/* notices, alerts & popups */
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash,
+.event .userstuff {
+  background: #878787;
+  color: #000000;
+  border: 1px solid #878787;
+}
+
+.notice a,
+.comment_notice a,
+.kudos_notice a,
+ul.notes a,
+.caution a,
+.error a,
+.comment_error a,
+.kudos_error a,
+.alert.flash a {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+#modal,
+span.replied,
+.ui-sortable li,
+.dynamic form,
+div.dynamic,
+.draft,
+.draft .wrapper {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #878787;
+}
+
+.splash .module h3 {
+  color: #878787;
+  border-bottom: 2px solid #878787;
+}
+
+.splash .favorite li:nth-of-type(2n+1) a {
+  background: #878787;
+  color: #000000;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+.splash .favorite li:nth-of-type(2n+2) a {
+  color: #878787;
+  font-weight: bold;
+  font-variant: small-caps;
+  font-size: 110%;
+}
+
+.splash .favorite li:nth-of-type(2n+1) a:hover,
+.splash .favorite li:nth-of-type(2n+2) a:hover {
+  color: #000000;
+  font-weight: bold;
+  font-variant: small-caps;
+  background: #cdcdcd;
+}
+
+/* dashboard & footer */
+#dashboard.own {
+  border-top: 5px solid #878787;
+  border-bottom: 5px solid #878787;
+}
+
+#dashboard a {
+  color: #878787;
+}
+
+#dashboard a:hover {
+  background: #de324e;
+  color: #ffffff !important;
+}
+
+#footer.region {
+  background-image: url("https://i.pinimg.com/originals/b1/f6/bd/b1f6bd973938f7b91f49554fa38a9e03.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #000000;
+  border-top: 4px solid #878787;
+  padding: 2em 1em;
+}
+
+#footer h4.heading,
+#footer .heading {
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow: 0 1px 3px #000000;
+}
+
+#footer a {
+  color: #ffffff !important;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+}
+
+#footer a:hover {
+  background: #de324e;
+  color: #ffffff !important;
+}

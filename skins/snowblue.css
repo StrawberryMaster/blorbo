@@ -1,0 +1,652 @@
+/* From https://www.tumblr.com/bansheeoftheforest/813630770184896513/snow-blue-enhanced-ao3-skin
+ * adjusted for readability & other cleanups
+ */
+
+/* global base & typography */
+body {
+  color: #222222;
+  background: #ffffff;
+}
+
+#outer.wrapper,
+#inner.wrapper,
+#main {
+  background: #ffffff;
+  color: #222222;
+}
+
+/* links & interactive states */
+#main a,
+a:link,
+a.work,
+.blurb h4 a:link {
+  color: #2365bd;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #1a4996;
+}
+
+#main a:hover,
+a:hover,
+a.tag:hover,
+.blurb h4 a:hover,
+.listbox .heading a.tag:visited:hover {
+  background: #5ba7ed !important;
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+.blurb h4 a:visited {
+  color: #1a4996 !important;
+}
+
+/* header & navigation */
+#header .heading a,
+#header .heading h1 a {
+  color: #2365bd;
+}
+
+#header ul.primary {
+  background: #5ba7ed;
+  border-bottom: 2px solid #536da7;
+}
+
+#header .primary a {
+  color: #ffffff !important;
+}
+
+#header .actions a:hover,
+#header .actions a:focus,
+#header .dropdown:hover a,
+#header .open a {
+  color: #ffffff !important;
+  background: #3d6fb2;
+}
+
+#header .menu,
+#header .dropdown:hover .menu {
+  background: #ffffff;
+  border: 1px solid #536da7;
+}
+
+#header .menu a,
+#header .dropdown:hover .menu a {
+  color: #111111;
+}
+
+#header .primary a,
+#header .primary input,
+#header .search input {
+  border-color: #536da7 !important;
+}
+
+#header .logo {
+  content: url("/images/logo.png");
+  filter: brightness(0) saturate(100%) invert(62%) sepia(14%) saturate(1799%) hue-rotate(172deg) brightness(90%) contrast(86%);
+}
+
+p.muted.notice {
+  display: none;
+}
+
+/* workskin & reading readability */
+#workskin {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+  font-size: 1.05em;
+  padding: 1.25em;
+  color: #222222;
+  background: #ffffff;
+}
+
+#workskin p {
+  margin-bottom: 1.5em;
+}
+
+#workskin a {
+  color: #2365bd;
+  text-decoration: underline;
+}
+
+#workskin a:hover {
+  background: #5ba7ed;
+  color: #ffffff;
+}
+
+/* action buttons & navigation controls */
+#main .actions a,
+#main .actions a:link,
+#main .actions a:visited,
+#main .action,
+#main .action:link,
+#main .action:visited,
+#main .actions input[type="submit"],
+#main .actions button,
+#main input[type="submit"],
+#main input[type="button"],
+#main input[type="reset"],
+#main button,
+#main .actions label,
+.actions a,
+.actions a:focus,
+.actions input:focus,
+.action:focus,
+.actions li input,
+.actions li input[type="submit"],
+input[type="submit"],
+.actions li label,
+ul.navigation.actions li a,
+.action:link,
+.actions a:link {
+  background: #3d6fb2;
+  border: 1px solid #193c89;
+  color: #ffffff !important;
+  border-radius: 4px;
+  padding: 0.35em 0.75em;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#main .actions a:hover,
+#main .action:hover,
+#main .actions input[type="submit"]:hover,
+#main .actions button:hover,
+#main input[type="submit"]:hover,
+#main button:hover,
+.actions a:hover,
+.action:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: #193c89 !important;
+  color: #ffffff !important;
+  border-color: #102244 !important;
+  cursor: pointer;
+}
+
+.current,
+#dashboard .current {
+  background: #193c89 !important;
+  color: #ffffff !important;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* forms, fieldsets & inputs */
+fieldset,
+fieldset fieldset,
+.listbox {
+  border: 1px solid #536da7;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+textarea,
+textarea:focus,
+input,
+select {
+  background: #ffffff;
+  color: #222222;
+  border: 1px solid #536da7;
+  padding: 0.3em;
+  border-radius: 4px;
+}
+
+textarea:focus,
+input:focus {
+  border-color: #2365bd;
+  outline: none;
+}
+
+/* blurbs & high-contrast tag pills */
+li.blurb {
+  border: 1px solid #536da7;
+  border-radius: 6px;
+  margin-bottom: 1.5em;
+  padding: 1em;
+  background: #ffffff;
+}
+
+.commas li:after,
+.commas h5.fandoms.heading:after {
+  content: none !important;
+}
+
+h5.fandoms.heading a,
+dd.fandom.tags a,
+.tags li.freeforms a.tag,
+dd.freeform.tags a {
+  background: #adcfff !important;
+  color: #102244 !important;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 2px 0;
+}
+
+h5.fandoms.heading a:hover,
+dd.fandom.tags a:hover,
+.tags li.freeforms a.tag:hover,
+dd.freeform.tags a:hover {
+  background: #5ba7ed !important;
+  color: #ffffff !important;
+}
+
+.tags li.characters a.tag,
+dd.character.tags a {
+  background: #759fd8;
+  color: #102244 !important;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 2px 0;
+}
+
+.tags li.characters a.tag:hover,
+dd.character.tags a:hover {
+  background: #3d6fb2 !important;
+  color: #ffffff !important;
+}
+
+.tags li.relationships a.tag,
+dd.relationship.tags a {
+  background: #3d6fb2;
+  color: #ffffff !important;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 2px 0;
+}
+
+.tags li.relationships a.tag:hover,
+dd.relationship.tags a:hover {
+  background: #193c89 !important;
+  color: #ffffff !important;
+}
+
+.tags li.warnings a.tag,
+dd.warning.tags a {
+  background: #193c89;
+  color: #ffffff !important;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 2px 0;
+}
+
+.tags li.warnings a.tag:hover,
+dd.warning.tags a:hover {
+  background: #102244 !important;
+  color: #ffffff !important;
+}
+
+/* zerafina custom iconset mapping */
+ul.required-tags,
+.bookmark .status span,
+.blurb .icon {
+  opacity: 1 !important;
+}
+
+img[src$="/images/skins/iconsets/default/icon_user.png"] {
+  box-sizing: border-box;
+  border: 1.5px solid #ddd;
+  background: #759fd8 content-box;
+  content: url("https://zerafinacss.github.io/ao3/icons/user-default-01.png");
+}
+
+.comment .icon .anonymous {
+  box-sizing: border-box;
+  border: 1.5px solid #00000025;
+  background: url("https://zerafinacss.github.io/ao3/icons/anon-01.png"),
+    #6e6e6e border-box;
+  background-size: cover;
+}
+
+.comment .icon .visitor {
+  box-sizing: border-box;
+  border: 1.5px solid #00000025;
+  background: url("https://zerafinacss.github.io/ao3/icons/user-visitor-01.png"),
+    #6e6e6e border-box;
+  background-size: cover;
+}
+
+img[src$="/images/skins/iconsets/default/icon_collection.png"] {
+  box-sizing: border-box;
+  border: 1.5px solid #00000025;
+  background: linear-gradient(transparent, #ffffff50 45% 55%, transparent),
+    #616c90 border-box;
+  content: url("https://zerafinacss.github.io/ao3/icons/collection-01.png");
+}
+
+.tagset .primary .icon,
+.tag .primary .icon,
+.index .tagset .icon {
+  box-sizing: border-box;
+  border: 1.5px solid #00000025;
+  background: url("https://zerafinacss.github.io/ao3/icons/tag-01.png"),
+    linear-gradient(transparent, #ffffff50 45% 55%, transparent),
+    #759fd8 border-box;
+  background-size: cover;
+}
+
+.index .mystery .icon {
+  box-sizing: border-box;
+  border: 1.5px solid #ddd;
+  box-shadow: inset 0 0 0 3px #fff;
+  background: url("https://zerafinacss.github.io/ao3/icons/anon-01.png"),
+    linear-gradient(transparent, #ffffff50 45% 55%, transparent)
+    #616c90 content-box;
+  background-size: cover;
+}
+
+.admin .primary .icon {
+  box-sizing: border-box;
+  border: 1.5px solid #00000099;
+  background: url("https://zerafinacss.github.io/ao3/icons/admin-01.png")
+    no-repeat,
+    linear-gradient(#ffffff40, transparent)
+    #759fd8 border-box;
+  background-size: cover;
+}
+
+.skins .primary .icon:not(:has(a .icon)),
+.index .skins .icon:not(:has(a .icon)) {
+  box-sizing: border-box;
+  border: 1.5px solid #ddd;
+  background: url("https://zerafinacss.github.io/ao3/icons/skins-01.png"),
+    #759fd8 border-box;
+  background-size: cover;
+}
+
+#symbols-key dl img,
+#bookmark-symbols-key img {
+  width: 0 !important;
+  height: 0 !important;
+  padding: 25px 0 0 25px;
+}
+
+.blurb ul.required-tags li a > span,
+.bookmark p.status a > span,
+.bookmark p.status .count,
+#symbols-key dl img,
+#bookmark-symbols-key img {
+  box-sizing: border-box;
+  border: 1px solid;
+  background-size: cover;
+  background-origin: border-box;
+}
+
+.required-tags .rating-notrated,
+.required-tags .category-none,
+.required-tags .warning-no,
+.bookmark p.status .count,
+img[src$="/images/skins/iconsets/default/rating-notrated.png"],
+img[src$="/images/skins/iconsets/default/category-none.png"],
+img[src$="/images/skins/iconsets/default/warning-no.png"] {
+  color: #00000040;
+  background: #ffffffcc;
+}
+
+.required-tags .rating-general-audience,
+img[src$="/images/skins/iconsets/default/rating-general-audience.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/rating-gen-01.png"),
+    #adcfff;
+}
+
+.required-tags .rating-teen,
+img[src$="/images/skins/iconsets/default/rating-teen.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/rating-teen-01.png"),
+    #759fd8;
+}
+
+.required-tags .rating-mature,
+img[src$="/images/skins/iconsets/default/rating-mature.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/rating-mature-01.png"),
+    #3d6fb2;
+}
+
+.required-tags .rating-explicit,
+img[src$="/images/skins/iconsets/default/rating-explicit.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/rating-explicit-01.png"),
+    #193c89;
+}
+
+.required-tags .category-femslash,
+img[src$="/images/skins/iconsets/default/category-femslash.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-ff-01.png"),
+    #3d6fb2;
+}
+
+.required-tags .category-het,
+img[src$="/images/skins/iconsets/default/category-het.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-mf-01.png"),
+    #759fd8;
+}
+
+.required-tags .category-gen,
+img[src$="/images/skins/iconsets/default/category-gen.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-gen-01.png"),
+    #adcfff;
+}
+
+.required-tags .category-slash,
+img[src$="/images/skins/iconsets/default/category-slash.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-mm-01.png"),
+    #193c89;
+}
+
+.required-tags .category-multi,
+img[src$="/images/skins/iconsets/default/category-multi.png"] {
+  color: #0000001a;
+  background: conic-gradient(from 270deg, #193c89 25%, #adcfff 25% 50%, #759fd8 50% 75%, #3d6fb2 75%);
+}
+
+.required-tags .category-other,
+img[src$="/images/skins/iconsets/default/category-other.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-other-01.png"),
+    #6e6e6e;
+}
+
+.required-tags .warning-choosenotto,
+img[src$="/images/skins/iconsets/default/warning-choosenotto.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/warning-choosenotto-01.png"),
+    #3d6fb2;
+}
+
+.required-tags .warning-yes,
+img[src$="/images/skins/iconsets/default/warning-yes.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/warning-yes-01.png"),
+    #193c89;
+}
+
+.required-tags .external-work,
+img[src$="/images/skins/iconsets/default/warning-external-work.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/warning-external-work-01.png"),
+    #759fd8;
+}
+
+.required-tags .complete-no,
+img[src$="/images/skins/iconsets/default/complete-no.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/complete-no-01.png"),
+    #193c89;
+}
+
+.required-tags .complete-yes,
+img[src$="/images/skins/iconsets/default/complete-yes.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/complete-yes-01.png"),
+    #adcfff;
+}
+
+.status .rec,
+img[src$="/images/skins/iconsets/default/bookmark-rec.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/bookmark-rec-01.png"),
+    #759fd8;
+}
+
+.status .public,
+img[src$="/images/skins/iconsets/default/bookmark-public.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/bookmark-public-01.png"),
+    #759fd8;
+}
+
+.status .private,
+img[src$="/images/skins/iconsets/default/bookmark-private.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/bookmark-locked-01.png"),
+    #000;
+  font-size: 0;
+}
+
+.status .private .text {
+  background: none;
+}
+
+.status .hidden,
+img[src$="/images/skins/iconsets/default/bookmark-hidden.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/bookmark-locked-01.png"),
+    #3d6fb2;
+}
+
+a.rss span {
+  padding: 0;
+  background: none;
+}
+
+.actions li a.rss {
+  display: inline-flex;
+  align-content: center;
+  align-items: center;
+  column-gap: 0.3em;
+}
+
+.actions li a.rss::before {
+  box-sizing: border-box;
+  width: 0.85em;
+  height: 0.85em;
+  border: 1px solid var(--icon-border1);
+  border-radius: 2px;
+  background: url("https://zerafinacss.github.io/ao3/icons/rss-01.png")
+     #3d6fb2;
+  background-size: cover;
+  content: "";
+}
+
+p.kudos {
+  background: none;
+}
+
+div:has(> p.kudos)::before {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background: url("https://zerafinacss.github.io/ao3/icons/kudos-01.png");
+  background-size: cover;
+  content: "";
+  filter: invert(62%) sepia(14%) saturate(1799%) hue-rotate(172deg) brightness(90%) contrast(86%);
+}
+
+img[src$="/images/lockblue.png"] {
+  content: url("https://zerafinacss.github.io/ao3/icons/lock-01.png");
+  filter: brightness(0) saturate(100%) invert(62%) sepia(14%) saturate(1799%) hue-rotate(172deg) brightness(90%) contrast(86%);
+}
+
+img[src$="/images/lockred.png"] {
+  content: url("https://zerafinacss.github.io/ao3/icons/lock-01.png");
+  filter: brightness(0) saturate(100%) invert(58%) sepia(88%) saturate(942%) hue-rotate(297deg) brightness(92%) contrast(99%);
+}
+
+/* notices, alerts & errors */
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash,
+.LV_invalid,
+.LV_invalid_field {
+  background: #3d6fb2;
+  border: 1px solid #193c89 !important;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.notice a,
+.comment_notice a,
+.kudos_notice a,
+ul.notes a,
+.caution a,
+.error a,
+.comment_error a,
+.kudos_error a,
+.alert.flash a {
+  color: #ffffff !important;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* dashboard & footer */
+#dashboard,
+#dashboard.own {
+  border: 1px solid #536da7 !important;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+#dashboard a {
+  color: #2365bd;
+}
+
+#dashboard a:hover {
+  background: #5ba7ed;
+  color: #ffffff !important;
+}
+
+#footer {
+  background: #5ba7ed;
+  color: #ffffff;
+  border-top: 3px solid #3d6fb2;
+}
+
+#footer a,
+#footer .heading {
+  color: #ffffff !important;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+}
+
+#stat_chart g[clip-path^=url] > g:nth-of-type(2) rect,
+#stat_chart svg g:nth-of-type(2) > g rect:last-of-type {
+  filter: hue-rotate(222deg);
+  opacity: 100%;
+}

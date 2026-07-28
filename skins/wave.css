@@ -1,0 +1,425 @@
+/* From https://github.com/cs9-cs/PJO-AO3-Skin
+ * adjusted for readability & other cleanups
+ */
+
+/* header & navigation */
+#header {
+  background-image: url("https://i.pinimg.com/originals/1a/04/49/1a044908492cfabd0819c685cfb72f5c.jpg");
+  background-repeat: no-repeat;
+  background-position: center 55%;
+  background-color: #000000;
+  min-height: 240px;
+  background-size: cover;
+  position: relative;
+  margin: 0 4%;
+}
+
+#header .heading {
+  height: 12em;
+  margin-left: 0;
+  position: relative;
+  left: -40px;
+}
+
+#header .logo,
+#header .heading sup {
+  visibility: hidden;
+}
+
+#header .heading a {
+  color: #99cfdd;
+  margin-left: 0;
+}
+
+#header .primary {
+  background: #99cfdd;
+  box-shadow: none;
+}
+
+#greeting a.dropdown-toggle,
+#header .actions a {
+  color: #123044 !important;
+  font-weight: bold;
+}
+
+#greeting .menu,
+#header .dropdown .menu,
+#header .dropdown:hover a {
+  background: #123044;
+}
+
+#greeting img.icon {
+  display: none;
+}
+
+#header #search .text {
+  width: 7em;
+}
+
+#header #search .text,
+form.search input[type="text"],
+form.search input[type="submit"],
+.autocomplete div.dropdown ul {
+  background: #123044 !important;
+  color: #99cfdd !important;
+  border: 1px solid #666666;
+}
+
+#header form.search input[type="submit"] {
+  display: none !important;
+}
+
+/* global base & typography */
+body {
+  color: #123044;
+}
+
+#outer.wrapper {
+  background: #99cfdd;
+  background-image: url("https://raw.githubusercontent.com/cs9-cs/PJO-AO3-Skin/c36fe86f565949bb00bfc8c3bda279c2ddb70dd3/PJO-background.png");
+  background-size: 30% auto;
+  background-repeat: repeat;
+  background-position: center top;
+  color: #123044;
+}
+
+#inner.wrapper {
+  margin: 0 4%;
+}
+
+#main,
+#inner.wrapper,
+.listbox .index,
+.work.own,
+.thread .even,
+.dropdown {
+  background: #7ec0cc;
+  color: #123044;
+}
+
+#main .heading {
+  color: #123044 !important;
+}
+
+#main a {
+  color: #0c4363;
+  font-weight: bold;
+}
+
+#main a:hover {
+  background: #123044;
+  color: #99cfdd;
+  text-decoration: underline;
+}
+
+.blurb h4 a:visited {
+  color: #1f506e !important;
+}
+
+.relationships .tag,
+.work .relationships a.tag,
+dd.relationship.tags a {
+  background: none;
+  color: #0c4363 !important;
+  font-weight: bold;
+}
+
+/* workskin & reading readability */
+#workskin {
+  line-height: 1.6;
+  font-size: 1.05em;
+  padding: 1.25em;
+  color: #123044;
+}
+
+#workskin a {
+  color: #0c4363;
+  text-decoration: underline;
+}
+
+#workskin a:hover {
+  color: #123044;
+}
+
+/* action buttons & navigation controls */
+#main .actions a,
+#main .actions a:link,
+#main .actions a:visited,
+#main .action,
+#main .action:link,
+#main .action:visited,
+#main .actions input[type="submit"],
+#main .actions button,
+#main input[type="submit"],
+#main input[type="button"],
+#main input[type="reset"],
+#main button,
+#main .actions label,
+.actions a,
+.actions a:focus,
+.actions input:focus,
+.action:focus,
+.actions button,
+.actions li input,
+.actions li input[type="submit"],
+input[type="submit"],
+.actions li label,
+ul.navigation.actions li a,
+.action:link,
+.actions a:link {
+  background: #123044;
+  border: 1px solid #99cfdd;
+  color: #99cfdd;
+  border-radius: 5px;
+  padding: 0.35em 0.75em;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+#main .actions a:hover,
+#main .action:hover,
+#main .actions input[type="submit"]:hover,
+#main .actions button:hover,
+#main input[type="submit"]:hover,
+#main button:hover,
+.actions a:hover,
+.action:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: #99cfdd !important;
+  color: #123044 !important;
+  border-color: #123044 !important;
+  cursor: pointer;
+}
+
+.current,
+#dashboard .current {
+  background: #123044 !important;
+  color: #99cfdd !important;
+  border-radius: 5px;
+}
+
+span.submit.actions input.button {
+  display: none;
+}
+
+/* forms, fieldsets & inputs */
+form dl,
+fieldset,
+fieldset fieldset,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff,
+input,
+select,
+select:focus,
+textarea,
+span.symbol.question,
+.own {
+  background: #7ec0cc !important;
+  color: #123044 !important;
+  border: 1px solid #123044;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  background-color: #ffffff !important;
+  color: #123044 !important;
+  border-color: #123044 !important;
+  outline: none;
+}
+
+form.verbose legend,
+.verbose form legend {
+  background: #7ec0cc;
+  color: #123044;
+  border: 1px solid #123044;
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+}
+
+.filtering .filters #leave_filters {
+  background: #123044;
+  color: #99cfdd;
+}
+
+.filters .expander {
+  background: url("https://64.media.tumblr.com/3c89981f933f9f57157d6dcec6fd85a7/94c6737c6db9ad60-e5/s1280x1920/f7557e617a5439c506721bd326580a0cb4c1f8d8.png") left center no-repeat;
+  color: #123044 !important;
+  font-weight: bold;
+  padding-left: 18px;
+}
+
+.filters .expanded .expander {
+  background: url("https://64.media.tumblr.com/dab095a2fd9387bc1e0c57747ba6b13f/94c6737c6db9ad60-ad/s1280x1920/c1a4e14e0565cdcac5d3e20bebac3ab440f2d607.png") left center no-repeat;
+}
+
+.autocomplete li.added,
+.post .meta dd ul li.added,
+label,
+label.required {
+  color: #123044;
+}
+
+span.delete {
+  background: #7ec0cc;
+}
+
+span.delete a {
+  color: #8b0000 !important;
+  font-weight: bold;
+}
+
+/* blurbs, tags & meta lists */
+li.blurb {
+  border: 1px solid #123044;
+}
+
+dl.meta {
+  border: 1px solid #123044;
+}
+
+.listbox .index,
+.listbox,
+fieldset fieldset.listbox {
+  background: #7ec0cc;
+}
+
+.reading h4.viewed,
+dl.index dd,
+table,
+th,
+dt.child,
+.unread,
+span.unread,
+.draft,
+.draft .wrapper,
+#header h2 {
+  background: #7ec0cc;
+  color: #123044;
+}
+
+h4.heading.byline {
+  background: #7ec0cc;
+  color: #123044;
+}
+
+.thread .even {
+  background: #123044;
+  color: #99cfdd;
+}
+
+.thread .even a {
+  color: #99cfdd;
+}
+
+.statistics .index li:nth-of-type(2n) {
+  background: #7ec0cc;
+}
+
+#stat_chart svg {
+  filter: invert(90%) sepia(150%) brightness(60%) hue-rotate(60deg) saturate(120%);
+}
+
+/* notices, alerts & popups */
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash,
+.event .userstuff {
+  color: #99cfdd;
+  background: #123044;
+  border: 1px solid #99cfdd;
+}
+
+.notice a,
+.comment_notice a,
+.kudos_notice a,
+ul.notes a,
+.caution a,
+.error a,
+.comment_error a,
+.kudos_error a,
+.alert.flash a {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+#modal,
+span.replied,
+.ui-sortable li,
+.dynamic form,
+div.dynamic {
+  background: #7ec0cc;
+  color: #123044;
+  border: 1px solid #123044;
+}
+
+.splash .module h3 {
+  color: #123044;
+  border-bottom: 2px solid #123044;
+}
+
+.splash .favorite li:nth-of-type(2n+1) a,
+.splash .favorite li:nth-of-type(2n+2) a {
+  color: #99cfdd;
+  font-weight: bold;
+  font-variant: small-caps;
+  font-size: 110%;
+  background: #123044;
+}
+
+.splash .favorite li:nth-of-type(2n+1) a:hover,
+.splash .favorite li:nth-of-type(2n+2) a:hover {
+  color: #123044;
+  font-weight: bold;
+  font-variant: small-caps;
+  background: #99cfdd;
+}
+
+/* dashboard & footer */
+#dashboard {
+  border: none !important;
+}
+
+#dashboard,
+#dashboard .primary,
+#dashboard .navigation {
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+#dashboard.own {
+  border-top: 5px solid #123044;
+  border-bottom: 5px solid #123044;
+}
+
+#dashboard a {
+  color: #123044;
+}
+
+#dashboard a:hover {
+  background: #123044;
+  color: #99cfdd !important;
+}
+
+#footer {
+  background: #7ec0cc;
+  color: #123044;
+  border-top: 3px solid #123044;
+}
+
+#footer a,
+#footer .heading {
+  color: #123044;
+}

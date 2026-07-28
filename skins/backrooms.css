@@ -1,0 +1,1082 @@
+/* From https://github.com/sky-lemonade/The-Backrooms
+ * adjusted for readability & other cleanups
+ */
+
+/* global fonts/main base */
+.p.muted.notice {
+  display: none;
+}
+
+body,
+input,
+textarea,
+select,
+.toggled form,
+.dynamic form,
+.secondary,
+.dropdown,
+blockquote,
+.prompt .blurb h6,
+.bookmark .user .meta,
+a.work,
+span.symbol,
+.heading .actions,
+.heading .action,
+.heading span.actions,
+button,
+span.unread,
+span.replied,
+span.claimed,
+.actions span.defaulted {
+  font-family: Helvetica, Arial, sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+  font-family: Helvetica, Arial, sans-serif !important;
+  color: #1d1a08 !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+kbd,
+tt,
+code,
+var,
+pre,
+samp,
+textarea#skin_css,
+.css.module blockquote pre,
+.splash .news .meta,
+.datetime {
+  font-size: 0.9em;
+  font-family: Helvetica, Arial, sans-serif !important;
+}
+
+body,
+.secondary,
+.dropdown {
+  background: #b8b361;
+  color: #1d1a08;
+  border: 1px solid #968e3b;
+  box-shadow: none;
+  white-space: normal !important;
+}
+
+#outer.wrapper {
+  padding-top: 5px;
+  background-image: url("https://64.media.tumblr.com/f0372be8e94c291bb73eac8d8b3f32dc/b8969c3790606ffc-50/s540x810/40455afdc6442c82be12e71d2b7854364ec6c082.jpg");
+  background-size: 33% auto;
+  background-repeat: repeat;
+  background-position: center top;
+}
+
+#main {
+  color: #1d1a08;
+}
+
+#main a,
+a:link {
+  color: #4a180d;
+}
+
+#main a:visited,
+a:visited {
+  color: #38150a;
+}
+
+#main a:hover,
+#main a:focus {
+  text-decoration: underline;
+}
+
+.blurb h4.heading a:visited {
+  color: #38150a !important;
+}
+
+.relationships .tag {
+  color: #1d1a08 !important;
+  background: none;
+}
+
+.warnings .tag {
+  background: #ad2f2f;
+  color: #fff !important;
+  border: 1px solid #ad2f2f;
+}
+
+ul.tags li.warnings:first-child:before {
+  content: "𓊲";
+}
+
+
+/* header & navigation */
+
+#header .logo,
+#header .heading sup,
+#header h1.heading span {
+  display: none;
+}
+
+#header h1.heading a::before {
+  content: "nwO ruO fO evihcrA";
+  color: #f2edd5 !important;
+  font-size: 120% !important;
+  font-family: Helvetica, Arial, sans-serif !important;
+  display: inline-block;
+  width: 300px;
+  height: 60px;
+}
+
+#header .primary {
+  background: none;
+  box-shadow: none;
+}
+
+#header #search .button,
+#header #search .submit {
+  display: none;
+}
+
+#header #search .text {
+  width: 10em;
+  background: #f2edd5;
+  color: #1d1a08;
+  border: 1px solid #968e3b;
+}
+
+#greeting .menu {
+  width: 12em !important;
+}
+
+#header .menu {
+  width: 20em;
+}
+
+form.search input[type="text"] {
+  box-shadow: none;
+}
+
+.search [role="tooltip"] {
+  display: none;
+}
+
+#header .menu,
+#header a.dropdown-toggle,
+#greeting .user > li:nth-of-type(3) a {
+  background: #968e3b;
+  color: #f2edd5 !important;
+  font-variant-caps: all-petite-caps;
+  border-radius: 1px;
+  margin-right: 1px;
+  box-shadow: none;
+}
+
+#header .menu li a {
+  color: #fff !important;
+  border: none !important;
+  font-weight: normal;
+}
+
+#header .menu li {
+  border-bottom: none;
+}
+
+#greeting img.icon {
+  visibility: hidden;
+}
+
+#header #greeting .dropdown > a[href*="/users/"],
+#header #greeting .dropdown > a[href*="/works/new"],
+#header #greeting a[href*="/users/logout"] {
+  position: relative !important;
+  font-size: 0 !important;
+  color: transparent !important;
+  display: inline-block !important;
+  width: 26px !important;
+  height: 26px !important;
+}
+
+#header #greeting .dropdown > a[href*="/users/"],
+#header #greeting .dropdown > a[href*="/works/new"],
+#header #greeting > ul > li > a[href*="/users/logout"] {
+  filter: none !important;
+  -webkit-filter: none !important;
+  background: transparent !important;
+}
+
+#header #greeting .dropdown > a[href*="/users/"]::before,
+#header #greeting .dropdown > a[href*="/works/new"]::before,
+#header #greeting > ul > li > a[href*="/users/logout"]::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+}
+
+#header #greeting .dropdown > a[href*="/users/"]::before {
+  background-image: url("https://64.media.tumblr.com/27c7eecdb4954604c49ed48f137676eb/b8969c3790606ffc-1a/s1280x1920/a6bb9de2cf87ab0adf8ff5428182d3ef16c20fb1.png") !important;
+}
+
+#header #greeting .dropdown > a[href*="/works/new"]::before {
+  background-image: url("https://64.media.tumblr.com/5f3853ba52da65fc631bb41990afbc2e/b8969c3790606ffc-70/s1280x1920/25962a856586a7c7bccd038bba32a2c6f96cd99e.png") !important;
+}
+
+#header #greeting > ul > li > a[href*="/users/logout"]::before {
+  background-image: url("https://64.media.tumblr.com/1b393a1ded1552a45b42e64f25e830d3/b8969c3790606ffc-61/s1280x1920/97dea1bfd453caaf0773ddc6f90cc6e40cdc53fd.png") !important;
+}
+
+
+/* buttons, actions & navigation indicators */
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+#main .actions a,
+#main .action,
+.actions a:visited,
+#header #search .button,
+li.chapter-index a,
+li.download a,
+div.download a,
+.splash .favorite li a,
+.read,
+.replied,
+.unread,
+.dropdown-toggle,
+#greeting .user > li > a,
+#greeting .user > li > form.button_to input,
+#greeting .user > li > form.button_to button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 0 2px 0 !important;
+  margin: 0 0.15em !important;
+  font-family: Helvetica, Arial, sans-serif !important;
+  font-size: 0.92em !important;
+  letter-spacing: 0.08em !important;
+  font-variant: small-caps;
+  text-transform: none !important;
+  color: #1d1a08 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+#footer button,
+#footer li a,
+#header button,
+#greeting .user > li > a {
+  color: #f2edd5 !important;
+}
+
+.actions a:active,
+.current,
+a.current,
+a:link.current,
+.current a:visited {
+  color: #fff !important;
+  background: #968e3b !important;
+  border-color: #968e3b !important;
+  box-shadow: none;
+}
+
+#main .navigation a.current::before,
+ul.navigation li.current a::before,
+.actions a.current::before,
+a.current::before,
+.current::before {
+  content: "𖤓 " !important;
+  margin-left: 0.2em !important;
+  font-size: 1.1em !important;
+  color: #fff !important;
+}
+
+#main .navigation a.current::after,
+ul.navigation li.current a::after,
+.actions a.current::after,
+a.current::after,
+.current::after {
+  content: "𖤓" !important;
+  margin-left: 0.2em !important;
+  font-size: 1.1em !important;
+  color: #fff !important;
+}
+
+span.action.top a {
+  color: #4a180d !important;
+}
+
+
+/* forms, fieldsets & tables */
+fieldset,
+form dl,
+fieldset dl dl,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff {
+  background: #b8b361;
+  border: 1px solid #968e3b;
+  box-shadow: none;
+}
+
+fieldset dl,
+fieldset.actions,
+fieldset dl fieldset dl,
+fieldset fieldset,
+fieldset dl dl,
+form blockquote.userstuff {
+  background: #c6c281;
+}
+
+form#work-filters fieldset dl {
+  border: none;
+  background: transparent !important;
+}
+
+form dt {
+  border-bottom: none;
+}
+
+form.verbose legend,
+.verbose form legend {
+  background: #c6c281;
+  border: 1px solid #968e3b;
+  box-shadow: none;
+  color: #1d1a08;
+}
+
+input,
+select,
+textarea {
+  color: #1d1a08;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background-color: #f2edd5;
+}
+
+form.single fieldset {
+  border: 2px solid #968e3b;
+}
+
+table,
+.child {
+  background: transparent;
+  color: #1d1a08;
+}
+
+thead,
+tfoot,
+tbody tr {
+  border-bottom: 2px solid #968e3b;
+}
+
+tfoot td {
+  border-top: 1px solid #968e3b;
+}
+
+thead td {
+  background: #c6c281;
+  border-bottom: 1px solid #968e3b;
+}
+
+th,
+tr:hover,
+col.name {
+  background: #c6c281;
+  border: 1px solid #968e3b;
+}
+
+tbody tr th {
+  background: transparent;
+}
+
+span.requested,
+span.offered {
+  color: #1d1a08;
+}
+
+
+/* blurbs, work content & comments */
+
+#workskin {
+  text-align: left;
+  line-height: 1.6;
+  font-size: 1.05em;
+  padding: 1.25em;
+  color: #000 !important;
+  background: #b8b361 !important;
+}
+
+#workskin a {
+  color: #4a180d !important;
+  text-decoration: underline;
+}
+
+li.blurb,
+.listbox li.blurb,
+li.comment,
+.statistics .index li:nth-of-type(even),
+dl.meta,
+dl.index dd,
+#ibox_wrapper,
+#ibox_content {
+  background-color: #b8b361;
+}
+
+li.blurb {
+  border: 2px solid #968e3b;
+}
+
+dl.meta {
+  background: #b8b361;
+  border: 2px solid #968e3b;
+}
+
+dl.index dd {
+  background: #b8b361;
+}
+
+.bookmark .user {
+  border: 1px solid #968e3b;
+  background: rgb(184, 179, 97);
+}
+
+.reading h4.viewed {
+  background: #c6c281;
+  color: #1d1a08;
+}
+
+/* chapters */
+.chapter .secondary,
+.download .secondary,
+.work.navigation .download .secondary {
+  min-width: 160px !important;
+  padding: 12px 0 !important;
+  font-size: 1em !important;
+  background: #b8b361;
+  color: #1d1a08;
+  border: 1px solid #968e3b;
+  box-shadow: none;
+}
+
+.chapter .secondary a,
+.download .secondary a,
+.work.navigation .download .secondary a {
+  padding: 10px 15px !important;
+  font-size: 1em !important;
+  line-height: 1.5 !important;
+  white-space: normal !important;
+  background: #b8b361;
+  color: #1d1a08;
+  border: 1px solid #968e3b;
+  box-shadow: none;
+}
+
+li.download .secondary,
+li.chapter .secondary {
+  background-color: #b8b361 !important;
+  border: 1px solid #968e3b !important;
+  border-radius: 8px !important;
+  box-shadow: 2px 2px rgba(0, 0, 0, 15%) !important;
+  background-image: none !important;
+}
+
+li.download .secondary a,
+li.chapter .secondary a {
+  color: #1d1a08 !important;
+  text-decoration: none !important;
+  border: none !important;
+}
+
+li.download .secondary a:hover,
+li.chapter .secondary a:hover {
+  background-color: #c6c281 !important;
+  color: #1d1a08 !important;
+  border-radius: 4px !important;
+}
+
+/* comments */
+div.comment,
+li.comment {
+  background: #b8b361;
+  border: 1px solid #968e3b;
+  color: #1d1a08;
+}
+
+.comment div.icon {
+  border-bottom: 5px solid #968e3b;
+}
+
+.comment h4.byline {
+  background: #968e3b;
+  color: #f2edd5;
+}
+
+.comment h4.byline a {
+  color: #fff !important;
+}
+
+.thread .even {
+  background: #b8b361;
+}
+
+.comment .userstuff {
+  padding-right: 60px;
+  padding-bottom: 70px;
+  background: url("https://64.media.tumblr.com/9e4a9f2328cabd526e3d229ed1c10f63/b80fb3ca26084372-f4/s1280x1920/60b7a1b873929facaf27620bce78818fc6c9c002.png");
+  background-position-x: right;
+  background-position-y: top;
+  background-repeat: no-repeat;
+  background-size: 65px 70px;
+}
+
+p.kudos {
+  padding-left: 8.3em;
+  background: url("https://64.media.tumblr.com/fbdd04358f7aff59a956e8f469e81045/49eec1fc12353733-39/s500x750/037a54c6536d7c2cc3d41725c10fe2e5c7d01eef.png");
+  background-size: 95px 80px;
+  background-repeat: no-repeat;
+  min-height: 112px;
+  color: #1d1a08;
+}
+
+
+/* dashboard */
+#dashboard,
+#dashboard.own {
+  background: #b8b361 !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  font-size: 0.9em;
+  color: #1d1a08 !important;
+}
+
+#dashboard a {
+  color: #1d1a08;
+  border: none !important;
+}
+
+#dashboard .current {
+  background: #968e3b !important;
+  color: #fff !important;
+}
+
+#dashboard a:hover {
+  background: #c6c281;
+  color: #1d1a08;
+  border: 1px solid #968e3b;
+}
+
+.profile-show.dashboard.region dl.meta {
+  border: none;
+  box-shadow: none;
+  background: url("https://64.media.tumblr.com/25c3da0071d00980a571db17f7fd7932/5db44759a2c55300-0b/s540x810/a353cbd8b2fba77591dee1b268bd809f28a16b55.png");
+  background-position-x: right;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.home .primary.header.module {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin: 20px auto !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.home .primary.header.module .icon {
+  order: 1 !important;
+  float: none !important;
+  margin: 0 auto 15px auto !important;
+  position: relative !important;
+  background: transparent !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.home .primary.header.module .icon img {
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 50% !important;
+  margin: 0 !important;
+}
+
+.home .primary.header.module .icon::before {
+  display: none !important;
+}
+
+.home .primary.header.module h2.heading {
+  order: 2 !important;
+  float: none !important;
+  width: 100% !important;
+  display: block !important;
+  margin: 0 0 10px 0 !important;
+  text-align: center !important;
+  border: none !important;
+  font-size: 1.5rem !important;
+}
+
+.home .primary.header.module ul.actions {
+  order: 3 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.home .primary.header.module ul.actions li {
+  margin: 0 5px !important;
+  display: inline-block !important;
+}
+
+
+/* notices, flashes & modals */
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash,
+.LV_invalid {
+  background: #968e3b;
+  border: 1px solid #f2edd5;
+  box-shadow: none;
+  color: #f2edd5;
+}
+
+.notice a,
+.comment_notice a,
+.kudos_notice a,
+ul.notes a,
+.caution a,
+.error a,
+.comment_error a,
+.kudos_error a,
+.alert.flash a {
+  color: #fff !important;
+}
+
+form .notice,
+form ul.notes {
+  box-shadow: none;
+}
+
+#modal {
+  background: #b8b361;
+  border: 2px solid #968e3b;
+  box-shadow: none;
+  color: #1d1a08;
+}
+
+#modal .content {
+  border-bottom: 1px solid #968e3b;
+}
+
+#modal.img a {
+  color: #4a180d;
+}
+
+#modal.img .content img {
+  border: 1px solid #968e3b;
+  box-shadow: none;
+}
+
+
+/* footer, splash & extra modules */
+
+#footer {
+  background-color: transparent;
+  background-image: url("https://64.media.tumblr.com/7f7d1991a5808d927a202317866c78ba/49eec1fc12353733-31/s500x750/206d65148d7211b239b79241a267d40284de329f.png"),
+    linear-gradient(to bottom, transparent 100px, #968e3b 100px, #968e3b 100%);
+  background-position: bottom right, top center;
+  background-size: 22%, 100% 100%;
+  background-repeat: no-repeat, no-repeat;
+  border-top: none;
+  padding-top: 130px;
+}
+
+#footer .heading,
+#footer li,
+#footer li a,
+#footer button {
+  font-variant: small-caps;
+  text-decoration: none;
+  background: transparent !important;
+  border: none !important;
+  color: #f2edd5 !important;
+}
+
+.splash .module h3 {
+  border-bottom: none;
+  color: #f2edd5;
+}
+
+.splash .news li {
+  border-bottom: none;
+}
+
+.splash .favorite:after {
+  content: "Describe a dog.";
+  display: flex;
+  color: #1d1a08;
+  justify-content: center;
+  align-items: center;
+  font-family: Helvetica, Arial, sans-serif !important;
+  font-size: 100%;
+}
+
+.splash .favorite.module.odd {
+  background: url("https://64.media.tumblr.com/d3f52dc899d2a263f2c5a72c194f11cf/b8969c3790606ffc-89/s2048x3072/ec6e5050ba30bedddfe36e542b38ba6da44904ec.png");
+  background-position-x: right;
+  background-position-y: center;
+  background-size: 45%;
+  background-repeat: no-repeat;
+}
+
+.social.module p {
+  padding-left: 72px;
+  background: url("https://64.media.tumblr.com/4e2e711094610d38e5cc6dd15d6942ea/8d4c7ab0503f89dd-9b/s400x600/9b4129b496d5449e85c2ebc55dc46ca89549d605.png");
+  background-size: 70px 68px;
+  background-position-x: left;
+  background-position-y: top;
+  background-repeat: no-repeat;
+}
+
+.resp-sharing-button--bluesky,
+.resp-sharing-button--tumblr {
+  background: #8e1e1d !important;
+  border: 1px solid #fff !important;
+  border-radius: 5px;
+}
+
+#stat_chart svg {
+  filter: invert(90%) sepia(150%) brightness(70%) hue-rotate(340deg) saturate(220%);
+}
+
+.statistics .index li:nth-of-type(2n) {
+  background: transparent;
+}
+
+div.dynamic {
+  background: transparent;
+}
+
+.listbox,
+fieldset fieldset.listbox {
+  background: #b8b361;
+  border: 2px solid #968e3b;
+  box-shadow: none;
+}
+
+.listbox .index {
+  background: #b8b361;
+  box-shadow: none;
+}
+
+.listbox > .heading,
+.listbox .heading a:visited {
+  color: #1d1a08 !important;
+}
+
+li.previous span.disabled,
+li.next span.disabled {
+  display: none;
+}
+
+
+/* custom assets, icons & status badges */
+
+img[src$="/images/skins/iconsets/default/icon_user.png"] {
+  box-sizing: border-box;
+  border: 1.5px solid #ddd;
+  background: #9b7d61 content-box;
+  content: url("https://zerafinacss.github.io/ao3/icons/user-default-01.png");
+}
+
+.comment .icon .anonymous {
+  box-sizing: border-box;
+  border: 1.5px solid #00000025;
+  background: url("https://zerafinacss.github.io/ao3/icons/anon-01.png"),
+    #968e3b border-box;
+  background-size: cover;
+}
+
+.comment .icon .visitor {
+  background: url("https://64.media.tumblr.com/c9b7e40f1c9944d5d62ae6821fe0a0cf/bc99fed1a695825f-a6/s400x600/7c4e1c2c9a867d3a126425829983ec06ae5a9aab.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.tagset .primary .icon,
+.tag .primary .icon,
+.index .tagset .icon {
+  box-sizing: border-box;
+  border: 1.5px solid #00000025;
+  background: url("https://zerafinacss.github.io/ao3/icons/tag-01.png"),
+    linear-gradient(transparent, #ffffff50 45% 55%, transparent),
+    #39a308 border-box;
+  background-size: cover;
+}
+
+.index .mystery .icon {
+  box-sizing: border-box;
+  border: 1.5px solid #ddd;
+  box-shadow: inset 0 0 0 3px #fff;
+  background: url("https://zerafinacss.github.io/ao3/icons/anon-01.png"),
+    linear-gradient(transparent, #ffffff50 45% 55%, transparent)
+    #c6c281 content-box;
+  background-size: cover;
+}
+
+.admin .primary .icon {
+  box-sizing: border-box;
+  border: 1.5px solid #00000099;
+  background: url("https://zerafinacss.github.io/ao3/icons/admin-01.png")
+    no-repeat,
+    linear-gradient(#ffffff40, transparent)
+    #2b6b09 border-box;
+  background-size: cover;
+}
+
+.skins .primary .icon:not(:has(a .icon)),
+.index .skins .icon:not(:has(a .icon)) {
+  box-sizing: border-box;
+  border: 1.5px solid #ddd;
+  background: url("https://zerafinacss.github.io/ao3/icons/skins-01.png"),
+    #968e3b border-box;
+  background-size: cover;
+}
+
+#symbols-key dl img,
+#bookmark-symbols-key img {
+  width: 0 !important;
+  height: 0 !important;
+  padding: 25px 0 0 25px;
+}
+
+.blurb ul.required-tags li a > span,
+.bookmark p.status a > span,
+.bookmark p.status .count,
+#symbols-key dl img,
+#bookmark-symbols-key img {
+  box-sizing: border-box;
+  border: 1px solid;
+  background-size: cover;
+  background-origin: border-box;
+}
+
+ul.required-tags,
+.bookmark .status span,
+.blurb .icon {
+  opacity: 1 !important;
+}
+
+.required-tags .rating-notrated,
+.required-tags .category-none,
+.required-tags .warning-no,
+.bookmark p.status .count,
+img[src$="/images/skins/iconsets/default/rating-notrated.png"],
+img[src$="/images/skins/iconsets/default/category-none.png"],
+img[src$="/images/skins/iconsets/default/warning-no.png"] {
+  color: #00000040;
+  background: #fff;
+}
+
+.required-tags .rating-general-audience,
+img[src$="/images/skins/iconsets/default/rating-general-audience.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/rating-gen-01.png"),
+    #ad2f2f;
+}
+
+.required-tags .rating-teen,
+img[src$="/images/skins/iconsets/default/rating-teen.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/rating-teen-01.png"),
+    #7739d4;
+}
+
+.required-tags .rating-mature,
+img[src$="/images/skins/iconsets/default/rating-mature.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/rating-mature-01.png"),
+    #132f8a;
+}
+
+.required-tags .rating-explicit,
+img[src$="/images/skins/iconsets/default/rating-explicit.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/rating-explicit-01.png"),
+    #39a308;
+}
+
+.required-tags .category-femslash,
+img[src$="/images/skins/iconsets/default/category-femslash.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-ff-01.png"),
+    #19a84e;
+}
+
+.required-tags .category-het,
+img[src$="/images/skins/iconsets/default/category-het.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-mf-01.png"),
+    #706d04;
+}
+
+.required-tags .category-gen,
+img[src$="/images/skins/iconsets/default/category-gen.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-gen-01.png"),
+    #ad2f2f;
+}
+
+.required-tags .category-slash,
+img[src$="/images/skins/iconsets/default/category-slash.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-mm-01.png"),
+    #b07207;
+}
+
+.required-tags .category-multi,
+img[src$="/images/skins/iconsets/default/category-multi.png"] {
+  color: #0000001a;
+  background: conic-gradient(from 270deg, #19a84e 25%, #706d04 25% 50%, #ad2f2f 50% 75%, #b07207 75%);
+}
+
+.required-tags .category-other,
+img[src$="/images/skins/iconsets/default/category-other.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-other-01.png"),
+    #fc0fc0;
+}
+
+.required-tags .warning-choosenotto,
+img[src$="/images/skins/iconsets/default/warning-choosenotto.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/warning-choosenotto-01.png"),
+    #132f8a;
+}
+
+.required-tags .warning-yes,
+img[src$="/images/skins/iconsets/default/warning-yes.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/warning-yes-01.png"),
+    #39a308;
+}
+
+.required-tags .external-work,
+img[src$="/images/skins/iconsets/default/warning-external-work.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/warning-external-work-01.png"),
+    #d9941e;
+}
+
+.required-tags .complete-no,
+img[src$="/images/skins/iconsets/default/complete-no.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/complete-no-01.png"),
+    #39a308;
+}
+
+.required-tags .complete-yes,
+img[src$="/images/skins/iconsets/default/complete-yes.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/complete-yes-01.png"),
+    #ad2f2f;
+}
+
+a.rss span {
+  padding: 0;
+  background: none;
+}
+
+.actions li a.rss {
+  display: inline-flex;
+  align-content: center;
+  align-items: center;
+  column-gap: 0.3em;
+}
+
+.actions li a.rss::before {
+  box-sizing: border-box;
+  width: 0.85em;
+  height: 0.85em;
+  border: 1px solid var(--icon-border1);
+  border-radius: 2px;
+  background: url("https://zerafinacss.github.io/ao3/icons/rss-01.png") #b07207;
+  background-size: cover;
+  content: "";
+}
+
+.status .rec,
+img[src$="/images/skins/iconsets/default/bookmark-rec.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/bookmark-rec-01.png"),
+    #b07207;
+}
+
+.status .public,
+img[src$="/images/skins/iconsets/default/bookmark-public.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/bookmark-public-01.png"),
+    #b07207;
+}
+
+.status .private,
+img[src$="/images/skins/iconsets/default/bookmark-private.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/bookmark-locked-01.png"),
+    #9b7d61;
+  font-size: 0;
+}
+
+.status .private .text {
+  background: none;
+}
+
+.status .hidden,
+img[src$="/images/skins/iconsets/default/bookmark-hidden.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/bookmark-locked-01.png"),
+    #39a308;
+}
+
+.bookmark span.count {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+html body img[src$="/images/lockblue.png"] {
+  content: url("https://64.media.tumblr.com/be1b348eb9b812a0ab3e84aeb830512a/8d4c7ab0503f89dd-9d/s400x600/6f4f4bd56ef77e8d80c5438bb4b76c5945f5f3fd.png") !important;
+  height: 20px !important;
+  width: auto !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  vertical-align: middle !important;
+}

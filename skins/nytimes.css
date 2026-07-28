@@ -1,0 +1,655 @@
+/* From https://github.com/memorizingthedigitsofpi/AO3-stealth-mode-site-skin
+ * adjusted for readability & other cleanups
+ */
+
+/* global base & nyt typography */
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #121212;
+  background: #ffffff;
+}
+
+#outer.wrapper {
+  background: #ffffff;
+  color: #121212;
+}
+
+#main,
+#inner.wrapper {
+  background: #ffffff;
+  color: #121212;
+}
+
+.heading,
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Times New Roman", Georgia, serif;
+  color: #121212;
+}
+
+/* links & hover states */
+#main a,
+a:link {
+  color: #121212;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #585858;
+}
+
+#main a:hover,
+a:hover {
+  background: rgba(182, 229, 245, 0.4);
+  color: #121212;
+  text-decoration: underline;
+}
+
+.blurb h4 a:visited {
+  color: #585858 !important;
+}
+
+/* header & navigation */
+#header {
+  background: url("https://64.media.tumblr.com/bbb7f8d93d285e2cb742788cc2933897/1ec1be5dd33c0531-a1/s640x960/63597eb1da9aca992cbca6f30298fbbf6bd9d8bc.png") no-repeat center 15px / 250px 54px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #121212;
+}
+
+#header .heading {
+  height: 8em;
+}
+
+#header .logo,
+#header .heading sup,
+#header h1.heading span,
+.icon,
+.index .skins .icon,
+p.muted.notice,
+span.submit.actions input.button {
+  display: none !important;
+}
+
+#header .primary {
+  background: #ffffff;
+  box-shadow: none;
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #121212;
+}
+
+#header .menu,
+#header a.dropdown-toggle,
+#greeting .user > li:nth-of-type(3) a {
+  color: #121212;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-variant: small-caps;
+}
+
+#greeting .menu {
+  width: 12em !important;
+}
+
+#header .menu {
+  width: 20em;
+}
+
+#header #search .button,
+#header #search .submit {
+  display: none;
+}
+
+#header #search .text {
+  border: 1px solid #cfcfcf;
+  box-shadow: none;
+}
+
+input#site_search.text {
+  background: url("https://64.media.tumblr.com/a0507d0a4ce7f86d6f645cc3004436e2/1ec1be5dd33c0531-84/s400x600/04c85bb718ef0ce8fbcdd4c5d09a75b4b06308ed.png") no-repeat right / contain;
+}
+
+#greeting .user > li:nth-of-type(1) a.dropdown-toggle {
+  visibility: hidden;
+}
+
+#greeting .user > li:nth-of-type(1) a.dropdown-toggle::after {
+  visibility: visible;
+  content: "Menu ⌄";
+}
+
+#greeting .user > li:nth-of-type(3) a {
+  background: #b6e5f5;
+  border: 1px solid #b6e5f5;
+  border-radius: 4px;
+}
+
+#header .primary > li a.dropdown-toggle::after,
+#greeting .user > li:nth-of-type(2) a.dropdown-toggle::after {
+  content: " ⌄";
+}
+
+#header .menu,
+#small_login {
+  background: #ffffff !important;
+  box-shadow: none;
+  border: 1px solid #121212;
+}
+
+#header .dropdown .menu a:hover,
+#header .dropdown .menu a:focus {
+  background: rgba(182, 229, 245, 0.4);
+}
+
+#header .dropdown .menu a {
+  color: #585858 !important;
+  font-variant: normal !important;
+}
+
+#header .dropdown .menu li {
+  border-bottom: none;
+}
+
+/* stealth headline injections */
+.splash .module h3 {
+  border-bottom: none;
+  color: #121212;
+  font-weight: bold;
+  font-size: 220%;
+}
+
+.splash .favorite.module h3.heading {
+  font-size: 8pt;
+  visibility: hidden;
+}
+
+.splash .favorite.module h3.heading::before {
+  visibility: visible !important;
+  content: "Top Stories";
+  font-size: 350%;
+}
+
+.splash .latest.news.module h3.heading::before {
+  content: "Tech ";
+}
+
+.splash .latest.messages.module h3.heading {
+  font-size: 8pt;
+  visibility: hidden;
+}
+
+.splash .latest.messages.module h3.heading::before {
+  visibility: visible !important;
+  content: "Local News";
+  font-size: 250%;
+}
+
+.splash .social.module h3.heading {
+  display: none;
+}
+
+.module.favorite.odd::after {
+  margin-top: 1.5em;
+  content: url("https://64.media.tumblr.com/0071e7d61a2f26c26d270d8c3bd84d55/1ec1be5dd33c0531-16/s400x600/b40f45353964c0b9bafe8768adc049e66fcfc7d4.png");
+  display: inline-block;
+  width: 250px;
+}
+
+.splash .social.module::after {
+  content: url("https://64.media.tumblr.com/68fd0f5d810ca74be05828a8ff45771e/1ec1be5dd33c0531-4d/s400x600/7005450e6dc364723898d4262d19ba0fd34bff46.png");
+}
+
+#main.works-index.region h2.heading {
+  visibility: hidden;
+}
+
+#main.works-index.region h2.heading::before {
+  visibility: visible !important;
+  content: "Trending Topics";
+  background: url("https://64.media.tumblr.com/50b82b9297adbf387f41a169511b1279/1ec1be5dd33c0531-ba/s250x400/f50e9a2154c9b4694f4ce7456af1bd76da699f29.jpg") no-repeat left center / contain;
+  padding-left: 1.2em;
+}
+
+#main.media-index.region h2.heading {
+  visibility: hidden;
+}
+
+#main.media-index.region h2.heading::before {
+  visibility: visible !important;
+  content: "Sections";
+  font-weight: bold;
+}
+
+#main.stats-index.dashboard.region h2.heading {
+  visibility: hidden;
+}
+
+#main.stats-index.dashboard.region h2.heading::before {
+  visibility: visible !important;
+  content: "Economic Report";
+}
+
+#user-fandoms.fandom.listbox.group h3.heading {
+  visibility: hidden;
+}
+
+#user-fandoms.fandom.listbox.group h3.heading::before {
+  visibility: visible !important;
+  content: "Recent Topics";
+}
+
+/* workskin & article reading experience */
+#workskin {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1em;
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5em 1em;
+  color: #121212;
+}
+
+#workskin p {
+  margin-bottom: 1.5em;
+}
+
+#workskin a {
+  color: #121212;
+  text-decoration: underline;
+}
+
+#workskin a:hover {
+  background: rgba(182, 229, 245, 0.4);
+}
+
+div.preface {
+  margin: 0;
+}
+
+div.preface .title,
+div.preface .byline,
+div.preface .byline a {
+  text-align: left;
+}
+
+div.preface .title {
+  font-weight: bold;
+  font-family: "Times New Roman", Georgia, serif;
+}
+
+div.preface .byline,
+div.preface .byline a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-variant: small-caps;
+  font-size: 100%;
+  color: #737373;
+  margin-bottom: 1.5em;
+}
+
+div.preface .byline a::before {
+  content: "By ";
+}
+
+div.preface.group div.summary.module {
+  display: none;
+}
+
+div.notes.module h3.heading {
+  font-family: Arial, Helvetica, sans-serif;
+  font-variant: small-caps;
+  border-bottom: none;
+}
+
+blockquote.userstuff {
+  margin: 0;
+}
+
+.chapter .preface {
+  border-top: none;
+}
+
+/* action buttons & navigation controls */
+.actions a,
+.actions a:link,
+.action,
+.action:link,
+.actions button,
+.actions input,
+input[type="submit"],
+button,
+.current,
+.actions label {
+  background: #ffffff;
+  border: 1px solid #cfcfcf;
+  border-radius: 16px;
+  background-image: none;
+  box-shadow: none;
+  padding: 0.3em 0.8em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85em;
+  color: #121212;
+}
+
+.actions a:hover,
+.actions button:hover,
+.actions input:hover,
+.actions a:focus,
+.actions button:focus,
+.actions input:focus,
+label.action:hover,
+.action:hover,
+.action:focus {
+  background: rgba(182, 229, 245, 0.4);
+  border: 1px solid #b6e5f5;
+  box-shadow: none;
+  color: #121212 !important;
+}
+
+.actions a:active,
+.current,
+a.current,
+a:link.current,
+.current a:visited {
+  background: rgba(182, 229, 245, 0.4);
+  border-color: #b6e5f5;
+  box-shadow: none;
+}
+
+/* forms, fieldsets & inputs */
+fieldset,
+fieldset dl dl,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff,
+.listbox {
+  background: #ffffff;
+  border: 1px solid #cfcfcf;
+  box-shadow: none;
+}
+
+form dl,
+.listbox .index {
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  box-shadow: none;
+}
+
+.comment fieldset {
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  box-shadow: none;
+}
+
+#header #search .text {
+  border: 1px solid #cfcfcf;
+  box-shadow: none;
+}
+
+/* blurbs, tags & meta lists */
+li.blurb {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e2e2;
+  margin-bottom: 2em;
+  padding-bottom: 1.5em;
+}
+
+dl.meta {
+  display: none;
+}
+
+li.blurb ul.required-tags li span {
+  background: none;
+}
+
+li.blurb span.text {
+  color: #8a8a8a;
+  font-size: inherit;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  font-variant: small-caps;
+}
+
+li.blurb ul.required-tags li,
+li.blurb ul.required-tags li a,
+li.blurb ul.required-tags li span {
+  display: contents;
+  width: initial;
+  height: initial;
+  margin-top: initial;
+  margin-bottom: initial;
+  padding-left: initial;
+}
+
+li.blurb .header .heading,
+li.blurb .header ul {
+  margin: 0.375em 0 0 0;
+}
+
+li.blurb ul.required-tags {
+  position: initial;
+  width: initial;
+}
+
+ul.required-tags li span.warning-choosenotto.warnings,
+ul.required-tags li span.warning-yes.warnings,
+ul.required-tags li span.warning-no.warnings {
+  display: none;
+}
+
+ul.required-tags li span.rating-general-audience.rating::after,
+ul.required-tags li span.rating-mature.rating::after,
+ul.required-tags li span.rating-notrated.rating::after,
+ul.required-tags li span.rating-teen.rating::after,
+ul.required-tags li span.rating-explicit.rating::after,
+ul.required-tags li span.complete-yes.iswip::before,
+ul.required-tags li span.complete-no.iswip::before {
+  content: " ◆ ";
+  color: #8a8a8a;
+}
+
+/* inline tags */
+ul.tags li.warnings,
+ul.tags li.relationships,
+ul.tags li.characters,
+ul.tags li.freeforms {
+  display: inline-block;
+  margin: 0;
+}
+
+ul.tags li a.tag {
+  line-height: 1.5;
+  border-bottom: none;
+}
+
+.commas li:after {
+  content: "  •  ";
+}
+
+ul.tags li.warnings:first-child:before {
+  content: "Archive Warnings: ";
+  color: #121212;
+  font-weight: bold;
+}
+
+li.warnings + li.relationships:before {
+  content: "Relationships: ";
+  color: #121212;
+  font-weight: bold;
+}
+
+li.relationships + li.characters:before {
+  content: "Characters: ";
+  color: #121212;
+  font-weight: bold;
+}
+
+li.characters + li.freeforms:before,
+li.warnings + li.freeforms:before,
+li.relationships + li.freeforms:before {
+  content: "Additional Tags: ";
+  color: #121212;
+  font-weight: bold;
+}
+
+li.warnings + li.characters:before {
+  content: "Characters: ";
+  color: #121212;
+  font-weight: bold;
+}
+
+li.blurb ul.tags a {
+  border-bottom: none;
+}
+
+li.blurb ul.tags li.relationships a {
+  background: none;
+}
+
+li.blurb ul.tags li.warnings a {
+  font-weight: normal;
+}
+
+div.header.module h4.heading,
+div.header.module h4.heading a {
+  font-size: 130%;
+  color: #121212 !important;
+  border-bottom: none;
+}
+
+div.header.module h5.fandoms.heading a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-variant: small-caps;
+  border-bottom: none;
+}
+
+.blurb .datetime {
+  display: none;
+}
+
+/* stealth action icons */
+.work li.bookmark a {
+  background: url("https://64.media.tumblr.com/d4a2494ff7e243390060e62c15813181/1ec1be5dd33c0531-dd/s250x400/8222497204fcb8c0428300616d9c58767076d18e.png") no-repeat right / contain;
+  padding-right: 1.8em;
+  content: " ";
+}
+
+.work li.share a {
+  background: url("https://64.media.tumblr.com/a05e3b7f81b0e7a81622cc649d3f88ae/1ec1be5dd33c0531-5e/s250x400/a9ea47164e1268a78c6b17f8d19c0fa05a4aff73.png") no-repeat right / contain;
+  padding-right: 2em;
+}
+
+.work li.subscribe form#new_subscription.ajax-create-destroy input {
+  background: url("https://64.media.tumblr.com/75f3eb668bd5f00d4c1842f277419d81/1ec1be5dd33c0531-25/s250x400/1536bba83bcdb2f4b4568e43f80d57e08b7dc274.png") no-repeat right / contain;
+  padding-right: 2em;
+}
+
+p.kudos {
+  background: url("https://64.media.tumblr.com/21bb2a93c227baad571065869139de18/1ec1be5dd33c0531-08/s250x400/dadf22395e74c3f3cc15e2462f067bb7896e6abf.png") no-repeat left center / 49px 50px;
+  word-wrap: break-word;
+  padding-left: 60px;
+}
+
+/* comments & thread layout */
+.comment h4.byline,
+.abbreviated h4.byline {
+  padding-left: 5px;
+  background: #ffffff;
+  font-weight: bold;
+}
+
+h4.heading.byline a {
+  border-bottom: none;
+}
+
+span.posted.datetime {
+  font-weight: normal;
+  color: #737373;
+}
+
+.unread,
+li .comment,
+.thread .even {
+  background: #ffffff;
+  margin-bottom: 2em;
+}
+
+.reading h4.viewed {
+  background: #f3f3f3;
+}
+
+/* notices & alerts */
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash,
+.LV_invalid {
+  background: #f8f9fa;
+  border: 1px solid #cfcfcf;
+  box-shadow: none;
+  color: #121212;
+}
+
+/* dashboard & nyt footer */
+#dashboard.own {
+  border-top: 15px solid #ffffff;
+  border-bottom: 15px solid #ffffff;
+}
+
+#dashboard .current {
+  background: rgba(182, 229, 245, 0.4);
+}
+
+.user.home .listbox {
+  border: 1px solid #ffffff !important;
+}
+
+.user.home h3.heading {
+  font-weight: bold;
+  font-size: 170%;
+}
+
+.bookmark .status span,
+.bookmark .status a {
+  display: none;
+}
+
+.home .header h2 {
+  text-align: left;
+  border-bottom: none;
+  margin-left: 0;
+}
+
+span.unread,
+span.replied {
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+dl.index dd,
+.statistics .index li:nth-of-type(2n) {
+  background: #ffffff;
+}
+
+#footer {
+  background: url("https://64.media.tumblr.com/bbb7f8d93d285e2cb742788cc2933897/1ec1be5dd33c0531-a1/s640x960/63597eb1da9aca992cbca6f30298fbbf6bd9d8bc.png") no-repeat 12px 8px / 139px 30px;
+  background-color: #ffffff;
+  border-top: 2px solid #121212;
+  padding-top: 45px;
+}
+
+#footer .heading,
+#footer li,
+#footer a {
+  color: #121212;
+  border-bottom: none;
+}
+
+#footer .heading {
+  font-family: Arial, Helvetica, sans-serif;
+  font-variant: small-caps;
+  font-size: 120%;
+  margin-top: 0.7em;
+}

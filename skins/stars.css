@@ -1,0 +1,521 @@
+/* From https://github.com/sorakissed/ao3skins/blob/main/Byler
+ * adjusted for readability & other cleanups
+ */
+
+/* global base & typography */
+body {
+  color: #3d3229;
+}
+
+#outer.wrapper {
+  background: #d6c3a5;
+  background-image: url("https://raw.githubusercontent.com/sorakissed/ao3photos/main/starsbackground.jpg");
+  background-size: 16% auto;
+  background-repeat: repeat;
+  background-position: center top;
+  color: #3d3229;
+}
+
+#inner.wrapper {
+  margin: 0 4%;
+}
+
+#main,
+#inner.wrapper,
+.listbox .index,
+.work.own,
+.thread .even {
+  background: #f5eee3;
+  color: #3d3229;
+}
+
+#main .heading,
+#header a:visited,
+#header .primary .open a,
+#header .primary .dropdown:hover a,
+#header .primary .dropdown a:focus,
+#header #search input:focus,
+#header #search input:hover,
+#dashboard a,
+#dashboard span,
+#dashboard .current,
+.heading,
+.group .heading,
+.filters dt a:hover {
+  color: #3d3229;
+}
+
+h2 {
+  font-size: 1.286em;
+  line-height: 1.2;
+  margin: 0.5375em 0;
+}
+
+/* links & interactive states */
+#main a,
+#greeting a.dropdown-toggle {
+  color: #3d3229;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #61503f;
+}
+
+#main a:hover,
+#dashboard a:hover {
+  background: #f0e4cc;
+  color: #3d3229 !important;
+  text-decoration: underline;
+}
+
+.blurb h4 a:visited {
+  color: #61503f !important;
+}
+
+/* header & navigation */
+#header {
+  background-image: url("https://i.pinimg.com/originals/6b/39/fb/6b39fb4244aa012b525a4f084c7834c9.jpg");
+  background-repeat: no-repeat;
+  background-position: center 50%;
+  background-size: cover;
+  min-height: 160px;
+  position: relative;
+}
+
+#header .heading {
+  height: 15em;
+  margin-left: 0;
+  position: relative;
+  left: -40px;
+}
+
+#header .logo,
+#header .heading sup,
+#greeting img.icon {
+  visibility: hidden;
+  display: none;
+}
+
+#header .heading a,
+#header h1.heading a {
+  color: #f0e1c9;
+  margin-left: 0;
+}
+
+#header .primary {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #2a4166;
+  margin-bottom: 0;
+}
+
+#header .actions a {
+  color: #f0e1c9 !important;
+}
+
+#header .actions li:hover a {
+  color: #ffffff !important;
+}
+
+#greeting .menu,
+#header .dropdown .menu,
+#header .dropdown:hover a,
+.dropdown {
+  background: #f0e4cc;
+}
+
+#header .search form,
+#header .search fieldset,
+#header .search dl {
+  background: transparent !important;
+}
+
+#header #search .text,
+.search [role="tooltip"] {
+  border: 1px solid #c7baa9;
+  width: 5em;
+}
+
+form.search input[type="text"],
+form.search input[type="submit"],
+.autocomplete div.dropdown ul {
+  background: #2a4166 !important;
+  color: #dfd3b8 !important;
+  border: 1px solid #c7baa9;
+}
+
+#header form.search input[type="submit"],
+span.submit.actions input.button {
+  display: none !important;
+}
+
+#header h2 {
+  background: #2a4166;
+  border: 1px solid #f0e1c9;
+  color: #f0e1c9;
+}
+
+/* workskin & reading readability */
+#workskin {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+  font-size: 1.05em;
+  padding: 1.25em;
+  color: #3d3229;
+  background: #f5eee3;
+  border-radius: 6px;
+}
+
+#workskin p {
+  margin-bottom: 1.4em;
+}
+
+#workskin a {
+  color: #2a4166;
+  text-decoration: underline;
+}
+
+#workskin a:hover {
+  background: #f0e4cc;
+  color: #3d3229;
+}
+
+/* action buttons & navigation controls */
+#main .actions a,
+#main .actions a:link,
+#main .actions a:visited,
+#main .action,
+#main .action:link,
+#main .action:visited,
+#main .actions input[type="submit"],
+#main .actions button,
+#main input[type="submit"],
+#main input[type="button"],
+#main input[type="reset"],
+#main button,
+#main .actions label,
+.actions a,
+.actions a:focus,
+.actions input:focus,
+.action:focus,
+.actions button,
+.actions li input,
+.actions li input[type="submit"],
+input[type="submit"],
+.actions li label,
+ul.navigation.actions li a,
+.action:link,
+.actions a:link {
+  background: #dbc9ad;
+  border: 1px solid #f0e1c9;
+  color: #3d3229 !important;
+  border-radius: 5px;
+  padding: 0.35em 0.75em;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#main .actions a:hover,
+#main .action:hover,
+#main .actions input[type="submit"]:hover,
+#main .actions button:hover,
+#main input[type="submit"]:hover,
+#main button:hover,
+.actions a:hover,
+.action:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: #2a4166 !important;
+  color: #f0e1c9 !important;
+  border-color: #2a4166 !important;
+  cursor: pointer;
+}
+
+.current,
+#dashboard .current {
+  background: #2a4166 !important;
+  color: #f0e1c9 !important;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* forms, fieldsets & inputs */
+form dl,
+fieldset,
+fieldset fieldset,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff,
+input,
+select,
+select:focus,
+textarea,
+span.symbol.question,
+.own {
+  background: #e6d3b8 !important;
+  color: #3d3229 !important;
+  border: 1px solid #f0e1c9;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  background-color: #f5eee3 !important;
+  border-color: #2a4166 !important;
+  outline: none;
+}
+
+form.verbose legend,
+.verbose form legend {
+  background: #f0e4cc;
+  color: #3d3229;
+  border: 1px solid #f0e1c9;
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+}
+
+.filtering .filters #leave_filters {
+  background: #2a4166;
+  color: #dfd3b8;
+}
+
+.filters .expander {
+  color: #3d3229 !important;
+  font-weight: bold;
+}
+
+.autocomplete li.added,
+.post .meta dd ul li.added,
+label,
+label.required {
+  color: #3d3229;
+}
+
+span.delete {
+  background: #f0e4cc;
+}
+
+span.delete a {
+  color: #8b0000 !important;
+  font-weight: bold;
+}
+
+/* blurbs, tags & meta lists */
+li.blurb {
+  border: 1px solid #f0e1c9;
+  background: #f5eee3;
+}
+
+dl.meta {
+  border: 1px solid #f0e1c9;
+  background: #f0e4cc;
+}
+
+.listbox .index,
+.listbox,
+fieldset fieldset.listbox {
+  background: #f0e4cc;
+}
+
+.reading h4.viewed,
+dl.index dd,
+table,
+th,
+dt.child,
+.unread,
+span.unread,
+.draft,
+.draft .wrapper,
+.ui-sortable li,
+.dynamic form,
+div.dynamic {
+  background: #f0e4cc;
+  color: #3d3229;
+}
+
+.thread .even {
+  background: #dbc9ad;
+}
+
+.event .userstuff {
+  background: #dbc9ad;
+  border: 1px solid #f0e1c9;
+  color: #3d3229;
+}
+
+h4.heading.byline {
+  background: #f0e4cc;
+  color: #3d3229;
+}
+
+.relationships .tag,
+.work .relationships a.tag,
+dd.relationship.tags a {
+  background: none;
+  color: #3d3229 !important;
+  font-weight: bold;
+}
+
+.statistics .index li:nth-of-type(2n) {
+  background: #f0e4cc;
+}
+
+/* notices, alerts & splash */
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash,
+.comment {
+  color: #3d3229;
+  background: #f0e4cc;
+  border: 1px solid #c7baa9;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.notice a,
+.comment_notice a,
+.kudos_notice a,
+ul.notes a,
+.caution a,
+.error a,
+.comment_error a,
+.kudos_error a,
+.alert.flash a {
+  color: #2a4166;
+  font-weight: bold;
+}
+
+#modal,
+span.replied {
+  background: #f0e4cc;
+  color: #3d3229;
+  border: 2px solid #f0e1c9;
+}
+
+.splash .module h3 {
+  color: #3d3229;
+  border-bottom: 2px solid #3d3229;
+}
+
+.splash .favorite li:nth-of-type(2n+1) a,
+.splash .favorite li:nth-of-type(2n+2) a {
+  color: #3d3229;
+  font-weight: bold;
+  font-variant: small-caps;
+  font-size: 110%;
+  background: #f0e4cc;
+}
+
+.splash .favorite li:nth-of-type(2n+1) a:hover,
+.splash .favorite li:nth-of-type(2n+2) a:hover {
+  color: #ffffff;
+  font-weight: bold;
+  font-variant: small-caps;
+  background: #2a4166;
+}
+
+.splash .favorite a:active {
+  color: #dfd3b8;
+}
+
+/* dashboard & high-contrast footer */
+#dashboard {
+  border: none !important;
+}
+
+#dashboard,
+#dashboard .primary,
+#dashboard .navigation {
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+#dashboard.own {
+  border-top: 5px solid #f0e1c9;
+  border-bottom: 5px solid #f0e1c9;
+}
+
+#dashboard a:hover {
+  background: #2a4166;
+  color: #f0e1c9 !important;
+}
+
+#footer {
+  background: #374c6e;
+  color: #f0e1c9;
+  border-top: 3px solid #f0e1c9;
+  padding: 1.5em 1em;
+}
+
+#footer a, #footer .heading, #footer a, #footer button {
+  color: #f0e1c9 !important;
+}
+
+#footer a:hover {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+.javascript {
+  background: #374c6e;
+}
+
+/* resets & box-shadow cleanups */
+body,
+.group,
+.group .group,
+.region,
+.flash,
+fieldset,
+fieldset fieldset ul,
+form dl,
+textarea,
+#main .verbose legend,
+.verbose fieldset,
+.notice,
+ul.notes,
+input,
+textarea,
+table,
+th,
+td:hover,
+tr:hover,
+.symbol .question:hover,
+#modal,
+.ui-sortable li,
+.required .autocomplete,
+.autocomplete .notice,
+.system .intro,
+.comment_error,
+.kudos_error,
+div.dynamic,
+.dynamic form,
+#ui-datepicker-div,
+.ui-datepicker table,
+.annotation {
+  box-shadow: none;
+}
+
+.dashboard > .group {
+  border: none;
+}
+
+.dashboard .group .group {
+  border: 0.1px solid #a29684 !important;
+}

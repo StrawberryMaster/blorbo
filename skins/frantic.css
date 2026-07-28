@@ -1,0 +1,548 @@
+/* From https://github.com/Ao3SiteSkins/H50-skins/blob/main/Keep%20Calm%20and%20Call%20Five-0
+ * adjusted for readability & other cleanups
+ */
+
+/* global base & typography */
+body {
+  color: #222222;
+  background: #AEAEB0;
+}
+
+#outer.wrapper {
+  padding-top: 35px;
+  background: #AEAEB0;
+  background-image: url("https://i.ibb.co/XjDj2df/H50-fon2.png"), url("https://i.ibb.co/XjDj2df/H50-fon2.png");
+  background-repeat: no-repeat, repeat-x;
+  background-position: 270px 75px, left 15px;
+  background-size: auto 200px, auto 330px;
+  color: #222222;
+}
+
+#inner.wrapper {
+  margin: 0 4%;
+  background: #AEAEB0;
+}
+
+#main,
+.listbox .index,
+.work.own,
+.thread .even {
+  background: #e7e8f0;
+  color: #222222;
+}
+
+#main {
+  border: 1px solid #414242;
+  box-shadow: 0 0 4px #000000;
+}
+
+h2 {
+  font-size: 1.286em;
+  line-height: 1.2;
+  margin: 0.5375em 0;
+}
+
+/* links & interactive states */
+#main a,
+a:link {
+  color: #773839;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #572829;
+}
+
+#main a:hover,
+a:hover,
+a.tag:hover,
+a.tag:focus,
+.splash .favorite li:nth-of-type(odd) a:hover,
+.splash .favorite li:nth-of-type(odd) a:focus {
+  background: #414242 !important;
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+/* header, greeting & artwork */
+#header h1 sup,
+#header .button,
+#header .landmark,
+#greeting .icon,
+#header .logo {
+  display: none;
+}
+
+#header {
+  background: none;
+  position: relative;
+}
+
+#header .heading {
+  height: 250px;
+  width: 250px;
+  margin: 10px 0 10px 20px;
+  border: 2px solid #ffffff;
+  background-color: #d5d4d8;
+  background-image: url("https://i.pinimg.com/originals/74/e3/d0/74e3d099ef9b2c6b6232e02f5f9fcb2f.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  box-shadow: 0 0 4px #000000;
+}
+
+#header .primary {
+  box-shadow: none;
+  background: none;
+  position: absolute;
+  top: -30px;
+  left: 0;
+}
+
+#header .heading a {
+  position: absolute;
+  color: #000000;
+  top: -5px;
+  right: 20px;
+}
+
+#header .primary li,
+#header .primary li a {
+  color: #ffffff !important;
+}
+
+#greeting {
+  background-color: #AEAEB0;
+  height: 220px;
+  margin: 32px 0 0 0;
+  border-left: 2px solid #ffffff;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  padding: 0 30px;
+}
+
+#greeting li {
+  background: none;
+  border-bottom: 1px dashed #ffffff;
+  clear: left;
+  margin-top: 1.4em !important;
+}
+
+#greeting li,
+#greeting li a {
+  color: #ffffff !important;
+}
+
+#greeting .dropdown .menu li {
+  margin: 0 0.125em !important;
+}
+
+#greeting .menu {
+  width: 16em;
+}
+
+#header .dropdown .menu,
+#greeting .dropdown .menu {
+  border: 1px solid #414242;
+  background: #d5d4d8;
+}
+
+#header .actions a:hover,
+#header .actions a:focus,
+#header .dropdown:hover a,
+#header .open a,
+#header .dropdown .menu a,
+#header .dropdown .menu,
+#greeting .dropdown .menu,
+#greeting .dropdown .menu a {
+  background: #d5d4d8 !important;
+  color: #000000 !important;
+}
+
+#greeting .current,
+#greeting .dropdown:hover li,
+#greeting .dropdown:focus li {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: #d5d4d8 !important;
+  color: #000000 !important;
+}
+
+#header h2 {
+  background-color: #E0B4A4 !important;
+  box-shadow: 0 0 2px #000000;
+  color: #222222;
+}
+
+/* workskin & reading readability */
+#workskin {
+  line-height: 1.6;
+  font-size: 1.05em;
+  padding: 1.25em;
+  color: #222222;
+  background: #f5f7fa;
+}
+
+#workskin h2 {
+  font-size: 2.2em;
+  color: #773839;
+}
+
+#workskin a {
+  color: #773839;
+  text-decoration: underline;
+}
+
+#workskin a:hover {
+  background: #414242;
+  color: #ffffff;
+}
+
+.workskin .notes {
+  font-size: 90%;
+}
+
+/* action buttons & navigation controls */
+#main .actions a,
+#main .actions a:link,
+#main .actions a:visited,
+#main .action,
+#main .action:link,
+#main .action:visited,
+#main .actions input[type="submit"],
+#main .actions button,
+#main input[type="submit"],
+#main input[type="button"],
+#main input[type="reset"],
+#main button,
+#main .current,
+#main .actions label,
+.actions a,
+.actions a:focus,
+.actions input:focus,
+.action:focus,
+.actions li input,
+.actions li input[type="submit"],
+input[type="submit"],
+.actions li label,
+ul.navigation.actions li a,
+.action:link,
+.actions a:link {
+  background: #414242 !important;
+  color: #ffffff !important;
+  border: 1px solid #222222 !important;
+  border-radius: 5px;
+  padding: 0.35em 0.75em !important;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+#main .actions a:hover,
+#main .action:hover,
+#main .actions input[type="submit"]:hover,
+#main .actions button:hover,
+#main input[type="submit"]:hover,
+#main button:hover,
+.actions a:hover,
+.action:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: #E0B4A4 !important;
+  color: #222222 !important;
+  border-color: #773839 !important;
+  cursor: pointer;
+}
+
+.filters .submit input {
+  color: #ffffff;
+  background: #414242;
+  box-shadow: 0 0 4px #000000;
+  border: none;
+  padding: 0.4em 0.8em;
+  border-radius: 5px;
+}
+
+.current,
+#dashboard .current {
+  background: #414242 !important;
+  color: #ffffff !important;
+  border-radius: 5px;
+}
+
+/* forms, fieldsets & inputs */
+fieldset,
+form dl,
+fieldset dl dl,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff,
+.dynamic form fieldset,
+.toggled form fieldset,
+.toggled form dl,
+.secondary .toggled form,
+.secondary form,
+.required .autocomplete,
+.listbox,
+.dropdown,
+fieldset fieldset.listbox {
+  background-color: #cdccd9;
+  border-color: #414242;
+}
+
+form.verbose legend,
+.verbose form legend {
+  background: #cdccd9;
+  color: #222222;
+  border: 1px solid #414242;
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+}
+
+textarea,
+input,
+select,
+option,
+.toggled form,
+.dynamic form,
+.autocomplete .dropdown ul,
+.autocomplete .dropdown ul li,
+.autocomplete input {
+  background-color: #ffffff;
+  color: #222222;
+  border: 1px solid #414242;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  background-color: #f5f7fa;
+  border-color: #773839;
+  outline: none;
+}
+
+/* blurbs, tags & meta lists */
+li.blurb,
+.listbox li.blurb {
+  background-color: #f5f7fa;
+  box-shadow: 0 0 5px #000000;
+  border: 1px solid #414242;
+  border-radius: 6px;
+  margin-bottom: 1.5em;
+}
+
+.blurb .header {
+  border-bottom: 1px dashed #414242;
+  border-top: 1px dashed #414242;
+  background: #e7e8f0;
+}
+
+dl.meta,
+dl.index dd,
+.statistics .index li:nth-of-type(even),
+#ibox_wrapper,
+#ibox_content {
+  background-color: #f5f7fa;
+  border-color: #414242;
+}
+
+dl.meta {
+  font-size: 90%;
+}
+
+.reading h4.viewed,
+.bookmark .user {
+  box-shadow: none;
+  font-size: 90%;
+}
+
+.reading h4.viewed {
+  border: 1px dashed #414242;
+  background-color: #cdccd9;
+}
+
+.bookmark .user {
+  border-radius: 5px;
+}
+
+.bookmark .user .module {
+  border: none;
+}
+
+.icon {
+  border: 2px solid #ffffff;
+}
+
+.comment div.icon {
+  border-bottom: none;
+}
+
+/* tag labels & inline category headers */
+ul.tags li.warnings,
+ul.tags li.relationships,
+ul.tags li.characters,
+ul.tags li.freeforms {
+  display: inline-block;
+  margin: 0;
+  padding: 2px;
+}
+
+ul.tags li.warnings:first-child:before {
+  content: "Warnings: ";
+  color: #000000;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+li.warnings + li.relationships:before {
+  content: "Relationships: ";
+  color: #000000;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+li.relationships + li.characters:before,
+li.warnings + li.characters:before {
+  content: "Characters: ";
+  color: #000000;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+li.characters + li.freeforms:before,
+li.warnings + li.freeforms:before,
+li.relationships + li.freeforms:before {
+  content: "Other tags: ";
+  color: #000000;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+li.blurb blockquote p:first-child::before {
+  content: "About: ";
+  color: #000000;
+  font-size: 95%;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+.blurb ul.series::before {
+  content: "Series: ";
+  color: #000000;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+.blurb .fandoms::before {
+  content: "Fandom: ";
+  color: #000000;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+/* notices, alerts & popups */
+.comment h4.byline {
+  background: #AEAEB0;
+  color: #222222;
+}
+
+div.comment, li.comment {
+    border: 1px solid #222;
+}
+
+textarea, input, select, option, .toggled form, .dynamic form, .autocomplete .dropdown ul, .autocomplete .dropdown ul li, .autocomplete input {
+    background-color: #ffffff;
+    color: #222222;
+    border: 1px solid #414242;
+}
+
+#main .verbose legend,
+.unread,
+.child,
+.unwrangled,
+.unreviewed,
+.verbose fieldset,
+.draft,
+form ul.notes,
+#modal,
+.ui-sortable li,
+.comment_notice,
+.kudos_notice,
+div.dynamic,
+#ui-datepicker-div,
+.ui-datepicker table {
+  background-color: #E4E3F2;
+  border-color: #414242;
+}
+
+.flash,
+.notice {
+  background-color: #9EA9B7;
+  border-color: #414242;
+  color: #222222;
+}
+
+form .notice,
+ul.notes,
+.caution {
+  background-color: #E0B4A4;
+  border-color: #C39693;
+  color: #222222;
+}
+
+.alert.flash,
+.error,
+.comment_error,
+.kudos_error {
+  background: #efd1d1;
+  color: #000000;
+  border-color: #900000;
+}
+
+.splash .favorite li:nth-of-type(odd) a {
+  background: #AEAEB0;
+}
+
+.system .latest h3,
+.splash .module h3,
+.system .tweets h3 {
+  color: #000000;
+}
+
+/* dashboard & footer */
+#dashboard,
+#dashboard.own {
+  background: #f5f7fa;
+  color: #000000;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 2px #000000;
+}
+
+#dashboard ul {
+  background: transparent;
+  border: none;
+}
+
+#dashboard .secondary {
+  background-color: #ffffff;
+  box-shadow: none;
+}
+
+#dashboard a {
+  color: #222222;
+}
+
+#dashboard a:hover,
+#dashboard a:focus,
+#dashboard .current {
+  background: #414242 !important;
+  color: #ffffff !important;
+}
+
+#footer {
+  background: none;
+  border: none;
+}

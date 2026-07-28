@@ -1,0 +1,1070 @@
+/* From https://github.com/Magalli1234/duck-skin-ao3
+ * adjusted for readability & other cleanups
+ */
+
+/* header & navigation */
+#header h1 sup,
+#greeting .icon,
+#header .button,
+#header .landmark,
+#header .logo {
+  display: none;
+}
+
+#header,
+#inner.wrapper {
+  margin: 0 4%;
+}
+
+#header {
+  background-color: #E6EDB5;
+  border-radius: 20px;
+  border: 10px solid #749140;
+  box-shadow: 0 0 4px #000;
+}
+
+#header .heading {
+  margin: 20px 0 10px 20px;
+  border: 2px solid #749140;
+  background-color: #cad588;
+  border-radius: 20px;
+  width: 130px;
+  height: 80px;
+  display: block;
+}
+
+#header .heading a {
+  color: #314a24;
+  font-size: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#header h1.heading a::after {
+  content: "";
+  display: block;
+  width: 130px;
+  height: 80px;
+  background: url("https://64.media.tumblr.com/3d5e048cff748a0d26642509162f2ad3/9a510c1a39d2b1ae-00/s1280x1920/8b4b9e42396e665314b7412824c5f5a7a81d4c8c.png") no-repeat center;
+  background-size: contain;
+}
+
+#header .primary {
+  box-shadow: none;
+  background: none;
+  color: #3b4a24;
+}
+
+#header .primary li:first-child {
+  margin-left: 0;
+}
+
+#header .primary li,
+#header .primary li a,
+#greeting li,
+#greeting li a {
+  color: #3b4a24;
+}
+
+#greeting {
+  background: none;
+  margin-right: 0;
+  color: #3b4a24;
+  padding: 20px;
+}
+
+#greeting li {
+  clear: left;
+  border-bottom: 1px dashed #3b4a24;
+  margin-top: 0.3em;
+}
+
+#greeting .icon img {
+  margin-top: 0.3em;
+  border: 2px solid #fff;
+}
+
+#greeting .dropdown .menu li {
+  margin: 0 0.125em;
+}
+
+#greeting .menu {
+  width: 16em;
+}
+
+#header #search .text {
+  background: #ffffff;
+  color: #3b4a24;
+  width: 8em;
+  border: 1px solid #749140;
+}
+
+#header .dropdown .menu,
+#greeting .dropdown .menu {
+  border: 1px solid #93A664;
+}
+
+#header .actions a:hover,
+#header .actions a:focus,
+#header .dropdown:hover a,
+#header .open a,
+#header .dropdown .menu a,
+#header .dropdown .menu,
+#greeting .dropdown .menu,
+#greeting .dropdown .menu a {
+  background: #E6EDB5;
+  color: #3b4a24;
+}
+
+#greeting .current,
+#greeting .dropdown:hover li,
+#greeting .dropdown:focus li {
+  box-shadow: none;
+  background: #E6EDB5;
+  color: #3b4a24;
+}
+
+/* global base & typography */
+body,
+.secondary,
+.dropdown {
+  background: #cad588;
+  color: #3b4a24;
+  border: 1px solid #749140;
+  box-shadow: none;
+}
+
+#outer.wrapper {
+  background: #cad588 #466B4A;
+  padding-top: 140px;
+  background-image: url("https://i.pinimg.com/originals/4c/07/a3/4c07a36edf65a58e9cdb5b6fb29f1fc5.jpg");
+  background-size: 30.7% auto;
+  background-repeat: repeat;
+  background-position: center top;
+}
+
+#inner.wrapper {
+  border-bottom: 2px solid #C8872B;
+  border-left: 2px solid #C8872B;
+  border-right: 2px solid #C8872B;
+  box-shadow: 0 0 4px #000;
+}
+
+#main,
+#inner.wrapper,
+.listbox .index,
+.work.own,
+.thread .even {
+  background: #fbf2e0;
+  color: #3b4a24;
+}
+
+#main a {
+  color: #3b4a24;
+}
+
+#main a:hover {
+  color: #db532c;
+  text-decoration: underline;
+}
+
+h2 {
+  font-size: 1.286em;
+  line-height: 1.2;
+  margin: 0.5375em 0;
+}
+
+/* workskin & reading readability */
+#workskin {
+  text-align: left;
+  line-height: 1.6;
+  font-size: 1.05em;
+  padding: 1.25em;
+  color: #3b4a24;
+}
+
+#workskin h2 {
+  font-size: 2.2em;
+  color: #314a24;
+}
+
+#workskin a {
+  color: #314a24;
+  text-decoration: underline;
+}
+
+#workskin a:hover {
+  color: #db532c;
+}
+
+.workskin .notes {
+  font-size: 90%;
+}
+
+/* action buttons & navigation controls */
+#main .actions a,
+#main .actions a:link,
+#main .actions a:visited,
+#main .action,
+#main .action:link,
+#main .action:visited,
+#main .actions input[type="submit"],
+#main .actions button,
+#main input[type="submit"],
+#main input[type="button"],
+#main input[type="reset"],
+#main button,
+#main .current,
+#main .actions label,
+li.chapter-index a,
+li.download a,
+div.download a,
+.dropdown-toggle,
+.unread,
+.read,
+.replied,
+#greeting .user > li > a,
+#greeting .user > li > form.button_to input,
+#greeting .user > li > form.button_to button {
+  background: #E6EDB5 !important;
+  border: 1px solid #749140 !important;
+  border-radius: 4px !important;
+  padding: 0.2em 0.6em !important;
+  margin: 0 0.15em !important;
+  font-family: "Garamond", "Baskerville", "Georgia", "Times New Roman", serif !important;
+  font-size: 0.85em !important;
+  letter-spacing: 0.08em !important;
+  font-variant: small-caps;
+  text-transform: none !important;
+  color: #3b4a24 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  display: inline-block;
+}
+
+#main .actions a:hover,
+#main .action:hover,
+#main .actions input[type="submit"]:hover,
+#main .actions button:hover,
+#main input[type="submit"]:hover,
+#main button:hover,
+.splash .favorite li a:hover {
+  background: #f8dba8 !important;
+  border-color: #db532c !important;
+  color: #3b4a24 !important;
+}
+
+.actions a:active,
+.current,
+a.current,
+a:link.current,
+.current a:visited {
+  color: #3b4a24;
+  background: #f8dba8;
+  border-color: #db532c;
+  box-shadow: none;
+  font-family: "Garamond", "Baskerville", "Georgia", "Times New Roman", serif !important;
+}
+
+.filters .submit input {
+  color: #fff;
+  background: #cad588;
+  border: 1px solid #E6EDB5;
+  border-radius: 10px;
+  box-shadow: 0 0 4px #749140;
+  padding: 0.4em 0.8em;
+}
+
+/* forms, fieldsets & inputs */
+.listbox,
+.bookmark .user,
+.bookmark .user .header,
+.reading h4.viewed,
+li.relationships a,
+.dropdown,
+fieldset fieldset.listbox,
+fieldset,
+form dl,
+fieldset dl dl,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff,
+.dynamic form fieldset,
+.toggled form fieldset,
+.toggled form dl,
+.secondary .toggled form,
+.secondary form,
+.required .autocomplete {
+  background-color: #E6EDB5;
+  color: #3b4a24;
+  border-color: #749140;
+}
+
+form.verbose legend,
+.verbose form legend,
+.comment h4.byline {
+  background-color: #cad588;
+  color: #3b4a24;
+  border: 1px solid #749140;
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+}
+
+textarea,
+input,
+select,
+option,
+.toggled form,
+.dynamic form,
+.autocomplete .dropdown ul,
+.autocomplete .dropdown ul li,
+.autocomplete input {
+  background-color: #f5f5f5;
+  color: #3b4a24;
+  border: 1px solid #749140;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  background-color: #ffffff;
+  border-color: #db532c;
+  outline: none;
+}
+
+.filters fieldset {
+  border-radius: 20px;
+}
+
+/* blurbs, tags & meta lists */
+li.blurb,
+.listbox li.blurb,
+li.comment,
+.statistics .index li:nth-of-type(even),
+dl.meta,
+dl.index dd,
+#ibox_wrapper,
+#ibox_content {
+  background-color: #E6EDB5;
+}
+
+li.blurb,
+.listbox li.blurb {
+  border: 4px solid #E6EDB5;
+  border-radius: 20px;
+  box-shadow: none;
+}
+
+.blurb .header {
+  border-bottom: 2px solid #E6EDB5;
+}
+
+dl.meta {
+  border-color: #93A664;
+  font-size: 90%;
+}
+
+.bookmark .user {
+  border-radius: 5px;
+  box-shadow: none;
+  font-size: 90%;
+}
+
+.bookmark .user .module {
+  border: none;
+}
+
+.reading h4.viewed {
+  border: 1px dashed #3b4a24;
+  box-shadow: none;
+  font-size: 90%;
+}
+
+/* tag labels & food emojis */
+ul.tags li.warnings,
+ul.tags li.relationships,
+ul.tags li.characters,
+ul.tags li.freeforms {
+  display: inline-block;
+  margin: 0;
+  padding: 2px;
+}
+
+li.warnings + li.relationships:before {
+  content: "🍤 ";
+}
+
+li.relationships + li.characters:before {
+  content: "🍳 ";
+}
+
+li.characters + li.freeforms:before {
+  content: "🥗 ";
+}
+
+li.relationships + li.freeforms:before {
+  content: "🦐 ";
+}
+
+li.warnings + li.characters:before {
+  content: "🥚 ";
+}
+
+li.warnings + li.freeforms:before {
+  content: "🥬 ";
+}
+
+a.tag,
+a.tag:visited,
+a.tag:link {
+  display: inline-block;
+  padding: 2px 5px;
+  margin: 2px 0;
+  border-radius: 5px;
+}
+
+a.tag:hover,
+a.tag:focus,
+.splash .favorite li:nth-of-type(odd) a:hover,
+.splash .favorite li:nth-of-type(odd) a:focus,
+#dashboard a:hover,
+#dashboard a:focus,
+#dashboard .current,
+#header .dropdown .menu a:hover,
+#header .dropdown .menu a:focus {
+  background: #cad588;
+  color: #3b4a24;
+}
+
+.commas li:after {
+  content: "";
+}
+
+.warnings .tag {
+  background: #e4562e;
+  color: #f5f5f5 !important;
+  border: 1px solid #9a4024;
+}
+
+h5.fandoms {
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+h5.fandoms a.tag {
+  color: #3b4a24 !important;
+  font-size: 11px !important;
+  display: inline-block !important;
+}
+
+.blurb h4 a:link,
+#footer h4 {
+  color: #455a28;
+}
+
+/* custom icons & indicator sets */
+ul.required-tags,
+.bookmark .status span,
+.blurb .icon {
+  opacity: 1 !important;
+}
+
+img[src$="/images/skins/iconsets/default/icon_collection.png"] {
+  box-sizing: border-box;
+  border: 1.5px solid #00000025;
+  background: linear-gradient(transparent, #ffffff50 45% 55%, transparent),
+    #616c90 border-box;
+  content: url("https://zerafinacss.github.io/ao3/icons/collection-01.png");
+}
+
+.tagset .primary .icon,
+.tag .primary .icon,
+.index .tagset .icon {
+  box-sizing: border-box;
+  border: 1.5px solid #00000025;
+  background: url("https://zerafinacss.github.io/ao3/icons/tag-01.png"),
+    linear-gradient(transparent, #ffffff50 45% 55%, transparent),
+    #900 border-box;
+  background-size: cover;
+}
+
+.index .mystery .icon {
+  box-sizing: border-box;
+  border: 1.5px solid #ddd;
+  box-shadow: inset 0 0 0 3px #fff;
+  background: url("https://zerafinacss.github.io/ao3/icons/anon-01.png"),
+    linear-gradient(transparent, #ffffff50 45% 55%, transparent)
+    #616c90 content-box;
+  background-size: cover;
+}
+
+.admin .primary .icon {
+  box-sizing: border-box;
+  border: 1.5px solid #00000099;
+  background: url("https://zerafinacss.github.io/ao3/icons/admin-01.png")
+    no-repeat,
+    linear-gradient(#ffffff40, transparent)
+    #900 border-box;
+  background-size: cover;
+}
+
+.skins .primary .icon:not(:has(a .icon)),
+.index .skins .icon:not(:has(a .icon)) {
+  box-sizing: border-box;
+  border: 1.5px solid #ddd;
+  background: url("https://zerafinacss.github.io/ao3/icons/skins-01.png"),
+    #900 border-box;
+  background-size: cover;
+}
+
+#symbols-key dl img,
+#bookmark-symbols-key img {
+  width: 0 !important;
+  height: 0 !important;
+  padding: 25px 0 0 25px;
+}
+
+.blurb ul.required-tags li a > span,
+.bookmark p.status a > span,
+#symbols-key dl img,
+#bookmark-symbols-key img {
+  box-sizing: border-box;
+  border: 1px solid;
+  background-size: cover;
+  background-origin: border-box;
+}
+
+.required-tags .rating-notrated,
+.required-tags .category-none,
+.required-tags .warning-no,
+.status .count,
+img[src$="/images/skins/iconsets/default/rating-notrated.png"],
+img[src$="/images/skins/iconsets/default/category-none.png"],
+img[src$="/images/skins/iconsets/default/warning-no.png"] {
+  color: #00000040;
+  background: #ffffffcc;
+}
+
+.required-tags .rating-general-audience,
+img[src$="/images/skins/iconsets/default/rating-general-audience.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/rating-gen-01.png"),
+    #8bc101;
+}
+
+.required-tags .rating-teen,
+img[src$="/images/skins/iconsets/default/rating-teen.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/rating-teen-01.png"),
+    #f5ce00;
+}
+
+.required-tags .rating-mature,
+img[src$="/images/skins/iconsets/default/rating-mature.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/rating-mature-01.png"),
+    #ef851c;
+}
+
+.required-tags .rating-explicit,
+img[src$="/images/skins/iconsets/default/rating-explicit.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/rating-explicit-01.png"),
+    #b0021f;
+}
+
+.required-tags .category-femslash,
+img[src$="/images/skins/iconsets/default/category-femslash.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-ff-01.png"),
+    #b0021f;
+}
+
+.required-tags .category-het,
+img[src$="/images/skins/iconsets/default/category-het.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-mf-01.png"),
+    #910679;
+}
+
+.required-tags .category-gen,
+img[src$="/images/skins/iconsets/default/category-gen.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-gen-01.png"),
+    #8bc101;
+}
+
+.required-tags .category-slash,
+img[src$="/images/skins/iconsets/default/category-slash.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-mm-01.png"),
+    #0054d4;
+}
+
+.required-tags .category-multi,
+img[src$="/images/skins/iconsets/default/category-multi.png"] {
+  color: #0000001a;
+  background: conic-gradient(from 270deg, #8bc101 25%, #910679 25% 50%, #0054d4 50% 75%, #b0021f 75%);
+}
+
+.required-tags .category-other,
+img[src$="/images/skins/iconsets/default/category-other.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/category-other-01.png"),
+    #000;
+}
+
+.required-tags .warning-choosenotto,
+img[src$="/images/skins/iconsets/default/warning-choosenotto.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/warning-choosenotto-01.png"),
+    #ef851c;
+}
+
+.required-tags .warning-yes,
+img[src$="/images/skins/iconsets/default/warning-yes.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/warning-yes-01.png"),
+    #b0021f;
+}
+
+.required-tags .external-work,
+img[src$="/images/skins/iconsets/default/warning-external-work.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/warning-external-work-01.png"),
+    #107cb9;
+}
+
+.required-tags .complete-no,
+img[src$="/images/skins/iconsets/default/complete-no.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/complete-no-01.png"),
+    #b0021f;
+}
+
+.required-tags .complete-yes,
+img[src$="/images/skins/iconsets/default/complete-yes.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/complete-yes-01.png"),
+    #8bc101;
+}
+
+.status .rec,
+img[src$="/images/skins/iconsets/default/bookmark-rec.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/bookmark-rec-01.png"),
+    #107cb9;
+}
+
+.status .public,
+img[src$="/images/skins/iconsets/default/bookmark-public.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/bookmark-public-01.png"),
+    #107cb9;
+}
+
+.status .private,
+img[src$="/images/skins/iconsets/default/bookmark-private.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/bookmark-locked-01.png"),
+    #000;
+  font-size: 0;
+}
+
+.status .private .text {
+  background: none;
+}
+
+.status .hidden,
+img[src$="/images/skins/iconsets/default/bookmark-hidden.png"] {
+  color: #0000001a;
+  background: url("https://zerafinacss.github.io/ao3/icons/bookmark-locked-01.png"),
+    #b0021f;
+}
+
+a.rss span {
+  padding: 0;
+  background: none;
+}
+
+.actions li a.rss {
+  display: inline-flex;
+  align-content: center;
+  align-items: center;
+  column-gap: 0.3em;
+}
+
+.actions li a.rss::before {
+  box-sizing: border-box;
+  width: 0.85em;
+  height: 0.85em;
+  border: 1px solid var(--icon-border1);
+  border-radius: 2px;
+  background: url("https://zerafinacss.github.io/ao3/icons/rss-01.png")
+     #ef851c;
+  background-size: cover;
+  content: "";
+}
+
+html body img[src$="/images/lockblue.png"] {
+  content: url("https://64.media.tumblr.com/b4eaa35200fea2d3fb16c70477413bed/1d08f34b827492f7-41/s250x400/8dedcce4df9621d666c61facea5aeb890be96508.png") !important;
+  height: 20px !important;
+  width: auto !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  vertical-align: middle !important;
+}
+
+/* notices, alerts & popups */
+.comment h4.byline,
+#main .verbose legend,
+.unread,
+.child,
+.unwrangled,
+.unreviewed,
+.verbose fieldset,
+.draft,
+form ul.notes,
+#modal,
+.ui-sortable li,
+.comment_notice,
+.kudos_notice,
+div.dynamic,
+#ui-datepicker-div,
+.ui-datepicker table {
+  background-color: #cad588;
+  border-color: #749140;
+}
+
+.comment div.icon {
+  border-bottom: 5px solid #cad588;
+  border-right: 1px solid #cad588;
+}
+
+.flash,
+.notice {
+  background-color: #E6EDB5;
+  border-color: #749140;
+  color: #3b4a24;
+}
+
+form .notice,
+ul.notes,
+.caution {
+  background-color: #E6EDB5;
+  border-color: #749140;
+  box-shadow: none;
+}
+
+.alert.flash,
+.error,
+.comment_error,
+.kudos_error {
+  background: #f8dba8;
+  color: #3b4a24;
+  border-color: #db532c;
+}
+
+span.question {
+  background: #f8dba8;
+  color: #3b4a24;
+  font-weight: normal;
+  border: 2px solid #db532c;
+  box-shadow: none;
+}
+
+#modal {
+  background: #cad588;
+  border: 2px solid #749140;
+  box-shadow: none;
+}
+
+#modal .content {
+  border-bottom: 1px solid #749140;
+}
+
+#modal.img a {
+  color: #f8dba8;
+}
+
+#modal.img .content img {
+  border: 1px solid #3b4a24;
+  box-shadow: none;
+}
+
+/* splash, user profile & module art */
+.splash .news blockquote p:first-child {
+  padding-left: 105px;
+  background: url("https://64.media.tumblr.com/d4e5e87dffe1c861a1800e7209794a6b/69e424a8c1bdf3d7-b0/s1280x1920/77d1144053902f2520cce4936c5a3b46e6bfe6dc.png");
+  background-size: 100px 80px;
+  background-position-x: left;
+  background-position-y: top;
+  background-repeat: no-repeat;
+}
+
+.social.module p {
+  padding-left: 83px;
+  background: url("https://64.media.tumblr.com/932ea896fd17740c0fe70ecb5ed7f599/69e424a8c1bdf3d7-ef/s1280x1920/3411faf8a2a48f2d083d87e1bedf5fe68829d93a.png");
+  background-size: 80px 78px;
+  background-position-x: left;
+  background-position-y: top;
+  background-repeat: no-repeat;
+}
+
+.profile-show.dashboard.region dl.meta {
+  border: none;
+  box-shadow: none;
+  background: url("https://64.media.tumblr.com/8085653e0658d6de903a12d83f2d67fa/69e424a8c1bdf3d7-89/s2048x3072/4616709d9ee01fc2df31a1cf8447cb55fa0f1a1e.png");
+  background-position-x: right;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.favorite.module.odd {
+  background: url("https://64.media.tumblr.com/5f662b01fc039e7f4829306e74214f07/69e424a8c1bdf3d7-45/s1280x1920/40e8a430e8ccddc203cf0eb1a62f241f664eaf5e.png");
+  background-position-x: right;
+  background-position-y: bottom;
+  background-size: 40%;
+  background-repeat: no-repeat;
+}
+
+.splash .favorite:after {
+  content: "“ᴀɴᴅ ꜰᴏʀ ᴛʜᴇ ʟᴀᴅʏ, ᴘᴇʀʜᴀᴘꜱ ᴀ ꜱᴀʟᴀᴅ?” ᴘᴇʀʜᴀᴘꜱ ɴᴏᴛ.";
+  display: flex;
+  color: #2E3B18;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold !important;
+  font-size: 90%;
+}
+
+.splash .favorite li:nth-of-type(odd) a {
+  background: none;
+}
+
+.home .primary.header.module {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin: 20px auto !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.home .primary.header.module .icon {
+  order: 1 !important;
+  float: none !important;
+  margin: 0 auto 15px auto !important;
+  position: relative !important;
+  background: transparent !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.home .primary.header.module .icon img {
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 50% !important;
+  margin: 0 !important;
+}
+
+.home .primary.header.module .icon::before {
+  display: none !important;
+}
+
+.home .primary.header.module h2.heading {
+  order: 2 !important;
+  float: none !important;
+  width: 100% !important;
+  display: block !important;
+  margin: 0 0 10px 0 !important;
+  text-align: center !important;
+  border: none !important;
+  font-size: 1.5rem !important;
+}
+
+.home .primary.header.module ul.actions {
+  order: 3 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.home .primary.header.module ul.actions li {
+  margin: 0 5px !important;
+  display: inline-block !important;
+}
+
+html body .home .primary.header.module .icon a::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 47% !important;
+  top: -28px !important;
+  width: 150px !important;
+  height: 150px !important;
+  margin-left: -75px !important;
+  background-image: url("https://64.media.tumblr.com/029c24f914d1935514c566c7d7bf1750/e1c19b3c72e03520-46/s1280x1920/edd0005dc754d69de5be60cfad51799b2cd7c638.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  z-index: 2 !important;
+}
+
+.comment .icon .visitor {
+  background: url("https://64.media.tumblr.com/6da63670a1f86977637247aa7d7d6104/344761d4c90fac54-ff/s1280x1920/d74e8aec7f12d8726d26b501e415c6dd5bd10bb1.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.comment .userstuff {
+  padding-right: 60px;
+  padding-bottom: 70px;
+  background: url("https://64.media.tumblr.com/8891a6df77950d94d16ecf7e2078936c/627797a4c4a93201-b9/s540x810/c5685595abe14e5a122d339761457afeb67aaeec.png");
+  background-position-x: right;
+  background-position-y: top;
+  background-repeat: no-repeat;
+  background-size: 64px 90px;
+}
+
+p.kudos,
+.index .skins .icon {
+  background: url("https://64.media.tumblr.com/5773daffaf5406056c711af971df29b5/69e424a8c1bdf3d7-fe/s1280x1920/5680b300d8c05006b00629961112bd7febddcff4.png");
+  background-size: 55px 55px;
+  background-repeat: no-repeat;
+}
+
+/* dashboard & footer */
+#dashboard.own {
+  position: relative;
+  box-sizing: border-box;
+  max-width: 700px;
+  margin: 1.5em auto 1em auto;
+  padding: 10px 14px !important;
+  border: none !important;
+  border-radius: 14px;
+  background-color: #E6EDB5;
+  overflow: hidden;
+  font-family: "Garamond", "Baskerville", "Georgia", "Times New Roman", serif;
+  font-size: 0.9em !important;
+  line-height: 1.5;
+  text-align: center;
+  z-index: 0;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04),
+              0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+#dashboard a {
+  color: #3b4a24;
+  border: 1px solid transparent;
+}
+
+#dashboard:not(.own) {
+  background: #F3E9E0 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04),
+              0 2px 4px rgba(0, 0, 0, 0.05) !important;
+  padding: 0.4em 0.8em 0.35em 0.8em !important;
+  margin: 0 0 14px 0 !important;
+  font-size: 0.78em !important;
+}
+
+#dashboard:not(.own) ul.primary,
+#dashboard:not(.own) ul.secondary {
+  margin: 0 !important;
+  padding: 0.15em 0 0.1em 0 !important;
+  list-style: none !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+}
+
+#dashboard:not(.own) ul.primary li,
+#dashboard:not(.own) ul.secondary li {
+  margin: 0 0.7em 0.25em 0.7em !important;
+  padding: 0 !important;
+}
+
+#dashboard:not(.own) ul.primary li a,
+#dashboard:not(.own) ul.secondary li a {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  display: inline-block !important;
+  padding: 0 0.25em 2px 0.25em !important;
+  margin: 0 !important;
+  font-family: "Garamond", "Baskerville", "Georgia", "Times New Roman", serif !important;
+  font-size: 1em !important;
+  font-variant: small-caps;
+  letter-spacing: 0.08em !important;
+  text-transform: none !important;
+  color: #2C3E50 !important;
+  text-decoration: none !important;
+}
+
+#dashboard:not(.own) ul.primary li a:hover,
+#dashboard:not(.own) ul.primary li a:focus,
+#dashboard:not(.own) ul.secondary li a:hover,
+#dashboard:not(.own) ul.secondary li a:focus,
+#dashboard:not(.own) ul.primary li.current a,
+#dashboard:not(.own) ul.secondary li.current a {
+  color: #1f2a36 !important;
+  border-bottom: 1px solid #7394AF !important;
+}
+
+#dashboard:not(.own) .current {
+  background: transparent !important;
+  border: none !important;
+}
+
+#dashboard ul {
+  background: transparent;
+  border: none;
+}
+
+#dashboard .secondary {
+  background-color: #fff;
+  box-shadow: none;
+}
+
+#footer {
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, transparent 100px, #93A664 100px, #93A664 100%);
+  background-position: top center;
+  background-size: auto 100% 100%;
+  background-repeat: no-repeat;
+  border-top: none;
+  padding-top: 130px;
+}
+
+#footer .menu a,
+#footer .menu {
+  color: #3b4a24;
+}
+
+.system .latest h3,
+.splash .module h3,
+.system .tweets h3 {
+  color: #455a28;
+}
+
+p.footnote a {
+  color: #db532c !important;
+}
+
+li.previous span.disabled,
+li.next span.disabled {
+  display: none;
+}

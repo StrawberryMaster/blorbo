@@ -1,0 +1,705 @@
+/* From https://github.com/coldtothetouchh/Blue-Plaid-AO3-Skin
+ * adjusted for readability & other cleanups
+ * @seealso: https://github.com/coldtothetouchh/Talk-to-me-Sweet-AO3-Skin
+ */
+
+/* global base & typography */
+body,
+#outer.wrapper,
+#main,
+#inner.wrapper {
+  color: #d4b896;
+}
+
+h1, h2, h3, h4, h5, h6,
+.heading,
+legend,
+label,
+form dt {
+  color: #d4b896;
+}
+
+h2 {
+  font-size: 1.286em;
+  line-height: 1.2;
+  margin: 0.5375em 0;
+}
+
+/* links & interactive text */
+a,
+a:link,
+a:visited {
+  color: #c68a3a !important;
+  text-decoration: none;
+}
+
+#workskin a,
+.userstuff a,
+.blurb p a {
+  text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+  color: #f5ddb8 !important;
+  text-decoration: underline;
+}
+
+.required {
+  color: #d4b896;
+}
+
+
+/* page containers & layout */
+#outer.wrapper {
+  background-color: #0b1120;
+  padding-top: 0;
+  background-image: url("https://raw.githubusercontent.com/coldtothetouchh/Talk-to-me-Sweet-AO3-Skin/refs/heads/main/blue-plaid-tile.jpg");
+  background-size: 30.7% auto;
+  background-repeat: repeat;
+  background-position: center top;
+}
+
+#inner.wrapper {
+  margin: 0 6%;
+}
+
+#main,
+#inner.wrapper,
+.listbox .index,
+.work.own,
+.thread .even {
+  background: #141c2e;
+}
+
+
+/* header & navigation */
+#header {
+  background-color: #0b1120;
+  margin: 0;
+  position: relative;
+}
+
+#header .logo,
+#header h1 sup,
+#header h1 a span,
+#greeting .icon,
+#header .button,
+#header .landmark {
+  display: none !important;
+}
+
+#header h1,
+#header .heading {
+  height: auto;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#header h1 a {
+  color: #d4b896 !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-indent: -9999px;
+  z-index: 2;
+}
+
+#header .primary {
+  background: #1e2a45;
+  box-shadow: none;
+  color: #d4b896;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: static;
+  width: 100%;
+  z-index: 10;
+}
+
+#header .primary li,
+#header .primary li a,
+#greeting li,
+#greeting li a {
+  color: #d4b896;
+}
+
+#header .primary li:first-child {
+  margin-left: 0;
+}
+
+#header .dropdown .menu,
+#header .primary .dropdown .menu,
+#greeting .dropdown .menu {
+  z-index: 100;
+  position: absolute;
+  border: 1px solid #2e4068;
+}
+
+#header .actions a:hover,
+#header .actions a:focus,
+#header .dropdown:hover a,
+#header .open a,
+#header .dropdown .menu a,
+#header .dropdown .menu,
+#greeting .dropdown .menu,
+#greeting .dropdown .menu a {
+  background: #1e2a45;
+  color: #d4b896;
+}
+
+#header .dropdown .menu a:hover,
+#header .dropdown .menu a:focus {
+  background: #2e4068;
+  color: #f5ddb8;
+}
+
+#greeting {
+  background: #1e2a45;
+  box-shadow: none;
+  color: #d4b896;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  width: 100%;
+  z-index: 10;
+  border-bottom: 1px solid #2e4068;
+  font-size: 1em;
+}
+
+#greeting ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#greeting li {
+  display: inline-block;
+  border-right: 1px solid #2e4068;
+  margin-top: 0;
+  padding: 0.4em 0.8em;
+  white-space: nowrap;
+}
+
+#greeting li:last-child {
+  border-right: none;
+}
+
+#greeting .dropdown .menu li {
+  display: block;
+  border-right: none;
+  padding: 0.3em 0.6em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+#greeting .menu {
+  width: 16em;
+}
+
+#greeting .current,
+#greeting .dropdown:hover li,
+#greeting .dropdown:focus li {
+  box-shadow: none;
+  background: #1e2a45;
+  color: #d4b896;
+}
+
+
+/* workskin */
+#workskin {
+  text-align: left;
+  line-height: 1.6;
+  font-size: 1.05em;
+  color: #d4b896;
+}
+
+#workskin h2 {
+  font-size: 2em;
+  color: #c68a3a;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+#workskin p,
+#workskin li,
+#workskin dd,
+#workskin dt,
+#workskin span,
+#workskin div {
+  color: #d4b896;
+}
+
+.workskin .notes {
+  font-size: 90%;
+}
+
+
+/* blurbs, metadata & tags */
+li.blurb,
+.listbox li.blurb {
+  background-color: #141c2e;
+  border: 4px solid #2e4068;
+  border-radius: 20px;
+  box-shadow: 0 0 4px #000;
+  color: #d4b896;
+}
+
+.blurb .header {
+  border-bottom: 2px solid #2e4068;
+}
+
+.blurb h4 a:link {
+  color: #c68a3a;
+}
+
+dl.meta,
+dl.stats,
+.stats,
+.byline,
+.datetime {
+  color: #d4b896;
+}
+
+dl.meta {
+  background-color: #141c2e;
+  font-size: 90%;
+}
+
+.icon {
+  border: 2px solid #d4b896;
+}
+
+.comment div.icon {
+  border-bottom: none;
+}
+
+/* tags */
+ul.tags li.warnings,
+ul.tags li.relationships,
+ul.tags li.characters,
+ul.tags li.freeforms {
+  display: inline-block;
+  margin: 0;
+  padding: 2px;
+}
+
+ul.tags li.warnings:first-child:before {
+  content: "Warnings: ";
+  color: #d4b896;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+li.warnings + li.relationships:before {
+  content: "Relationships: ";
+  color: #d4b896;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+li.relationships + li.characters:before,
+li.warnings + li.characters:before {
+  content: "Characters: ";
+  color: #d4b896;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+li.characters + li.freeforms:before,
+li.warnings + li.freeforms:before,
+li.relationships + li.freeforms:before {
+  content: "Additional Tags: ";
+  color: #d4b896;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+ul.tags li.relationships a {
+  color: #c68a3a;
+}
+
+a.tag:hover,
+a.tag:focus {
+  background: #2e4068;
+  color: #f5ddb8;
+}
+
+
+/* forms, inputs & buttons */
+textarea,
+input,
+select,
+option,
+.toggled form,
+.dynamic form,
+.autocomplete .dropdown ul,
+.autocomplete .dropdown ul li,
+.autocomplete input {
+  background-color: #0f1628;
+  color: #d4b896;
+  border: 1px solid #2e4068;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  background-color: #141c2e;
+  border-color: #c68a3a;
+  outline: none;
+}
+
+.filters .submit input {
+  color: #f5ddb8;
+  background: #2e4068;
+  border: 1px solid #1e2a45;
+  border-radius: 10px;
+  box-shadow: 0 0 4px #000;
+}
+
+.filters fieldset {
+  border-radius: 20px;
+}
+
+/* action buttons & navigation controls */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+ul.work.navigation.actions li a,
+ul.work.navigation.actions li button,
+#main ul.work.navigation.actions li a,
+#main ul.work.navigation.actions li button,
+#main .actions a,
+#main .actions button,
+#main .actions input[type="submit"],
+#workskin ~ ul.work.navigation.actions li a,
+body#chapters ul.work.navigation.actions a,
+body#chapters ul.work.navigation.actions button,
+body#works ul.work.navigation.actions a,
+body#works ul.work.navigation.actions button {
+  background: #1e2a45 !important;
+  color: #d4b896 !important;
+  border: 1px solid #2e4068 !important;
+  border-radius: 10px !important;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+button:hover,
+ul.work.navigation.actions li a:hover,
+ul.work.navigation.actions li button:hover,
+#main ul.work.navigation.actions li a:hover,
+#main ul.work.navigation.actions li button:hover {
+  background: #2e4068 !important;
+  color: #f5ddb8 !important;
+  border-color: #c68a3a !important;
+}
+
+ul.work.navigation.actions {
+  padding-top: 0;
+}
+
+
+/* borders, listboxes & module containers */
+.splash .module h3,
+.splash .news li,
+.home .header h2,
+li.comment,
+dl.meta,
+.bookmark .user,
+#header .menu li,
+#dashboard ul,
+#dashboard .secondary,
+ul.notes,
+.flash,
+.notice,
+tbody tr,
+thead td,
+#header #small_login,
+fieldset,
+form dl,
+fieldset dl dl,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff,
+form dt,
+.actions a:active,
+.current,
+a.current,
+.search span.tip,
+.listbox,
+fieldset fieldset.listbox {
+  border-color: #2e4068;
+}
+
+.listbox,
+.bookmark .user,
+.bookmark .user .header,
+.reading h4.viewed,
+li.relationships a,
+.dropdown,
+fieldset fieldset.listbox,
+fieldset,
+form dl,
+fieldset dl dl,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff,
+.dynamic form fieldset,
+.toggled form fieldset,
+.toggled form dl,
+.secondary .toggled form,
+.secondary form,
+.required .autocomplete {
+  background-color: #1e2a45;
+}
+
+.bookmark .user {
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.bookmark .user .module {
+  border: none;
+}
+
+.bookmark .user .header,
+.comment .posted,
+.comment .edited {
+  font-size: 90%;
+}
+
+.reading h4.viewed {
+  border: 1px dashed #2e4068;
+  box-shadow: none;
+  font-size: 90%;
+}
+
+
+/* notices, alerts & kudos */
+.comment h4.byline,
+#main .verbose legend,
+.unread,
+.child,
+.unwrangled,
+.unreviewed,
+.verbose fieldset,
+.draft,
+form ul.notes,
+#modal,
+.ui-sortable li,
+.comment_notice,
+.kudos_notice,
+div.dynamic,
+#ui-datepicker-div,
+.ui-datepicker table {
+  background-color: #1e2a45;
+  border-color: #2e4068;
+}
+
+.flash,
+.notice {
+  background-color: #1e2a45;
+  border-color: #0b1120;
+  color: #d4b896;
+}
+
+form .notice,
+ul.notes,
+.caution {
+  background-color: #253550;
+  border-color: #4a6a9a;
+  color: #d4b896;
+}
+
+.alert.flash,
+.error,
+.comment_error,
+.kudos_error {
+  background: #3a1a2a;
+  color: #f5ddb8;
+  border-color: #8a2040;
+}
+
+p.kudos,
+.kudos_notice {
+  position: static;
+  padding-top: 0;
+  margin-top: 5px;
+  display: block;
+  text-align: center;
+  background-image: none !important;
+}
+
+p.kudos::before,
+p.kudos::after,
+.kudos_notice::before {
+  content: none;
+}
+
+.kudos_notice .icon,
+.kudos_notice img,
+#kudos_comment_count img,
+p.kudos img,
+p.kudos .icon,
+#kudos .icon,
+dd.kudos .icon,
+dd.kudos img,
+.kudos img,
+.kudos .icon {
+  display: none !important;
+  background-image: none !important;
+}
+
+
+/* dashboard, footer & user profile */
+#dashboard,
+#dashboard.own {
+  background: #141c2e;
+  color: #d4b896;
+  border: 2px solid #2e4068;
+  box-shadow: 0 0 2px #000;
+}
+
+#dashboard ul {
+  background: transparent;
+  border: none;
+}
+
+#dashboard .secondary {
+  background-color: #0b1120;
+  box-shadow: none;
+}
+
+#dashboard a:hover,
+#dashboard a:focus,
+#dashboard .current {
+  background: #2e4068;
+  color: #f5ddb8;
+}
+
+#footer {
+  border: none;
+  background: none;
+}
+
+#footer .menu a,
+#footer .menu,
+#footer h4 {
+  color: #d4b896;
+}
+
+.system .latest h3,
+.splash .module h3,
+.system .tweets h3 {
+  color: #c68a3a;
+}
+
+.splash .favorite li:nth-of-type(odd) a:hover,
+.splash .favorite li:nth-of-type(odd) a:focus {
+  text-decoration: none !important;
+}
+
+/* user profile */
+.user.home .primary.header.module {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2em 1em 1.5em;
+  position: static;
+  overflow: visible;
+}
+
+.user.home .primary.header.module * {
+  position: static;
+  float: none;
+  clear: both;
+}
+
+.user.home .primary.header.module p.icon {
+  order: 1;
+  margin: 0 0 0.6em 0;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.user.home .primary.header.module p.icon a {
+  display: block;
+}
+
+.user.home .primary.header.module p.icon img.icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 0;
+  border: 3px solid #2e4068;
+  box-shadow: 0 0 12px rgba(100, 140, 200, 0.4);
+  display: block;
+  margin: 0 auto;
+}
+
+.user.home .primary.header.module h2.heading {
+  order: 2;
+  margin: 0 0 0.8em 0;
+  font-size: 1.4em;
+  letter-spacing: 0.05em;
+  color: #f5ddb8;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.user.home .primary.header.module ul.navigation.actions {
+  order: 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.user.home .primary.header.module ul.navigation.actions li {
+  margin: 0.25em 0.3em;
+  display: inline-block;
+  width: auto;
+}
+
+.user.home .primary.header.module ul.navigation.actions li a,
+.user.home .primary.header.module ul.navigation.actions li input[type="submit"] {
+  display: inline-block;
+  padding: 0.4em 1em;
+  background: #141c2e !important;
+  color: #d4b896 !important;
+  border: 1px solid #2e4068 !important;
+  border-radius: 10px !important;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.user.home .primary.header.module ul.navigation.actions li a:hover,
+.user.home .primary.header.module ul.navigation.actions li input[type="submit"]:hover {
+  background: #2e4068 !important;
+  color: #f5ddb8 !important;
+  border-color: #c68a3a !important;
+}

@@ -1,0 +1,423 @@
+/* IRC terminal site skin based on
+ * https://github.com/SparkliTwizzl/ao3-work-skins/blob/3dbbad84e316c62e98303e89e56d539b74c76904/Internet%20Relay%20Chat%20(IRC)%20Client%20Template.html
+ */
+
+/* global base & irc typography */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: #2c2c2c;
+  color: #dedede;
+}
+
+#outer.wrapper,
+#inner.wrapper,
+#main {
+  background: #2c2c2c;
+  color: #dedede;
+}
+
+h1, h2, h3, h4, h5, h6,
+.heading {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #c0c0c0;
+}
+
+/* links & interactive states */
+#main a,
+a:link {
+  color: #88c5ff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #a8cbf5;
+}
+
+#main a:hover,
+a:hover,
+a:focus {
+  color: #ffffff;
+  background: #408040;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.blurb h4 a:visited {
+  color: #a8cbf5 !important;
+}
+
+/* header & primary navigation */
+#header {
+  background: #444444;
+  border-bottom: 2px solid #606060;
+  color: #dedede;
+  box-shadow: none;
+}
+
+#header .logo {
+  transform: translateX(-100px);
+  filter: drop-shadow(100px 0 0 #88c5ff);
+}
+
+#header .heading a {
+  color: #88c5ff;
+  font-size: 1.714em;
+  line-height: 1.75em;
+}
+
+#header .heading h1 a {
+  color: #fdab7f !important;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#header .primary {
+  background: #444444;
+  border-bottom: 1px solid #606060;
+}
+
+#header .primary a,
+#greeting a {
+  color: #88c5ff !important;
+}
+
+#header .primary a:hover,
+#greeting a:hover {
+  color: #ffffff !important;
+  background: #408040;
+}
+
+#header .menu,
+#header .dropdown:hover .menu,
+#greeting .menu {
+  background: #2c2c2c;
+  border: 1px solid #606060;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#header .menu a {
+  color: #dedede !important;
+}
+
+#header .menu a:hover {
+  background: #408040 !important;
+  color: #ffffff !important;
+}
+
+#header #search .text {
+  background: #444444;
+  color: #dedede !important;
+  border: 1px solid #606060;
+  border-radius: 4px;
+}
+
+#header #search .text:focus {
+  border-color: #88c5ff;
+}
+
+/* workskin & reading readability */
+#workskin {
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 1.05em;
+  padding: 1.25em;
+  background: #2c2c2c;
+  color: #dedede !important;
+  border: 1px solid #606060;
+  border-radius: 6px;
+}
+
+#workskin p {
+  margin-bottom: 1.5em;
+}
+
+#workskin h1,
+#workskin h2,
+#workskin h3 {
+  background-color: #444444;
+  border-bottom: 2px solid #606060;
+  color: #c0c0c0;
+  padding: 0.4em 0.8em;
+  border-radius: 4px;
+  margin-top: 1em;
+}
+
+#workskin a {
+  color: #88c5ff !important;
+  text-decoration: underline;
+}
+
+#workskin a:hover {
+  background: #408040;
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+#workskin code {
+  background-color: #444444;
+  border: 1px solid #686868;
+  color: #fdab7f;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+/* action buttons & navigation controls */
+#main .actions a,
+#main .actions a:link,
+#main .actions a:visited,
+#main .action,
+#main .action:link,
+#main .action:visited,
+#main .actions input[type="submit"],
+#main .actions button,
+#main input[type="submit"],
+#main input[type="button"],
+#main input[type="reset"],
+#main button,
+#main .actions label,
+.actions a,
+.actions a:focus,
+.actions input:focus,
+.action:focus,
+.actions li input,
+.actions li input[type="submit"],
+input[type="submit"],
+.actions li label,
+ul.navigation.actions li a,
+.action:link,
+.actions a:link {
+  background: #444444;
+  border: 1px solid #606060;
+  color: #dedede !important;
+  border-radius: 4px;
+  padding: 0.35em 0.75em;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+#main .actions a:hover,
+#main .action:hover,
+#main .actions input[type="submit"]:hover,
+#main .actions button:hover,
+#main input[type="submit"]:hover,
+#main button:hover,
+.actions a:hover,
+.action:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: #408040 !important;
+  border-color: #3daa3d !important;
+  color: #ffffff !important;
+  cursor: pointer;
+}
+
+.current,
+#dashboard .current {
+  background: #535328 !important;
+  border: 1px solid #808040 !important;
+  color: #ffffff !important;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* forms, fieldsets & irc inputs */
+form dl,
+fieldset,
+fieldset fieldset,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff,
+.toggled form,
+.dynamic form {
+  background: #363636;
+  border: 1px solid #606060;
+  border-radius: 6px;
+  color: #dedede;
+}
+
+input,
+textarea,
+select {
+  background: #444444;
+  color: #dedede;
+  border: 1px solid #606060;
+  border-radius: 4px;
+  padding: 0.4em;
+  box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #88c5ff;
+  outline: none;
+}
+
+form.verbose legend,
+.verbose form legend {
+  background: #444444;
+  color: #c0c0c0;
+  border: 1px solid #606060;
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+}
+
+.required,
+.error,
+.alert.flash {
+  color: #fdab7f;
+}
+
+/* blurbs, tags & irc mentions */
+li.blurb,
+.listbox li.blurb,
+dl.meta {
+  background: #2c2c2c;
+  border: 1px solid #606060;
+  border-radius: 6px;
+  color: #dedede;
+  padding: 1em;
+  margin-bottom: 1.5em;
+}
+
+.listbox,
+fieldset fieldset.listbox {
+  background: #2c2c2c;
+  border: 1px solid #606060;
+  border-radius: 6px;
+}
+
+.reading h4.viewed,
+dl.index dd,
+table,
+th,
+dt.child {
+  background: #363636;
+  color: #dedede;
+}
+
+/* irc mention style tags */
+a.tag,
+a.tag:visited,
+a.tag:link {
+  display: inline-block;
+  padding: 2px 6px;
+  margin: 2px 0;
+  border-radius: 4px;
+  background: #444444;
+  color: #88c5ff !important;
+  border: 1px solid #606060;
+}
+
+a.tag:hover {
+  background: #408040 !important;
+  color: #ffffff !important;
+  border-color: #3daa3d;
+}
+
+.tags li.warnings a.tag {
+  background: #535328;
+  border: 1px solid #808040;
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.tags li.relationships a.tag {
+  background: #408040;
+  border: 1px solid #3daa3d;
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.tags li.relationships a.tag:hover {
+  background: #3daa3d !important;
+}
+
+/* comments & chat log layout */
+div.comment,
+li.comment {
+  background: #363636;
+  border: 1px solid #606060;
+  border-radius: 6px;
+  margin-bottom: 1.5em;
+}
+
+.comment h4.byline {
+  background: #444444;
+  color: #c0c0c0;
+  border-bottom: 1px solid #606060;
+  padding: 0.4em 0.8em 0.4em 6.7em;
+}
+
+.thread .even {
+  background: #2c2c2c;
+  border: 1px solid #606060;
+}
+
+/* notices, alerts & popups */
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash {
+  background: #535328;
+  color: #dedede;
+  border: 1px solid #808040;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.notice a,
+.comment_notice a,
+.kudos_notice a,
+ul.notes a,
+.caution a,
+.error a,
+.comment_error a,
+.kudos_error a,
+.alert.flash a {
+  color: #88c5ff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* dashboard & footer */
+#dashboard,
+#dashboard.own {
+  background: #363636;
+  border: 1px solid #606060 !important;
+  border-radius: 6px;
+}
+
+#dashboard a {
+  color: #88c5ff;
+}
+
+#dashboard a:hover {
+  background: #408040;
+  color: #ffffff !important;
+}
+
+#footer {
+  background: #444444;
+  border-top: 2px solid #606060;
+  color: #c0c0c0;
+  padding: 1.5em 1em;
+}
+
+#footer a,
+#footer .heading {
+  color: #88c5ff;
+}
+
+#footer a:hover {
+  color: #ffffff;
+  background: #408040;
+}

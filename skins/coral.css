@@ -1,0 +1,403 @@
+/* From https://www.tumblr.com/non-plutonian-druid/806584624794025984/ok-this-is-kind-of-a-weird-one-hi-guys-for-my
+ * adjusted for readability & site skin conversion
+ */
+
+/* global base & dark rose typography */
+body,
+#outer {
+  background-image: url("https://i.pinimg.com/originals/b5/93/0b/b5930bdb736d30e11a59b19c141811ac.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #151B1C;
+  color: #F5EAE8;
+  font-family: 'Garamond', 'Times New Roman', 'Lucida Grande', 'Verdana', serif;
+}
+
+#main,
+#inner.wrapper {
+  background: transparent;
+  color: #F5EAE8;
+}
+
+/* links & interactive states */
+a,
+a:link,
+#main a {
+  color: #E66B6B;
+  text-decoration: none;
+  font-family: 'Garamond', 'Times New Roman', 'Lucida Grande', 'Verdana', serif;
+}
+
+a:visited {
+  color: #C85E5E;
+}
+
+#main a:hover,
+a:hover,
+a:active {
+  color: #FFFFFF !important;
+  text-decoration: underline;
+}
+
+/* header & navigation */
+#header {
+  background: rgba(21, 27, 28, 0.95);
+  border-bottom: 3px solid #051211;
+  color: #F5EAE8;
+}
+
+#header .primary {
+  background: rgba(21, 27, 28, 0.95);
+  box-shadow: none;
+}
+
+#header .heading a {
+  color: #F5EAE8;
+}
+
+#greeting .menu,
+#header .dropdown .menu,
+.dropdown {
+  background: #151B1C;
+  border: 1px solid #051211;
+}
+
+#header .menu a,
+#header .dropdown .menu a {
+  color: #F5EAE8 !important;
+}
+
+#header .dropdown .menu a:hover {
+  background: #E66B6B !important;
+  color: #ffffff !important;
+}
+
+/* workskin, preface & chapter banners */
+#workskin {
+  color: #F5EAE8;
+  background-color: #151B1C;
+  background-image: url("https://64.media.tumblr.com/b356a7793e537562181f74d539aff4ae/c0dc5aa61a0ac3d6-17/s2048x3072/0818c2c358f4970fd27e34f97f0cd188000450a4.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Garamond', 'Times New Roman', 'Lucida Grande', 'Verdana', serif;
+  border: 7px solid #151B1C;
+  padding: 10px;
+}
+
+#workskin div.preface {
+  border: 3px solid #051211;
+  padding: 10px;
+  background: rgba(21, 27, 28, 0.9);
+  margin: 4%;
+}
+
+#workskin #chapters div.userstuff,
+#workskin #chapters .chapter div.userstuff.module {
+  margin-left: 3%;
+  margin-right: 3%;
+  border: 3px solid #051211;
+  padding: 1.25em 2%;
+  background: rgba(21, 27, 28, 0.9);
+  width: auto;
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+#workskin .userstuff blockquote,
+#workskin blockquote,
+#workskin .preface blockquote {
+  font-family: 'Garamond', 'Times New Roman', 'Lucida Grande', 'Verdana', serif;
+  color: #F5EAE8;
+}
+
+#workskin a {
+  color: #E66B6B;
+  font-family: 'Garamond', 'Times New Roman', 'Lucida Grande', 'Verdana', serif;
+  text-decoration: underline;
+}
+
+#workskin a:hover,
+#workskin a:active {
+  color: #FFFFFF;
+}
+
+#workskin .preface .title,
+#workskin div.preface h2.title {
+  height: 40px;
+  background: url("https://64.media.tumblr.com/abc6cc4495af1df576988dd98dbfda68/62f9c06f05fc90bb-6e/s400x600/cad6acdee932de1cd916afa04f2f79b030852c1b.png") no-repeat center / contain !important;
+  border: 0;
+  display: block;
+}
+
+#workskin h2,
+#workskin .chapter .preface h3.title,
+#workskin div.chapter.preface .title {
+  min-height: 100px;
+  background: url("https://64.media.tumblr.com/bdc00c522a70567577d5576a98c8d525/f11be2115df63e54-e5/s2048x3072/3fa8405b36f459aa4002eff777da8837734c8178.jpg") no-repeat right center / cover !important;
+  font-family: 'Times New Roman', 'Garamond', 'Lucida Grande', 'Verdana', serif;
+  text-align: right;
+  padding-top: 50px;
+  padding-right: 15px;
+  padding-left: 5px;
+  color: #F5EAE8 !important;
+  box-sizing: border-box;
+  display: block;
+}
+
+#workskin .chapter .preface h3.title a {
+  color: #F5EAE8 !important;
+}
+
+/* illuminated dropcaps */
+#workskin #chapters div.userstuff p:first-child:first-letter,
+#workskin #chapters .chapter div.userstuff.module p:nth-child(2):first-letter {
+  color: #E27471;
+  float: left;
+  font-family: 'Garamond', 'Times New Roman', 'Lucida Grande', 'Verdana', serif;
+  font-size: 60px;
+  line-height: 50px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px;
+  font-weight: bold;
+}
+
+/* action buttons & navigation controls */
+#main .actions a,
+#main .actions a:link,
+#main .actions a:visited,
+#main .action,
+#main .action:link,
+#main .action:visited,
+#main .actions input[type="submit"],
+#main .actions button,
+#main input[type="submit"],
+#main input[type="button"],
+#main input[type="reset"],
+#main button,
+#main .actions label,
+.actions a,
+.actions a:focus,
+.actions input:focus,
+.action:focus,
+.actions li input,
+.actions li input[type="submit"],
+input[type="submit"],
+.actions li label,
+ul.navigation.actions li a,
+.action:link,
+.actions a:link {
+  background: rgba(21, 27, 28, 0.9);
+  border: 1px solid #E66B6B;
+  color: #F5EAE8 !important;
+  border-radius: 4px;
+  padding: 0.35em 0.75em;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+#main .actions a:hover,
+#main .action:hover,
+#main .actions input[type="submit"]:hover,
+#main .actions button:hover,
+#main input[type="submit"]:hover,
+#main button:hover,
+.actions a:hover,
+.action:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: #E66B6B !important;
+  color: #ffffff !important;
+  border-color: #E66B6B !important;
+  cursor: pointer;
+}
+
+.current,
+#dashboard .current {
+  background: #E66B6B !important;
+  color: #ffffff !important;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* kudos section & user link readability */
+div.kudos,
+p.kudos {
+  background: rgba(21, 27, 28, 0.7);
+  border: 1px solid #051211;
+  border-radius: 6px;
+  padding: 1em;
+  color: #F5EAE8;
+}
+
+#kudos a,
+div.kudos a,
+p.kudos a {
+  color: #ffffff !important;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#kudos a:hover,
+div.kudos a:hover,
+p.kudos a:hover {
+  color: #E66B6B !important;
+}
+
+/* forms, fieldsets & inputs */
+form dl,
+fieldset,
+fieldset fieldset,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff,
+.listbox {
+  background: rgba(21, 27, 28, 0.9);
+  border: 3px solid #051211;
+  border-radius: 6px;
+  color: #F5EAE8;
+}
+
+input,
+textarea,
+select {
+  background: #151B1C;
+  color: #F5EAE8;
+  border: 1px solid #051211;
+  padding: 0.4em;
+  border-radius: 4px;
+  font-family: 'Garamond', 'Times New Roman', serif;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  border-color: #E66B6B;
+  outline: none;
+}
+
+form.verbose legend,
+.verbose form legend {
+  background: rgba(21, 27, 28, 0.9);
+  color: #E66B6B;
+  border: 1px solid #051211;
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+}
+
+/* blurbs, tags & meta lists */
+li.blurb,
+.listbox li.blurb,
+dl.meta {
+  background: rgba(21, 27, 28, 0.9);
+  border: 3px solid #051211;
+  border-radius: 6px;
+  color: #F5EAE8;
+  margin-bottom: 1.5em;
+  padding: 1em;
+}
+
+dl.meta {
+  border: 3px solid #051211;
+}
+
+a.tag,
+a.tag:visited,
+a.tag:link {
+  display: inline-block;
+  padding: 2px 6px;
+  margin: 2px 0;
+  border-radius: 4px;
+  background: #151B1C;
+  border: 1px solid #051211;
+  color: #E66B6B;
+}
+
+a.tag:hover {
+  background: #E66B6B;
+  color: #ffffff !important;
+}
+
+/* comments & thread layout */
+div.comment,
+li.comment,
+.thread .even {
+  background: rgba(21, 27, 28, 0.9);
+  border: 3px solid #051211;
+  border-radius: 6px;
+  color: #F5EAE8;
+  margin-bottom: 1.5em;
+}
+
+.comment h4.byline {
+  background: #151B1C;
+  color: #E66B6B;
+  border-bottom: 1px solid #051211;
+}
+
+/* notices, alerts & popups */
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash {
+  background: rgba(21, 27, 28, 0.95);
+  border: 1px solid #E66B6B;
+  color: #F5EAE8;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.notice a,
+.comment_notice a,
+.kudos_notice a,
+ul.notes a,
+.caution a,
+.error a,
+.comment_error a,
+.kudos_error a,
+.alert.flash a {
+  color: #E66B6B;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* dashboard & footer */
+#dashboard,
+#dashboard.own {
+  background: rgba(21, 27, 28, 0.9) !important;
+  border: 1px solid #051211 !important;
+  border-radius: 6px;
+}
+
+#dashboard a {
+  color: #F5EAE8;
+}
+
+#dashboard a:hover {
+  background: #E66B6B;
+  color: #ffffff !important;
+}
+
+#footer {
+  background: rgba(21, 27, 28, 0.95);
+  border-top: 3px solid #051211;
+  color: #F5EAE8;
+  padding: 1.5em;
+}
+
+#footer a {
+  color: #E66B6B;
+}
+
+#footer a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
