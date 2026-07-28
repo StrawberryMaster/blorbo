@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blorbo</title>
+    <meta name="description" content="A series of accessible Archive of Our Own site skins, tools, and utilities">
+    <meta name="author" content="StrawberryMaster">
+    <meta name="theme-color" content="#003366">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="blorbo">
+    <meta property="og:description" content="A curated collection of accessible AO3 site skins & tools">
+    <meta property="og:site_name" content="blorbo">
+    <meta property="og:locale" content="en_US">
+
+    <link rel="icon" type="image/x-icon" href="https://strawberrymaster.github.io/files/wizardry.ico">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    <style>
+        /* reset & base container rules */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+            background: linear-gradient(135deg, #f8f6f6 0%, #ece8e8 100%);
+            color: #3a3a3a;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* sidebar layout */
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(180deg, #fff5f5 0%, #faf8f8 100%);
+            border-right: 1px solid #d4a5a5;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            box-shadow: 0 2px 8px rgba(139, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #8b3a3a;
+            margin: 15px 0 10px 0;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .sidebar h3:first-child {
+            margin-top: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin: 3px 0;
+        }
+
+        .sidebar a {
+            color: #a84a4a;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            word-break: break-word;
+            white-space: normal;
+        }
+
+        .sidebar a:hover {
+            background: linear-gradient(90deg, #f0e5e5, #e8dcdc);
+            color: #8b2e2e;
+        }
+
+        .sidebar a.active {
+            background: linear-gradient(90deg, #ffe8e8, #ffd9d9);
+            color: #8b2e2e;
+            font-weight: 600;
+        }
+
+        /* theme selector buttons */
+        .theme-list {
+            display: grid;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .theme-button {
+            border: 1px solid #d4a5a5;
+            background: linear-gradient(90deg, #fff7f7, #f9efef);
+            color: #8b3a3a;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            padding: 8px 10px;
+            text-align: left;
+            transition: all 0.25s ease;
+        }
+
+        .theme-button:hover {
+            background: linear-gradient(90deg, #f8ecec, #f2e3e3);
+            border-color: #b98181;
+        }
+
+        .theme-button.active {
+            background: linear-gradient(90deg, #ffe5e5, #ffd6d6);
+            border-color: #a84a4a;
+            color: #7a2c2c;
+        }
+
+        /* main content area */
+        .content {
+            flex: 1;
+            margin-left: 250px;
+            padding: 40px;
+            max-width: 900px;
+        }
+
+        .main {
+            background: linear-gradient(135deg, #fdfbfb 0%, #fcf8f8 100%);
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(139, 0, 0, 0.1);
+        }
+
+        /* markdown typography */
+        h1 {
+            font-size: 2.5em;
+            margin: 20px 0 30px 0;
+            color: #7a2c2c;
+            border-bottom: 3px solid #a84a4a;
+            padding-bottom: 10px;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            color: #7a2c2c;
+            padding-top: 10px;
+            border-top: 1px solid #e8d4d4;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            color: #7a2c2c;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        h4, h5, h6 {
+            color: #7a2c2c;
+            font-family: 'Trebuchet MS', sans-serif;
+            margin: 15px 0 8px 0;
+        }
+
+        p {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        a {
+            color: #a84a4a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        a:hover {
+            border-bottom-color: #a84a4a;
+            color: #8b2e2e;
+        }
+
+        code {
+            background: linear-gradient(90deg, #f5f0f0, #f2eded);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #b83a3a;
+        }
+
+        pre {
+            background: linear-gradient(135deg, #2a1f1f 0%, #1f1515 100%);
+            color: #e8d5d5;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+
+        pre code {
+            background: transparent;
+            color: #e8d5d5;
+            padding: 0;
+            border-radius: 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        /* syntax highlighter styles */
+        .hljs-literal, .hljs-number { color: #ff9d76; }
+        .hljs-string, .hljs-attr { color: #c9a373; }
+        .hljs-function, .hljs-title { color: #e8b4a8; }
+        .hljs-keyword { color: #ff7f7f; }
+        .hljs-property { color: #d5a8a8; }
+        .hljs-comment { color: #8b6464; font-style: italic; }
+        .hljs-variable, .hljs-params { color: #e8d5d5; }
+        .hljs-punctuation { color: #c9a9a9; }
+        .hljs-built_in { color: #e8956f; }
+
+        blockquote {
+            border-left: 3px solid #a84a4a;
+            padding-left: 15px;
+            margin: 15px 0;
+            color: #6a5a5a;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e8d4d4;
+            margin: 30px 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #d4a5a5;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, #f5e8e8, #f0dede);
+            font-weight: 600;
+            color: #7a2c2c;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .search-box {
+            padding: 8px 12px;
+            border: 1px solid #d4a5a5;
+            border-radius: 4px;
+            width: 100%;
+            font-size: 14px;
+            background: linear-gradient(90deg, #fffbfb, #fff8f8);
+        }
+
+        .toc-toggle {
+            display: none;
+            background: linear-gradient(135deg, #a84a4a 0%, #8b3a3a 100%);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        mark.blorbo-highlight {
+            background-color: #ffd1d1;
+            color: #7a2c2c;
+            border-bottom: 1px dashed #a84a4a;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(135deg, #a84a4a 0%, #8b3a3a 100%);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(139, 0, 0, 0.25);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease, background 0.2s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #b85a5a 0%, #9b4a4a 100%);
+        }
+
+        body.theme-dark {
+            background: linear-gradient(135deg, #141212 0%, #0d0c0c 100%);
+            color: #d1c7c7;
+        }
+
+        body.theme-dark .sidebar {
+            background: linear-gradient(180deg, #1c1818 0%, #151212 100%);
+            border-right-color: #522d2d;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        body.theme-dark .sidebar h3 { color: #e58e8e; }
+        body.theme-dark .sidebar a { color: #e27d7d; }
+        body.theme-dark .sidebar a:hover { background: linear-gradient(90deg, #2b1f1f, #241a1a); color: #ff9e9e; }
+        body.theme-dark .sidebar a.active { background: linear-gradient(90deg, #3d2222, #331c1c); color: #ffb3b3; }
+
+        body.theme-dark .theme-button {
+            border-color: #522d2d;
+            background: linear-gradient(90deg, #211919, #1c1515);
+            color: #e58e8e;
+        }
+
+        body.theme-dark .theme-button:hover { background: linear-gradient(90deg, #2b1f1f, #261b1b); border-color: #723e3e; }
+        body.theme-dark .theme-button.active { background: linear-gradient(90deg, #422121, #381c1c); border-color: #a84a4a; color: #ffb3b3; }
+
+        body.theme-dark .main {
+            background: linear-gradient(135deg, #1d1818 0%, #171313 100%);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        body.theme-dark h1, body.theme-dark h2, body.theme-dark h3,
+        body.theme-dark h4, body.theme-dark h5, body.theme-dark h6 { color: #f0a8a8; }
+        body.theme-dark h1 { border-bottom-color: #a84a4a; }
+        body.theme-dark h2, body.theme-dark hr { border-top-color: #3d2828; }
+        body.theme-dark a { color: #e57373; }
+        body.theme-dark a:hover { color: #ff8a8a; border-bottom-color: #ff8a8a; }
+        body.theme-dark code { background: linear-gradient(90deg, #2b1c1c, #261818); color: #ff8e8e; }
+        body.theme-dark blockquote { border-left-color: #a84a4a; color: #a89292; }
+        body.theme-dark th, body.theme-dark td { border-color: #522d2d; }
+        body.theme-dark th { background: linear-gradient(90deg, #281a1a, #211515); color: #f0a8a8; }
+        body.theme-dark .search-box { border-color: #522d2d; background: linear-gradient(90deg, #211919, #1c1515); color: #e0d8d8; }
+
+        /* media queries */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                left: -250px;
+                top: 0;
+                height: 100vh;
+                z-index: 999;
+                transition: left 0.3s;
+            }
+
+            .sidebar.active {
+                left: 0;
+            }
+
+            .content {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .toc-toggle {
+                display: block;
+            }
+
+            body.theme-myspace .sidebar {
+                left: -230px;
+                padding-top: 60px;
+            }
+
+            body.theme-myspace .sidebar.active {
+                left: 0;
+            }
+
+            body.theme-myspace .content {
+                margin-left: 0;
+                padding: 60px 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Search</h3>
+            <input type="text" id="sidebar-search" class="search-box" placeholder="Search... (/)">
+
+            <h3>Navigation</h3>
+            <ul id="toc-list"></ul>
+
+            <h3>Themes</h3>
+            <div class="theme-list" role="group" aria-label="Theme selector">
+                <button class="theme-button" data-theme="classic" aria-pressed="true">Classic</button>
+                <button class="theme-button" data-theme="dark" aria-pressed="false">Dark</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <button class="toc-toggle" id="toc-toggle">☰ Menu</button>
+            <div class="main" id="content"></div>
+        </div>
+    </div>
+
+    <!-- interactive code viewer modal popup -->
+    <div id="skin-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:2000; align-items:center; justify-content:center;">
+        <div style="background:#1e1e1e; color:#d4d4d4; width:90%; max-width:850px; max-height:85vh; border-radius:8px; display:flex; flex-direction:column; padding:20px; box-shadow:0 10px 30px rgba(0,0,0,0.6); border:1px solid #333;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid #333; padding-bottom:8px;">
+                <h3 id="modal-skin-title" style="margin:0; color:#4ec9b0; font-family:sans-serif; font-size:1.1em;">Skin Code</h3>
+                <div>
+                    <button id="copy-skin-btn" style="background:#0e639c; color:#ffffff; border:none; padding:6px 14px; border-radius:4px; cursor:pointer; font-weight:bold; margin-right:8px; font-size:0.9em;">Copy CSS</button>
+                    <button id="close-skin-btn" style="background:#333333; color:#ffffff; border:none; padding:6px 12px; border-radius:4px; cursor:pointer; font-size:0.9em;">✕ Close</button>
+                </div>
+            </div>
+            <pre style="flex:1; overflow:auto; margin:0; padding:14px; background:#141414; border-radius:4px; border:1px solid #282828;"><code id="modal-skin-code" class="language-css">Loading CSS code...</code></pre>
+        </div>
+    </div>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <script>
+        const THEME_STORAGE_KEY = 'blorbo-theme';
+        const HIGHLIGHT_CLASS = 'blorbo-highlight';
+        let searchTimeout = null;
+        let headingCache = [];
+
+        function applyTheme(themeName) {
+            const themes = ['dark'];
+            const theme = themes.includes(themeName) ? themeName : 'classic';
+
+            document.body.classList.toggle('theme-dark', theme === 'dark');
+
+            document.querySelectorAll('.theme-button').forEach((button) => {
+                const isActive = button.dataset.theme === theme;
+                button.classList.toggle('active', isActive);
+                button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+
+            try {
+                localStorage.setItem(THEME_STORAGE_KEY, theme);
+            } catch (error) {
+                console.warn('Theme preference could not be saved.', error);
+            }
+        }
+
+        function initializeThemes() {
+            document.querySelector('.theme-list').addEventListener('click', (e) => {
+                const btn = e.target.closest('.theme-button');
+                if (btn) applyTheme(btn.dataset.theme);
+            });
+
+            let savedTheme = 'classic';
+            try {
+                savedTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'classic';
+            } catch (error) {
+                console.warn('Theme preference could not be loaded.', error);
+            }
+
+            applyTheme(savedTheme);
+        }
+
+        function updateHeadingCache() {
+            const headings = Array.from(document.querySelectorAll('#content h1, #content h2, #content h3, #content h4, #content h5, #content h6'))
+                .filter((heading, index) => !(index === 0 && heading.tagName === 'H1'));
+
+            headingCache = headings.map(heading => {
+                const link = document.querySelector(`.sidebar a[href="#${heading.id}"]`);
+                return {
+                    element: heading,
+                    offsetTop: heading.offsetTop,
+                    link: link
+                };
+            });
+        }
+
+        async function loadReadme() {
+            try {
+                const response = await fetch('./README.md');
+                const markdown = await response.text();
+
+                marked.setOptions({
+                    breaks: true,
+                    gfm: true,
+                    highlight: function(code, lang) {
+                        if (lang && hljs.getLanguage(lang)) {
+                            try {
+                                return hljs.highlight(code, { language: lang }).value;
+                            } catch (e) {}
+                        }
+                        return hljs.highlightAuto(code).value;
+                    }
+                });
+
+                const html = marked.parse(markdown);
+                const cleanHtml = DOMPurify.sanitize(html);
+
+                const contentDiv = document.getElementById('content');
+                contentDiv.innerHTML = cleanHtml;
+
+                contentDiv.querySelectorAll('pre code').forEach((el) => {
+                    hljs.highlightElement(el);
+                });
+
+                addHeadingIds();
+                generateTableOfContents();
+                attachSidebarLinkHandlers();
+                updateHeadingCache();
+                scrollToHashSection();
+
+                const currentQuery = document.getElementById('sidebar-search').value;
+                if (currentQuery) {
+                    applyHighlights(contentDiv, currentQuery);
+                    filterToc(currentQuery);
+                }
+            } catch (error) {
+                console.error('Error loading README:', error);
+                document.getElementById('content').innerHTML =
+                    '<h2>Error loading README</h2><p>Could not fetch README.md file.</p>';
+            }
+        }
+
+        function slugifyHeading(text) {
+            return text
+                .toLowerCase()
+                .replace(/[^\w\s-]/g, '')
+                .trim()
+                .replace(/\s+/g, '-');
+        }
+
+        function generateTableOfContents() {
+            const contentDiv = document.getElementById('content');
+            const headings = Array.from(contentDiv.querySelectorAll('h1, h2, h3, h4, h5, h6'));
+            const tocList = document.getElementById('toc-list');
+
+            const fragment = document.createDocumentFragment();
+
+            const headingsToInclude = headings.filter((heading, index) => {
+                return !(index === 0 && heading.tagName === 'H1');
+            });
+
+            headingsToInclude.forEach((heading) => {
+                const level = parseInt(heading.tagName[1]);
+                const li = document.createElement('li');
+                li.style.marginLeft = Math.max(0, (level - 1) * 12) + 'px';
+
+                const a = document.createElement('a');
+                a.href = '#' + heading.id;
+                a.textContent = heading.textContent;
+
+                li.appendChild(a);
+                fragment.appendChild(li);
+            });
+
+            tocList.innerHTML = '';
+            tocList.appendChild(fragment);
+        }
+
+        function addHeadingIds() {
+            const contentDiv = document.getElementById('content');
+            const headings = contentDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            const usedIds = new Set();
+
+            headings.forEach((heading) => {
+                let baseId = heading.id || slugifyHeading(heading.textContent);
+                if (!baseId) baseId = 'section';
+
+                let uniqueId = baseId;
+                let counter = 2;
+                while (usedIds.has(uniqueId)) {
+                    uniqueId = baseId + '-' + counter;
+                    counter += 1;
+                }
+
+                heading.id = uniqueId;
+                usedIds.add(heading.id);
+            });
+        }
+
+        function attachSidebarLinkHandlers() {
+            document.querySelector('.sidebar').addEventListener('click', function(event) {
+                const link = event.target.closest('a');
+                if (!link || !link.getAttribute('href')?.startsWith('#')) return;
+
+                event.preventDefault();
+
+                const targetId = link.getAttribute('href').slice(1);
+                const targetHeading = document.getElementById(targetId);
+
+                if (targetHeading) {
+                    history.replaceState(null, '', '#' + targetId);
+                    targetHeading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                document.querySelector('.sidebar').classList.remove('active');
+            });
+        }
+
+        function scrollToHashSection() {
+            const hash = window.location.hash;
+            if (!hash) return;
+
+            const targetHeading = document.getElementById(hash.slice(1));
+            if (targetHeading) {
+                targetHeading.scrollIntoView({ behavior: 'auto', block: 'start' });
+            }
+        }
+
+        function removeHighlights(root) {
+            const marks = root.querySelectorAll(`mark.${HIGHLIGHT_CLASS}`);
+            marks.forEach((mark) => {
+                const parent = mark.parentNode;
+                if (parent) {
+                    parent.replaceChild(document.createTextNode(mark.textContent), mark);
+                }
+            });
+            root.normalize();
+        }
+
+        function escapeRegExp(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        function applyHighlights(root, query) {
+            removeHighlights(root);
+            if (!query || query.trim() === '') return;
+
+            const terms = query.toLowerCase().trim().split(/\s+/).filter(t => t.length > 0);
+            if (terms.length === 0) return;
+
+            const regexSource = terms.map(t => escapeRegExp(t)).join('|');
+            const regex = new RegExp(`(${regexSource})`, 'gi');
+
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                acceptNode: function(node) {
+                    const parent = node.parentNode;
+                    if (!parent) return NodeFilter.FILTER_REJECT;
+                    const tag = parent.tagName.toUpperCase();
+                    if (['SCRIPT', 'STYLE', 'CODE', 'PRE', 'MARK'].includes(tag)) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            });
+
+            const textNodes = [];
+            while (walker.nextNode()) {
+                textNodes.push(walker.currentNode);
+            }
+
+            textNodes.forEach(node => {
+                const val = node.nodeValue;
+                regex.lastIndex = 0;
+                if (regex.test(val)) {
+                    regex.lastIndex = 0;
+                    const fragment = document.createDocumentFragment();
+                    let lastIdx = 0;
+                    let match;
+
+                    while ((match = regex.exec(val)) !== null) {
+                        const matchedText = match[0];
+                        const beforeText = val.substring(lastIdx, match.index);
+                        if (beforeText) {
+                            fragment.appendChild(document.createTextNode(beforeText));
+                        }
+
+                        const mark = document.createElement('mark');
+                        mark.className = HIGHLIGHT_CLASS;
+                        mark.textContent = matchedText;
+                        fragment.appendChild(mark);
+
+                        lastIdx = regex.lastIndex;
+                    }
+
+                    if (lastIdx < val.length) {
+                        fragment.appendChild(document.createTextNode(val.substring(lastIdx)));
+                    }
+
+                    node.parentNode.replaceChild(fragment, node);
+                }
+            });
+        }
+
+        function filterToc(query) {
+            const tocItems = document.querySelectorAll('#toc-list li');
+            const terms = query.toLowerCase().trim().split(/\s+/).filter(t => t.length > 0);
+
+            tocItems.forEach((li) => {
+                if (terms.length === 0) {
+                    li.style.display = '';
+                    return;
+                }
+                const text = li.textContent.toLowerCase();
+                const matchesAll = terms.every((term) => text.includes(term));
+                li.style.display = matchesAll ? '' : 'none';
+            });
+        }
+
+        function initializeSearch() {
+            const searchInput = document.getElementById('sidebar-search');
+
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value;
+                filterToc(query);
+
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    applyHighlights(document.getElementById('content'), query);
+                }, 150);
+            });
+
+            window.addEventListener('keydown', (e) => {
+                const active = document.activeElement;
+                if (e.key === '/' && active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA') {
+                    e.preventDefault();
+                    searchInput.focus();
+                    searchInput.select();
+                }
+            });
+        }
+
+        function initializeModalViewer() {
+            const modal = document.getElementById('skin-modal');
+            const codeEl = document.getElementById('modal-skin-code');
+            const titleEl = document.getElementById('modal-skin-title');
+            const copyBtn = document.getElementById('copy-skin-btn');
+            const closeBtn = document.getElementById('close-skin-btn');
+
+            document.getElementById('content').addEventListener('click', async (e) => {
+                const link = e.target.closest('a[href$=".css"]');
+                if (!link) return;
+
+                e.preventDefault();
+                const cssUrl = link.getAttribute('href');
+                
+                titleEl.textContent = cssUrl.split('/').pop();
+                codeEl.textContent = 'Fetching skin CSS...';
+                modal.style.display = 'flex';
+
+                try {
+                    const resp = await fetch(cssUrl);
+                    if (!resp.ok) throw new Error('HTTP Error ' + resp.status);
+                    const cssText = await resp.text();
+                    codeEl.textContent = cssText;
+                    if (window.hljs) hljs.highlightElement(codeEl);
+                } catch (err) {
+                    console.error('Error fetching CSS:', err);
+                    codeEl.textContent = '/* Could not load ' + cssUrl + ' directly. Open repository to view the code directly. */';
+                }
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.style.display = 'none';
+            });
+
+            copyBtn.addEventListener('click', () => {
+                const code = codeEl.textContent;
+                navigator.clipboard.writeText(code).then(() => {
+                    copyBtn.textContent = 'Copied!';
+                    setTimeout(() => { copyBtn.textContent = 'Copy CSS'; }, 2000);
+                });
+            });
+        }
+
+        document.getElementById('toc-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+
+        function initializeScrollEffects() {
+            const bttBtn = document.getElementById('back-to-top');
+            let lastActiveLink = null;
+            let ticking = false;
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        const scrollY = window.scrollY;
+
+                        if (scrollY > 300) {
+                            bttBtn.classList.add('visible');
+                        } else {
+                            bttBtn.classList.remove('visible');
+                        }
+
+                        let currentHeadingObj = null;
+                        const threshold = window.innerHeight / 3;
+
+                        for (let i = 0; i < headingCache.length; i++) {
+                            if (headingCache[i].offsetTop - threshold < scrollY) {
+                                currentHeadingObj = headingCache[i];
+                            }
+                        }
+
+                        if (currentHeadingObj?.link) {
+                            if (lastActiveLink && lastActiveLink !== currentHeadingObj.link) {
+                                lastActiveLink.classList.remove('active');
+                            }
+                            currentHeadingObj.link.classList.add('active');
+
+                            if (lastActiveLink !== currentHeadingObj.link) {
+                                lastActiveLink = currentHeadingObj.link;
+                                currentHeadingObj.link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                            }
+                        } else if (lastActiveLink) {
+                            lastActiveLink.classList.remove('active');
+                            lastActiveLink = null;
+                        }
+
+                        ticking = false;
+                    });
+
+                    ticking = true;
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                updateHeadingCache();
+            });
+
+            bttBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        initializeThemes();
+        initializeSearch();
+        initializeScrollEffects();
+        initializeModalViewer();
+        loadReadme();
+    </script>
+</body>
+</html>
