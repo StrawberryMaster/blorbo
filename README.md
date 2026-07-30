@@ -50,11 +50,12 @@ If you have a skin you'd like to share, feel free to [submit it](https://github.
 ### Other themes
 | Skin name | Description | Links |
 | :--- | :--- | :--- |
-| **Windows XP** | Windows XP Luna Blue-like skin | [`skins/xp.css`](skins/xp.css) |
-| **MySpace** | 2000s MySpace is back, baby! | [`skins/myspace.css`](skins/myspace.css) |
+| **AOL** | Inspired by early 2000s AOL | [`skins/aol.css`](skins/aol.css) |
 | **IRC** | Retro mIRC/irssi terminal log theme | [`skins/irc.css`](skins/irc.css) |
+| **MySpace** | 2000s MySpace is back, baby! | [`skins/myspace.css`](skins/myspace.css) |
 | **New York Times** | A NYT-inspired stealth mode skin | [`skins/nytimes.css`](skins/nytimes.css) |
 | **Rick and Morty** | Dark space theme with Rick's blue and Morty's yellow | [`skins/rickandmorty.css`](skins/rickandmorty.css) |
+| **Windows XP** | Windows XP Luna Blue-like skin | [`skins/xp.css`](skins/xp.css) |
 
 ---
 
