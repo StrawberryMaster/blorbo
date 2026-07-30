@@ -54,6 +54,7 @@ If you have a skin you'd like to share, feel free to [submit it](https://github.
 | **MySpace** | 2000s MySpace is back, baby! | [`skins/myspace.css`](skins/myspace.css) |
 | **IRC** | Retro mIRC/irssi terminal log theme | [`skins/irc.css`](skins/irc.css) |
 | **New York Times** | A NYT-inspired stealth mode skin | [`skins/nytimes.css`](skins/nytimes.css) |
+| **Rick and Morty** | Dark space theme with Rick's blue and Morty's yellow | [`skins/rickandmorty.css`](skins/rickandmorty.css) |
 
 ---
 
