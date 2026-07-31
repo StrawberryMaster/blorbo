@@ -22,7 +22,6 @@ If you have a skin you'd like to share, feel free to [submit it](https://github.
 | Skin name | Description | Links |
 | :--- | :--- | :--- |
 | **Backrooms** | Inspired by the movie of same name | [`skins/backrooms.css`](skins/backrooms.css) |
-| **Duck** | Sage green (`#cad588`) and warm cream (`#fbf2e0`) with custom food emoji tag headers. | [`skins/duck.css`](skins/duck.css) |
 | **Frantic** | Vaguely based on the Bryan Ferry album of same name | [`skins/frantic.css`](skins/frantic.css) |
 | **Icy Sunset** | Some kind of icy sunset theme | [`skins/icysunset.css`](skins/icysunset.css) |
 | **Larry** | Heavily-watered down from what once was a One Direction-inspired theme?| [`skins/larry.css`](skins/larry.css) |
@@ -31,6 +30,7 @@ If you have a skin you'd like to share, feel free to [submit it](https://github.
 | **Medieval** | You've seen this one already. | [`skins/medieval.css`](skins/medieval.css) |
 | **Snow Blue** | Ice-y blue colors everywhere | [`skins/snowblue.css`](skins/snowblue.css) |
 | **Stars** | Starry theme built from a Byler theme | [`skins/stars.css`](skins/stars.css) |
+| **Trout** | Has more than one fish in it | [`skins/trout.css`](skins/trout.css) |
 | **Wave** | Wave after wave | [`skins/wave.css`](skins/wave.css) |
 
 ### Dark themes
