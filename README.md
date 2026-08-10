@@ -1,10 +1,14 @@
 # blorbo
 
-This is **blorbo**, essentially a collection of site skins you can use. I made this for [Archive of Our Own](https://archiveofourown.org), but it might be useful for other sites as well in the future.
+> Psst: if you're looking at this README directly, you might want to check out the [live website](https://strawberrymaster.github.io/blorbo) instead. Much easier to navigate, search for, and copy skins!
+
+This is **[blorbo](https://strawberrymaster.github.io/blorbo)**, essentially a collection of site skins you can use. I made this for [Archive of Our Own](https://archiveofourown.org), but it might be useful for other sites as well in the future.
 
 Some skins here are brand new, some were made from workskins, and others were adapted from existing skins. In all cases, these skins have been refactored and optimized for [WCAG AA/AAA](https://www.w3.org/TR/WCAG21/) readability, fixing low-contrast text, broken tag layouts, unreadable form fieldsets, and illegible workskin typography while preserving each theme's unique aesthetic.
 
 If you have a skin you'd like to share, feel free to [submit it](https://github.com/StrawberryMaster/blorbo/issues) by creating a new issue. I'll be happy to review and merge it! Feel free to use it as well for reporting bugs or suggesting improvements.
+
+And if you like this project, please consider [starring it](https://github.com/StrawberryMaster/blorbo) on GitHub!
 
 ## How to use a skin
 1. Choose a skin from the catalog below and click **[View/Copy CSS]** (or open its `.css` file from the `skins/` folder).

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +10,23 @@
     <meta name="theme-color" content="#003366">
 
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://strawberrymaster.github.io/blorbo/">
     <meta property="og:title" content="blorbo">
     <meta property="og:description" content="A curated collection of accessible AO3 site skins & tools">
+    <meta property="og:image" content="https://i.pinimg.com/originals/83/9c/36/839c36622cceb8c4b6bdd69602acef2d.jpg">
     <meta property="og:site_name" content="blorbo">
     <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="blorbo">
+    <meta name="twitter:description" content="A curated collection of accessible AO3 site skins & tools">
+    <meta name="twitter:image" content="https://i.pinimg.com/originals/83/9c/36/839c36622cceb8c4b6bdd69602acef2d.jpgp">
 
     <link rel="icon" type="image/x-icon" href="https://strawberrymaster.github.io/files/wizardry.ico">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-    
     <style>
-        /* reset & base container rules */
         * {
             margin: 0;
             padding: 0;
@@ -40,7 +46,6 @@
             min-height: 100vh;
         }
 
-        /* sidebar layout */
         .sidebar {
             width: 250px;
             background: linear-gradient(180deg, #fff5f5 0%, #faf8f8 100%);
@@ -98,7 +103,6 @@
             font-weight: 600;
         }
 
-        /* theme selector buttons */
         .theme-list {
             display: grid;
             gap: 8px;
@@ -130,7 +134,6 @@
             color: #7a2c2c;
         }
 
-        /* main content area */
         .content {
             flex: 1;
             margin-left: 250px;
@@ -145,7 +148,6 @@
             box-shadow: 0 1px 3px rgba(139, 0, 0, 0.1);
         }
 
-        /* markdown typography */
         h1 {
             font-size: 2.5em;
             margin: 20px 0 30px 0;
@@ -171,10 +173,25 @@
             font-family: 'Trebuchet MS', sans-serif;
         }
 
-        h4, h5, h6 {
+        h4 {
+            font-size: 1.1em;
+            margin: 15px 0 8px 0;
             color: #7a2c2c;
             font-family: 'Trebuchet MS', sans-serif;
-            margin: 15px 0 8px 0;
+        }
+
+        h5 {
+            font-size: 1.0em;
+            margin: 12px 0 6px 0;
+            color: #7a2c2c;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        h6 {
+            font-size: 0.9em;
+            margin: 10px 0 5px 0;
+            color: #7a2c2c;
+            font-family: 'Trebuchet MS', sans-serif;
         }
 
         p {
@@ -192,6 +209,18 @@
         a:hover {
             border-bottom-color: #a84a4a;
             color: #8b2e2e;
+        }
+
+        .back-to-top svg {
+            display: block;
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+            transition: transform 0.2s ease;
+        }
+
+        .back-to-top:hover svg {
+            transform: translateY(-2px);
         }
 
         code {
@@ -221,7 +250,6 @@
             font-family: 'Consolas', 'Courier New', monospace;
         }
 
-        /* syntax highlighter styles */
         .hljs-literal, .hljs-number { color: #ff9d76; }
         .hljs-string, .hljs-attr { color: #c9a373; }
         .hljs-function, .hljs-title { color: #e8b4a8; }
@@ -235,6 +263,7 @@
         blockquote {
             border-left: 3px solid #a84a4a;
             padding-left: 15px;
+            margin-left: 0;
             margin: 15px 0;
             color: #6a5a5a;
             font-style: italic;
@@ -242,7 +271,6 @@
 
         ul, ol {
             margin: 15px 0;
-            padding-left: 20px;
         }
 
         li {
@@ -279,6 +307,21 @@
             margin: 15px 0;
         }
 
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e8d4d4;
+        }
+
+        .header-title h1 {
+            margin: 0;
+            border: none;
+            padding: 0;
+        }
+
         .search-box {
             padding: 8px 12px;
             border: 1px solid #d4a5a5;
@@ -298,6 +341,11 @@
             cursor: pointer;
             font-size: 14px;
             transition: all 0.3s;
+        }
+
+        .toc-toggle:hover {
+            background: linear-gradient(135deg, #8b3a3a 0%, #6f2e2e 100%);
+            box-shadow: 0 2px 6px rgba(139, 0, 0, 0.2);
         }
 
         mark.blorbo-highlight {
@@ -341,6 +389,120 @@
             background: linear-gradient(135deg, #b85a5a 0%, #9b4a4a 100%);
         }
 
+        /* Modal base styles */
+        .blorbo-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .blorbo-modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .blorbo-modal {
+            background: linear-gradient(135deg, #fdfbfb 0%, #fcf8f8 100%);
+            border: 1px solid #d4a5a5;
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.2);
+            width: 100%;
+            max-width: 850px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: translateY(-20px);
+            transition: transform 0.25s ease;
+        }
+
+        .blorbo-modal-overlay.visible .blorbo-modal {
+            transform: translateY(0);
+        }
+
+        .blorbo-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 18px;
+            border-bottom: 1px solid #e8d4d4;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .blorbo-modal-title {
+            font-size: 1.1em;
+            color: #7a2c2c;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            font-family: inherit;
+            word-break: break-all;
+        }
+
+        .blorbo-modal-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .blorbo-modal-btn {
+            background: linear-gradient(135deg, #a84a4a 0%, #8b3a3a 100%);
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .blorbo-modal-btn:hover {
+            background: linear-gradient(135deg, #8b3a3a 0%, #6f2e2e 100%);
+            box-shadow: 0 2px 6px rgba(139, 0, 0, 0.2);
+        }
+
+        .blorbo-modal-close {
+            background: transparent;
+            border: none;
+            color: #7a2c2c;
+            font-size: 24px;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0 4px;
+            transition: color 0.2s ease;
+        }
+
+        .blorbo-modal-close:hover {
+            color: #b83a3a;
+        }
+
+        .blorbo-modal-body {
+            padding: 15px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .blorbo-modal-body pre {
+            margin: 0;
+            max-height: 100%;
+            overflow-x: auto;
+        }
+
+        /* --- Dark Theme --- */
         body.theme-dark {
             background: linear-gradient(135deg, #141212 0%, #0d0c0c 100%);
             color: #d1c7c7;
@@ -352,10 +514,23 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
-        body.theme-dark .sidebar h3 { color: #e58e8e; }
-        body.theme-dark .sidebar a { color: #e27d7d; }
-        body.theme-dark .sidebar a:hover { background: linear-gradient(90deg, #2b1f1f, #241a1a); color: #ff9e9e; }
-        body.theme-dark .sidebar a.active { background: linear-gradient(90deg, #3d2222, #331c1c); color: #ffb3b3; }
+        body.theme-dark .sidebar h3 {
+            color: #e58e8e;
+        }
+
+        body.theme-dark .sidebar a {
+            color: #e27d7d;
+        }
+
+        body.theme-dark .sidebar a:hover {
+            background: linear-gradient(90deg, #2b1f1f, #241a1a);
+            color: #ff9e9e;
+        }
+
+        body.theme-dark .sidebar a.active {
+            background: linear-gradient(90deg, #3d2222, #331c1c);
+            color: #ffb3b3;
+        }
 
         body.theme-dark .theme-button {
             border-color: #522d2d;
@@ -363,27 +538,868 @@
             color: #e58e8e;
         }
 
-        body.theme-dark .theme-button:hover { background: linear-gradient(90deg, #2b1f1f, #261b1b); border-color: #723e3e; }
-        body.theme-dark .theme-button.active { background: linear-gradient(90deg, #422121, #381c1c); border-color: #a84a4a; color: #ffb3b3; }
+        body.theme-dark .theme-button:hover {
+            background: linear-gradient(90deg, #2b1f1f, #261b1b);
+            border-color: #723e3e;
+        }
+
+        body.theme-dark .theme-button.active {
+            background: linear-gradient(90deg, #422121, #381c1c);
+            border-color: #a84a4a;
+            color: #ffb3b3;
+        }
 
         body.theme-dark .main {
             background: linear-gradient(135deg, #1d1818 0%, #171313 100%);
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
 
-        body.theme-dark h1, body.theme-dark h2, body.theme-dark h3,
-        body.theme-dark h4, body.theme-dark h5, body.theme-dark h6 { color: #f0a8a8; }
-        body.theme-dark h1 { border-bottom-color: #a84a4a; }
-        body.theme-dark h2, body.theme-dark hr { border-top-color: #3d2828; }
-        body.theme-dark a { color: #e57373; }
-        body.theme-dark a:hover { color: #ff8a8a; border-bottom-color: #ff8a8a; }
-        body.theme-dark code { background: linear-gradient(90deg, #2b1c1c, #261818); color: #ff8e8e; }
-        body.theme-dark blockquote { border-left-color: #a84a4a; color: #a89292; }
-        body.theme-dark th, body.theme-dark td { border-color: #522d2d; }
-        body.theme-dark th { background: linear-gradient(90deg, #281a1a, #211515); color: #f0a8a8; }
-        body.theme-dark .search-box { border-color: #522d2d; background: linear-gradient(90deg, #211919, #1c1515); color: #e0d8d8; }
+        body.theme-dark h1,
+        body.theme-dark h2,
+        body.theme-dark h3,
+        body.theme-dark h4,
+        body.theme-dark h5,
+        body.theme-dark h6 {
+            color: #f0a8a8;
+        }
 
-        /* media queries */
+        body.theme-dark h1 {
+            border-bottom-color: #a84a4a;
+        }
+
+        body.theme-dark h2 {
+            border-top-color: #3d2828;
+        }
+
+        body.theme-dark hr {
+            border-top-color: #3d2828;
+        }
+
+        body.theme-dark a {
+            color: #e57373;
+        }
+
+        body.theme-dark a:hover {
+            color: #ff8a8a;
+            border-bottom-color: #ff8a8a;
+        }
+
+        body.theme-dark code {
+            background: linear-gradient(90deg, #2b1c1c, #261818);
+            color: #ff8e8e;
+        }
+
+        body.theme-dark blockquote {
+            border-left-color: #a84a4a;
+            color: #a89292;
+        }
+
+        body.theme-dark th, body.theme-dark td {
+            border-color: #522d2d;
+        }
+
+        body.theme-dark th {
+            background: linear-gradient(90deg, #281a1a, #211515);
+            color: #f0a8a8;
+        }
+
+        body.theme-dark .search-box {
+            border-color: #522d2d;
+            background: linear-gradient(90deg, #211919, #1c1515);
+            color: #e0d8d8;
+        }
+
+        body.theme-dark mark.blorbo-highlight {
+            background-color: #591b1b;
+            color: #ffc2c2;
+            border-bottom-color: #ff8a8a;
+        }
+
+        body.theme-dark .blorbo-modal {
+            background: linear-gradient(135deg, #1d1818 0%, #171313 100%);
+            border-color: #522d2d;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        body.theme-dark .blorbo-modal-header {
+            border-bottom-color: #3d2828;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        body.theme-dark .blorbo-modal-title {
+            color: #f0a8a8;
+        }
+
+        body.theme-dark .blorbo-modal-btn {
+            background: linear-gradient(135deg, #8b3a3a 0%, #6f2e2e 100%);
+            color: #ffb3b3;
+        }
+
+        body.theme-dark .blorbo-modal-btn:hover {
+            background: linear-gradient(135deg, #a84a4a 0%, #8b3a3a 100%);
+        }
+
+        body.theme-dark .blorbo-modal-close {
+            color: #f0a8a8;
+        }
+
+        body.theme-metro {
+            background: #ffcc44;
+            color: #070707;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body.theme-metro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10em;
+            background: #66cc33;
+            z-index: 2;
+        }
+
+        body.theme-metro .sidebar {
+            width: 11.5em;
+            background: #2299dd;
+            border-right: none;
+            box-shadow: none;
+            padding-top: 10.8em;
+            padding-left: 10px;
+            padding-right: 10px;
+            z-index: 3;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        body.theme-metro .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 11.5em;
+            height: 10em;
+            background: #ff0000;
+            z-index: 4;
+        }
+
+        body.theme-metro .sidebar h3 {
+            color: #ffffff;
+            letter-spacing: 0.12em;
+            font-size: 11px;
+            margin-top: 14px;
+            margin-bottom: 6px;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        body.theme-metro #toc-list {
+            margin: 0 0 15px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.32);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+            background: rgba(0, 0, 0, 0.08);
+            padding: 4px 0;
+            overflow-y: visible;
+            overflow-x: hidden !important;
+        }
+
+        body.theme-metro .sidebar a {
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            border-radius: 0;
+            padding: 8px 10px;
+            margin: 2px 0;
+            border-bottom: none;
+            text-transform: uppercase;
+            border-left: 4px solid transparent;
+            transition: all 0.2s ease;
+            line-height: 1.3;
+        }
+
+        body.theme-metro .sidebar a:hover,
+        body.theme-metro .sidebar a.active {
+            background: rgba(0, 0, 0, 0.25);
+            color: #ffe58b;
+            border-left-color: #ffe58b;
+        }
+
+        body.theme-metro .sidebar .search-box {
+            font-family: Arial, sans-serif;
+            border: 2px solid #000000;
+            border-radius: 0;
+            background: #ffffff;
+            color: #222222;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        body.theme-metro .theme-button {
+            font-family: Arial, sans-serif;
+            border: 1px solid #333333;
+            border-radius: 0;
+            background: #ffcc44;
+            color: #222222;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        body.theme-metro .theme-button:hover,
+        body.theme-metro .theme-button.active {
+            background: #333333;
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        body.theme-metro .content {
+            margin-left: 14em;
+            max-width: 53em;
+            padding: 2.2em 2em 2em;
+            overflow-x: visible;
+        }
+
+        body.theme-metro .main {
+            background: transparent;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 2em;
+            font-size: 85%;
+            position: relative;
+            z-index: auto;
+        }
+
+        body.theme-metro h1 {
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            font-size: clamp(2.2rem, 6vw, 4.5rem);
+            font-weight: normal;
+            letter-spacing: 0.35em;
+            border-bottom: none;
+            margin: 0 0 0.7em;
+            padding-bottom: 0;
+            text-transform: uppercase;
+        }
+
+        body.theme-metro #content h1:first-of-type {
+            position: relative;
+            z-index: 5;
+            max-width: none;
+            margin: -1.75em -2em 0.5em -2.75em;
+            padding: 1.5em 2em 0.5em 0;
+            font-size: clamp(2.3rem, 7.1vw, 5.1rem);
+            letter-spacing: 0.43em;
+            line-height: 1;
+            white-space: nowrap;
+            overflow: visible;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+            pointer-events: auto;
+            width: auto;
+            padding-bottom: 0.5em;
+            background: transparent;
+        }
+
+        body.theme-metro h2 {
+            color: #333333;
+            font-size: 200%;
+            font-weight: normal;
+            letter-spacing: 3px;
+            border-top: none;
+        }
+
+        body.theme-metro h3 {
+            color: #333333;
+            font-size: 155%;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        body.theme-metro h4,
+        body.theme-metro h5,
+        body.theme-metro h6 {
+            color: #322222;
+            letter-spacing: 1px;
+        }
+
+        body.theme-metro a {
+            color: #aa3300;
+            font-weight: bold;
+            border-bottom: none;
+        }
+
+        body.theme-metro a:hover {
+            color: #ffffff;
+            background: #aa3300;
+        }
+
+        body.theme-metro code {
+            background: #ffe38f;
+            color: #222222;
+            border-radius: 0;
+        }
+
+        body.theme-metro .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+        body.theme-metro .sidebar::-webkit-scrollbar-track {
+            background: #157cb6;
+        }
+        body.theme-metro .sidebar::-webkit-scrollbar-thumb {
+            background: #ffe58b;
+            border: 1px solid #157cb6;
+        }
+
+        body.theme-metro pre,
+        body.theme-metro .hljs {
+            background: #111111 !important;
+            color: #f5f5f5 !important;
+            border-radius: 0;
+            border: 2px solid #000000;
+        }
+        body.theme-metro .hljs-keyword { color: #00ebb4 !important; font-weight: bold; }
+        body.theme-metro .hljs-string { color: #f2c541 !important; }
+        body.theme-metro .hljs-comment { color: #55a8de !important; font-style: italic; }
+        body.theme-metro .hljs-number, body.theme-metro .hljs-literal { color: #ff6060 !important; }
+        body.theme-metro .hljs-title, body.theme-metro .hljs-function { color: #66cc33 !important; }
+
+        body.theme-metro mark.blorbo-highlight {
+            background-color: #000000;
+            color: #ffe58b;
+            border-bottom: 2px solid #ff0000;
+            border-radius: 0;
+        }
+
+        body.theme-metro .back-to-top {
+            background: #ff0000;
+            color: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        body.theme-metro .back-to-top:hover {
+            background: #66cc33;
+            color: #ffffff;
+            transform: none;
+        }
+
+        body.theme-metro .blorbo-modal {
+            background: #ffcc44;
+            border: 3px solid #000000;
+            border-radius: 0;
+            box-shadow: 8px 8px 0px #000000;
+            font-family: Arial, sans-serif;
+        }
+
+        body.theme-metro .blorbo-modal-header {
+            border-bottom: 2px solid #000000;
+            background: #66cc33;
+        }
+
+        body.theme-metro .blorbo-modal-title {
+            color: #ffffff;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        body.theme-metro .blorbo-modal-btn {
+            background: #ff0000;
+            color: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 0;
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        body.theme-metro .blorbo-modal-btn:hover {
+            background: #2299dd;
+        }
+
+        body.theme-metro .blorbo-modal-close {
+            color: #000000;
+            font-weight: bold;
+        }
+
+        body.theme-plain {
+            background: #ffffff;
+            color: #111111;
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+
+        body.theme-plain .sidebar {
+            width: 220px;
+            background: #fafafa;
+            border-right: 1px solid #c9d2da;
+            box-shadow: none;
+            padding: 15px;
+        }
+
+        body.theme-plain .sidebar h3 {
+            color: #003049;
+            font-family: Georgia, 'Times New Roman', serif;
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 11px;
+            margin: 12px 0 6px 0;
+        }
+
+        body.theme-plain .sidebar a {
+            color: #003049;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 13px;
+            border-radius: 0;
+            padding: 4px 6px;
+            margin: 1px 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        body.theme-plain .sidebar a:hover,
+        body.theme-plain .sidebar a.active {
+            background: transparent;
+            color: #001d2f;
+            border-bottom-color: #003049;
+            font-weight: bold;
+        }
+
+        body.theme-plain .sidebar .search-box {
+            border: 1px solid #c9d2da;
+            background: #ffffff;
+            color: #111111;
+            border-radius: 0;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 12px;
+            padding: 6px;
+            margin-bottom: 8px;
+        }
+
+        body.theme-plain .theme-button {
+            background: #ffffff;
+            color: #003049;
+            border: 1px solid #c9d2da;
+            border-radius: 0;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-weight: 400;
+            letter-spacing: 0;
+            text-transform: none;
+            padding: 6px 8px;
+            font-size: 12px;
+        }
+
+        body.theme-plain .theme-button:hover,
+        body.theme-plain .theme-button.active {
+            background: #f4f7fa;
+            border-color: #003049;
+            color: #001d2f;
+        }
+
+        body.theme-plain .content {
+            margin-left: 220px;
+            max-width: 720px;
+            padding: 30px 25px;
+        }
+
+        body.theme-plain .main {
+            background: #ffffff;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
+        }
+
+        body.theme-plain .header {
+            border-bottom: 1px solid #c9d2da;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+        }
+
+        body.theme-plain h1,
+        body.theme-plain h2,
+        body.theme-plain h3,
+        body.theme-plain h4,
+        body.theme-plain h5,
+        body.theme-plain h6 {
+            color: #003049;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-weight: 700;
+            letter-spacing: 0;
+            border-bottom: none;
+            border-top: none;
+        }
+
+        body.theme-plain h1 { font-size: 2em; margin: 0 0 0.4em 0; }
+        body.theme-plain h2 { font-size: 1.4em; margin: 1.2em 0 0.5em; }
+        body.theme-plain h3 { font-size: 1.15em; margin: 1em 0 0.4em; }
+        body.theme-plain h4 { font-size: 1em; margin: 0.8em 0 0.3em; }
+        body.theme-plain h5 { font-size: 0.95em; margin: 0.7em 0 0.25em; }
+        body.theme-plain h6 { font-size: 0.9em; margin: 0.6em 0 0.2em; }
+
+        body.theme-plain p,
+        body.theme-plain li {
+            line-height: 1.6;
+            margin: 10px 0;
+            font-size: 15px;
+        }
+
+        body.theme-plain a {
+            color: #003049;
+            border-bottom: 1px solid transparent;
+        }
+
+        body.theme-plain a:hover {
+            color: #001d2f;
+            border-bottom-color: #003049;
+        }
+
+        body.theme-plain code {
+            background: #f3f5f7;
+            color: #003049;
+            border-radius: 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.85em;
+        }
+
+        body.theme-plain pre,
+        body.theme-plain .hljs {
+            background: #f7f9fa !important;
+            color: #24292e !important;
+            border: 1px solid #d7dde3;
+            border-radius: 0;
+            font-size: 0.85em;
+        }
+        body.theme-plain .hljs-keyword { color: #d73a49 !important; font-weight: bold; }
+        body.theme-plain .hljs-string { color: #032f62 !important; }
+        body.theme-plain .hljs-comment { color: #6a737d !important; font-style: italic; }
+        body.theme-plain .hljs-title, body.theme-plain .hljs-function { color: #6f42c1 !important; }
+        body.theme-plain .hljs-number, body.theme-plain .hljs-literal { color: #005cc5 !important; }
+
+        body.theme-plain mark.blorbo-highlight {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border-bottom: 1px solid #0c5460;
+            border-radius: 0;
+        }
+
+        body.theme-plain .back-to-top {
+            background: #003049;
+            color: #ffffff;
+            border-radius: 0;
+            border: 1px solid #003049;
+            box-shadow: none;
+            width: 38px;
+            height: 38px;
+        }
+        body.theme-plain .back-to-top:hover {
+            background: #ffffff;
+            color: #003049;
+            transform: none;
+        }
+
+        body.theme-plain .blorbo-modal {
+            background: #ffffff;
+            border: 1px solid #c9d2da;
+            border-radius: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+
+        body.theme-plain .blorbo-modal-header {
+            border-bottom: 1px solid #c9d2da;
+            background: #fafafa;
+        }
+
+        body.theme-plain .blorbo-modal-title {
+            color: #003049;
+        }
+
+        body.theme-plain .blorbo-modal-btn {
+            background: #003049;
+            color: #ffffff;
+            border: 1px solid #003049;
+            border-radius: 0;
+            font-family: Georgia, serif;
+        }
+
+        body.theme-plain .blorbo-modal-btn:hover {
+            background: #001d2f;
+        }
+
+        body.theme-plain .blorbo-modal-close {
+            color: #003049;
+        }
+
+        body.theme-scaruffi {
+            background: #ffffff url('https://www.scaruffi.com/music/back.jpg') repeat !important;
+            color: #000000 !important;
+            font-family: "Times New Roman", Times, serif !important;
+        }
+
+        body.theme-scaruffi .sidebar {
+            background: #fedcba !important;
+            border-right: 1px solid #000000 !important;
+            box-shadow: none !important;
+            width: 200px !important;
+        }
+
+        body.theme-scaruffi .sidebar::before {
+            content: "blorbo";
+            display: block;
+            font-size: 24px;
+            font-weight: bold;
+            color: #0034ff;
+            text-align: center;
+            border-bottom: 2px solid #000000;
+            margin-bottom: 10px;
+        }
+
+        body.theme-scaruffi .sidebar h3 {
+            color: #0034ff !important;
+            font-family: "Times New Roman", Times, serif !important;
+            text-transform: none !important;
+            letter-spacing: 0 !important;
+            font-size: 14px !important;
+            border-bottom: 1px solid #000000 !important;
+            margin-top: 10px !important;
+            margin-bottom: 5px !important;
+            padding-bottom: 2px !important;
+        }
+
+        body.theme-scaruffi #toc-list {
+            list-style: none !important;
+            padding: 0 !important;
+        }
+
+        body.theme-scaruffi #toc-list li {
+            margin: 0 !important;
+            padding: 0 !important;
+            line-height: 1.1 !important;
+        }
+
+        body.theme-scaruffi .sidebar a {
+            color: #0000ff !important;
+            text-decoration: underline !important;
+            padding: 1px 2px !important;
+            font-size: 12px !important;
+            border-radius: 0 !important;
+            display: inline !important;
+        }
+
+        body.theme-scaruffi .sidebar a:hover,
+        body.theme-scaruffi .sidebar a.active {
+            background: #0034ff !important;
+            color: #ffffff !important;
+            text-decoration: none !important;
+        }
+
+        body.theme-scaruffi .sidebar .search-box {
+            border: 1px solid #000000 !important;
+            border-radius: 0 !important;
+            background: #ffffff !important;
+            font-family: inherit !important;
+            width: 100% !important;
+            padding: 4px !important;
+            margin-bottom: 10px !important;
+        }
+
+        body.theme-scaruffi .theme-list {
+            display: block !important;
+            margin-top: 20px !important;
+        }
+
+        body.theme-scaruffi .theme-button {
+            border: 1px solid #000000 !important;
+            background: #fedcba !important;
+            color: #000000 !important;
+            font-family: inherit !important;
+            border-radius: 0 !important;
+            padding: 2px 4px !important;
+            margin-bottom: 1px !important;
+            font-size: 11px !important;
+            width: 100% !important;
+            text-align: left !important;
+        }
+
+        body.theme-scaruffi .theme-button.active {
+            background: #ffff00 !important;
+            font-weight: bold !important;
+        }
+
+        body.theme-scaruffi .content {
+            margin-left: 200px !important;
+            padding: 0 15px 15px 15px !important;
+            max-width: none !important;
+        }
+
+        body.theme-scaruffi .content::before {
+            content: "Home | Contact | Search | Support this site";
+            display: block;
+            border-bottom: 1px solid #000000;
+            padding: 5px 0;
+            margin-bottom: 10px;
+            font-size: 12px;
+            color: #000000;
+            background: #fedcba;
+        }
+
+        body.theme-scaruffi .main {
+            background: #fedcba !important;
+            box-shadow: none !important;
+            border: 1px solid #000000 !important;
+            padding: 15px !important;
+        }
+
+        body.theme-scaruffi h1,
+        body.theme-scaruffi h2,
+        body.theme-scaruffi h3,
+        body.theme-scaruffi h4,
+        body.theme-scaruffi h5,
+        body.theme-scaruffi h6 {
+            color: #0702b6 !important;
+            font-family: "Times New Roman", Times, serif !important;
+            border: none !important;
+            margin: 0.8em 0 0.4em 0 !important;
+            padding: 0 !important;
+            line-height: 1 !important;
+        }
+
+        body.theme-scaruffi h1 { font-size: 2.5em !important; border-bottom: 1px solid #0034ff !important; }
+        body.theme-scaruffi h2 { font-size: 1.8em !important; }
+        body.theme-scaruffi h3 { font-size: 1.4em !important; }
+
+        body.theme-scaruffi p,
+        body.theme-scaruffi li {
+            margin: 0.4em 0 !important;
+            line-height: 1.3 !important;
+            font-size: 16px !important;
+        }
+
+        body.theme-scaruffi a {
+            color: #0000ff !important;
+            text-decoration: underline !important;
+        }
+
+        body.theme-scaruffi a:hover {
+            color: #0034ff !important;
+        }
+
+        body.theme-scaruffi code {
+            background: #f0f0f0 !important;
+            color: #000000 !important;
+            border: 1px solid #999999 !important;
+            border-radius: 0 !important;
+            padding: 0 4px !important;
+            font-size: 0.9em !important;
+        }
+
+        body.theme-scaruffi pre,
+        body.theme-scaruffi .hljs {
+            background: #ffffff !important;
+            color: #000000 !important;
+            border: 1px solid #000000 !important;
+            border-radius: 0 !important;
+            padding: 5px !important;
+            overflow-x: auto !important;
+        }
+        body.theme-scaruffi .hljs-keyword { text-decoration: underline; font-weight: bold; color: #0000ff !important; }
+        body.theme-scaruffi .hljs-string { font-style: italic; color: #000000 !important; }
+        body.theme-scaruffi .hljs-comment { color: #555555 !important; font-style: italic; }
+
+        body.theme-scaruffi mark.blorbo-highlight {
+            background-color: #ffff00 !important;
+            color: #000000 !important;
+            border-bottom: 1px solid #000000 !important;
+            border-radius: 0;
+        }
+
+        body.theme-scaruffi .back-to-top {
+            background: #fedcba !important;
+            color: #0000ff !important;
+            border: 1px solid #000000 !important;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        body.theme-scaruffi .back-to-top:hover {
+            background: #0000ff !important;
+            color: #ffffff !important;
+            transform: none;
+        }
+
+        body.theme-scaruffi .blorbo-modal {
+            background: #fedcba !important;
+            border: 2px solid #000000 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            font-family: "Times New Roman", Times, serif !important;
+        }
+
+        body.theme-scaruffi .blorbo-modal-header {
+            border-bottom: 1px solid #000000 !important;
+            background: #fedcba !important;
+        }
+
+        body.theme-scaruffi .blorbo-modal-title {
+            color: #0702b6 !important;
+            font-size: 16px !important;
+        }
+
+        body.theme-scaruffi .blorbo-modal-btn {
+            background: #fedcba !important;
+            color: #0000ff !important;
+            border: 1px solid #000000 !important;
+            border-radius: 0 !important;
+            text-decoration: underline !important;
+            font-family: inherit !important;
+        }
+
+        body.theme-scaruffi .blorbo-modal-btn:hover {
+            background: #0000ff !important;
+            color: #ffffff !important;
+            text-decoration: none !important;
+        }
+
+        body.theme-scaruffi .blorbo-modal-close {
+            color: #0000ff !important;
+        }
+
+        @media screen and (max-width: 70em) {
+            body.theme-metro {
+                font-size: 120%;
+            }
+
+            body.theme-metro .content {
+                margin-left: 11em;
+                width: 36em;
+            }
+
+            body.theme-metro .main {
+                padding: 2em;
+            }
+
+            body.theme-metro #content h1:first-of-type {
+                letter-spacing: 0.33em;
+                font-size: clamp(2rem, 8.1vw, 4.2rem);
+            }
+
+            body.theme-metro #content h1:first-of-type + * {
+                margin-top: 8.4em;
+            }
+
+            body.theme-plain .content {
+                padding: 32px 24px;
+            }
+
+            body.theme-plain .sidebar {
+                width: 220px;
+            }
+        }
+
         @media (max-width: 768px) {
             .sidebar {
                 position: fixed;
@@ -407,18 +1423,50 @@
                 display: block;
             }
 
-            body.theme-myspace .sidebar {
-                left: -230px;
-                padding-top: 60px;
+            .main {
+                border-radius: 0;
             }
 
-            body.theme-myspace .sidebar.active {
+            body.theme-metro .sidebar {
+                width: 11.5em;
+                left: -11.5em;
+                padding-top: 10.8em;
+            }
+
+            body.theme-metro .sidebar.active {
                 left: 0;
             }
 
-            body.theme-myspace .content {
+            body.theme-metro .content {
                 margin-left: 0;
-                padding: 60px 15px 20px;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            body.theme-metro .main {
+                width: 100%;
+                font-size: 100%;
+                padding: 1.2em;
+            }
+
+            body.theme-plain .sidebar {
+                width: 220px;
+                left: -220px;
+            }
+
+            body.theme-plain .sidebar.active {
+                left: 0;
+            }
+
+            body.theme-plain .content {
+                margin-left: 0;
+                width: 100%;
+                max-width: 100%;
+                padding: 24px 16px;
+            }
+
+            body.theme-plain .main {
+                width: 100%;
             }
         }
     </style>
@@ -436,26 +1484,15 @@
             <div class="theme-list" role="group" aria-label="Theme selector">
                 <button class="theme-button" data-theme="classic" aria-pressed="true">Classic</button>
                 <button class="theme-button" data-theme="dark" aria-pressed="false">Dark</button>
+                <button class="theme-button" data-theme="metro" aria-pressed="false">Metro</button>
+                <button class="theme-button" data-theme="plain" aria-pressed="false">Plain</button>
+                <button class="theme-button" data-theme="scaruffi" aria-pressed="false">Scaruffi</button>
             </div>
         </div>
 
         <div class="content">
             <button class="toc-toggle" id="toc-toggle">☰ Menu</button>
             <div class="main" id="content"></div>
-        </div>
-    </div>
-
-    <!-- interactive code viewer modal popup -->
-    <div id="skin-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:2000; align-items:center; justify-content:center;">
-        <div style="background:#1e1e1e; color:#d4d4d4; width:90%; max-width:850px; max-height:85vh; border-radius:8px; display:flex; flex-direction:column; padding:20px; box-shadow:0 10px 30px rgba(0,0,0,0.6); border:1px solid #333;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid #333; padding-bottom:8px;">
-                <h3 id="modal-skin-title" style="margin:0; color:#4ec9b0; font-family:sans-serif; font-size:1.1em;">Skin Code</h3>
-                <div>
-                    <button id="copy-skin-btn" style="background:#0e639c; color:#ffffff; border:none; padding:6px 14px; border-radius:4px; cursor:pointer; font-weight:bold; margin-right:8px; font-size:0.9em;">Copy CSS</button>
-                    <button id="close-skin-btn" style="background:#333333; color:#ffffff; border:none; padding:6px 12px; border-radius:4px; cursor:pointer; font-size:0.9em;">✕ Close</button>
-                </div>
-            </div>
-            <pre style="flex:1; overflow:auto; margin:0; padding:14px; background:#141414; border-radius:4px; border:1px solid #282828;"><code id="modal-skin-code" class="language-css">Loading CSS code...</code></pre>
         </div>
     </div>
 
@@ -466,17 +1503,37 @@
         </svg>
     </button>
 
+    <div id="blorbo-modal-overlay" class="blorbo-modal-overlay" aria-hidden="true">
+        <div class="blorbo-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="blorbo-modal-header">
+                <h3 id="modal-title" class="blorbo-modal-title">Code snippet</h3>
+                <div class="blorbo-modal-actions">
+                    <a id="modal-raw-btn" class="blorbo-modal-btn" target="_blank" rel="noopener" style="text-decoration:none;">Open raw</a>
+                    <button id="modal-copy-btn" class="blorbo-modal-btn">Copy code</button>
+                    <button id="modal-close-btn" class="blorbo-modal-close" aria-label="Close modal">&times;</button>
+                </div>
+            </div>
+            <div class="blorbo-modal-body">
+                <pre><code id="modal-code-content" class="language-javascript"></code></pre>
+            </div>
+        </div>
+    </div>
+
     <script>
         const THEME_STORAGE_KEY = 'blorbo-theme';
         const HIGHLIGHT_CLASS = 'blorbo-highlight';
         let searchTimeout = null;
         let headingCache = [];
+        let currentModalRawCode = '';
 
         function applyTheme(themeName) {
-            const themes = ['dark'];
+            const themes = ['dark', 'metro', 'plain', 'scaruffi'];
             const theme = themes.includes(themeName) ? themeName : 'classic';
 
             document.body.classList.toggle('theme-dark', theme === 'dark');
+            document.body.classList.toggle('theme-metro', theme === 'metro');
+            document.body.classList.toggle('theme-plain', theme === 'plain');
+            document.body.classList.toggle('theme-scaruffi', theme === 'scaruffi');
 
             document.querySelectorAll('.theme-button').forEach((button) => {
                 const isActive = button.dataset.theme === theme;
@@ -589,7 +1646,7 @@
             headingsToInclude.forEach((heading) => {
                 const level = parseInt(heading.tagName[1]);
                 const li = document.createElement('li');
-                li.style.marginLeft = Math.max(0, (level - 1) * 12) + 'px';
+                li.style.marginLeft = Math.max(0, (level - 1) * 15) + 'px';
 
                 const a = document.createElement('a');
                 a.href = '#' + heading.id;
@@ -766,53 +1823,6 @@
             });
         }
 
-        function initializeModalViewer() {
-            const modal = document.getElementById('skin-modal');
-            const codeEl = document.getElementById('modal-skin-code');
-            const titleEl = document.getElementById('modal-skin-title');
-            const copyBtn = document.getElementById('copy-skin-btn');
-            const closeBtn = document.getElementById('close-skin-btn');
-
-            document.getElementById('content').addEventListener('click', async (e) => {
-                const link = e.target.closest('a[href$=".css"]');
-                if (!link) return;
-
-                e.preventDefault();
-                const cssUrl = link.getAttribute('href');
-                
-                titleEl.textContent = cssUrl.split('/').pop();
-                codeEl.textContent = 'Fetching skin CSS...';
-                modal.style.display = 'flex';
-
-                try {
-                    const resp = await fetch(cssUrl);
-                    if (!resp.ok) throw new Error('HTTP Error ' + resp.status);
-                    const cssText = await resp.text();
-                    codeEl.textContent = cssText;
-                    if (window.hljs) hljs.highlightElement(codeEl);
-                } catch (err) {
-                    console.error('Error fetching CSS:', err);
-                    codeEl.textContent = '/* Could not load ' + cssUrl + ' directly. Open repository to view the code directly. */';
-                }
-            });
-
-            closeBtn.addEventListener('click', () => {
-                modal.style.display = 'none';
-            });
-
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.style.display = 'none';
-            });
-
-            copyBtn.addEventListener('click', () => {
-                const code = codeEl.textContent;
-                navigator.clipboard.writeText(code).then(() => {
-                    copyBtn.textContent = 'Copied!';
-                    setTimeout(() => { copyBtn.textContent = 'Copy CSS'; }, 2000);
-                });
-            });
-        }
-
         document.getElementById('toc-toggle').addEventListener('click', function() {
             document.querySelector('.sidebar').classList.toggle('active');
         });
@@ -873,10 +1883,139 @@
             });
         }
 
+        async function openJsModal(url, displayTitle) {
+            const overlay = document.getElementById('blorbo-modal-overlay');
+            const titleElem = document.getElementById('modal-title');
+            const codeElem = document.getElementById('modal-code-content');
+            const copyBtn = document.getElementById('modal-copy-btn');
+
+            const rawBtn = document.getElementById('modal-raw-btn');
+            if (rawBtn) rawBtn.href = url;
+
+            const rawName = url.split('/').pop().split('?')[0];
+            const fileName = rawName ? decodeURIComponent(rawName) : (displayTitle || 'Code snippet');
+            titleElem.textContent = fileName;
+            codeElem.textContent = '// Loading JavaScript snippet...';
+            delete codeElem.dataset.highlighted;
+            codeElem.className = 'language-javascript';
+
+            copyBtn.textContent = 'Copy code';
+            currentModalRawCode = '';
+
+            overlay.classList.add('visible');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                const codeText = await response.text();
+                currentModalRawCode = codeText;
+
+                const MAX_PREVIEW_SIZE = 800000; // ~800 KB visual limit
+                const MAX_HIGHLIGHT_SIZE = 200000; // ~200 KB syntax highlight limit
+
+                if (codeText.length > MAX_PREVIEW_SIZE) {
+                    const sizeMb = (codeText.length / (1024 * 1024)).toFixed(2);
+                    const previewText = codeText.slice(0, MAX_PREVIEW_SIZE);
+                    codeElem.textContent = `// This is a large file (${sizeMb} MB). For this reason, this preview has been truncated.\n// Clicking "Copy code" *will* copy the full file, though!\n\n` + previewText + '\n\n... [remaining preview hidden]';
+                } else {
+                    codeElem.textContent = codeText;
+                    if (codeText.length < MAX_HIGHLIGHT_SIZE) {
+                        hljs.highlightElement(codeElem);
+                    }
+                }
+            } catch (err) {
+                console.error('Error fetching JS snippet:', err);
+                const errorMsg = `// Could not fetch JS snippet from: ${url}\n// Error: ${err.message}\n\n// You can click below or open directly at:\n// ${url}`;
+                currentModalRawCode = errorMsg;
+                codeElem.textContent = errorMsg;
+                hljs.highlightElement(codeElem);
+            }
+        }
+
+        function closeModal() {
+            const overlay = document.getElementById('blorbo-modal-overlay');
+            overlay.classList.remove('visible');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        function initializeModal() {
+            const overlay = document.getElementById('blorbo-modal-overlay');
+            const closeBtn = document.getElementById('modal-close-btn');
+            const copyBtn = document.getElementById('modal-copy-btn');
+
+            closeBtn.addEventListener('click', closeModal);
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    closeModal();
+                }
+            });
+
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && overlay.classList.contains('visible')) {
+                    closeModal();
+                }
+            });
+
+            copyBtn.addEventListener('click', async () => {
+                if (!currentModalRawCode) return;
+                try {
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        await navigator.clipboard.writeText(currentModalRawCode);
+                    } else {
+                        const textarea = document.createElement('textarea');
+                        textarea.value = currentModalRawCode;
+                        textarea.style.position = 'fixed';
+                        textarea.style.left = '-9999px';
+                        document.body.appendChild(textarea);
+                        textarea.focus();
+                        textarea.setSelectionRange(0, currentModalRawCode.length);
+                        document.execCommand('copy');
+                        document.body.removeChild(textarea);
+                    }
+                    copyBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyBtn.textContent = 'Copy code';
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy text:', err);
+                    copyBtn.textContent = 'Copy failed';
+                    setTimeout(() => {
+                        copyBtn.textContent = 'Copy code';
+                    }, 2000);
+                }
+            });
+
+            document.getElementById('content').addEventListener('click', (event) => {
+                // allow opening in new tab via Ctrl/Cmd/Shift click or middle-click
+                if (event.ctrlKey || event.metaKey || event.shiftKey || event.button === 1) return;
+
+                const link = event.target.closest('a');
+                if (!link) return;
+
+                const href = link.getAttribute('href');
+                if (!href) return;
+
+                const cleanPath = href.split('?')[0].split('#')[0];
+                const isCodeExtension = /\.(js|css|txt|json)$/i.test(cleanPath);
+                const isRawGithub = href.includes('raw.githubusercontent.com');
+
+                if (isCodeExtension || isRawGithub) {
+                    event.preventDefault();
+                    openJsModal(href, link.textContent || href);
+                }
+            });
+        }
+
         initializeThemes();
         initializeSearch();
         initializeScrollEffects();
-        initializeModalViewer();
+        initializeModal();
         loadReadme();
     </script>
 </body>
