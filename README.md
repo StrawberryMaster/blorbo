@@ -29,6 +29,7 @@ If you have a skin you'd like to share, feel free to [submit it](https://github.
 | **Keira** | Trippy. | [`skins/keira.css`](skins/keira.css) |
 | **Lagoon** | Fresh aqua/teal theme | [`skins/lagoon.css`](skins/lagoon.css) |
 | **Medieval** | You've seen this one already. | [`skins/medieval.css`](skins/medieval.css) |
+| **Rose** | Light burgundy-rose theme. Not too far from the base skin | [`skins/rose.css`](skins/rose.css) |
 | **Snow Blue** | Ice-y blue colors everywhere | [`skins/snowblue.css`](skins/snowblue.css) |
 | **Stars** | Starry theme built from a Byler theme | [`skins/stars.css`](skins/stars.css) |
 | **Trout** | Has more than one fish in it | [`skins/trout.css`](skins/trout.css) |
