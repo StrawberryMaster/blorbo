@@ -1,0 +1,4500 @@
+/*
+ * AO3 default site skin, bundled for preview.html only.
+ * Source: https://archiveofourown.org (Organization for Transformative Works)
+ * otwarchive is GPL-2.0-or-later: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * This file is used verbatim as the base that custom skins are applied on top of.
+ */
+/* == CORE: basic functional layout
+https://otwcode.github.io/docs/stylesheets-views.html#core
+*/
+
+body, .toggled form, .dynamic form, .secondary, .dropdown {
+  background: #fff;
+  color: #2a2a2a;
+  font: 100%/1.125 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif, 'GNU Unifont';
+  margin: 0;
+  padding: 0;
+}
+
+.heading {
+  font-family: Georgia, serif;
+}
+
+a, a:link {
+  color: #900;
+  text-decoration: none;
+}
+
+#header, #footer, #main, #dashboard {
+  padding: 1em 3em;
+}
+
+.landmark {
+  font-size: 0;
+  opacity: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+li.blurb, fieldset, form dl {
+  border: 1px solid #ddd;
+  padding: 1em;
+  overflow: hidden;
+}
+
+.blurb li, .actions>*, .stats>*, .meta ul li {
+  list-style: none;
+  display: inline;
+  padding-left: 0.25em;
+}
+
+.actions form {
+  display: inline;
+}
+
+.actions input[type="submit"] {
+  margin: 0;
+}
+
+/* END == */
+/* == ELEMENTS
+https://otwcode.github.io/docs/stylesheets-views.html#elements
+*/
+
+/* MEYERS RESET. *********************************************** do not edit */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* *********************************************** end of uneditable rules */
+
+/* The global rules for normal elements */
+
+body {
+  font: 100%/1.125 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif, 'GNU Unifont';
+}
+
+a, a:link, a:visited:hover {
+  color: #111;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+a:visited {
+  color: #666;
+  text-decoration: none;
+  border-bottom: 1px dashed;
+}
+
+a:hover {
+  color: #999;
+}
+
+a:active, a:focus, button:focus {
+  outline: 1px dotted;
+}
+
+a img {
+  border: 0;
+}
+
+a:focus img {
+  outline: 1px dotted;
+}
+
+h1, h2, h3, h4, h5, h6, .heading {
+  font-family: Georgia, serif;
+  font-weight: 400;
+    word-wrap: break-word;
+}
+
+h1 {
+  font-size: 2.5em;
+  line-height: 1;
+  margin: 0.5em 0;
+}
+
+h2 {
+  font-size: 2.143em;
+  line-height: 1;
+  margin: 0.429em 0;
+  display: inline;
+}
+
+/* 24px skipped: font-size: 1.714em; line-height: 1; margin: 0.429em 0 */
+
+h3 {
+  font-size: 1.286em;
+  line-height: 1;
+  margin: 0.5375em 0;
+}
+
+h4 {
+  font-size: 1.143em;
+  line-height: 1.125;
+  margin: 0.5em 0;
+}
+
+h5 {
+  font-size: 1em;
+  line-height: 1.286;
+  margin: 0.643em 0;
+}
+
+h6 {
+  font-size: 0.875em;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 1.5em 0;
+}
+
+p, li, dd, hr {
+  margin: 0.643em 0;
+}
+
+hr {
+  border: 0;
+  border-bottom: 3px double;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  border: 0;
+  margin: 0;
+  background: transparent;
+  opacity: 0;
+}
+
+blockquote, pre, address {
+  font: 1em 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif;
+  margin: 0.643em;
+}
+
+blockquote p:first-child, address p:first-child {
+  margin-top: 0;
+}
+
+blockquote p:last-child, address p:first-child {
+  margin-bottom: 0;
+}
+
+kbd, tt, code, var, pre, samp {
+  font: normal 0.857em 'Monaco', 'Consolas', Courier, monospace;
+  font-variant-ligatures: none;
+  margin: auto;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+em, cite, i {
+  font-style: oblique;
+}
+
+cite em, em cite, cite i, i cite, i em, em i, em em, i i, cite cite {
+  font-style: normal;
+}
+
+em cite, i cite, ins, u {
+  text-decoration: underline;
+}
+
+del, strike {
+  text-decoration: line-through;
+}
+
+dfn, abbr, acronym {
+  cursor: help;
+}
+
+big {
+  font-size: 114%;
+}
+
+small, sub, sup {
+  font-size: 87.5%;
+}
+
+small small small small {
+  font-size: 100%;
+}
+
+sub {
+  vertical-align: sub;
+  line-height: 0;
+}
+
+sup {
+  vertical-align: super;
+  line-height: 0;
+}
+
+/*
+https://otwcode.github.io/docs/patterns/tables.html
+*/
+
+table {
+  background: #ddd;
+  border-collapse: collapse;
+  margin: auto;
+  width: 100%;
+  clear: right;
+}
+
+caption {
+  height: 0;
+  width: 0;
+  font-size: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+}
+
+thead, tfoot {
+  border-bottom: 2px solid #bbb;
+  padding: 0.643em;
+  vertical-align: top;
+}
+
+tfoot td {
+  border-top: 1px solid #bbb;
+}
+
+td th {
+  padding-right: 1em;
+}
+
+tbody tr {
+  border-bottom: 1px solid #fff;
+}
+
+td {
+  padding: 0.25em;
+  vertical-align: top;
+}
+
+th {
+  text-align: start;
+}
+
+thead td {
+  background: #ddd;
+  border-bottom: 1px solid #fff;
+}
+
+th, tr:hover, col.name {
+  background: #fff;
+  border: 1px solid #bbb;
+  padding: 0.15em 0.5em 0.25em;
+  vertical-align: top;
+}
+
+th a, th a:visited, th a:link {
+  text-decoration: none;
+}
+
+tbody tr th {
+  text-align: start;
+}
+
+/* END == */
+/* == REGION: HEADER is #1 of the 4 regions shown on every page
+https://otwcode.github.io/docs/patterns/regions.html#header-region
+notice that CSS3 declarations sit are indented twice (four spaces) and always come last
+*/
+
+#header input, #header #search>*, #header #search .submit {
+  display: inline;
+  float: none;
+}
+
+#header .landmark {
+  clear: none;
+  font-size: 0;
+  border: none;
+}
+
+#header a, #header fieldset, #header form, #header p, #header li, #header h1, #small_login dl {
+  background: transparent;
+  font-size: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#header {
+  font-size: 0.875em;
+  margin: 0 0 1em;
+  padding: 0;
+  position: relative;
+}
+
+#header li {
+  display: block;
+  float: left;
+  position: relative;
+}
+
+#header a, #header a:visited, #header .primary .open a, #header .primary .dropdown:hover a, #header .primary .dropdown a:focus {
+  color: #111;
+}
+
+#header .actions a:hover, #header .actions a:focus, #header .dropdown:hover a, #header .open a {
+  background: #ddd;
+}
+
+/* BRANDING: logo and title */
+
+#header .heading {
+  float: left;
+  padding: 0.375em;
+}
+
+/* 1.714em x 14px = 24px */
+#header .heading a {
+  color: #900;
+  font-size: 1.714em;
+  line-height: 1.75em;
+}
+
+#header .logo {
+  float: left;
+  height: 42px;
+}
+
+/* ACTION: dropdown */
+
+#header .menu, #small_login {
+  background: #ddd;
+  display: none;
+  padding: 0.25em 0;
+  position: absolute;
+  width: 20em;
+  z-index: 55;
+    box-shadow: 1px 1px 3px -1px #444;
+    background-image: -moz-linear-gradient(top, rgba(221, 221, 221, 0.98) 0%, rgba(204, 204, 204, 0.98) 100%);
+    background-image: -webkit-linear-gradient(top, rgba(221, 221, 221, 0.98) 0%, rgba(204, 204, 204, 0.98) 100%);
+    background-image: -o-linear-gradient(top, rgba(221, 221, 221, 0.98) 0%, rgba(204, 204, 204, 0.98) 100%);
+    background-image: linear-gradient(to bottom, rgba(221, 221, 221, 0.98) 0%, rgba(204, 204, 204, 0.98) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fadddddd', endColorstr='#facccccc',GradientType=0);
+}
+
+#header .open .menu, #header .dropdown:hover .menu, .open + #small_login, #header .menu li {
+  display: block;
+  float: none;
+}
+
+#header .menu li {
+  border-bottom: 1px solid #888;
+  margin: 0 0.25em;
+  text-align: left;
+}
+
+#header .menu li:last-child {
+  border-bottom: none;
+}
+
+#header .dropdown .menu a {
+  background: transparent;
+  display: block;
+  padding: 0.75em 0.5em 0.5em;
+}
+
+#header .dropdown .menu a:hover, #header .dropdown .menu a:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* login and greeting */
+
+#login, #greeting {
+  float: right;
+  margin-right: 0.375em;
+}
+
+#header .user {
+  padding: 0.429em 0 0;
+  position: relative;
+  z-index: 20;
+}
+
+#header .user a, #small_login .action {
+  padding: 0.25em 0.75em;
+}
+
+#header .user a:hover, #header .user a:focus {
+  color: #900;
+    border-radius: 0.25em;
+}
+
+#login .open a:hover, #login .open a:focus {
+  background: #eee;
+}
+
+#greeting .user > li {
+  margin: 0 0.125em;
+}
+
+#greeting .menu {
+  right: 0;
+    box-shadow: -1px 1px 3px -1px #444;
+}
+
+/* square off bottom corners when the dropdown is visible */
+#greeting .open a, #greeting .dropdown:hover a {
+    border-radius: 0.25em 0.25em 0 0;
+}
+
+#greeting .dropdown .menu a {
+    border-radius: 0;
+}
+
+#greeting p.icon {
+  float: right;
+  height: auto;
+  padding: 0.429em 0.125em 0;
+  line-height: 1;
+  width: auto;
+}
+
+#greeting p.icon a {
+  display: block;
+  padding: 0;
+}
+
+#greeting img.icon {
+  height: 1.786em;
+  width: 1.786em;
+    background-size: 100%;
+}
+
+/* FORM: login */
+
+#small_login {
+  border: 2px solid #fff;
+  padding: 0.375em;
+  right: 0;
+  z-index: 10;
+    box-shadow: none;
+}
+
+#small_login form {
+  margin-top: 1.286em;
+}
+
+#small_login dt, #small_login dd {
+  margin: 0;
+  width: 99%;
+}
+
+#small_login dt, #small_login .submit {
+  border-bottom: none;
+  padding: 0.375em 0 0;
+}
+
+#small_login .actions {
+  float: none;
+  text-align: left;
+}
+
+#small_login .footnote {
+  float: left;
+  font-size: 0.857em;
+  padding: 0.375em 0;
+}
+
+#small_login .footnote li {
+  padding: 0 0.25em;
+}
+
+.dropdown #small_login .footnote a {
+  background: transparent;
+  border-bottom: 1px solid;
+}
+
+/* primary navigation */
+
+#header .primary {
+  background: #900 url(https://archiveofourown.org/images/skins/textures/tiles/red-ao3.png);
+  padding: 0 0;
+  width: 100%;
+    box-shadow: inset 0 -6px 10px rgba(0, 0, 0, 0.35),
+    1px 1px 3px -1px rgba(0, 0, 0, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.85); /* instead of a bottom border to keep the container the same height as its contents */
+}
+
+#header .primary > li:first-of-type {
+  margin-left: 2em;
+}
+
+#header .primary a {
+  padding: 0.429em 0.75em;
+}
+
+#header .primary a {
+  color: #fff;
+}
+
+#header .primary .menu a {
+  color: #111;
+  padding: 0.75em 0.5em 0.5em;
+}
+
+/* search */
+
+#header .search {
+  float: right;
+  color: #2a2a2a;
+  margin-right: 0.25em;
+}
+
+#header #search input:focus {
+  color: #2a2a2a;
+  outline: 1px dotted;
+}
+
+#header #search .text, #header #search .button {
+  border: none;
+}
+
+/* 0.2857em x 14px = 4px because the input has a padding of 0.15em x 14px = 2px and it needs to match 0.429em x 14px = 6px */
+#header #search .text {
+  margin: 0.2857em 0.429em;
+}
+
+#header #search .button {
+  margin: 0;
+}
+
+/* CONTEXT: collections */
+
+#header h2 {
+  border-top: 1px solid;
+  clear: both;
+  color: #fff;
+  display: block;
+  font-size: 1.714em;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0 0.375em;
+    text-shadow: none;
+}
+
+/* END == */
+/* == REGION: DASHBOARD is #2 of the 4 regions shown on every page
+https://otwcode.github.io/docs/patterns/regions.html#dashboard-region
+*/
+
+#dashboard {
+  width: 11.25em;
+  float: left;
+  padding: 0.5em;
+}
+
+#dashboard li {
+  padding: 0;
+}
+
+#dashboard a, #dashboard span {
+  color: #111;
+  display: block;
+  white-space: normal;
+  height: auto;
+  line-height: 2;
+  padding: 0 0.5625em;
+  margin: 0;
+  border: none;
+  background: transparent;
+  vertical-align: middle;
+    word-wrap: break-word;
+    box-shadow: none;
+}
+
+#dashboard a:hover {
+  background: #ddd;
+  color: #900;
+}
+
+#dashboard ul {
+  float: none;
+  display: block;
+  padding: 1.286em 0;
+  text-align: right;
+  border-top: 2px solid #ddd;
+  position: relative;
+}
+
+#dashboard .current {
+  background: #ccc;
+}
+
+#dashboard .secondary {
+  right: auto;
+}
+
+#dashboard.own {
+  background: transparent;
+  border-top: 15px solid #900;
+  border-bottom: 15px solid #900;
+    opacity: 1.0;
+    border-radius: 0.25em;
+}
+
+/* END == */
+/* == REGION: MAIN is #3 of the 4 regions shown on every page
+https://otwcode.github.io/docs/patterns/regions.html#main-region
+*/
+
+#main {
+  font-size: 0.875em;
+  line-height: 1.286;
+  margin: auto;
+  padding: 0.5em 2.5em 3.5em;
+  position: relative;
+  min-height: 450px;
+}
+
+#main:after {
+  content: " ";
+  display: block;
+  height: 0;
+  font-size: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+#main.dashboard {
+  padding-left: 2em;
+  margin: 0.5em auto 1em 14em;
+}
+
+#main.home {
+  padding: 2em 7.5em 3.5em;
+}
+
+#main.errors {
+  background: url("/images/ao3_logos/sadface.png") top right no-repeat;
+}
+
+#main.error-502 {
+  background: url("/images/ao3_logos/ao3-502.png") top right no-repeat;
+}
+
+#main.error-503-maintenance {
+  background: url("/images/ao3_logos/logo-ruby.png") top right no-repeat;
+}
+
+#main.session {
+  background: url("/images/logo.png") 0.5em 3em no-repeat;
+}
+
+#main.authentication {
+  background: none;
+}
+
+#main.errors h2 {
+  display: block;
+  margin-top: 0;
+}
+
+#main.errors p, #main.errors .heading {
+  margin-right: 325px;
+}
+
+/* END == */
+/* == REGION: FOOTER is #4 of the 4 regions shown on every page
+https://otwcode.github.io/docs/patterns/regions.html#footer-region
+*/
+
+#footer {
+  background: #900 url("/images/skins/textures/tiles/red-ao3.png");
+  border-top: 2px solid;
+  color: #fff;
+  float: left;
+  font-size: 0.75em;
+  position: relative;
+  padding: 0;
+  width: 100%;
+}
+
+#footer ul {
+  border: 0;
+  clear: both;
+  margin: 1.5em 0;
+  padding: 1em 5%;
+  float: left;
+  text-align: left;
+  width: 90%;
+}
+
+#footer li {
+  position: relative;
+  display: block;
+}
+
+#footer a, #footer button {
+  background: transparent;
+  border: 0;
+  font-weight: 400;
+  margin: auto;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+#footer a, #footer button {
+  color: #fff;
+  display: inline;
+  text-decoration: underline;
+  line-height: 1.5;
+  white-space: normal;
+    text-underline-position: under;
+}
+
+#footer button {
+  cursor: pointer;
+  text-align: start;
+  height: unset;
+}
+
+#footer a:focus, #footer button:focus {
+  outline: 1px dotted;
+}
+
+#footer .module {
+  max-width: 20%;
+  padding: 0 2%;
+}
+
+#footer .menu {
+  margin: 0;
+  padding: 0;
+}
+
+#footer .heading {
+  display: block;
+  color: #fff;
+}
+
+/* END == */
+/* == INTERACTIONS: global form rules
+https://otwcode.github.io/docs/patterns/interactions.html
+(submit button styling is in actions.css with the other buttons)
+General rules for all form elements, and nearly ALL our forms use just these.
+Forms are normally in definition lists <dt label: dd input>
+with some un/ordered lists, normally of checkbox options <li checkbox:label>
+and some paragraphs, normally forms with a single <p label:input> .
+
+We might develop three MODES: .simple .verbose and .dynamic -- .sim and ver in early draft in sandbox
+We also have some jS WIDGETS, which are custom form interactions, like autocomplete
+and a few variations for INTERACTION TYPES, which are, roughly:
+.post, .login, make .associations, set .preferences, [.search, .filter] => in searchbrowse
+*/
+
+form {
+  clear: right;
+}
+
+/* wrap long text in Opera, Safari, and Chrome */
+fieldset {
+  min-width: 0;
+}
+
+/* Guideline: Forms are written by lots of people, and, this is beta, change a LOT.
+I've written a load of possible different nests to give a reasonably/broadly consistent view whatever goes in,
+but it's probably not complete.
+*/
+
+fieldset, form dl, fieldset dl dl, fieldset fieldset fieldset, fieldset fieldset dl dl, dd.hideme, form blockquote.userstuff {
+  display: block;
+  background: #ddd;
+  border: 2px solid #f3efec;
+  margin: 0.643em;
+  padding: 0.643em;
+    box-shadow: inset 1px 0 5px #999;
+}
+
+fieldset dl, fieldset.actions, fieldset dl fieldset dl {
+  background: transparent;
+  border: none;
+  clear: right;
+    box-shadow: none;
+}
+
+fieldset fieldset, fieldset dl dl, form blockquote.userstuff {
+  background: #fff;
+  clear: right;
+}
+
+fieldset dd dl, form .meta dd, fieldset dl fieldset dl, dd fieldset {
+  margin: 0.643em 0;
+}
+
+/* end nesting */
+
+legend {
+  height: 0;
+  width: 0;
+  font-size: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+}
+
+input[type="hidden"] {
+  display: none !important;
+}
+
+label {
+  margin-right: 0.375em;
+}
+
+input, textarea {
+  font: 100% 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif, 'GNU Unifont';
+  width: 100%;
+  border: 1px solid #bbb;
+    box-shadow: inset 0 1px 2px #ccc;
+}
+
+textarea {
+  min-height: 12em;
+}
+
+textarea.large {
+  height: 36em;
+}
+
+input:focus, select:focus, textarea:focus {
+  background: #f3efec;
+}
+
+input[type="radio"] + label, input[type="checkbox"] + label {
+  padding-left: 1em;
+}
+
+select {
+  vertical-align: text-top;
+  width: 100%;
+  min-width: 10.5em;
+}
+
+.datetime select {
+  width: 32.5%;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    box-shadow: none;
+}
+
+input[type="checkbox"], input[type="file"], input[type="radio"], input.number, p input, p select, .heading select, li select {
+  width: auto;
+  margin-right: 0.375em;
+}
+
+input.number {
+  width: 4em;
+}
+
+option, .actions option, form code {
+  display: block;
+}
+
+form p {
+  clear: right;
+  margin: auto;
+  padding: 0.643em;
+}
+
+form dt {
+  float: left;
+  clear: left;
+  min-width: 10.5em;
+  width: 25%;
+  padding: 0.25em 0.5625em 0 0;
+  border-bottom: 1px solid #f3efec;
+}
+
+form dd, form dd.any {
+  float: left;
+  width: 72.5%;
+}
+
+form dd.any {
+  margin-left: 25%;
+}
+
+form dd + dd {
+  width: 97.5%;
+  margin-left: 0.5625em;
+}
+
+form dd.required {
+  color: #2a2a2a;
+}
+
+form .footnote code {
+  display: inline;
+}
+
+/* when we display information that cannot be edited,
+like the current username on the change username form
+*/
+form dd p.informational {
+  padding-top: 0;
+}
+
+/* END FORM RULES */
+
+/* WIDGET: DEPENDENT OPTIONS */
+.toggle_formfield ~ ul.dependent {
+  margin-left: 2.625em;
+}
+
+/* WIDGET: CHARACTER COUNTER (todo: ARIA live region POLITE) */
+
+p.character_counter {
+  font-size: 87.5%;
+  text-align: right;
+}
+
+.comment .character_counter {
+  float: left;
+}
+
+/* WIDGET: LIVE VALIDATION (todo: ARIA live region)
+We only use error messages for LiveValidation. Style spoofs the system error message. If we ever set a default success message, this will need updating.
+*/
+
+.LV_validation_message {
+  font-weight: 900;
+  position: absolute;
+  margin-top: 0.643em;
+  margin-right: 15em;
+  z-index: 1;
+}
+
+.LV_invalid {
+  background: #efd1d1;
+  border: 1px solid #900;
+  color: #900;
+  padding: 0.25em 0.375em;
+    box-shadow: 1px 1px 2px;
+    border-radius: 0.25em;
+}
+
+.LV_invalid_field, input.LV_invalid_field:hover, input.LV_invalid_field:active, textarea.LV_invalid_field:hover, textarea.LV_invalid_field:active {
+  border: 1px solid #c00;
+}
+
+.LV_invalid:before {
+  border-color: #900 transparent;
+  border-style: solid;
+  border-width: 0 0.643em 0.643em;
+  content: "";
+  left: 0.875em;
+  position: absolute;
+  top: -0.643em;
+}
+
+/* WIDGET: AUTO COMPLETE */
+
+.autocomplete div.dropdown ul {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 0.125em;
+  line-height: 1.286;
+  color: #000;
+  display: block;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.autocomplete ul li {
+  padding: 0.125em;
+  margin: 0.25em auto auto;
+}
+
+.autocomplete input, .autocomplete .dropdown ul li {
+  display: block;
+  min-width: 10em;
+}
+
+.autocomplete .dropdown ul li {
+  margin: 0.25em 0 0;
+}
+
+form li ul.autocomplete li.input {
+  border: 0;
+}
+
+.autocomplete .dropdown ul li:hover, .autocomplete .dropdown li.selected {
+  background: url("/images/skins/textures/tiles/red-ao3.png") top left #900;
+  color: #fff;
+}
+
+.required .autocomplete, .autocomplete .notice {
+  color: #2a2a2a;
+}
+
+.autocomplete .notice {
+  margin-top: 0 !important;
+}
+
+.autocomplete li.added, .post .meta dd ul li.added {
+  display: inline-block;
+}
+
+/* WIDGET: SORTABLE LIST (note: hope to merge with .sortable and .draggable etc) */
+
+.ui-sortable li {
+  background: #eee;
+  border: 2px solid #ddd;
+  float: left;
+  width: 100%;
+  clear: both;
+    box-shadow: 1px 1px 3px transparent;
+}
+
+.ui-sortable li:hover {
+  background: #ddd;
+  border: 2px solid #999;
+  cursor: move;
+    box-shadow: 1px 1px 3px #bbb;
+}
+
+.ui-sortable input {
+  margin: 0.429em 0 0.25em 0.25em;
+}
+
+.ui-sortable .heading {
+  display: inline-block;
+}
+
+.ui-sortable ul.actions li {
+  float: none;
+  background: transparent;
+  border: none;
+}
+
+.ui-draggable form {
+  cursor: move;
+    box-shadow: 0 0 3px #555;
+}
+
+.ui-draggable a {
+  cursor: default;
+}
+
+/* WIDGET: DATEPICKER, TIMEPICKER (todo, requires ARIA managed focus) */
+
+#ui-datepicker-div {
+  background: #fff;
+  display: none;
+  overflow: hidden;
+  padding: 0.643em;
+  font-size: 87.5%;
+    box-shadow: 3px 3px 5px;
+}
+
+.ui-datepicker dt, .ui-datepicker dd, .ui-datepicker-buttonpane, .ui-timepicker-div, a.ui-datepicker-prev {
+  float: left;
+}
+
+.ui-datepicker button {
+  height: 2em;
+}
+
+.ui-datepicker dt {
+  clear: left;
+  width: 5em;
+  margin: 0.25em 0;
+}
+
+.ui-datepicker dd {
+  margin: 0.25em 0;
+}
+
+.ui-datepicker table {
+  background: #eee;
+}
+
+.ui-datepicker td {
+  border: 1px solid #aaa;
+}
+
+.ui-datepicker tr:hover {
+  background: #ddd;
+}
+
+.ui-datepicker td:hover {
+  background: #fff;
+}
+
+.ui-datepicker td a {
+  border-bottom: none;
+}
+
+a.ui-datepicker-next {
+  float: right;
+}
+
+.ui-datepicker-title {
+  clear: both;
+  text-align: center;
+}
+
+.ui-datepicker-buttonpane {
+  clear: left;
+}
+
+.ui-timepicker-div dl {
+  float: left;
+  margin: 0.643em 0;
+}
+
+.ui_tpicker_hour_label, .ui_tpicker_minute_label {
+  padding-top: 0.25em;
+  height: 1.45em;
+}
+
+/* WIDGET: TOOLTIP (todo, requires graceful degradation testing, can't see any reason for this jS)
+qTip2 Copyright 2009-2010 Craig Michael Thompson -
+http://craigsworks.com
+*/
+
+.qtip {
+  position: absolute;
+  left: -28000px;
+  top: -28000px;
+  display: none;
+  max-width: 22em;
+  min-width: 6em;
+  font-size: 0.625em;
+  z-index: 15000;
+}
+
+.qtip-content {
+  position: relative;
+  padding: 0.15em 0.25em;
+  background: #d1e1ef;
+  border: 1px solid #c2d2df;
+  overflow: hidden;
+    word-wrap: break-word;
+}
+
+/* WIDGET: MODAL DIALOGS (called by help links) */
+
+a.modal.help {
+  cursor: help;
+}
+
+#modal-bg, #modal-wrap {
+  display: none;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+#modal-bg {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  z-index: 499;
+}
+
+#modal-bg .loading {
+  background: url(https://archiveofourown.org/images/indicator.gif) no-repeat center center;
+  height: 124px;
+  left: 50%;
+  margin: -62px 0 0 -62px;
+  position: absolute;
+  top: 50%;
+  width: 124px;
+}
+
+#modal-wrap {
+  display: none;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  z-index: 500;
+}
+
+#modal-wrap:before {
+  content: '';
+  height: 100%;
+}
+
+#modal-wrap:before, #modal {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#modal {
+  background: #fff;
+  border: 10px solid #eee;
+  margin: 3% 0;
+  max-width: 800px;
+  min-width: 200px;
+  padding-bottom: 44px;
+  position: relative;
+  text-align: left;
+  width: 80%;
+  z-index: 501;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#modal .content {
+  border-bottom: 1px solid #ccc;
+  font-size: 0.875em;
+  overflow: auto;
+  padding: 1.5em;
+}
+
+#modal.tall {
+  height: 80%;
+  max-height: 720px;
+}
+
+#modal.tall.img {
+  min-width: 0;
+  width: auto;
+}
+
+#modal.tall .content {
+  bottom: 44px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#modal.img {
+  background: transparent;
+  border: 0;
+  margin: 0 0 44px;
+  max-height: none;
+  max-width: 90%;
+  min-width: 0;
+  padding: 0;
+  width: auto;
+    box-shadow: none;
+}
+
+#modal.img a {
+  border: 0;
+  color: #fff;
+}
+
+#modal.img.tall {
+  height: 90%;
+  width: auto;
+}
+
+#modal.img .content {
+  border: 0;
+  overflow: visible;
+  padding: 0;
+  text-align: center;
+}
+
+#modal.img.tall .content {
+  height: 100%;
+  position: relative;
+  width: auto;
+}
+
+#modal.img .content img {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  max-height: 100%;
+  max-width: 100%;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#modal .footer {
+  bottom: 0;
+  height: 44px;
+  left: 0;
+  line-height: 44px;
+  padding: 0 0.6432em;
+  right: 0;
+  position: absolute;
+}
+
+#modal.img .footer {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  position: fixed;
+  text-align: center;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#modal .footer .action.modal-closer {
+  bottom: 8px;
+  position: absolute;
+  right: 8px;
+}
+
+#modal .content > h1:first-child, #modal .content > h2:first-child, #modal .content > .heading:first-child {
+  margin-top: 0.5em;
+}
+
+/* MODE: DYNAMIC is in early dev and so currently sharing styles with toggled */
+
+div.dynamic {
+  background: #fff;
+  position: absolute;
+  z-index: 500;
+}
+
+/* MODE: VERBOSE for forms with more than three fieldsets
+TO DO: Make VERBOSE a class on FORM across the site; it is a surrounding DIV
+in some areas, hence .verbose form
+*/
+
+form.verbose legend, .verbose form legend {
+  height: auto;
+  width: auto;
+  font-size: 100%;
+  background: #fff;
+  border: 2px solid #ddd;
+  padding: 0.5em;
+    box-shadow: 1px 2px 3px #999;
+    opacity: 1;
+}
+
+/* MODE: SIMPLE for forms with three or fewer fieldsets (default) */
+
+form.simple span.actions {
+  float: none;
+}
+
+.simple input[type="submit"] {
+  margin: 0;
+}
+
+/* mods: SINGLE for prominent simple forms consisting of one text input, e.g., on the blocked user page */
+
+form.single fieldset {
+  background: transparent;
+  border: 1px solid #ddd;
+    box-shadow: none;
+}
+
+form.single legend {
+  height: auto;
+  width: auto;
+  font-size: 1.143em;
+  font-weight: bold;
+  padding: 0.5em;
+    opacity: 1;
+}
+
+form.single input[type="text"] {
+  min-width: 15em;
+}
+
+form.single input[type="submit"] {
+  vertical-align: bottom;
+}
+
+form.single span.submit {
+  padding: 0;
+}
+
+form.single ul.autocomplete {
+  display: inline-block;
+}
+
+form.single .autocomplete li.input {
+  margin: 0 0.643em 0.25em 0;
+}
+
+form.single .autocomplete .added {
+  margin-bottom: 0.125em;
+}
+
+/* let autocomplete input expand horizontally as the container takes up more room to accomodate multiple selected tokens */
+form.single .autocomplete input[type="text"] {
+  width: 100%;
+}
+
+/* tweak the margin of the submit button only if there's an autocomplete */
+form.single .autocomplete + input + span.submit input[type="submit"] {
+  margin-bottom: 0.125em;
+}
+
+/* WIDGET: TOGGLED FORMS (SHOW/HIDE bookmark and collection - hidden with jS) */
+
+.toggled form dd, .dynamic form dd {
+  width: 99%;
+}
+
+.toggled form p.footnote, .dynamic form p.footnote {
+  float: none;
+  margin: auto;
+  padding: 0;
+}
+
+.toggled form, .dynamic form {
+  padding: 0.5em;
+  border: 2px solid #ccc;
+  background: #fff;
+    box-shadow: 1px 2px 5px;
+}
+
+.dynamic form fieldset, .toggled form fieldset, .toggled form dl, .secondary .toggled form, .secondary form {
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+    box-shadow: none;
+}
+
+.toggled .bookmark form p.footnote, .dynamic .bookmark form p.footnote {
+  padding-bottom: 0.643em;
+}
+
+/* INTERACTION: POST (work, chapter, comment, news, feedback, challenge etc) */
+
+.post .required .warnings, dd.required {
+  font-weight: normal;
+  color: #2a2a2a;
+}
+
+.post .text textarea {
+  clear: right;
+}
+
+/* INTERACTION: CONFIRM (form with the sole purpose of requiring you to enter a string (e.g., password) before you can complete another action) */
+
+.confirm label {
+  display: block;
+  font-weight: bold;
+}
+
+.confirm input[type="text"], .confirm input[type="password"] {
+  margin-block: 0.25em;
+  padding: 0.643em 0.375em;
+}
+
+.confirm input[type="submit"] {
+  margin-block: 0.25em;
+  padding: 0.643em;
+  vertical-align: bottom;
+}
+
+/* CONTEXT: dashboard */
+
+.dashboard > form {
+  float: left;
+  width: 100%;
+  clear: none;
+}
+
+.dashboard fieldset {
+  clear: right;
+}
+
+.dashboard form dt.landmark {
+  clear: both;
+}
+
+/* CONTEXT: blurb */
+
+.blurb form li.input {
+  display: list-item;
+  padding-left: 0;
+}
+
+/* END == */
+/* == ACTIONS: buttons!
+https://otwcode.github.io/docs/patterns/actions.html
+subtypes:
+.action, .navigation, .sorting, .submit, .cancel, .close, .delete, .pagination, .current, .landmark, #skiplinks
+input[type="submit"], button
+*/
+
+.actions * {
+  display: inline;
+}
+
+ul.actions, p.actions, li.actions, span.actions, fieldset.actions, dd.actions {
+  padding: 0.429em 0.25em 0.25em 0;
+  float: right;
+  text-align: center;
+}
+
+ul.actions {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.actions a, .actions a:link, .action, .action:link, .actions button, .actions input, input[type="submit"], button, .current, .actions label {
+  background: #eee;
+  color: #444;
+  width: auto;
+  font-weight: 400;
+  font-size: 100%;
+  line-height: 1.286;
+  height: 1.286em;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  white-space: nowrap;
+  overflow: visible;
+  position: relative;
+  text-decoration: none;
+  border: 1px solid #bbb;
+  border-bottom: 1px solid #aaa;
+    background-image: -moz-linear-gradient(#fff 2%,#ddd 95%, #bbb 100%);
+    background-image: -webkit-linear-gradient(#fff 2%,#ddd 95%, #bbb 100%);
+    background-image: -o-linear-gradient(#fff 2%,#ddd 95%, #bbb 100%);
+    background-image: -ms-linear-gradient(#fff 2%,#ddd 95%, #bbb 100%);
+    background-image: linear-gradient(#fff 2%,#ddd 95%, #bbb 100%);
+    border-radius: 0.25em;
+    box-shadow: none;
+}
+
+button {
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif, 'GNU Unifont';
+  box-sizing: content-box;
+}
+
+label.action {
+  padding: 0.15em 0.375em;
+}
+
+input[type="submit"] {
+  height: auto;
+  white-space: normal;
+}
+
+p.submit, input.submit, dd.submit {
+  text-align: right;
+}
+
+.actions input[type="checkbox"] {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.actions li select, .actions li label input[type="checkbox"] {
+   margin: 0;
+ }
+
+/* subtypes and modes
+test note: this pagination clear needs to be kept an eye on */
+
+ol.pagination, div.pagination, ol.year {
+  text-align: center;
+  clear: right;
+  margin: 0.643em auto;
+}
+
+.actions a:visited, .action:visited, .action a:link, .action a:visited {
+  color: #111;
+}
+
+.actions a:hover, .actions button:hover, .actions input:hover, .actions a:focus, .actions button:focus, .actions input:focus, label.action:hover, .action:hover, .action:focus {
+  color: #900;
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+    box-shadow: inset 2px 2px 2px #bbb;
+}
+
+.actions a:active, .current, a.current, a:link.current, .current a:visited {
+  color: #111;
+  background: #ccc;
+  border-color: #fff;
+    box-shadow: inset 1px 1px 3px #333;
+}
+
+.actions label.disabled {
+  background: #ccc;
+}
+
+.actions .disabled select {
+   background: transparent;
+   color: #111;
+   border-color: #aaa;
+ }
+
+.actions li a, .actions li button, .actions li input, .actions li input[type="submit"], .actions li .current, .actions li label {
+  margin: 0.375em auto;
+}
+
+.delete a, span.delete {
+  border: 0;
+  color: #900;
+  font-weight: 900;
+  margin-right: 0.375em;
+  padding: 0 0.1em 0.15em;
+    box-shadow: -1px -1px 2px rgba(0,0,0,0.75);
+    border-radius: 0.875em;
+}
+
+span.delete a {
+  margin: 0 0.2em;
+    box-shadow: none;
+}
+
+ul#skiplinks, .landmark, .landmark a, .index .heading.landmark {
+  font-size: 0;
+  line-height: 0;
+  height: 0;
+  margin: 0;
+  clear: both;
+  color: transparent;
+    opacity: 0;
+}
+
+h2.landmark {
+  display: block;
+}
+
+.secondary {
+  background: #fff;
+  position: absolute;
+  z-index: 54; /* lower than the z-index of #header .menu */
+  border: 2px solid #bbb;
+  margin: auto;
+  padding: 0 0.375em;
+  overflow: hidden;
+  right: 2.5em;
+    box-shadow: 2px 2px 5px #bbb;
+    border-radius: 0.15em;
+}
+
+/* CONTEXTS */
+
+legend .action:link {
+  position: static;
+}
+
+.heading .actions, .heading .action, .heading span.actions {
+  height: auto;
+  font: 100 75%/1.286 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif, 'GNU Unifont';
+  padding: 0.15em 0.375em;
+}
+
+.heading .actions button {
+  padding: 0.25em 0.75em;
+  margin-left: 0.25em;
+}
+
+th .actions, td .actions {
+  float: none;
+}
+
+dl.stats + .landmark + .actions, .mystery .summary + .landmark + .actions {
+  clear: none;
+  float: left;
+  margin: 0 auto;
+}
+
+.actions .secondary .submit, .nomination .actions {
+  float: none;
+}
+
+.dashboard .landmark {
+  clear: right;
+}
+
+.actions .landmark {
+  clear: none;
+}
+
+.actions a.symbol, .action a {
+  border: 0;
+  background: none;
+  padding: 0 0 0.15em 0;
+}
+
+.many p.actions {
+  float: none;
+  text-align: right;
+}
+
+.concise label.action {
+  float: left;
+}
+
+dd.any label.action {
+  margin-left: 0.5625em;
+}
+
+dl.index p.actions {
+  margin: 0;
+}
+
+/* context: work navigation actions with secondary navigation */
+
+.work.navigation .download {
+  display: block;
+  margin-block-start: 0;
+  padding: 0.375em 0 0.643em;
+}
+
+.work.navigation .download .secondary {
+  position: static;
+}
+
+/* The next two rule sets move the default .secondary style to the secondary's
+parent when JavaScript is disabled and put it back when it's enabled. */
+.work.navigation .download, .javascript .work.navigation .download .secondary {
+  background: #fff;
+  border: 2px solid #bbb;
+    box-shadow: 2px 2px 5px #bbb;
+}
+
+.work.navigation .download .secondary, .javascript .work.navigation .download {
+  background: transparent;
+  border: none;
+    box-shadow: none;
+}
+
+.javascript .work.navigation li {
+  display: inline-block;
+  margin-block: 0;
+  position: relative;
+}
+
+.javascript .work.navigation .download {
+  padding: 0 0 0 0.25em;
+}
+
+/* The top position is part of a workaround for the behavior described here:
+https://otwarchive.atlassian.net/browse/AO3-4629?focusedCommentId=372231
+  0.375em for top margin
++ 1.286em for height
++ 0.25em * 2 for top and bottom padding (buttons use content-box)
++ 0.25em to compensate for borders */
+.javascript .work.navigation .secondary {
+  position: absolute;
+  right: 0;
+  top: 2.411em;
+    align-items: center;
+    gap: 0 0.643em;
+    justify-content: space-evenly;
+}
+
+/* If we use display without the .expanded qualifier, it will override .hidden's
+display: none and secondary will always be open. */
+.javascript .work.navigation .expanded + .secondary {
+    display: flex;
+}
+
+.javascript .work.navigation .download .secondary {
+  z-index: 53;
+    gap: 0.25em;
+}
+
+.javascript .work.navigation .secondary p {
+  padding: 0;
+    align-items: center;
+    display: flex;
+    gap: 0 0.25em;
+}
+
+.javascript .work.navigation .secondary .actions {
+  padding: 0;
+}
+
+/* END== */
+/* == ROLES AND STATES
+https://otwcode.github.io/docs/classes-taxonomy.html#modifiers
+*/
+
+.own, .draft, .draft .wrapper, .unread, .child, .unwrangled, .unreviewed {
+  background: #ededed;
+    opacity: 0.95;
+}
+
+.draft {
+  border: 2px dashed #aaa;
+  padding: 0.643em;
+    border-radius: 0.5em;
+}
+
+/* (these states spoof the ".navigation .current" style) */
+
+span.unread, .replied, span.claimed, .actions span.defaulted {
+  background: #ccc;
+  color: #900;
+  width: auto;
+  font: 100 100%/1.286 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif, 'GNU Unifont';
+  height: 1.286em;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  white-space: nowrap;
+  overflow: visible;
+  position: relative;
+  text-decoration: none;
+  border: 1px solid #bbb;
+  border-bottom: 1px solid #aaa;
+    border-radius: 0.25em;
+}
+
+.actions span.defaulted {
+  color: #111;
+}
+
+.canonical, li.requested {
+  font-weight: 700;
+}
+
+.hidden, body .hidden, .actions .hidden, .actions a.hidden, #dashboard .hidden {
+  display: none;
+}
+
+.draggable, .droppable, span.requested, .nominations .rejected {
+  color: #900;
+}
+
+span.offered, .replied, .nominations .approved {
+  color: #008000;
+}
+
+.nominations .approved {
+  background: #d1f0d1;
+}
+
+.nominations .rejected {
+  background: #efd1d1;
+}
+
+span.offered.requested {
+  color: #876714;
+}
+
+/* Arrows for the accordion widget */
+
+.collapsed:after {
+  content: " \2193";
+}
+
+.expanded:after {
+  content: " \2191";
+}
+
+/* This is a helper for Back End and can be overridden contextually anywhere */
+
+.commas li:after {
+  content: ", ";
+}
+
+.commas li {
+  display: inline;
+}
+
+.commas li:last-child:after, .commas li:only-child:after {
+  content: none;
+}
+
+/* CONTEXTS */
+
+.dashboard .own, .comment span.unreviewed {
+  background: transparent;
+    opacity: 1.0;
+}
+
+/* END == */
+/* == TYPES OF DATA, GROUPS OF DATA
+https://otwcode.github.io/docs/stylesheets-views.html#types
+https://otwcode.github.io/docs/classes-taxonomy.html#types
+*/
+
+/* TYPE: TAGS */
+
+a.tag {
+  color: #111;
+  line-height: 1.5;
+  text-decoration: none;
+  padding: 0;
+  border-bottom: 1px dotted;
+}
+
+a.tag:hover, .listbox .heading a.tag:visited:hover {
+  background: #900;
+  color: #fff;
+}
+
+.tags li {
+  display: inline;
+  padding-left: 0;
+  padding-right: 0.25em;
+}
+
+/* context: filters, tag sets */
+
+.filters .tags li, .review .tags, .tagset .listbox .tags li {
+  display: block;
+}
+
+.tagset .listbox .tags li {
+  padding-right: 0;
+}
+
+/* GROUP CLOUD
+https://otwcode.github.io/docs/classes-taxonomy.html#travellers
+*/
+
+ul.cloud {
+  margin: 2em auto;
+  text-align: center;
+  line-height: 2;
+}
+
+a.cloud1 {
+  color: #200;
+  font-size: 0.625em;
+  font-weight: 100;
+}
+
+a.cloud2 {
+  color: #300;
+  font-size: 0.75em;
+  font-weight: 200;
+}
+
+a.cloud3 {
+  color: #400;
+  font-size: 0.875em;
+  font-weight: 300;
+}
+
+a.cloud4 {
+  color: #500;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+a.cloud5 {
+  color: #600;
+  font-size: 1.125em;
+  font-weight: 500;
+}
+
+a.cloud6 {
+  color: #700;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+a.cloud7 {
+  color: #800;
+  font-size: 1.875em;
+  font-weight: 700;
+}
+
+a.cloud8 {
+  color: #900;
+  font-size: 2.25em;
+  font-weight: 800;
+}
+
+/* GROUPS: WRAPPER, MODULE, INDEX  (#outer and #inner .wrapper have no style by default, but wrap the regions on every page for your skins convenience)
+https://otwcode.github.io/docs/classes-taxonomy.html#grouping-and-spacing
+*/
+
+.wrapper {
+    box-shadow: 1px 1px 5px #aaa;
+}
+
+#outer.wrapper {
+  float: left;
+  width: 100%;
+}
+
+#work-skin.wrapper {
+  overflow-y: hidden;
+}
+
+#outer.wrapper, #inner.wrapper, #work-skin.wrapper {
+    box-shadow: none;
+}
+
+.module, .index, .index .index {
+  position: relative;
+  width: auto;
+}
+
+.module, .dashboard .index {
+  float: left;
+  width: 100%;
+}
+
+/*
+https://otwcode.github.io/docs/patterns/indexes.html
+*/
+
+dl.index {
+  margin: 0.643em 0;
+  border: none;
+    box-shadow: none;
+}
+
+dl.index dt {
+  width: auto;
+  float: none;
+  border: none;
+}
+
+dl.index dd {
+  width: auto;
+  float: none;
+  clear: right;
+  margin: 0 0.25em 0.643em 2.5em;
+  padding: 0.375em 0.15em 0.15em;
+  overflow: visible;
+  background: #ededed;
+}
+
+dl.index > dd:after {
+   content: " ";
+   display: block;
+   height: 0;
+   font-size: 0;
+   clear: both;
+   visibility: hidden;
+ }
+
+dl.index dd .userstuff p {
+  display: block;
+}
+
+/* contexts */
+
+form dl.index {
+  position: initial;
+}
+
+/* TYPES */
+
+a.rss span {
+  background: url("/images/imageset.png") no-repeat -150px -275px;
+  padding-left: 16px;
+}
+
+a.work {
+  font: 100 1.143em/1.125 Georgia, serif;
+  margin: 0.5em 0;
+  color: #900;
+}
+
+.warning, .warnings, span.byline, a.user {
+  font-weight: bold;
+}
+
+li.relationships a {
+  background: #eee;
+}
+
+.actions .reindex a {
+  border-bottom: 3px solid #900;
+}
+
+.series.footnote {
+  font-size: 100%;
+  float: none;
+}
+
+/* circle dividers for series navigation on works */
+
+span.series .divider {
+  color: #777;
+}
+
+span.series .previous + .divider:before {
+  content: "\0020\25CF";
+}
+
+span.series .position + .divider:after {
+  content: "\25CF\0020";
+}
+
+p.kudos {
+  background: url("/images/imageset.png") no-repeat -111px -580px;
+  padding: 0.5em 0.5em 0.5em 60px;
+  margin: 2em 0;
+  min-height: 50px;
+    word-wrap: break-word;
+}
+
+.icon, p.qr {
+  margin: 0;
+}
+
+/* QR codes should always be displayed as black on white to ensure contrast and compatibility, even in dark mode. They also need a quiet zone. */
+/* TODO: Check that this is okay in Reversi/Dark Mode. */
+p.qr svg {
+  background: #fff;
+  border: 1em solid #fff;
+}
+
+.icon {
+  height: 100px;
+  width: 100px;
+}
+
+.icon a {
+  border: 0;
+}
+
+.mods li, dl.stats dt, dl.stats dd {
+  background: none;
+  width: auto;
+  min-width: 0;
+  display: inline;
+  clear: none;
+  float: none;
+  margin: auto;
+}
+
+dl.language {
+  clear: right;
+}
+
+dl.stats {
+  text-align: right;
+  background: none;
+  margin-top: 0.643em;
+    box-shadow: none;
+}
+
+dl.stats dd {
+  white-space: nowrap;
+  padding-right: 0.5em;
+}
+
+.statistics .index li {
+ padding: 0.643em 0.375em;
+}
+
+.statistics .index li:nth-of-type(even) {
+  background: #eee;
+}
+
+.statistics.chart svg > g:last-child {
+    pointer-events: none;
+}
+
+.concise li {
+  width: 45%;
+  float: left;
+  clear: none;
+  margin-right: 1.5em
+}
+
+section.step {
+  margin-block: 2.572em;
+}
+
+/* END == */
+/* == GROUP: LISTBOX
+https://otwcode.github.io/docs/patterns/listbox.html
+*/
+
+.listbox, fieldset fieldset.listbox {
+  clear: right;
+  background: #ddd;
+  border: 2px solid #ccc;
+  padding: 0;
+  margin: 0.643em auto;
+  overflow: hidden;
+    box-shadow: 0 0 0 1px #fff;
+}
+
+.listbox .heading {
+  display: inline-block;
+}
+
+.listbox li.blurb, .listbox .landmark.heading, .listbox .tags .listbox, .listbox .lots li, .listbox .all li {
+  display: block;
+}
+
+.listbox > .heading, .listbox .heading a:visited {
+  margin: 0;
+  color: #2a2a2a;
+  padding: 0.25em;
+}
+
+.listbox > .notice {
+  margin: 0.25em;
+}
+
+.listbox .index {
+  width: auto;
+  padding: 0.643em;
+  margin: 0;
+  float: none;
+  clear: right;
+  background: #fff;
+    box-shadow: inset 1px 1px 3px #bbb;
+}
+
+.listbox .index:after {
+  content: " ";
+  display: block;
+  height: 0;
+  font-size: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.commas li.listbox:after {
+  content: none;
+}
+
+.listbox li.blurb {
+    box-shadow: none;
+}
+
+/* mods: alphabet, medium */
+
+.alphabet .listbox li, .media .listbox {
+  width: 45%;
+  float: left;
+  clear: none;
+  margin-right: 1.5em;
+}
+
+/* Contexts */
+
+.review .listbox {
+  overflow: visible;
+  position: static;
+}
+
+/* The height (1.286em) of the buttons plus their veritcal padding (0.25em * 2) plus the vertical padding (0.15em * 2) of the actions container (=2.086em), multiplied by 0.75 because the actions are only 75% of the heading's font size. Unfortunately, this doesn't account for the buttons' vertical borders (1px * 2). */
+.tagset .listbox > .heading:has(.actions) {
+  line-height: 1.5645;
+}
+
+/* INTERACTION context (show many/more/lots) */
+
+.listbox .options {
+  overflow: auto;
+}
+
+.listbox .all {
+  height: auto;
+}
+
+.listbox .many {
+  max-height: 12em;
+}
+
+/*END== */
+/* == GROUP: META
+https://otwcode.github.io/docs/patterns/meta.html
+*/
+
+dl.meta {
+  border: 1px solid #ccc;
+  clear: right;
+  padding: 1.286em 0.75em;
+  position: relative;
+  overflow: hidden;
+}
+
+.meta dt {
+  min-width: 10.5em;
+  width: 25%;
+  float: left;
+  clear: left;
+}
+
+.meta dd {
+  width: 72.5%;
+  float: left;
+  margin: 0 0 0.643em;
+}
+
+.meta .stats dl {
+  float: left;
+  margin-top: 0;
+}
+
+dl.meta dd ul li, .meta .stats dl, .meta .stats dl dt, .meta .stats dl dd {
+  padding-inline-start: 0;
+}
+
+.meta .stats dl dt, .meta .stats dl dd {
+  margin-block: 0 auto;
+  margin-inline: 0 0.375em;
+  padding-inline-end: 0.25em;
+  width: auto;
+  min-width: 0;
+  clear: none;
+  float: left;
+}
+
+.meta .stats dl dd {
+  padding-inline-end: 0.75em;
+}
+
+.meta p {
+  display: block;
+  margin-top: 0;
+}
+
+.meta dd ul li {
+  display: inline;
+  margin: auto;
+  padding-inline-end: 0.5em;
+}
+
+.meta dd blockquote {
+  margin: 0;
+}
+
+/* mod: wrapped data */
+
+dl.meta:has(.wrapper) {
+  padding-block: 0;
+}
+
+dl.meta .wrapper {
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding-block: 1.286em;
+    box-shadow: none;
+}
+
+dl.meta .wrapper:last-of-type {
+  border-bottom: none
+}
+
+dl.meta .wrapper dd, dl.meta .wrapper dd p:last-of-type {
+  margin: 0;
+}
+
+/* CONTEXTS */
+
+.dashboard .meta .clear {
+  clear: none;
+  clear: right;
+}
+
+.news .wrapper {
+    box-shadow: none;
+}
+
+.news dl.meta {
+  border: none;
+  padding: 0;
+}
+
+.news .meta dt, .news .meta dd, .news .meta ul {
+  display: inline;
+  float: none;
+  margin-left: 0;
+}
+
+.news .meta dd:after {
+  content: " ";
+  display: block;
+  height: 0.643em;
+}
+
+/* TODO the post new work form needs its classes changed so these overrides are no longer needed */
+.post .meta dd ul li {
+  display: block;
+}
+
+.post .meta dd ul li:after {
+  content: none;
+}
+
+/* END == */
+/* == GROUP: BLURB
+https://otwcode.github.io/docs/patterns/blurb.html
+The blurb class is used wherever we show a list of works, collections, bookmarks, etc; each list item is a blurb
+it shows all the tags, stats and other associations we hold on that object, and sometimes it shows short user notes too, like a summary, bookmark notes, or collection description.
+
+Intrepid skinsers:
+Probably 40% of this sheet deals with icon block rules, but it's not very complicated,
+just the same thing repeated for each icon.
+The positioning and sizing is for 25px icons;
+there is a full set available at 50px, in /default_large.
+You can use your own icon set, or choose to show the text instead,
+by overriding the rules in the marked off section.
+Perhaps we can make a wizard for this specific task.
+*/
+
+.blurb ul li, .blurb dd ul li {
+  display: inline;
+}
+
+li.blurb, .blurb .blurb {
+  display: block;
+  position: relative;
+  clear: left;
+  padding: 0.429em 0.75em;
+  overflow: visible;
+}
+
+li.blurb:after, .blurb .blurb:after {
+  content: " ";
+  display: block;
+  height: 0;
+  font-size: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.blurb .module {
+  float: none;
+}
+
+.blurb .header {
+  min-height: 55px;
+  margin-bottom: 0.375em;
+}
+
+.blurb .header .heading, .blurb .header ul {
+  display: block;
+  background: transparent;
+  margin: 0.375em 5.25em 0 65px;
+}
+
+.blurb .header img {
+  position: relative;
+  margin: 0;
+}
+
+.blurb h4 a:link, .blurb h4 img {
+  color: #900;
+  vertical-align: bottom;
+}
+
+.blurb ul.series {
+  margin: 1.25em 0 0;
+}
+
+.blurb ul.series {
+  margin-bottom: 0.875em;
+}
+
+.blurb .heading {
+  display: block;
+}
+
+.blurb dl.stats {
+  float: right;
+  line-height: 1.5;
+}
+
+.blurb h5 .landmark {
+  position: absolute;
+}
+
+.blurb dl.stats + .heading.landmark {
+  display: inline;
+}
+
+/* == START icon block rules */
+
+.blurb ul.required-tags {
+  position: absolute;
+  top: 0;
+  width: 60px;
+  margin: 0;
+}
+
+.blurb ul.required-tags li, .blurb ul.required-tags li a, .blurb ul.required-tags li span {
+  display: block;
+  width: 25px;
+  height: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.blurb ul.required-tags li {
+  margin-bottom: 3px;
+}
+
+.blurb ul.required-tags li+li+li, .blurb ul.required-tags li+li+li+li {
+  position: absolute;
+  left: 28px;
+}
+
+.blurb ul.required-tags li+li+li {
+  top: 0;
+}
+
+.blurb ul.required-tags li+li+li+li {
+  top: 28px;
+}
+
+/* keeps the outline to the proper size in Firefox and Opera */
+.blurb ul.required-tags li a:focus {
+  overflow: hidden;
+}
+
+.blurb span.text {
+  height: 0;
+  width: 0;
+  font-size: 0.001em;
+  color: transparent;
+}
+
+.blurb ul.required-tags li span {
+  background-repeat: no-repeat;
+}
+
+/* icon image replacement */
+
+.required-tags .rating-general-audience {
+  background: url("/images/imageset.png") -50px -25px;
+}
+
+.required-tags .rating-explicit {
+  background: url("/images/imageset.png") -25px -25px;
+}
+
+.required-tags .rating-mature {
+  background: url("/images/imageset.png") -75px -25px;
+}
+
+.required-tags .rating-notrated, .required-tags .category-none, .required-tags .warning-no, .status .count {
+  background: url("/images/imageset.png") -150px 0px;
+}
+
+.required-tags .rating-teen {
+  background: url("/images/imageset.png") 0px -25px;
+}
+
+.required-tags .category-femslash {
+  background: url("/images/imageset.png") -25px 0px;
+}
+
+.required-tags .category-gen {
+  background: url("/images/imageset.png") -50px 0px;
+}
+
+.required-tags .category-slash {
+  background: url("/images/imageset.png") 0px 0px;
+}
+
+.required-tags .category-het {
+  background: url("/images/imageset.png") -75px 0px;
+}
+
+.required-tags .category-multi {
+  background: url("/images/imageset.png") -100px -0px;
+}
+
+.required-tags .category-other {
+  background: url("/images/imageset.png") -125px 0px;
+}
+
+.required-tags .complete-no {
+  background: url("/images/imageset.png") -100px -25px;
+}
+
+.required-tags .complete-yes {
+  background: url("/images/imageset.png") -175px -25px;
+}
+
+.required-tags .warning-yes {
+  background: url("/images/imageset.png") -150px -25px;
+}
+
+.required-tags .warning-choosenotto {
+  background: url("/images/imageset.png") -125px -25px;
+}
+
+.required-tags .external-work {
+  background: url("/images/imageset.png") -75px -50px;
+}
+
+.status .private .text {
+  background: url("/images/imageset.png") -175px -50px;
+}
+
+.status .public {
+  background: url("/images/imageset.png") -125px -50px;
+}
+
+.status .hidden {
+  background: url("/images/imageset.png") -150px -50px;
+}
+
+.status .rec {
+  background: url("/images/imageset.png") -100px -50px;
+}
+
+/* == END icon block rules == */
+
+.blurb .datetime {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+}
+
+.claim .datetime {
+  margin-left: 65px;
+  position: static;
+}
+
+.blurb blockquote {
+  margin: 0.643em auto;
+  text-align: justify;
+}
+
+/* modification: PICTURE
+use this along with "index" and "blurb" for indices where we have icon pictures,
+eg collections, users, skins, instead of the 4-icon list
+*/
+
+.picture .header {
+  border-bottom: 1px solid #ccc;
+}
+
+.index .skins .icon {
+  background: url("/images/imageset.png") 0px -580px;
+}
+
+.index .mystery .icon {
+  background: url("/images/imageset.png") -110px -525px;
+}
+
+.index .tag .icon, .index .tagset .icon {
+  background: url("/images/imageset.png") -55px -580px;
+}
+
+.picture .icon img, .index .picture .icon {
+  position: absolute;
+  top: 0;
+  height: 55px;
+  width: 55px;
+  background-repeat: no-repeat;
+}
+
+/* various little mods */
+
+/* mod: ITEM
+blurbs on the manage collection items pages, mostly reseting styles inherited from interactions (forms)
+*/
+
+.item .blurb blockquote, .item dl.stats {
+  margin: 0.643em auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+    box-shadow: none;
+}
+
+.item .blurb .header, .item dl.stats dt {
+  border: none;
+}
+
+.item dl.visibility {
+  background: #eee;
+}
+
+/* mod: BOOKMARK */
+
+.bookmark p.status {
+  position: absolute;
+  right: 0.25em;
+  width: 60px;
+  margin-top: 0.429em;
+  z-index: 1;
+}
+
+.bookmark .status span, .bookmark .status a {
+  display: block;
+  width: 25px;
+  height: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.bookmark .status a:focus {
+  overflow: hidden;
+}
+
+.bookmark span.count {
+  line-height: 1.875em;
+  position: absolute;
+  top: 0;
+  left: 28px;
+  text-align: center;
+}
+
+.bookmark .count a {
+  border-bottom: none;
+  color: #069;
+}
+
+.bookmark .count a:hover, .bookmark .count a:focus {
+  color: #111;
+}
+
+.bookmark .datetime {
+	top: 28px;
+}
+
+.bookmark div.user, .bookmark div.recent {
+  clear: right;
+  box-sizing: border-box;
+}
+
+.bookmark .user {
+  border: 1px solid #ccc;
+  margin-top: 0.643em;
+  padding: 0.429em 0.75em;
+  overflow: hidden;
+}
+
+.bookmark .user .meta {
+	display: inline;
+	font-family: Georgia, serif;
+	font-size: 0.875em;
+	line-height: 2;
+}
+
+.bookmark .actions {
+  clear: both;
+}
+
+.bookmark dl.stats {
+  margin-bottom: 0.643em;
+}
+
+/* line break between types of meta */
+.bookmark .user ul.meta:after {
+	content: '\A';
+	white-space: pre;
+}
+
+.bookmark .short .header {
+	min-height: 30px;
+}
+
+.bookmark .user .byline {
+  margin-top: 0.375em;
+  margin-right: 5.25em;
+}
+
+.bookmark .user .datetime, .bookmark .work .datetime {
+  top: 0;
+}
+
+.bookmark div.user .datetime {
+  top: 0.875em;
+  right: 0.875em;
+}
+
+.bookmark .short .status {
+	left: 0;
+	margin-top: 0;
+	top: 0;
+	width: 25px;
+}
+
+.bookmark .short .header h5 {
+  margin-left: 35px;
+}
+
+.bookmark .dynamic {
+	position: static;
+}
+
+.bookmark .recent .index {
+  float: none;
+  width: 100%;
+}
+
+/* mod: READING */
+
+.reading .user {
+  float: left;
+}
+
+.reading h4.viewed {
+  background: #ddd;
+  padding: 0.25em;
+}
+
+.reading .deleted h4.viewed {
+  background: transparent;
+}
+
+/* mod: SKIN */
+
+.skin .blurb .header p {
+  margin-left: 65px;
+}
+
+/* mod: PROMPT */
+
+.prompt .blurb h6 {
+  display: inline-block;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif;
+  font-size: 1em;
+  margin: 0.643em 0 0;
+}
+
+.prompt .blurb ul.optional {
+  display: inline;
+}
+
+/* END== */
+/* ==GROUP: PREFACE
+https://otwcode.github.io/docs/patterns/preface.html
+blockquote contents (the user-written notes) are styled in userstuff.css like all other user content
+.preface appears within #workskin on a work page
+*/
+
+div.preface {
+  margin: 1.5em 3em;
+  padding: 0.643em 0.643em 0;
+  float: none;
+}
+
+div.preface .module {
+  float: none;
+  margin: 0;
+  padding: 0 0 0.643em;
+  width: auto;
+}
+
+.chapter .preface {
+  border-top: 1px solid;
+}
+
+.preface h3 {
+  background: transparent;
+  border-bottom: 1px solid;
+}
+
+.preface h2.title {
+  display: block;
+  border-bottom: 0;
+  clear: right;
+}
+
+div.preface .title, div.preface .byline, div.preface .byline a {
+  border: 0;
+  text-align: center;
+}
+
+.preface blockquote {
+  border: 0;
+}
+
+div.preface .notes, div.preface .summary, div.preface .series, div.preface .children {
+  min-height: 5em;
+}
+
+div.preface .series ul, div.preface .children ul {
+  padding: 0 0.643em;
+}
+
+div.preface .associations {
+  margin-bottom: 1.5em;
+}
+
+div.preface .jump {
+  margin-top: 1.5em;
+}
+
+/* mod: afterword
+the preface that appears at the bottom of a work page */
+
+div.afterword {
+  margin-bottom: 2.5em;
+}
+
+div.afterword .series h3, div.afterword .children h3 {
+  border-bottom: none;
+}
+
+/* END== */
+/* ==GROUP: COMMENTS
+https://otwcode.github.io/docs/patterns/comments.html
+
+Comments are shown in #feedback at the end of a chapter or work, at the end of news posts, and can also be shown on their own page as a threaded list.
+The comment form generally belongs to the class "post".
+Comments are also shown in user home: inbox and that containing view is styled in zone-home.
+Wrangler discussion boards are not grouped with comments and they only show up in the Tag Zone.
+test note: have put clearfixes on listbox, blurb and comments here, to allow for dynamic content and for skins robustness, but it's an eleventh hour change and needs testing in ie7
+*/
+
+#feedback {
+  margin: 0 0 auto;
+}
+
+div.comment, li.comment {
+  position: relative;
+  border: 1px solid #ddd;
+  overflow: visible;
+  text-align: start;
+}
+
+.comment:after,
+.comment h4.byline:after {
+  content: " ";
+  display: block;
+  height: 0;
+  font-size: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.comment div.icon {
+  float: left;
+  margin: -1.5625em 0.5625em 0.5625em 0;
+  border-bottom: 5px solid #ddd;
+}
+
+.comment .icon .anonymous {
+  background: url("/images/imageset.png") no-repeat -0px -735px;
+  display: block;
+}
+
+.comment .icon .visitor {
+  background: url("/images/imageset.png") no-repeat 0px -635px;
+  display: block;
+}
+
+.comment h4.byline {
+  background: #ddd;
+  padding: 0.25em 0.25em 0.25em 108px;
+  margin: 0 auto -0.25em;
+}
+
+.comment .role {
+  font-weight: bold;
+}
+
+.thread .thread {
+  margin-left: 3%;
+}
+
+.thread .even {
+  background: #eee;
+  margin: 0;
+}
+
+fieldset.comments, .comment .userstuff {
+  background: transparent;
+  border: none;
+    box-shadow: none;
+}
+
+.comment .userstuff {
+  margin-bottom: 1em;
+  margin-top: 1em;
+  min-height: 3.3em;
+}
+
+.comment fieldset {
+  margin: 0;
+}
+
+.comment .posted {
+  float: right;
+}
+
+.comment .edited {
+  margin: 1.286em 0.643em 0.25em;
+}
+
+.comment .message {
+  padding: 0.643em;
+}
+
+.comment .actions {
+  float: none;
+  text-align: right;
+}
+
+/* mods */
+
+.abbreviated .icon {
+  height: 75px;
+  width: 75px;
+}
+
+.abbreviated .icon .anonymous {
+  background: url("/images/imageset.png") no-repeat -75px -450px;
+}
+
+.abbreviated .icon .visitor {
+  background: url("/images/imageset.png") no-repeat 0px -450px;
+}
+
+.abbreviated h4.byline {
+  padding-left: 83px;
+}
+
+/* END == */
+/* == ZONE: SYSTEM
+SUBSECTIONS:
+  1. SPLASH, 2. SESSIONS, 3. DOCS, 4. COMMS, 5. SUPPORT, 6. FAQ, 7. TOS POPUP,
+  8. PROXY NOTICE
+*/
+
+.system p {
+  line-height: 1.5;
+}
+
+.system .userstuff {
+  max-width: 72em;
+  margin: auto;
+}
+
+.system:not(.feedbacks) .userstuff h3 {
+  margin-top: 3em;
+}
+
+.system .notice .userstuff {
+  max-width: initial;
+}
+
+/* 1. ZONE: SYSTEM: SPLASH PAGE */
+
+.splash {
+  margin: auto;
+  max-width: 78em;
+}
+
+.splash .module h3 {
+  border-bottom: 1px solid #c8c8c8;
+  color: #900;
+  font-size: 1.714em;
+}
+
+.splash span.link {
+  float: right;
+}
+
+.splash .link a {
+  font-size: 0.583em;
+}
+
+.splash .browse, .splash div.news {
+  width: 36%;
+}
+
+.splash .intro, .splash .social {
+  float: right;
+  width: 60%;
+}
+
+.splash .browse ul, .splash .browse li {
+  float: left;
+  width: 100%;
+    box-sizing: border-box;
+}
+
+.splash .browse li a, .splash .favorite a {
+  border-bottom: none;
+  display: block;
+}
+
+/* module: browse */
+
+.splash .browse li {
+  margin: 0.375em 0;
+  padding: 0.375em 0;
+  width: 50%;
+}
+
+.splash .browse li a:before {
+  color: #900;
+  content: "\00BB";
+  padding: 0 0.25em 0 0;
+}
+
+.splash .browse li:nth-of-type(1), .splash .browse li:nth-of-type(2) {
+  margin-top: 0;
+}
+
+.splash .browse li:nth-of-type(odd) {
+  padding-right: 0.375em;
+}
+
+/* module: favorite tags */
+
+.splash .favorite li {
+  margin: 0;
+}
+
+.splash .favorite a {
+  padding: 0.25em 0.375em;
+}
+
+.splash .favorite li:nth-of-type(odd) a {
+  background: #eee;
+}
+
+.splash .favorite li:nth-of-type(odd) a:hover, .splash .favorite li:nth-of-type(odd) a:focus {
+  background: #900;
+}
+
+/* module: intro */
+
+.splash .intro {
+  padding: 1em 0 2em;
+}
+
+.splash .intro h2 {
+  font-size: 2em;
+  line-height: 1.375;
+}
+
+.splash .intro .stats, .splash .parent {
+  text-align: center;
+}
+
+.splash .count {
+  font-weight: 700;
+}
+
+.splash .module div.account {
+  background: #eaeaea;
+  border: 1px solid #ccc;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+}
+
+.splash .account .heading {
+  margin: 1em;
+}
+
+.splash .account p {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.splash .account ul {
+  margin-left: 4em;
+  margin-right: 1em;
+}
+
+.splash .account li {
+  list-style-type: disc;
+}
+
+.splash .account .actions {
+  float: none;
+  font-size: 1.143em;
+}
+
+/* module: news */
+
+.splash .news li {
+  border-bottom: 1px solid #eee;
+}
+
+.splash .news li:last-of-type {
+  border-bottom: none;
+}
+
+.splash .news .meta {
+  font: normal 0.857em 'Monaco', 'Consolas', Courier, monospace;
+}
+
+.splash .news blockquote {
+  float: left;
+}
+
+.splash .jump {
+  text-align: right;
+}
+
+.splash .placeholder {
+  font-style: italic;
+}
+
+/* module: marked for later */
+
+.splash .blurb blockquote {
+  margin: 0.643em auto;
+}
+
+/* module: unread messages */
+
+.splash .comment .userstuff {
+  margin: 1em;
+}
+
+/* module: social */
+
+.splash .social ul {
+  text-align: center;
+}
+
+.splash .social li {
+  display: inline-block;
+}
+
+/* mod: logged-in */
+
+.logged-in .splash > .module {
+  float: left;
+  margin: 0 1% 1.571em 1%;
+  width: 48%;
+}
+
+.logged-in .splash > div:nth-of-type(odd) {
+  clear: left;
+}
+
+/* misc */
+
+.splash .module .module, .splash .dynamic, .splash .news blockquote {
+  margin: 0;
+  width: 100%;
+}
+
+/* 2. ZONE: SYSTEM: SESSIONS (login) */
+
+.session #signin {
+  margin-left: 48%;
+  width: 48%;
+}
+
+.sessions-new form.login, .sessions-create form.totp {
+  width: 75%;
+  margin: auto;
+}
+
+.session dt {
+  min-width: 0;
+}
+
+.authentication fieldset {
+  background: transparent;
+  border: 1px solid #ddd;
+    box-shadow: none;
+}
+
+.authentication legend {
+  height: auto;
+  width: auto;
+  font-size: inherit;
+  font-weight: normal;
+  padding: 0.5em 0.5em 0;
+    opacity: 1;
+}
+
+.authentication .note {
+  padding-top: 0;
+}
+
+.authentication label {
+  display: block;
+  font-weight: bold;
+}
+
+.authentication input[type="submit"] {
+  vertical-align: bottom;
+}
+
+/* 3. ZONE: SYSTEM: DOCS
+For practicality, /home .docs have been given the .userstuff class as well, to
+save doubling up that sheet or confusing end users. We will just cope with the
+inconsistency. Docs encompasses pages in /home as well as FAQs and Wrangling
+Guidelines.
+*/
+
+.docs .userstuff h6 {
+  border-bottom: none;
+  margin: 0.714em 0;
+}
+
+.docs .userstuff ul, .docs .userstuff ol, .docs .userstuff details .toc {
+  margin: 0.643em auto;
+  padding: 0;
+}
+
+.docs .userstuff li {
+  padding: 0 1.5em;
+}
+
+.docs .userstuff ul ul li {
+  list-style-type: circle;
+}
+
+.docs .userstuff ol.toc li {
+  list-style-type: upper-roman;
+}
+
+.docs .userstuff ol.toc li ol li {
+  list-style-type: upper-alpha;
+}
+
+.docs .userstuff summary .heading {
+  display: inline;
+}
+
+/* module: tos
+For practicality, the in-page full TOS module on the account creation page
+(located in /users/registrations/_legal.html.erb) has been given the .docs and
+.system classes to ensure it has the same styling it is given on the individual
+/content, /privacy, and /tos pages.
+*/
+
+#tos-partial .tos {
+  height: 36em;
+  overflow: auto;
+}
+
+#tos-partial .userstuff {
+  margin: 0.643em;
+  max-width: 100%;
+}
+
+/* 4. ZONE: SYSTEM: ADMIN COMMS
+admin comms, user facing, are a type of Home Zone, look in zone-home.css
+admin zone, admin facing, has no special rules atm
+admin role is only admin facing, and changes normal views in role-admin.css
+*/
+
+/* 5. ZONE: SYSTEM: SUPPORT */
+
+.feedbacks h3 {
+  clear: right;
+  padding-top: 1.929em;
+}
+
+.feedbacks form {
+  margin-top: 1.929em;
+}
+
+.feedbacks form .notice, .feedbacks .banner {
+  margin: 0.643em;
+}
+
+/* 6. ZONE: SYSTEM: FAQS
+For practicality, /archive_faqs are also .docs and .support and have the .userstuff class on category pages
+*/
+
+.faq .categories {
+  margin: 0 auto;
+  max-width: 72em;
+  float: none;
+}
+
+.faq .categories h3 {
+  border-bottom: 0.25em double #333;
+  margin-top: 1.929em;
+}
+
+.faq .categories li {
+  padding: 0;
+}
+
+.faq .userstuff .toc li {
+  list-style-type: circle;
+}
+
+.faq .categories .userstuff {
+  clear: both;
+}
+
+.faq .screencast .label {
+  font-weight: 700;
+}
+
+.faq .userstuff .notice, .faq .userstuff .caution, .faq .example, .guideline .userstuff .notice, .guideline .userstuff .caution, .guideline .example  {
+  margin: 0.643em 3.858em;
+  padding: 0.643em;
+}
+
+.faq .example, .guideline .example {
+  border: 1px solid #c2d2df;
+}
+
+.faq .userstuff nav.toc {
+  margin: 3.215em auto;
+}
+
+/* 7. ZONE: SYSTEM: TOS, TOS FAQ, AND TOS POPUP */
+
+.tos .userstuff nav.toc > details {
+  margin-top: 3em;
+}
+
+.tos .userstuff nav.toc > details > summary {
+  border-bottom: 0.25em double #333;
+}
+
+.tos .userstuff nav.toc > details > summary h3 {
+  border-bottom: none;
+}
+
+.tos_faq .userstuff .toc {
+  margin-bottom: 3.215em;
+}
+
+#tos_prompt {
+  background: #fff;
+  bottom: 0;
+  margin: 0;
+  overflow-y: scroll;
+  /* put it on top of the other content so it fades in nicely */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+    overscroll-behavior: contain;
+}
+
+#tos_prompt .heading {
+  background: #900;
+  color: #fff;
+  display: block;
+  margin: 0;
+  padding: 0.125em 0;
+}
+
+#tos_prompt .heading span {
+  display: block;
+  margin: auto;
+  width: 40rem;
+  max-width: 80%;
+}
+
+#tos_prompt .agreement {
+  margin: auto;
+  overflow: hidden;
+  width: 40rem;
+  max-width: 80%;
+}
+
+#tos_prompt p {
+  line-height: 1.4;
+}
+
+#tos_prompt p:first-of-type {
+  margin: 2em 0 0.643em 0;
+}
+
+#tos_prompt .confirmation {
+  margin: 2em 0 1em;
+}
+
+#tos_prompt p.submit {
+  margin-bottom: 2em;
+  line-height: 1.125;
+}
+
+#tos_prompt .submit input, #tos_prompt .submit button {
+  white-space: normal;
+  height: 100%;
+}
+
+#tos_prompt [disabled] {
+  background: #ccc;
+    box-shadow: none;
+}
+
+/* 8. ZONE: SYSTEM: PROXY NOTICE */
+
+#proxy-notice {
+  background: #efd1d1;
+  border-bottom: 1px solid #900;
+  font-size: 0.875em;
+}
+
+#proxy-notice .userstuff {
+  padding: 0.643em 0.875em;
+}
+
+#proxy-notice .submit {
+  margin-bottom: 0;
+}
+/* == ZONE: HOME
+user home, collections and challenges home, tag home, admin comms home
+--this zone always shows a dashboard styled in region-dashboard and its parent is #main.dashboard
+*/
+
+.home p, .home .header {
+  clear: right;
+}
+
+.home .header h2 {
+  text-align: right;
+  border-bottom: 2px solid;
+  display: block;
+  margin-left: 100px;
+}
+
+.home .header .userstuff, .home .header dl.stats, .home .header .type {
+  clear: right;
+  margin-left: 120px;
+}
+
+.home .header ul.actions {
+  margin-bottom: 0.643em;
+  padding-top: 0;
+}
+
+.admin .header h3 {
+  font-size: 2.143em;
+  text-align: center;
+}
+
+.home .primary {
+  margin: 0 0 0.643em;
+  min-height: 100px;
+}
+
+/* primary header icons */
+
+.primary .icon {
+  position: absolute;
+  top: 0;
+}
+
+.skins .primary .icon {
+  background: url("/images/imageset.png") 0px -175px;
+}
+
+.admin .primary .icon {
+  background: url("/images/imageset.png") 100px -75px;
+}
+
+.tag .primary .icon, .tagset .primary .icon {
+  background: url("/images/imageset.png") 0px -275px;
+}
+
+.wrangler .primary .icon {
+  background: none;
+}
+
+/* contexts */
+
+.profile .primary {
+  float: none;
+}
+
+/* (no filters) */
+
+.dashboard.works-index h4.landmark, .dashboard.works-index ol.pagination {
+	float: right;
+	width: 100%;
+}
+
+#dynamic-bookmark + h4.landmark {
+  clear: both;
+}
+
+/* (with filters) */
+
+/* wrap long text in Firefox (applied to inbox only to avoid weirdness on all forms in IE) */
+form.inbox {
+  overflow-x: auto;
+  width: 75%;
+}
+
+form.inbox fieldset {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.dashboard form.filters + h4.landmark {
+  clear: left;
+}
+
+/* END== */
+/* == ZONE: SEARCH/BROWSE (currently header linked index pages)
+The search and browse zone is in development and has no parent class yet
+Arguably filter and search could be styled in interactions but I've put them here in case we change those page areas a lot
+.search and .browse may turn out to be separate but interrelated
+*/
+
+/* INDEX PAGES (with filters) */
+
+.filtered .index {
+  width: 75%;
+  float: left;
+}
+
+.people-index ol + div.pagination, .index + h4.landmark {
+  clear: both;
+}
+
+.media-index .listbox {
+  min-height: 17.5em;
+}
+
+.media-index .listbox:nth-of-type(odd) {
+  clear: left;
+}
+
+/* INTERACTION: SEARCH */
+
+form.search input[type="text"] {
+  border-top-color: #999;
+  padding: 0.15em 0.25em;
+    border-radius: 1em;
+}
+
+.search p, li.search form p {
+  position: relative;
+}
+
+.search [role="tooltip"] {
+  background: #ddd;
+  border: 1px solid #fff;
+  padding: 0.15em;
+  position: absolute;
+  left: -999em;
+  font-size: 0.75em;
+  z-index: 1;
+}
+
+.search input:focus + [role="tooltip"] {
+  left: 1em;
+  right: 1em;
+  top: 2.75em;
+}
+
+li.search fieldset {
+  margin: auto;
+  padding: 0.15em;
+  font-size: 87.5%;
+  overflow: visible;
+  width: auto;
+}
+
+.search .tags dd.submit {
+  margin: -3em 0.643em 0;
+}
+
+/* INTERACTION: FILTER */
+
+form.filters {
+  width: 23%;
+  float: right;
+  clear: right;
+}
+
+.filters h4 {
+  display: inline;
+  font-weight: 700;
+}
+
+.filters dl, .filters dt {
+  padding: 0;
+}
+
+.filters dt, .filters dd, .filters input[type="submit"], .filters .expander {
+  width: 100%;
+}
+
+.filters input + label {
+  padding-left: 0;
+}
+
+.filters dl dl {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+    box-shadow: none;
+}
+
+.filters .submit, .filters .group {
+  margin: 0;
+  padding: 0;
+}
+
+.filters .submit input {
+  height: 100%;
+  margin: 1em 0;
+  min-height: 1.286em;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  white-space: normal;
+}
+
+.filters dt.heading {
+  margin-top: 1.929em;
+}
+
+.filters .expander {
+  background: url("/images/arrow-right.gif") left center no-repeat;
+  border: none;
+  color: #2a2a2a;
+  height: 100%;
+  min-height: 1.786em; /* default button height plus 0.25 vertical padding */
+  outline: none;
+  padding: 0.25em 0 0.25em 14px;
+  text-align: left;
+  white-space: normal;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+.filters .expander:focus {
+  outline: 1px dotted;
+}
+
+.filters .expanded .expander {
+  background-image: url("/images/arrow-down.gif");
+}
+
+.filters .expandable, .filters .group dd.autocomplete {
+  margin: 0;
+}
+
+.filters .group dt.search, .filters .range dt {
+  border-bottom: none;
+  padding: 0.25em 0;
+}
+
+.filters .group dt.bookmarker {
+  border-top: 1px solid #f3efec;
+  margin-top: 0.643em;
+  padding-top: 0.643em;
+}
+
+.filters .more dd.search, .filters .more dt.search, .filters .range dd {
+  margin-top: 0;
+}
+
+.filters .warning {
+  font-weight: 500;
+}
+
+.filters .collapsed:after, .filters .expanded:after {
+  content: none;
+}
+
+.filters .sort + .heading {
+  margin-top: 1.286em; /* heading top margin minus sort bottom margin */
+}
+
+.filters [type="checkbox"], .filters [type="radio"] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  left: auto; /* fix for VoiceOver outline position in iOS 10.3.1 */
+}
+
+/* AO3-5370: Style changes to fix a bug unique to Safari 9. Hack courtesy of
+https://browserstrangeness.github.io/css_hacks.html
+*/
+@supports (overflow:-webkit-marquee) and (justify-content:inherit) {
+  .filters [type="checkbox"], .filters [type="radio"] {
+    left: -2em;
+    position: relative;
+  }
+}
+
+.filters .indicator:before {
+  background: #eee;
+  color: #aaa;
+  display: inline-block;
+  border: 1px solid;
+  margin-right: 0.25em;
+  text-align: center;
+    background-image: -moz-linear-gradient(top, #fff 2%, #ddd 95%, #bbb 100%);
+    background-image: -webkit-linear-gradient(top, #fff 2%, #ddd 95%, #bbb 100%);
+    background-image: linear-gradient(#fff 2%, #ddd 95%, #bbb 100%);
+}
+
+.filters input:focus + .indicator + span {
+  outline: 1px dotted;
+}
+
+.filters input:checked + .indicator:before {
+  border-color: #2a2a2a;
+}
+
+.filters input:checked + .indicator + span {
+  font-weight: 700;
+}
+
+.filters [type="checkbox"] + .indicator:before {
+  content: " \2713";
+  padding: 0 0.25em;
+    border-radius: 0.25em;
+}
+
+.filters [type="checkbox"]:checked + .indicator:before {
+  background: #deffde;
+  color: #008000;
+    background-image: -moz-linear-gradient(top, #fff 2%, #d1f0d1 95%, #b3ccb3 100%);
+    background-image: -webkit-linear-gradient(top, #fff 2%, #d1f0d1 95%, #b3ccb3 100%);
+    background-image: linear-gradient(#fff 2%, #d1f0d1 95%, #b3ccb3 100%);
+}
+
+.filters [type="radio"] + .indicator:before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+    border-radius: 1em;
+}
+
+.filters [type="radio"]:checked + .indicator:before {
+  background: #fff;
+    background-image: -moz-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 11%, rgba(0, 0, 0, 0) 23%),
+                      -moz-linear-gradient(top, #bbb 0%, #ddd 5%, #fff 100%);
+    background-image: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 11%, rgba(0, 0, 0, 0) 23%),
+                      -webkit-linear-gradient(top, #bbb 0%, #ddd 5%, #fff 100%);
+    background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 11%, rgba(0, 0, 0, 0) 23%),
+                      linear-gradient(to bottom, #bbb 0%, #ddd 5%, #fff 100%);
+}
+
+.filters .exclude [type="checkbox"] + .indicator:before {
+  content: " \2715";
+}
+
+.filters .exclude [type="checkbox"]:checked + .indicator:before {
+  background: #fedede;
+  color: #f00;
+    background-image: -moz-linear-gradient(top, #fff 2%, #efd1d1 95%, #d8bebe 100%);
+    background-image: -webkit-linear-gradient(top, #fff 2%, #efd1d1 95%, #d8bebe 100%);
+    background-image: linear-gradient(#fff 2%, #efd1d1 95%, #d8bebe 100%);
+}
+
+/* END== */
+/* == ZONE: TAGS, TAGSETS, and TAG WRANGLING
+tag wrangling is a type of Home Zone
+individual tags are shown in many contexts across the site and are styled in types-groups.css
+tags also have various states in roles-states.css (arguably a nomination is an embyronic tag)
+*/
+
+/* TAGS SHOW */
+
+ul.tree, ul.tree li {
+  display: block;
+}
+
+.tag_wranglers-index #tag_wranglers {
+  width: 75%;
+  float: left;
+}
+
+/* TAGSETS
+tagsets are new and homeless; they don't really fit into the site pattern yet
+so they might change their pattern a lot before 1.0 */
+
+/* reviewing nominations */
+
+dl.nomination {
+  border: 0;
+  margin: 0;
+  padding: 0;
+    box-shadow: none;
+}
+
+.nomination dt, .nomination dd {
+  float: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+.nomination dt {
+  background: #fff;
+  width: 50%;
+}
+
+.nomination dd.autocomplete ul, .nomination dd.autocomplete li {
+  margin-bottom: -0.375em;
+}
+
+dd.autocomplete li.input {
+  margin: 0;
+  padding: 0;
+}
+
+/* END == */
+/* == ZONE: TRANSLATION
+The translation zone is in development 01/09/11.
+It may follow the "home" (user home, tag home, collection home) pattern
+or it may have no views and be entirely inline
+or summat
+in which cases this zone will be uneccessary and can be removed.
+*/
+
+/* END == */
+
+/* == USERSTUFF: displaying content inputted by a user into a textarea. */
+
+.userstuff {
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+
+.userstuff p, .userstuff details {
+  margin: 1.286em auto;
+  padding: 0;
+}
+
+/* lists */
+
+.userstuff dl {
+  margin: 1.5em 0;
+  border: 0;
+}
+
+.userstuff dl dl {
+  width: 90%;
+  margin: auto;
+}
+
+.userstuff dt {
+  display: block;
+  font-weight: bold;
+}
+
+.userstuff dd {
+  display: block;
+  margin-block-start: 1.25em;
+  margin-block-end: 1.25em;
+  margin-inline-start: 3em;
+}
+
+.userstuff dd p {
+  margin: 0;
+  padding: 0;
+}
+
+.userstuff ul {
+  margin: 1.125em auto;
+  padding: 0 1em;
+}
+
+.userstuff ul li {
+  display: list-item;
+}
+
+.userstuff li, .userstuff ol ul li {
+  font-weight: normal;
+  display: list-item;
+  list-style-type: disc;
+  margin-block-start: 0.75em;
+  margin-inline-end: 0;
+  margin-block-end: 0.75em;
+  margin-inline-start: 1.75em;
+}
+
+.userstuff ol {
+  margin: 0.75em auto;
+  padding: 0 1.5em;
+}
+
+.userstuff ol li {
+  list-style-type: decimal;
+  margin-block-start: 0.75em;
+  margin-inline-end: 0;
+  margin-block-end: 0.75em;
+  margin-inline-start: 1.75em;
+}
+
+.userstuff ol li ol li {
+  list-style-type: lower-alpha;
+}
+
+.userstuff ol li ol li ol li {
+  list-style-type: lower-roman;
+}
+
+/* headings */
+
+.userstuff h1 {
+  text-align: center;
+}
+
+.userstuff h2 {
+  color: #333;
+  margin: 1.5em 0;
+  display: block;
+}
+
+.userstuff h3 {
+  font-weight: 500;
+  padding: 0.125em;
+  border-bottom: 0.25em double #333;
+}
+
+.userstuff h4 {
+  font-weight: 700;
+}
+
+.userstuff h5 {
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.userstuff h6 {
+  font-size: 0.975em;
+  border-bottom: 1px solid;
+}
+
+.userstuff h3 a, .userstuff h3 a:link, .userstuff h3 a:visited {
+  font-weight: 500;
+  border-bottom: 0;
+  text-decoration: none;
+}
+
+/* tables */
+
+.userstuff caption {
+  font-size: 1em;
+  height: auto;
+  width: auto;
+    opacity: 1;
+}
+
+.userstuff table, .userstuff td, .userstuff col, .userstuff tr, .userstuff thead, .userstuff tfoot, .userstuff tbody, .userstuff th, .userstuff thead td, .userstuff th a, .userstuff th a:link {
+  background: transparent;
+  border: none;
+}
+
+/* quotes and stresses */
+
+.userstuff blockquote, .userstuff address {
+  line-height: 1.5;
+  margin-inline-start: 1.5em;
+  padding: 0.75em;
+  border-inline-start: 2px solid #999;
+}
+
+.userstuff blockquote blockquote {
+  padding: 0.25em;
+  border: 0;
+}
+
+.userstuff hr {
+  width: 33%;
+  margin: 0.875em auto 1.2525em auto;
+  border: 1px solid;
+}
+
+/* media */
+
+.userstuff img {
+  max-width: 100%;
+  height: auto;
+}
+
+.userstuff video {
+  max-width: 100%;
+}
+
+/* expected behaviours, exceptioning */
+
+/* WORK MARGINS */
+
+#workskin {
+  font-size: 1.08em;
+  margin: auto;
+  padding: 0 0.25em;
+  max-width: 72em;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+}
+
+#workskin .module {
+  float: none;
+}
+
+/* contexts */
+
+.comment .userstuff li {
+  list-style-position: inside;
+}
+
+.comment .userstuff blockquote {
+    display: flow-root;
+}
+
+.bookmark .user .userstuff {
+  line-height: 1.5;
+}
+
+.bookmark .user .userstuff blockquote {
+  margin-bottom: 1.286em;
+}
+
+.faq .userstuff dd {
+  margin-block-start: 0.75em;
+  margin-block-end: 0.75em;
+  margin-inline-start: 1.75em;
+}
+
+.faq .userstuff dl {
+  margin: 0.75em 0;
+}
+
+/* END == */
+/* == SYSTEM MESSAGES
+System messages use the following colours:
+  - notice => blue: success, messages, additional information, no action needed, can proceed
+  - caution => yellow: user may wish to change their mind, action optional, can proceed
+  - error => red: mistake, go back and fix this problem, action needed before you can proceed
+*/
+
+.important {
+  font-weight: 900;
+}
+
+/* We don't generally chain class selectors, but Devise's non-customizable .alert class conflicts with ours, making it necessary here */
+.required, .error, .alert.flash {
+  color: #900;
+}
+
+.footnote {
+  font-size: 0.75em;
+  float: right;
+}
+
+.datetime {
+  font-family: monospace;
+}
+
+div.error {
+  margin: 0.643em auto;
+  padding: 0.25em 0.375em;
+    border-radius: 0.25em;
+}
+
+.notice, .comment_notice, .kudos_notice, ul.notes, .caution, .error, .comment_error, .kudos_error, .alert.flash {
+  background: #d1e1ef;
+  border: 1px solid #c2d2df;
+  margin: 0.643em auto;
+  padding: 0.25em 0.375em;
+  clear: right;
+    box-shadow: inset 1px 1px 2px;
+    border-radius: 0.25em;
+    word-wrap: break-word;
+}
+
+.caution {
+  background: #ffe34e;
+  color: #000;
+  border-color: #d89e36;
+}
+
+.error, .comment_error, .kudos_error, .alert.flash {
+  background: #efd1d1;
+  border-color: #900;
+    box-shadow: 1px 1px 2px;
+}
+
+/* p.notes should be deprecated in favor of p.note and the .notes class reserved for containers that could hold multiple notes, e.g., div, ul, section */
+p.notes, p.note {
+  clear: right;
+}
+
+form .notice, form ul.notes {
+    box-shadow: 0px 0 3px #fff;
+}
+
+.notice p {
+  margin: 0;
+  padding: 0.643em;
+}
+
+ul.notes, .error ul, .notice ul, .caution ul, .alert.flash ul {
+  position: static;
+  margin: auto 0.643em;
+  padding: 0.25em 2.5em;
+}
+
+ul.notes li, .error ul li, .notice ul li, .caution ul li, .alert.flash ul li {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+
+p span.error, dt span.error, dd span.error {
+  display: block;
+}
+
+dd.complex span.error {
+  display: inline-block;
+}
+
+/* annotation module:
+Similar to native figure element, this groups an image or text with additional
+textual information. Unlike the figure element, the content cannot be removed
+from the main flow. */
+
+.annotation {
+  background: #eee;
+  border: 1px solid #ccc;
+  float: none;
+  line-height: 1;
+  margin: 0.643em auto;
+  padding: 1.286em;
+  width: fit-content;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.286em;
+}
+
+.annotation .image {
+  width: auto;
+  float: none;
+  line-height: 1;
+}
+
+.annotation .notes {
+  text-align: center;
+}
+
+.annotation .notes code {
+  font-size: 1.286em;
+}
+
+.annotation .notes .footnote {
+  float: none;
+}
+
+.annotation .actions {
+  float: none;
+  margin-block-end: 0;
+  padding-block-end: 0;
+}
+
+/* contexts */
+
+.actions + .footnote {
+ clear: both;
+}
+
+/* ADMIN ANNOUNCEMENT BANNERS
+Set by an admin, these banners appear on every page until the user dismisses them or the admin deletes it
+  - default (no additional class) => blue like other notice messages
+  - event => red gradient with white text for fundraising, celebrations, other happy Org events
+  - alert => yellow-orange to alert users of problems or planned downtime
+*/
+
+.announcement {
+  clear: both;
+  position: relative;
+}
+
+.announcement .userstuff {
+  background: #d1e1ef;
+  border: 1px solid #c2d2df;
+  color: #333;
+  margin: 0 2em;
+  padding: 0.375em 0.75em;
+  text-align: left;
+}
+
+.announcement .userstuff p {
+  margin: 0.375em auto;
+}
+
+.announcement p.submit {
+  bottom: -1em;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 1em;
+  z-index: 1;
+}
+
+.announcement .action {
+  background: #fff none;
+  border: 1px solid #bbb;
+  padding: 0.25em 0.5em;
+    border-radius: 2em;
+}
+
+.announcement h1, .announcement h2, .announcement h3, .announcement h4, .announcement h5, .announcement h6, .banner h1, .banner h2, .banner h3, .banner h4, .banner h5, .banner h6 {
+  border: none;
+  color: inherit;
+  margin: 0;
+  text-align: center;
+    text-shadow: none;
+}
+
+.event .userstuff {
+  background: #700;
+  border-color: #600;
+  color: #fff;
+    background-image: -moz-linear-gradient(top, #700 0%, #a00 100%);
+    background-image: -webkit-linear-gradient(top, #700 0%, #a00 100%);
+    background-image: -o-linear-gradient(top, #700 0%, #a00 100%);
+    background-image: linear-gradient(to bottom, #700 0%, #a00 100%);
+}
+
+.event .userstuff a {
+  color: #eee;
+}
+
+.alert .userstuff {
+  background: #fece3f;
+  border-color: #edb202;
+  color: #333;
+}
+
+/* thermometer JavaScript widget for fundraising drives
+progress indicator colors are set in application.js
+*/
+
+.announcement .thermometer-content {
+  height: 2.6em;
+  margin: auto;
+  width: 50%;
+}
+
+.announcement .thermometer {
+  position: relative;
+}
+
+.announcement .thermometer .track {
+  background: #fff;
+  border: 1px solid #aaa;
+  height: 1.25em;
+  margin: 0 auto;
+  position: relative;
+    background-image: linear-gradient(to bottom, #fff 0%, #f3f3f3 50%, #ededed 51%, #fff 100%);
+}
+
+.announcement .thermometer .progress {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+}
+
+.announcement .thermometer .goal {
+  position: absolute;
+  right: 0;
+}
+
+.announcement .thermometer .amount {
+  font-weight: 700;
+  line-height: 1.25em;
+  position: absolute;
+}
+
+.announcement .thermometer .goal .amount {
+  left: 0;
+  padding-left: 0.25em;
+  top: 0;
+}
+
+.announcement .thermometer .progress .amount {
+  top: 1.35em;
+  right: 0;
+}
+
+/* SYMBOLS (mostly help button, arguably an action but hey ho);
+IN REVIEW: this block is very old (2008), a bit wonky and has an unexpected effect on blurb that needs detangling so it might change a lot
+*/
+
+span.symbol {
+  color: #2a547c;
+  font-family: Georgia, serif;
+  border: 1px solid;
+  vertical-align: super;
+    border-radius: 0.75em;
+}
+
+span.symbol span {
+  padding: 0.425em;
+}
+
+.symbols a, .symbol a {
+  text-decoration: none;
+  border: none;
+}
+
+.question a:hover {
+  background: #2a547c;
+  border-color: #d1e1ef;
+  color: #fff;
+  cursor: help;
+}
+
+span.question {
+  background: #d1e1ef;
+  border-color: #2a547c;
+    box-shadow: -1px -1px 2px rgba(0,0,0,0.25);
+}
+
+a.question {
+  border: 0;
+  font-weight: bold;
+}
+
+.heading a.question {
+  font-size: 0.75em;
+}
+
+/* SYMBOLS KEY (help content) */
+
+dl#symbols-key dt {
+  width: 100px;
+}
+
+dl#symbols-key dd {
+  margin: -55px auto auto 100px;
+}
+
+#symbols-key dl {
+  border: 1px solid #ddd;
+  margin-bottom: 1.286em;
+  padding: 0.15em;
+}
+
+#symbols-key dl dt img, #bookmark-symbols-key dt img, #symbols-key dl dt, #bookmark-symbols-key dt {
+  height: 25px;
+  width: 25px;
+}
+
+#symbols-key dl dd, #bookmark-symbols-key dd {
+  margin: -25px auto 20px 35px;
+}
+
+/* END == */
