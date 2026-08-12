@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blorbo — AO3 skin preview</title>
+    <meta name="description"
+        content="Preview a blorbo AO3 site skin against a real work page; switch skins from the bar at the top.">
+    <meta name="author" content="StrawberryMaster">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/ao3/1_site_screen_.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-width: 62em), handheld"
+        href="assets/ao3/4_site_midsize.handheld_.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-width: 42em), handheld"
+        href="assets/ao3/5_site_narrow.handheld_.css">
+
+    <style>
+        #previewbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 12px;
+            background: #232830 !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45) !important;
+            font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif !important;
+        }
+
+        #previewbar,
+        #previewbar * {
+            box-sizing: border-box;
+        }
+
+        #previewbar .previewbar-label {
+            color: #a9b6c3 !important;
+            font-size: 12px !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+        }
+
+        #previewbar .previewbar-hint {
+            flex: 1;
+            min-width: 0;
+            color: #7d8894 !important;
+            font-size: 12px !important;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        #previewbar button#skin-toggle {
+            appearance: none;
+            cursor: pointer;
+            font-family: inherit !important;
+            font-size: 13px !important;
+            font-weight: 700;
+            line-height: 1.3;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
+            padding: 6px 12px;
+            border-radius: 4px;
+            background: #3a434c !important;
+            color: #e6ebf0 !important;
+            border: 1px solid #565f6a !important;
+            text-shadow: none;
+            box-shadow: none;
+        }
+
+        #previewbar button#skin-toggle:hover,
+        #previewbar button#skin-toggle:focus-visible,
+        #previewbar button#skin-toggle[aria-expanded="true"] {
+            background: #49545f !important;
+            color: #ffffff !important;
+            border-color: #7f8a96 !important;
+        }
+
+        #previewbar #skin-toggle .skin-toggle-caret {
+            font-size: 10px;
+            color: #8fa0b0 !important;
+            transition: transform 0.15s ease;
+        }
+
+        #previewbar #skin-toggle[aria-expanded="true"] .skin-toggle-caret {
+            transform: rotate(180deg);
+        }
+
+        #skin-menu {
+            position: fixed;
+            top: 46px;
+            right: 12px;
+            z-index: 100000;
+            min-width: 270px;
+            max-width: 320px;
+            max-height: min(70vh, 620px);
+            overflow-y: auto;
+            padding: 8px;
+            border-radius: 6px;
+            background: #262c33 !important;
+            border: 1px solid #4b5560 !important;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5) !important;
+            font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif !important;
+        }
+
+        #skin-menu[hidden] {
+            display: none;
+        }
+
+        #skin-menu .skin-section-label {
+            color: #7d8894 !important;
+            font-size: 11px !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin: 10px 4px 4px;
+        }
+
+        #skin-menu .skin-section-label:first-of-type {
+            margin-top: 2px;
+        }
+
+        #skin-menu button.skin-item {
+            appearance: none;
+            display: block;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            font-family: inherit !important;
+            font-size: 13px !important;
+            font-weight: normal;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 1px 0;
+            padding: 7px 10px;
+            border-radius: 4px;
+            background: transparent !important;
+            color: #dce3ea !important;
+            border: none !important;
+            text-shadow: none;
+            box-shadow: none;
+        }
+
+        #skin-menu button.skin-item:hover,
+        #skin-menu button.skin-item:focus-visible {
+            background: #3a434c !important;
+            color: #ffffff !important;
+        }
+
+        #skin-menu button.skin-item.active {
+            background: #3b82f6 !important;
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+
+        #skin-menu button.skin-item .skin-item-file {
+            color: #8fa0b0 !important;
+            font-size: 11px !important;
+            margin-left: 8px;
+        }
+
+        #skin-menu button.skin-item.active .skin-item-file {
+            color: #d9e6f5 !important;
+        }
+
+        #skin-menu .skin-menu-note {
+            color: #7d8894 !important;
+            font-size: 11px !important;
+            border-top: 1px solid #3a434c !important;
+            margin-top: 8px;
+            padding: 8px 4px 2px;
+        }
+
+        #previewbar-spacer {
+            height: 44px;
+        }
+
+        @media print {
+
+            #previewbar,
+            #previewbar-spacer,
+            #skin-menu {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="logged-in javascript">
+
+    <div id="previewbar">
+        <span class="previewbar-label">blorbo skin preview</span>
+        <span class="previewbar-hint">skins layer over AO3's default skin, like the real site</span>
+        <button id="skin-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+            <span id="skin-toggle-name">AO3 Default</span>
+            <span class="skin-toggle-caret">&#9662;</span>
+        </button>
+    </div>
+    <div id="previewbar-spacer"></div>
+    <div id="skin-menu" hidden></div>
+
+    <div id="outer" class="wrapper">
+        <ul id="skiplinks">
+            <li><a href="#main">Main Content</a></li>
+        </ul>
+        <noscript>
+            <p id="javascript-warning">While we've done our best to make the core functionality of this site accessible
+                without JavaScript, it will work better with it enabled. Please consider turning it on!</p>
+        </noscript>
+
+        <header id="header" class="region">
+            <h1 class="heading">
+                <a href="https://archiveofourown.org/"><span>Archive of Our Own</span><img alt="Archive of Our Own"
+                        class="logo" src="https://archiveofourown.org/images/ao3_logos/logo_42.png"></a>
+            </h1>
+
+            <nav id="greeting" aria-label="User">
+                <ul class="user navigation actions">
+                    <li class="dropdown">
+                        <a href="https://archiveofourown.org/users/bobbydorpz">Hi, bobbydorpz!</a>
+                        <ul class="menu">
+                            <li><a href="https://archiveofourown.org/users/bobbydorpz">My Dashboard</a></li>
+                            <li><a href="https://archiveofourown.org/users/bobbydorpz/works">My Works</a></li>
+                            <li><a href="https://archiveofourown.org/users/bobbydorpz/bookmarks">My Bookmarks</a>
+                            </li>
+                            <li><a href="https://archiveofourown.org/users/bobbydorpz/readings">My History</a></li>
+                            <li><a href="https://archiveofourown.org/users/bobbydorpz/preferences">My
+                                    Preferences</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="https://archiveofourown.org/works/new">Post</a>
+                        <ul class="menu">
+                            <li><a href="https://archiveofourown.org/works/new">New Work</a></li>
+                            <li><a href="https://archiveofourown.org/works/new?import=true">Import Work</a></li>
+                        </ul>
+                    </li>
+                    <li><a rel="nofollow" href="https://archiveofourown.org/users/logout">Log Out</a></li>
+                </ul>
+                <p class="icon"><a href="https://archiveofourown.org/users/bobbydorpz"><img
+                            alt="example pfp" class="icon"
+                            src="https://i.pinimg.com/736x/90/d8/7c/90d87cbfebbc11ec95c6dbf9a7cb4428.jpg"></a>
+                </p>
+            </nav>
+
+            <nav aria-label="Site">
+                <ul class="primary navigation actions">
+                    <li class="dropdown">
+                        <a href="https://archiveofourown.org/menu/fandoms">Fandoms</a>
+                        <ul class="menu">
+                            <li><a href="https://archiveofourown.org/media">All Fandoms</a></li>
+                            <li id="medium_5"><a
+                                    href="https://archiveofourown.org/media/Anime%20*a*%20Manga/fandoms">Anime &amp;
+                                    Manga</a></li>
+                            <li id="medium_3"><a
+                                    href="https://archiveofourown.org/media/Books%20*a*%20Literature/fandoms">Books
+                                    &amp; Literature</a></li>
+                            <li id="medium_4"><a
+                                    href="https://archiveofourown.org/media/Cartoons%20*a*%20Comics%20*a*%20Graphic%20Novels/fandoms">Cartoons
+                                    &amp; Comics &amp; Graphic Novels</a></li>
+                            <li id="medium_7"><a
+                                    href="https://archiveofourown.org/media/Celebrities%20*a*%20Real%20People/fandoms">Celebrities
+                                    &amp; Real People</a></li>
+                            <li id="medium_2"><a href="https://archiveofourown.org/media/Movies/fandoms">Movies</a></li>
+                            <li id="medium_6"><a
+                                    href="https://archiveofourown.org/media/Music%20*a*%20Bands/fandoms">Music &amp;
+                                    Bands</a></li>
+                            <li id="medium_8"><a href="https://archiveofourown.org/media/Other%20Media/fandoms">Other
+                                    Media</a></li>
+                            <li id="medium_30198"><a
+                                    href="https://archiveofourown.org/media/Theater/fandoms">Theater</a></li>
+                            <li id="medium_1"><a href="https://archiveofourown.org/media/TV%20Shows/fandoms">TV
+                                    Shows</a></li>
+                            <li id="medium_476"><a href="https://archiveofourown.org/media/Video%20Games/fandoms">Video
+                                    Games</a></li>
+                            <li id="medium_9971"><a
+                                    href="https://archiveofourown.org/media/Uncategorized%20Fandoms/fandoms">Uncategorized
+                                    Fandoms</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="https://archiveofourown.org/menu/browse">Browse</a>
+                        <ul class="menu">
+                            <li><a href="https://archiveofourown.org/works">Works</a></li>
+                            <li><a href="https://archiveofourown.org/bookmarks">Bookmarks</a></li>
+                            <li><a href="https://archiveofourown.org/tags">Tags</a></li>
+                            <li><a href="https://archiveofourown.org/collections">Collections</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="https://archiveofourown.org/menu/search">Search</a>
+                        <ul class="menu">
+                            <li><a href="https://archiveofourown.org/works/search">Works</a></li>
+                            <li><a href="https://archiveofourown.org/bookmarks/search">Bookmarks</a></li>
+                            <li><a href="https://archiveofourown.org/tags/search">Tags</a></li>
+                            <li><a href="https://archiveofourown.org/people/search">People</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="https://archiveofourown.org/menu/about">About</a>
+                        <ul class="menu">
+                            <li><a href="https://archiveofourown.org/about">About Us</a></li>
+                            <li><a href="https://archiveofourown.org/admin_posts">News</a></li>
+                            <li><a href="https://archiveofourown.org/faq">FAQ</a></li>
+                            <li><a href="https://archiveofourown.org/wrangling_guidelines">Wrangling Guidelines</a></li>
+                            <li><a href="https://archiveofourown.org/donate">Donate or Volunteer</a></li>
+                        </ul>
+                    </li>
+                    <li class="search">
+                        <form class="search" id="search" role="search" aria-label="Work"
+                            action="https://archiveofourown.org/works/search" accept-charset="UTF-8" method="get">
+                            <fieldset>
+                                <p>
+                                    <label class="landmark" for="site_search">Work Search</label>
+                                    <input class="text" id="site_search" aria-describedby="site_search_tooltip"
+                                        type="text" name="work_search[query]">
+                                    <span class="tip" role="tooltip" id="site_search_tooltip">tip: arthur merlin
+                                        words&gt;1000 sort:hits</span>
+                                    <span class="submit actions"><input type="submit" value="Search"
+                                            class="button"></span>
+                                </p>
+                            </fieldset>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="clear"></div>
+        </header>
+
+        <div id="inner" class="wrapper">
+
+            <div id="main" class="works-show region" role="main">
+                <div class="flash"></div>
+
+                <ul class="landmark skip">
+                    <li><a name="top">&nbsp;</a></li>
+                    <li><a href="#work">Skip header</a></li>
+                </ul>
+
+                <div class="work">
+                    <h3 class="landmark heading">Actions</h3>
+                    <ul class="work navigation actions">
+                        <li class="bookmark">
+                            <a class="bookmark_form_placement_open" href="#bookmark-form">Bookmark</a>
+                            <a class="hidden bookmark_form_placement_close" href="#">Cancel Bookmark</a>
+                        </li>
+                        <li class="mark">
+                            <form class="button_to" method="post" action="#"><button type="submit">Mark for
+                                    Later</button></form>
+                        </li>
+                        <li class="comments" id="show_comments_link_top"><a href="#comments">Comments (245)</a></li>
+                        <li class="share hidden">
+                            <a class="modal" title="Share Work"
+                                href="https://archiveofourown.org/works/1625354/share">Share</a>
+                        </li>
+                        <li class="subscribe">
+                            <form class="ajax-create-destroy" action="#" method="post">
+                                <input type="submit" name="commit" value="Subscribe">
+                            </form>
+                        </li>
+                        <li class="download"><noscript>
+                                <h4 class="heading">Download</h4>
+                            </noscript><button class="hidden">Download</button>
+                            <ul class="expandable secondary hidden">
+                                <li><a
+                                        href="https://archiveofourown.org/downloads/1625354/the_sandwich_story.azw3?updated_at=1701239095">AZW3</a>
+                                </li>
+                                <li><a
+                                        href="https://archiveofourown.org/downloads/1625354/the_sandwich_story.epub?updated_at=1701239095">EPUB</a>
+                                </li>
+                                <li><a
+                                        href="https://archiveofourown.org/downloads/1625354/the_sandwich_story.mobi?updated_at=1701239095">MOBI</a>
+                                </li>
+                                <li><a
+                                        href="https://archiveofourown.org/downloads/1625354/the_sandwich_story.pdf?updated_at=1701239095">PDF</a>
+                                </li>
+                                <li><a
+                                        href="https://archiveofourown.org/downloads/1625354/the_sandwich_story.html?updated_at=1701239095">HTML</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="landmark heading">Work Header</h3>
+                    <div class="wrapper">
+                        <dl class="work meta group">
+                            <dt class="rating tags">Rating:</dt>
+                            <dd class="rating tags">
+                                <ul class="commas">
+                                    <li><a class="tag"
+                                            href="https://archiveofourown.org/tags/General%20Audiences/works">General
+                                            Audiences</a></li>
+                                </ul>
+                            </dd>
+                            <dt class="warning tags"><a href="https://archiveofourown.org/tos_faq#tags">Archive
+                                    Warning</a>:</dt>
+                            <dd class="warning tags">
+                                <ul class="commas">
+                                    <li><a class="tag"
+                                            href="https://archiveofourown.org/tags/Choose%20Not%20To%20Use%20Archive%20Warnings/works">Creator
+                                            Chose Not To Use Archive Warnings</a></li>
+                                </ul>
+                            </dd>
+                            <dt class="fandom tags">Fandom:</dt>
+                            <dd class="fandom tags">
+                                <ul class="commas">
+                                    <li><a class="tag"
+                                            href="https://archiveofourown.org/tags/Calvin%20*a*%20Hobbes/works">Calvin
+                                            &amp; Hobbes</a></li>
+                                </ul>
+                            </dd>
+                            <dt class="language">Language:</dt>
+                            <dd class="language" lang="en">English</dd>
+                            <dt class="collections">Collections:</dt>
+                            <dd class="collections"><a
+                                    href="https://archiveofourown.org/collections/yuletide2008">Yuletide 2008</a></dd>
+                            <dt class="stats">Stats:</dt>
+                            <dd class="stats">
+                                <dl class="stats">
+                                    <dt class="published">Published:</dt>
+                                    <dd class="published">2008-12-20</dd>
+                                    <dt class="words">Words:</dt>
+                                    <dd class="words">1,320</dd>
+                                    <dt class="chapters">Chapters:</dt>
+                                    <dd class="chapters">1/1</dd>
+                                    <dt class="comments">Comments:</dt>
+                                    <dd class="comments">245</dd>
+                                    <dt class="kudos">Kudos:</dt>
+                                    <dd class="kudos">659</dd>
+                                    <dt class="bookmarks">Bookmarks:</dt>
+                                    <dd class="bookmarks"><a
+                                            href="https://archiveofourown.org/works/1625354/bookmarks">156</a></dd>
+                                    <dt class="hits">Hits:</dt>
+                                    <dd class="hits">7,380</dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div id="work-skin" class="wrapper">
+
+                        <div id="workskin">
+                            <div class="preface group">
+                                <h2 class="title heading">the sandwich story</h2>
+                                <h3 class="byline heading">Meredith [archived by <a rel="author"
+                                        href="https://archiveofourown.org/users/yuletide_archivist/pseuds/yuletide_archivist">yuletide_archivist</a>]
+                                </h3>
+
+                                <div class="summary module">
+                                    <h3 class="heading">Summary:</h3>
+                                    <blockquote class="userstuff">
+                                        <p>Hobbes is changing.</p>
+                                    </blockquote>
+                                </div>
+
+                                <div class="notes module">
+                                    <h3 class="heading">Notes:</h3>
+                                    <blockquote class="userstuff">
+                                        <p>Written for Katarik</p>
+                                    </blockquote>
+                                </div>
+                            </div>
+
+                            <div id="chapters" role="article">
+                                <h3 class="landmark heading" id="work">Work Text:</h3>
+                                <div class="userstuff">
+                                    <p> </p>
+                                    <p> </p>
+                                    <p>"Hobbes," Calvin says thoughtfully, perched on the sharply slanted roof outside
+                                        his bedroom window. "Have you always been around?" </p>
+                                    <p>Hobbes looks very wise and takes a large bite of his tuna sandwich. His reply is
+                                        muffled and incomprehensible around the food. </p>
+                                    <p>Calvin takes this to mean that Hobbes doesn't know, either. </p>
+                                    <p>The sky looks bigger the closer you get to it, he notices. With the window shut,
+                                        lying against a gurgling tiger belly, he can pretend that he is up in the stars
+                                        (like Spaceman Spiff). He almost can't hear Mom calling his name. </p>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <hr>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <p>In the middle of the night Calvin wakes up suddenly from a dream that Mrs.
+                                        Wormwood has come in alien form to eat his brain. Delicately, with a ruler in
+                                        place of silverware. </p>
+                                    <p>(At least she was neat about it.) </p>
+                                    <p>Panicked, he grabs for Hobbes and makes a run for the door, taking care to jump a
+                                        safe distance from the bed so as to avoid any monsters beneath. </p>
+                                    <p>The door is closed, but Calvin doesn't realize this until his face has made
+                                        violent contact with the doorknob. </p>
+                                    <p>(Was he that tall before?) </p>
+                                    <p>With all the lights on and his parents clutching his shoulders and pressing
+                                        bloody Kleenexes to his face, Calvin almost doesn't notice something tiny drop
+                                        to the floor. </p>
+                                    <p>When they are gone and Calvin is sitting up in bed, a washcloth stoppering his
+                                        bloody nose, Hobbes sidles up to him and offers a paw, upon which sits a tiny
+                                        tooth. </p>
+                                    <p>A tooth! Calvin had heard of this happening. Teeth were supposed to fall out.
+                                    </p>
+                                    <p>Hobbes is not quite as jubilant as he should be. </p>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <hr>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <p>Calvin grows increasingly bored in class. Mrs. Wormwood returns glaring zeros on
+                                        his assignments, question marks lurking next to multiple choice questions
+                                        festooned with doodles of krakens. Susie finds tiny eraser shavings and paper
+                                        scraps in her neatly brushed hair. That kid at the front of the class whose name
+                                        Calvin has never bothered to learn turns an alarming shade of puce when he
+                                        discovers his chair has been covered in cafeteria-issue ketchup and peanut
+                                        butter. </p>
+                                    <p>They put him in a different class, with a teacher who clearly wants to get
+                                        through to him. He endures probing questions and sympathetically graded
+                                        assignments. </p>
+                                    <p>It doesn't matter what he does; he can't seem to get a reaction. </p>
+                                    <p>So he stops. </p>
+                                    <p>His parents are a little worried, but more relieved than anything else when
+                                        Calvin ceases to be the terror he once was, bit by bit. </p>
+                                    <p>Hobbes tries to interest him in a bit of fun-filled Calvinball, but to no avail.
+                                    </p>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <hr>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <p>The only mischief Calvin finds any glee in (apart from refusing to go to bed when
+                                        asked and pushing Roz to the edge of her sanity) is tormenting Susie. </p>
+                                    <p>Susie reacts quite vehemently. It's consistent, which he appreciates. </p>
+                                    <p>The worst reaction, he thinks, is the time he unloaded a dozen eggs onto Susie's
+                                        head from the G.R.O.S.S. tree when they were nine. It wasn't his most creative
+                                        moment, but it garnered a screech he's surprised didn't rouse his mother from
+                                        wherever she went during daylight hours. (The mothership.)</p>
+                                    <p>"You're such a freak, Calvin!" Susie shouted, and then she kidnapped Hobbes from
+                                        his invisible lookout post beneath the tree and ran home. </p>
+                                    <p>He couldn't get down from the tree fast enough. </p>
+                                    <p>Calvin found Hobbes in Susie's backyard, saying in an offensively genteel manner,
+                                        "I'd be delighted to have some more tea, thank you." </p>
+                                    <p>"You don't even like tea!" Calvin hissed at him from the bushes. </p>
+                                    <p>Hobbes scowled. "It's better than Extra Super Sugar Rush, or whatever it is you
+                                        drink. And she's cuter." </p>
+                                    <p>"Oh, is she?" Calvin growled, and snatched Hobbes up, only to discover, to his
+                                        horror, that Hobbes wore a tutu beheath the tablecloth. </p>
+                                    <p>"I'll get you back," Calvin informed Susie gravely. </p>
+                                    <p>"I look forward to it," Susie said. There shouldn't have been a smile on her
+                                        face, but there was. </p>
+                                    <p>"Why are you smiling?" Calvin demanded. Susie only smiled wider. "I won! I got
+                                        you with the eggs!" </p>
+                                    <p>"Mom says boys do these things because they don't know an adequate way to express
+                                        affection," Susie said primly. </p>
+                                    <p>Hobbes chuckled. Calvin's eyes popped. "That's not true! It's not!" </p>
+                                    <p>Susie stepped neatly over the tea party debris on the ground and kissed Calvin
+                                        squarely on the mouth. It felt slimy and invasive. Calvin leaped backwards,
+                                        using Hobbes as a shield. </p>
+                                    <p>"I don't even play tea party anymore," Susie continued alarmingly. "I only did it
+                                        to get on your nerves." </p>
+                                    <p>"Get away from me," Calvin warned her. She stepped back, hurt, and Calvin ran for
+                                        it. </p>
+                                    <p>Susie refrained from retaliating after that, although the screaming didn't stop,
+                                        and Calvin feels strangely dissatisfied with each new attempt. </p>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <hr>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <p>Hobbes takes up residence in his closet. Calvin makes him a little shrine,
+                                        complete with a rotting peanut butter sandwich and a smock. ("Smock smock
+                                        smock," says Hobbes happily, before lapsing into silence.) He talks less and
+                                        less now, and Calvin ought to be more worried about it than he is. </p>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <hr>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <p>The summer he turns eleven, Calvin opens the closet door to discover emptiness.
+                                        There's not even any dust. </p>
+                                    <p>"Mom?" he shouts. "MOM!" </p>
+                                    <p>His mom comes running, certain that she's going to find Calvin hanging from the
+                                        ceiling fixtures or standing next to a broken window. Instead, he's
+                                        uncharacteristically still, staring inexplicably into his closet. </p>
+                                    <p>"Where's Hobbes?" he asks, eyes swimming with panic. </p>
+                                    <p>"I gave him away," she says, confused. "You haven't played with Hobbes in years.
+                                        And you wouldn't believe the crap I found in there, too--have you been eating in
+                                        your closet?" </p>
+                                    <p>Calvin ignores her. "Gave him away? To who?"</p>
+                                    <p>"To whom," she corrects him, and then, "to Susan's cousin Patty. She lives--"</p>
+                                    <p>Calvin's gone. </p>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <hr>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <p>Patty's house is eight doors down, and Patty herself is playing in the sandbox in
+                                        the backyard. </p>
+                                    <p>She wears an adorably frilled dress. She looks exactly like Susie herself, sans
+                                        the pug nose. Same priggish mien, too, even at six years old. "What do you
+                                        want?" she demands. </p>
+                                    <p>Calvin feels overgrown and lumpy. "Give Hobbes back," he says angrily, unprepared
+                                        to get into an argument with a baby. </p>
+                                    <p>"What's Hobbes?" she asks, painstakingly adding a tower to her masterpiece. </p>
+                                    <p>"That's Hobbes," Calvin says, pointing at the tiger, who sits at the edge of the
+                                        sandbox wearing a bonnet. (What's their obsession with dressing Hobbes up? He's
+                                        a tiger. He doesn't need clothes.) </p>
+                                    <p>Patty shakes her head. "That's Tiggeria," she says. "She's a girl tiger." </p>
+                                    <p>"No, she's not!" Calvin insists, feeling his face heat up. "He's not! He's a boy,
+                                        and his name is Hobbes, and he belongs to me!" </p>
+                                    <p>Patty abandons the argument in favor of a siren wail. Her parents seem likely to
+                                        appear at any moment, so Calvin snatches Hobbes from the sandbox and drops the
+                                        bonnet on top of the tower, which promptly collapses. </p>
+                                    <p>Hobbes remains silent all the way back to the house. Calvin hunts around in the
+                                        back of the closet and discovers a cardboard box labeled "Transmogrifier." It
+                                        seems too small to have ever fit him, let alone a Hobbes-shaped passenger and
+                                        snacks for the road. </p>
+                                    <p>Nevertheless, he needs the magic. Calvin sits cross-legged on the carpet and puts
+                                        the cardboard box on his head, feeling a little foolish. It doesn't quite reach
+                                        the ground. Hobbes he sets on his lap. </p>
+                                    <p>"What happened?" he asks, his voice louder in the dusty confines of the box. </p>
+                                    <p>Hobbes doesn't answer. </p>
+                                    <p>"Hobbes?" </p>
+                                    <p>Calvin shakes him, but there's no response. Hobbes remains stuffed and mute, with
+                                        threadbare button eyes and graying paws. Hobbes has changed, Calvin thinks. </p>
+                                    <p>He's eleven years old with a cardboard box on his head, talking to a stuffed
+                                        animal. Calvin rips the Transmogrifier off and shoves Hobbes under his bed,
+                                        feeling tears prick at his eyes. </p>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <hr>
+                                    <p>
+                                        <br>
+                                    </p>
+                                    <p>On the roof, Hobbes says around his tuna sandwich, "Of course. You're the only
+                                        one changing."</p>
+                                    <p>(He doesn't want Calvin to hear.)
+                                    </p>
+                                    <p> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="feedback" class="feedback">
+                    <h3 class="landmark heading">Actions</h3>
+                    <ul class="actions">
+                        <li><a href="#main">&#8593; Top</a></li>
+                        <li>
+                            <form id="new_kudo" action="#" method="post">
+                                <input type="submit" name="commit" value="Kudos ♥" id="kudo_submit">
+                            </form>
+                        </li>
+                        <li><a class="bookmark_form_placement_open" href="#bookmark-form">Bookmark</a></li>
+                        <li id="show_comments_link"><a href="#comments">Comments (245)</a></li>
+                    </ul>
+
+                    <div id="kudos_message"></div>
+
+                    <h3 class="landmark heading">Kudos</h3>
+                    <div id="kudos">
+                        <p class="kudos">
+                            <a href="https://archiveofourown.org/users/4C30F5P4D1L3">4C30F5P4D1L3</a>, <a
+                                href="https://archiveofourown.org/users/LuckyPlane">LuckyPlane</a>, <a
+                                href="https://archiveofourown.org/users/fried_fishbean">fried_fishbean</a>, <a
+                                href="https://archiveofourown.org/users/RainFrost">RainFrost</a>, <a
+                                href="https://archiveofourown.org/users/story_dragon_27">story_dragon_27</a>, <a
+                                href="https://archiveofourown.org/users/PeopleExhaustMe">PeopleExhaustMe</a>, <a
+                                href="https://archiveofourown.org/users/PigeonMailDandelionMerchant">PigeonMailDandelionMerchant</a>,
+                            <a href="https://archiveofourown.org/users/ArchiveZarc2023">ArchiveZarc2023</a>, <a
+                                href="https://archiveofourown.org/users/Apripple">Apripple</a>, <a
+                                href="https://archiveofourown.org/users/ekaterin">ekaterin</a>, <a
+                                href="https://archiveofourown.org/users/alchemicColored">alchemicColored</a>, <a
+                                href="https://archiveofourown.org/users/glymr">glymr</a>, <a
+                                href="https://archiveofourown.org/users/Pileofdirt1">Pileofdirt1</a>, <a
+                                href="https://archiveofourown.org/users/jerel">jerel</a>, <a
+                                href="https://archiveofourown.org/users/TrioOfFans123">TrioOfFans123</a>, <a
+                                href="https://archiveofourown.org/users/rain_Drop04">rain_Drop04</a>, <a
+                                href="https://archiveofourown.org/users/lost_boys">lost_boys</a>, <a
+                                href="https://archiveofourown.org/users/NullNullOne">NullNullOne</a>, <a
+                                href="https://archiveofourown.org/users/AstraLowelle">AstraLowelle</a>, <a
+                                href="https://archiveofourown.org/users/Coroniel">Coroniel</a>, <a
+                                href="https://archiveofourown.org/users/marouli">marouli</a>, <a
+                                href="https://archiveofourown.org/users/miri888">miri888</a>, <a
+                                href="https://archiveofourown.org/users/smallspaceace">smallspaceace</a>, <a
+                                href="https://archiveofourown.org/users/Test_Account_Please_Ignore_116">Test_Account_Please_Ignore_116</a>,
+                            <a
+                                href="https://archiveofourown.org/users/Celestial_Ruined_My_LIFE">Celestial_Ruined_My_LIFE</a>,
+                            <a href="https://archiveofourown.org/users/xX_MidnightCitrus_Xx">xX_MidnightCitrus_Xx</a>,
+                            <a href="https://archiveofourown.org/users/Blubop">Blubop</a>, <a
+                                href="https://archiveofourown.org/users/SomethingYouSaid">SomethingYouSaid</a>, <a
+                                href="https://archiveofourown.org/users/Dephora">Dephora</a>, <a
+                                href="https://archiveofourown.org/users/874359">874359</a>, <a
+                                href="https://archiveofourown.org/users/charybdis">charybdis</a>, <a
+                                href="https://archiveofourown.org/users/RonInDune">RonInDune</a>, <a
+                                href="https://archiveofourown.org/users/Ghoulyana">Ghoulyana</a>, <a
+                                href="https://archiveofourown.org/users/l0v3t0hat3y0u">l0v3t0hat3y0u</a>, <a
+                                href="https://archiveofourown.org/users/PHNTM">PHNTM</a>, <a
+                                href="https://archiveofourown.org/users/Lord_Zendikar">Lord_Zendikar</a>, <a
+                                href="https://archiveofourown.org/users/ThatWasPointless">ThatWasPointless</a>, <a
+                                href="https://archiveofourown.org/users/Grotherder">Grotherder</a>, <a
+                                href="https://archiveofourown.org/users/QueenofStone200">QueenofStone200</a>, <a
+                                href="https://archiveofourown.org/users/greenevening">greenevening</a>, <a
+                                href="https://archiveofourown.org/users/smiles2go">smiles2go</a>, <a
+                                href="https://archiveofourown.org/users/Arcturus_Rising">Arcturus_Rising</a>, <a
+                                href="https://archiveofourown.org/users/SharoScylla">SharoScylla</a>, <a
+                                href="https://archiveofourown.org/users/NarukoAckerman">NarukoAckerman</a>, <a
+                                href="https://archiveofourown.org/users/chemicalcain">chemicalcain</a>, <a
+                                href="https://archiveofourown.org/users/agreeablehighlight">agreeablehighlight</a>, <a
+                                href="https://archiveofourown.org/users/Nibblesbiteschomps">Nibblesbiteschomps</a>, <a
+                                href="https://archiveofourown.org/users/Paxl">Paxl</a>, <a
+                                href="https://archiveofourown.org/users/Ice_Dragon_64">Ice_Dragon_64</a>, <a
+                                href="https://archiveofourown.org/users/BerryDonut">BerryDonut</a><span
+                                id="kudos_more_connector">, and </span><a id="kudos_more_link"
+                                href="https://archiveofourown.org/works/1625354/kudos">397 more users</a>
+                            as well as
+                            212 guests
+                            left kudos on this work!
+                        </p>
+                    </div>
+
+                    <h3 class="landmark heading"><a id="comments">Comments</a></h3>
+
+                    <div id="add_comment_placeholder" title="top level comment">
+                        <div id="add_comment">
+                            <div class="post comment" id="comment_form_for_1625354">
+                                <form class="new_comment" id="comment_for_1625354" action="#" method="post">
+                                    <fieldset>
+                                        <legend>Post Comment</legend>
+                                        <h4 class="heading">Comment as <span class="byline">bobbydorpz</span>
+                                            <input value="11340548" id="comment_pseud_id_for_1625354" type="hidden"
+                                                name="comment[pseud_id]">
+                                        </h4>
+
+                                        <p class="footnote">Plain text with limited HTML <a
+                                                class="help symbol question modal" aria-label="Html help"
+                                                href="https://archiveofourown.org/help/html"><span
+                                                    class="symbol question"><span>?</span></span></a></p>
+
+                                        <p>
+                                            <label for="comment_content_for_1625354" class="landmark">Comment</label>
+                                            <textarea id="comment_content_for_1625354"
+                                                class="comment_form observe_textlength" title="Enter Comment"
+                                                name="comment[comment_content]"></textarea>
+                                        </p>
+                                        <p class="character_counter" tabindex="0"><span
+                                                id="comment_content_for_1625354_counter" class="value"
+                                                data-maxlength="10000">10000</span> characters left</p>
+                                        <p class="submit actions">
+                                            <input type="submit" name="commit" value="Comment"
+                                                id="comment_submit_for_1625354">
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+
+                    <div id="comments_placeholder">
+                        <ol class="thread">
+                            <li class="odd comment group" id="comment_1" role="article">
+                                <h4 class="heading byline">
+                                    <a href="https://archiveofourown.org/users/Katabasia">Katabasia</a>
+                                    <span class="posted datetime">
+                                        <abbr class="day" title="Wednesday">Wed</abbr> <span class="date">24</span>
+                                        <abbr class="month" title="April">Apr</abbr> <span class="year">2024</span>
+                                        <span class="time">10:48PM</span> <abbr class="timezone"
+                                            title="Brasilia">-03</abbr>
+                                    </span>
+                                </h4>
+                                <div class="icon"><span class="visitor icon"></span></div>
+                                <blockquote class="userstuff">
+                                    <p>(Sobs violently) I hate you<br>I’m kidding I don’t I can’t but I’m so hurt and in
+                                        pain that I can’t express my love for this fic properly<br>I can’t see my
+                                        fuckinn keyboard my eyes are too blurred with tears</p>
+                                </blockquote>
+                                <h5 class="landmark heading">Comment Actions</h5>
+                                <ul class="actions" id="navigation_for_comment_1">
+                                    <li><a href="#">Reply</a></li>
+                                    <li><a href="#">Thread</a></li>
+                                    <li><a href="#">Block</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="even comment group" id="comment_2" role="article">
+                                <h4 class="heading byline">
+                                    <a href="https://archiveofourown.org/users/WildeBlueberries">WildeBlueberries</a>
+                                    <span class="posted datetime">
+                                        <abbr class="day" title="Sunday">Sun</abbr> <span class="date">29</span>
+                                        <abbr class="month" title="September">Sep</abbr> <span class="year">2024</span>
+                                        <span class="time">08:16AM</span> <abbr class="timezone"
+                                            title="Brasilia">-03</abbr>
+                                    </span>
+                                </h4>
+                                <div class="icon"><span class="visitor icon"></span></div>
+                                <blockquote class="userstuff">
+                                    <p>I was reading this in public and I literally had to get up and go somewhere more
+                                        private so I could sob. Absolutely heartbreaking.</p>
+                                </blockquote>
+                                <h5 class="landmark heading">Comment Actions</h5>
+                                <ul class="actions" id="navigation_for_comment_2">
+                                    <li><a href="#">Reply</a></li>
+                                    <li><a href="#">Thread</a></li>
+                                    <li><a href="#">Block</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="odd guest comment group" id="comment_3" role="article">
+                                <h4 class="heading byline">
+                                    <span>HelixRose</span><span class="role"> (Guest)</span>
+                                    <span class="posted datetime">
+                                        <abbr class="day" title="Sunday">Sun</abbr> <span class="date">30</span>
+                                        <abbr class="month" title="November">Nov</abbr> <span class="year">2025</span>
+                                        <span class="time">01:02AM</span> <abbr class="timezone"
+                                            title="Brasilia">-03</abbr>
+                                    </span>
+                                </h4>
+                                <div class="icon"><span class="visitor icon"></span></div>
+                                <blockquote class="userstuff">
+                                    <p>So I'm crying. Not tearing up but earnestly crying. I can't do thissssssssss</p>
+                                </blockquote>
+                                <h5 class="landmark heading">Comment Actions</h5>
+                                <ul class="actions" id="navigation_for_comment_3">
+                                    <li><a href="#">Reply</a></li>
+                                    <li><a href="#">Thread</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="even comment group" id="comment_4" role="article">
+                                <h4 class="heading byline">
+                                    <a href="https://archiveofourown.org/users/jerel">jerel</a>
+                                    <span class="posted datetime">
+                                        <abbr class="day" title="Friday">Fri</abbr> <span class="date">27</span>
+                                        <abbr class="month" title="March">Mar</abbr> <span class="year">2026</span>
+                                        <span class="time">01:08PM</span> <abbr class="timezone"
+                                            title="Brasilia">-03</abbr>
+                                    </span>
+                                </h4>
+                                <div class="icon"><span class="visitor icon"></span></div>
+                                <blockquote class="userstuff">
+                                    <p>I'm glad I'm locked in my office, so no one can see me sobbing. This was so
+                                        heartbreakingly beautiful.</p>
+                                </blockquote>
+                                <h5 class="landmark heading">Comment Actions</h5>
+                                <ul class="actions" id="navigation_for_comment_4">
+                                    <li><a href="#">Reply</a></li>
+                                    <li><a href="#">Thread</a></li>
+                                    <li><a href="#">Block</a></li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div id="bookmark_form_placement" class="wrapper toggled hidden">
+                        <div class="post bookmark" id="bookmark-form">
+                            <h3 class="landmark heading">Bookmark</h3>
+                            <form action="#" method="post">
+                                <fieldset>
+                                    <legend>Bookmark</legend>
+                                    <p class="close actions">
+                                        <a class="bookmark_form_placement_close" href="#comments"
+                                            aria-label="cancel">&times;</a>
+                                    </p>
+                                    <h4 class="heading">
+                                        <span class="byline">bobbydorpz</span> save a bookmark!
+                                    </h4>
+                                    <fieldset>
+                                        <legend>Write Comments</legend>
+                                        <dl>
+                                            <dt><label for="bookmark_notes">Notes</label></dt>
+                                            <dd>
+                                                <p class="footnote" id="notes-field-description-summary">The creator's
+                                                    summary is added automatically.</p>
+                                                <p class="footnote" id="notes-field-description-html">Plain text with
+                                                    limited HTML <a class="help symbol question modal"
+                                                        aria-label="Html help"
+                                                        href="https://archiveofourown.org/help/html"><span
+                                                            class="symbol question"><span>?</span></span></a> Embedded
+                                                    images (&lt;img&gt; tags) will be displayed as HTML, including the
+                                                    image's source link and any alt text.</p>
+                                                <textarea rows="4" id="bookmark_notes" class="observe_textlength"
+                                                    aria-describedby="notes-field-description-summary notes-field-description-html"
+                                                    name="bookmark[bookmarker_notes]"></textarea>
+                                                <p class="character_counter" tabindex="0"><span
+                                                        id="bookmark_notes_counter" class="value"
+                                                        data-maxlength="5000">5000</span> characters left</p>
+                                            </dd>
+                                            <dt><label for="bookmark_tag_string">Your tags</label></dt>
+                                            <dd>
+                                                <p class="footnote" id="tag-string-description">The creator's tags are
+                                                    added automatically.</p>
+                                                <input class="autocomplete" size="60"
+                                                    aria-describedby="tag-string-description" type="text"
+                                                    name="bookmark[tag_string]" id="bookmark_tag_string">
+                                                <p class="character_counter">Comma separated, 150 characters per tag</p>
+                                            </dd>
+                                            <dt><label for="bookmark_collection_names">Add to collections</label></dt>
+                                            <dd>
+                                                <input class="autocomplete" size="60" type="text"
+                                                    name="bookmark[collection_names]" id="bookmark_collection_names">
+                                            </dd>
+                                        </dl>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Choose Type and Post</legend>
+                                        <p>
+                                            <input type="checkbox" value="1" name="bookmark[private]"
+                                                id="bookmark_private"> <label for="bookmark_private">Private
+                                                bookmark</label>
+                                            <input type="checkbox" value="1" name="bookmark[rec]" id="bookmark_rec">
+                                            <label for="bookmark_rec">Rec</label>
+                                        </p>
+                                        <p class="submit actions">
+                                            <input type="submit" name="commit" value="Create">
+                                        </p>
+                                    </fieldset>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clear"><!--presentational--></div>
+            </div>
+        </div>
+
+        <div id="footer" role="contentinfo" class="region">
+            <h3 class="landmark heading">Footer</h3>
+            <ul class="navigation actions">
+                <li class="module group">
+                    <h4 class="heading">Customize</h4>
+                    <ul class="menu">
+                        <li>
+                            <form class="button_to" method="post" action="https://archiveofourown.org/skins/unset">
+                                <button type="submit">Default</button></form>
+                        </li>
+                        <li>
+                            <form class="button_to" method="post" action="https://archiveofourown.org/skins/891/set">
+                                <button type="submit">Low Vision Default</button></form>
+                        </li>
+                        <li>
+                            <form class="button_to" method="post" action="https://archiveofourown.org/skins/929/set">
+                                <button type="submit">Reversi</button></form>
+                        </li>
+                        <li>
+                            <form class="button_to" method="post" action="https://archiveofourown.org/skins/932/set">
+                                <button type="submit">Snow Blue</button></form>
+                        </li>
+                    </ul>
+                </li>
+                <li class="module group">
+                    <h4 class="heading">About the Archive</h4>
+                    <ul class="menu">
+                        <li><a href="https://archiveofourown.org/site_map">Site Map</a></li>
+                        <li><a href="https://archiveofourown.org/diversity">Diversity Statement</a></li>
+                        <li><a href="https://archiveofourown.org/tos">Terms of Service</a></li>
+                        <li><a href="https://archiveofourown.org/content">Content Policy</a></li>
+                        <li><a href="https://archiveofourown.org/privacy">Privacy Policy</a></li>
+                        <li><a href="https://archiveofourown.org/takedown">DMCA &amp; TIDA Policies</a></li>
+                        <li><a href="https://www.otwstatus.org">Site Status</a></li>
+                    </ul>
+                </li>
+                <li class="module group">
+                    <h4 class="heading">Contact Us</h4>
+                    <ul class="menu">
+                        <li><a href="https://archiveofourown.org/abuse_reports/new">Policy Questions &amp; Abuse
+                                Reports</a></li>
+                        <li><a href="https://archiveofourown.org/support">Technical Support &amp; Feedback</a></li>
+                    </ul>
+                </li>
+                <li class="module group">
+                    <h4 class="heading">Development</h4>
+                    <ul class="menu">
+                        <li><a href="https://github.com/otwcode/otwarchive/commits/v1.5.0.1">otwarchive v1.5.0.1</a>
+                        </li>
+                        <li><a href="https://archiveofourown.org/known_issues">Known Issues</a></li>
+                        <li><a title="View License"
+                                href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GPL-2.0-or-later</a> by
+                            the <a title="Organization for Transformative Works"
+                                href="https://transformativeworks.org/">OTW</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        'use strict';
+
+        const STORAGE_KEY = 'blorbo-preview-skin';
+        const STATIC_CATALOG = [
+            {
+                group: 'Light', skins: [
+                    ['Backrooms', 'backrooms.css'], ['Frantic', 'frantic.css'], ['Icy Sunset', 'icysunset.css'],
+                    ['Larry', 'larry.css'], ['LCARS', 'lcars.css'], ['Keira', 'keira.css'], ['Lagoon', 'lagoon.css'],
+                    ['Medieval', 'medieval.css'], ['Rose', 'rose.css'], ['Snow Blue', 'snowblue.css'],
+                    ['Stars', 'stars.css'], ['Trout', 'trout.css'], ['Wave', 'wave.css']
+                ]
+            },
+            {
+                group: 'Dark', skins: [
+                    ['Blue Plaid', 'blueplaid.css'], ['Breach', 'breach.css'], ['Cinema', 'cinema.css'],
+                    ['Constellations', 'constellations.css'], ['Coral', 'coral.css'], ['Crimson', 'crimson.css'],
+                    ['Purple', 'purple.css'], ['Slate', 'slate.css'], ['Starlight', 'starlight.css'],
+                    ['Vampire', 'vampire.css']
+                ]
+            },
+            {
+                group: 'Other', skins: [
+                    ['AOL', 'aol.css'], ['IRC', 'irc.css'], ['MySpace', 'myspace.css'], ['New York Times', 'nytimes.css'],
+                    ['Rick and Morty', 'rickandmorty.css'], ['Windows XP', 'xp.css']
+                ]
+            }
+        ];
+
+        let activeSkin = '';
+        let currentCatalog = [];
+
+        function skinName(file) {
+            const entry = currentCatalog.flatMap(function (group) {return group.skins;})
+                .find(function (s) {return s[1] === file;});
+            return entry ? entry[0] : 'AO3 Default';
+        }
+
+        function makeSkinItem(name, file, fileHint) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'skin-item';
+            btn.dataset.file = file;
+            btn.setAttribute('aria-pressed', 'false');
+            const text = document.createElement('span');
+            text.textContent = name;
+            btn.appendChild(text);
+            if (fileHint) {
+                const hint = document.createElement('span');
+                hint.className = 'skin-item-file';
+                hint.textContent = fileHint;
+                btn.appendChild(hint);
+            }
+            btn.title = file ? 'skins/' + file : 'AO3 default skin';
+            return btn;
+        }
+
+        function renderCatalog(catalog) {
+            currentCatalog = catalog;
+            const menu = document.getElementById('skin-menu');
+            menu.textContent = '';
+
+            menu.appendChild(makeSkinItem('AO3 Default', '', ''));
+
+            catalog.forEach(function (group) {
+                const label = document.createElement('div');
+                label.className = 'skin-section-label';
+                label.textContent = group.group + ' themes';
+                menu.appendChild(label);
+
+                group.skins.forEach(function (skin) {
+                    menu.appendChild(makeSkinItem(skin[0], skin[1], skin[1]));
+                });
+            });
+
+            const note = document.createElement('div');
+            note.className = 'skin-menu-note';
+            note.textContent = 'Choice is remembered; share with ?skin=file.css';
+            menu.appendChild(note);
+
+            applySkin(initialSelection());
+        }
+
+        function initialSelection() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('skin') && params.get('skin') !== '') {
+                return params.get('skin');
+            }
+            try {
+                return localStorage.getItem(STORAGE_KEY) || '';
+            } catch (err) {
+                return '';
+            }
+        }
+
+        function applySkin(file) {
+            activeSkin = file;
+
+            const existingLinks = document.querySelectorAll('link[data-type="skin"], link#active-skin-link, link[href*="skins/"]');
+            existingLinks.forEach(function (link) {
+                if (link.parentNode) {
+                    link.parentNode.removeChild(link);
+                }
+            });
+
+            if (file) {
+                const link = document.createElement('link');
+                link.id = 'active-skin-link';
+                link.setAttribute('data-type', 'skin');
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'skins/' + encodeURIComponent(file);
+                document.head.appendChild(link);
+            }
+
+            document.querySelectorAll('#skin-menu button.skin-item').forEach(function (btn) {
+                const on = btn.dataset.file === file;
+                btn.classList.toggle('active', on);
+                btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+            });
+            document.getElementById('skin-toggle-name').textContent = skinName(file);
+        }
+
+        function commitSkin(file) {
+            applySkin(file);
+            try {
+                localStorage.setItem(STORAGE_KEY, file);
+            } catch (err) { /* ignore */}
+            const params = new URLSearchParams(window.location.search);
+            if (file) {
+                params.set('skin', file);
+            } else {
+                params.delete('skin');
+            }
+            const qs = params.toString();
+            history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : ''));
+        }
+
+        function parseReadmeCatalog(md) {
+            const groups = [];
+            let current = null;
+            md.split(/\r?\n/).forEach(function (line) {
+                const heading = line.match(/^###\s+(.+?)\s+themes\s*$/);
+                if (heading) {
+                    current = {group: heading[1], skins: []};
+                    groups.push(current);
+                    return;
+                }
+                if (!current) return;
+                const row = line.match(/^\s*\|\s*\*\*(.+?)\*\*\s*\|.*skins\/([\w.-]+\.css)/);
+                if (row) current.skins.push([row[1], row[2]]);
+            });
+            const named = groups.filter(function (group) {
+                return group.skins.length > 0 &&
+                    (group.group === 'Light' || group.group === 'Dark' || group.group === 'Other');
+            });
+            return named.length > 0 ? named : null;
+        }
+
+        const skinToggle = document.getElementById('skin-toggle');
+        const skinMenu = document.getElementById('skin-menu');
+
+        function menuIsOpen() {return skinToggle.getAttribute('aria-expanded') === 'true';}
+        function openMenu() {skinMenu.hidden = false; skinToggle.setAttribute('aria-expanded', 'true');}
+        function closeMenu() {skinMenu.hidden = true; skinToggle.setAttribute('aria-expanded', 'false');}
+
+        skinToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (menuIsOpen()) {closeMenu();} else {openMenu();}
+        });
+
+        skinMenu.addEventListener('click', function (e) {
+            const item = e.target.closest('button.skin-item');
+            if (item) {
+                commitSkin(item.dataset.file || '');
+                closeMenu();
+            }
+        });
+
+        document.addEventListener('click', function (e) {
+            if (menuIsOpen() && !e.target.closest('#skin-menu') && !e.target.closest('#skin-toggle')) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && menuIsOpen()) closeMenu();
+        });
+
+        document.addEventListener('click', function (e) {
+            const navDropdown = e.target.closest('#header .dropdown');
+            if (navDropdown) {
+                const firstAnchor = navDropdown.querySelector('a');
+                if (firstAnchor && (e.target === firstAnchor || firstAnchor.contains(e.target))) {
+                    e.preventDefault();
+                    const wasOpen = navDropdown.classList.contains('open');
+                    document.querySelectorAll('#header .dropdown.open').forEach(function (d) {
+                        d.classList.remove('open');
+                    });
+                    if (!wasOpen) navDropdown.classList.add('open');
+                    return;
+                }
+            } else {
+                document.querySelectorAll('#header .dropdown.open').forEach(function (d) {
+                    d.classList.remove('open');
+                });
+            }
+
+            if (e.target.closest('.download button, .download .download-toggle')) {
+                e.preventDefault();
+                const downloadLi = e.target.closest('.download');
+                if (downloadLi) {
+                    const sec = downloadLi.querySelector('.secondary');
+                    const btn = downloadLi.querySelector('button');
+                    if (sec) sec.classList.toggle('hidden');
+                    if (btn) btn.classList.toggle('expanded');
+                }
+                return;
+            }
+
+            if (e.target.closest('.bookmark_form_placement_open, .bookmark_form_placement_close')) {
+                const bookmarkPlacement = document.getElementById('bookmark_form_placement');
+                if (bookmarkPlacement) {
+                    bookmarkPlacement.classList.toggle('hidden');
+                }
+                e.preventDefault();
+                return;
+            }
+
+            const anchor = e.target.closest('a');
+            if (anchor && anchor.getAttribute('href') === '#') {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('submit', function (e) {
+            e.preventDefault();
+        });
+
+        renderCatalog(STATIC_CATALOG);
+
+        (async function refreshFromReadme() {
+            try {
+                const response = await fetch('./README.md');
+                if (!response.ok) return;
+                const catalog = parseReadmeCatalog(await response.text());
+                if (catalog) renderCatalog(catalog);
+            } catch (err) {
+                return; // fallback to static catalog
+            }
+        })();
+    </script>
+</body>
+
+</html>
