@@ -1049,7 +1049,7 @@ form li ul.autocomplete li.input {
 }
 
 .autocomplete .dropdown ul li:hover, .autocomplete .dropdown li.selected {
-  background: url("/images/skins/textures/tiles/red-ao3.png") top left #900;
+  background: url("https://archiveofourown.org/images/skins/textures/tiles/red-ao3.png") top left #900;
   color: #fff;
 }
 
@@ -2096,7 +2096,7 @@ form dl.index {
 /* TYPES */
 
 a.rss span {
-  background: url("/images/imageset.png") no-repeat -150px -275px;
+  background: url("https://archiveofourown.org/images/imageset.png") no-repeat -150px -275px;
   padding-left: 16px;
 }
 
@@ -2138,7 +2138,7 @@ span.series .position + .divider:after {
 }
 
 p.kudos {
-  background: url("/images/imageset.png") no-repeat -111px -580px;
+  background: url("https://archiveofourown.org/images/imageset.png") no-repeat -111px -580px;
   padding: 0.5em 0.5em 0.5em 60px;
   margin: 2em 0;
   min-height: 50px;
@@ -2573,83 +2573,83 @@ li.blurb:after, .blurb .blurb:after {
 /* icon image replacement */
 
 .required-tags .rating-general-audience {
-  background: url("/images/imageset.png") -50px -25px;
+  background: url("https://archiveofourown.org/images/imageset.png") -50px -25px;
 }
 
 .required-tags .rating-explicit {
-  background: url("/images/imageset.png") -25px -25px;
+  background: url("https://archiveofourown.org/images/imageset.png") -25px -25px;
 }
 
 .required-tags .rating-mature {
-  background: url("/images/imageset.png") -75px -25px;
+  background: url("https://archiveofourown.org/images/imageset.png") -75px -25px;
 }
 
 .required-tags .rating-notrated, .required-tags .category-none, .required-tags .warning-no, .status .count {
-  background: url("/images/imageset.png") -150px 0px;
+  background: url("https://archiveofourown.org/images/imageset.png") -150px 0px;
 }
 
 .required-tags .rating-teen {
-  background: url("/images/imageset.png") 0px -25px;
+  background: url("https://archiveofourown.org/images/imageset.png") 0px -25px;
 }
 
 .required-tags .category-femslash {
-  background: url("/images/imageset.png") -25px 0px;
+  background: url("https://archiveofourown.org/images/imageset.png") -25px 0px;
 }
 
 .required-tags .category-gen {
-  background: url("/images/imageset.png") -50px 0px;
+  background: url("https://archiveofourown.org/images/imageset.png") -50px 0px;
 }
 
 .required-tags .category-slash {
-  background: url("/images/imageset.png") 0px 0px;
+  background: url("https://archiveofourown.org/images/imageset.png") 0px 0px;
 }
 
 .required-tags .category-het {
-  background: url("/images/imageset.png") -75px 0px;
+  background: url("https://archiveofourown.org/images/imageset.png") -75px 0px;
 }
 
 .required-tags .category-multi {
-  background: url("/images/imageset.png") -100px -0px;
+  background: url("https://archiveofourown.org/images/imageset.png") -100px -0px;
 }
 
 .required-tags .category-other {
-  background: url("/images/imageset.png") -125px 0px;
+  background: url("https://archiveofourown.org/images/imageset.png") -125px 0px;
 }
 
 .required-tags .complete-no {
-  background: url("/images/imageset.png") -100px -25px;
+  background: url("https://archiveofourown.org/images/imageset.png") -100px -25px;
 }
 
 .required-tags .complete-yes {
-  background: url("/images/imageset.png") -175px -25px;
+  background: url("https://archiveofourown.org/images/imageset.png") -175px -25px;
 }
 
 .required-tags .warning-yes {
-  background: url("/images/imageset.png") -150px -25px;
+  background: url("https://archiveofourown.org/images/imageset.png") -150px -25px;
 }
 
 .required-tags .warning-choosenotto {
-  background: url("/images/imageset.png") -125px -25px;
+  background: url("https://archiveofourown.org/images/imageset.png") -125px -25px;
 }
 
 .required-tags .external-work {
-  background: url("/images/imageset.png") -75px -50px;
+  background: url("https://archiveofourown.org/images/imageset.png") -75px -50px;
 }
 
 .status .private .text {
-  background: url("/images/imageset.png") -175px -50px;
+  background: url("https://archiveofourown.org/images/imageset.png") -175px -50px;
 }
 
 .status .public {
-  background: url("/images/imageset.png") -125px -50px;
+  background: url("https://archiveofourown.org/images/imageset.png") -125px -50px;
 }
 
 .status .hidden {
-  background: url("/images/imageset.png") -150px -50px;
+  background: url("https://archiveofourown.org/images/imageset.png") -150px -50px;
 }
 
 .status .rec {
-  background: url("/images/imageset.png") -100px -50px;
+  background: url("https://archiveofourown.org/images/imageset.png") -100px -50px;
 }
 
 /* == END icon block rules == */
@@ -2681,15 +2681,15 @@ eg collections, users, skins, instead of the 4-icon list
 }
 
 .index .skins .icon {
-  background: url("/images/imageset.png") 0px -580px;
+  background: url("https://archiveofourown.org/images/imageset.png") 0px -580px;
 }
 
 .index .mystery .icon {
-  background: url("/images/imageset.png") -110px -525px;
+  background: url("https://archiveofourown.org/images/imageset.png") -110px -525px;
 }
 
 .index .tag .icon, .index .tagset .icon {
-  background: url("/images/imageset.png") -55px -580px;
+  background: url("https://archiveofourown.org/images/imageset.png") -55px -580px;
 }
 
 .picture .icon img, .index .picture .icon {
@@ -2981,12 +2981,12 @@ div.comment, li.comment {
 }
 
 .comment .icon .anonymous {
-  background: url("/images/imageset.png") no-repeat -0px -735px;
+  background: url("https://archiveofourown.org/images/imageset.png") no-repeat -0px -735px;
   display: block;
 }
 
 .comment .icon .visitor {
-  background: url("/images/imageset.png") no-repeat 0px -635px;
+  background: url("https://archiveofourown.org/images/imageset.png") no-repeat 0px -635px;
   display: block;
 }
 
@@ -3050,11 +3050,11 @@ fieldset.comments, .comment .userstuff {
 }
 
 .abbreviated .icon .anonymous {
-  background: url("/images/imageset.png") no-repeat -75px -450px;
+  background: url("https://archiveofourown.org/images/imageset.png") no-repeat -75px -450px;
 }
 
 .abbreviated .icon .visitor {
-  background: url("/images/imageset.png") no-repeat 0px -450px;
+  background: url("https://archiveofourown.org/images/imageset.png") no-repeat 0px -450px;
 }
 
 .abbreviated h4.byline {
@@ -3584,15 +3584,15 @@ user home, collections and challenges home, tag home, admin comms home
 }
 
 .skins .primary .icon {
-  background: url("/images/imageset.png") 0px -175px;
+  background: url("https://archiveofourown.org/images/imageset.png") 0px -175px;
 }
 
 .admin .primary .icon {
-  background: url("/images/imageset.png") 100px -75px;
+  background: url("https://archiveofourown.org/images/imageset.png") 100px -75px;
 }
 
 .tag .primary .icon, .tagset .primary .icon {
-  background: url("/images/imageset.png") 0px -275px;
+  background: url("https://archiveofourown.org/images/imageset.png") 0px -275px;
 }
 
 .wrangler .primary .icon {
