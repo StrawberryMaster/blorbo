@@ -20,7 +20,7 @@ And if you like this project, please consider [starring it](https://github.com/S
 7. Click **Submit**, then click **Use**!
 
 ## Previewing skins
-Not sure which skin you want? Open **[preview.html](preview.html)** to see the catalog against a sample work page. Switch skins straight from the bar at the top, as the CSS is layered over a sample fic. Your choice is remembered, and you can share a specific skin with a `?skin=<name>.css` link(. )Note that there may be some differences between the preview and the actual skin.)
+Not sure which skin you want? Open **[preview.html](https://strawberrymaster.github.io/blorbo/preview.html)** to see the catalog against a sample work page. Switch skins straight from the bar at the top, as the CSS is layered over a sample fic. Your choice is remembered, and you can share a specific skin with a `?skin=<name>.css` link(. )Note that there may be some differences between the preview and the actual skin.)
 
 ---
 
