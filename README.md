@@ -29,6 +29,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | Skin name | Description | Links |
 | :--- | :--- | :--- |
 | **Backrooms** | Inspired by the movie of same name | [`skins/backrooms.css`](skins/backrooms.css) |
+| **Facebook** | Based off the original thefacebook palette | [`skins/facebook.css`](skins/facebook.css) |
 | **Frantic** | Vaguely based on the Bryan Ferry album of same name | [`skins/frantic.css`](skins/frantic.css) |
 | **Icy Sunset** | Some kind of icy sunset theme | [`skins/icysunset.css`](skins/icysunset.css) |
 | **Larry** | Heavily-watered down from what once was a One Direction-inspired theme?| [`skins/larry.css`](skins/larry.css) |
