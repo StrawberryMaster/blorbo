@@ -1,0 +1,542 @@
+/* A soft-ish lavender & cream skin
+ * derived from https://github.com/MRenaR3/ao3_skins_ideas/blob/main/Lilas_Calm
+ * @original-author: MRenaR3
+ * @author: StrawberryMaster
+ */
+
+/* global variables & base typography */
+:root {
+  --bg: #F2EFEA;
+  --panel: #F5F3F7;
+  --soft: #E3DDEB;
+  --mist: #D6CFE3;
+  --mid: #B7A9C9;
+  --deep: #7A678A;
+  --ink: #2B2333;
+  --ink-soft: #4A4054;
+  --white: #FFFFFF;
+}
+
+/* global base & typography */
+body {
+  font-family: Georgia, serif;
+  color: var(--ink);
+}
+
+#outer.wrapper,
+#main,
+.listbox .index,
+.work.own,
+.thread .even {
+  background: var(--bg);
+}
+
+#inner.wrapper {
+  margin: 0 4%;
+}
+
+#workskin h2,
+.system .latest h3,
+.splash .module h3,
+.system .tweets h3 {
+  color: var(--deep);
+}
+
+/* links & interactive text */
+#main a {
+  color: var(--deep);
+}
+
+#main a:focus-visible,
+#main a:focus {
+  outline: 2px solid var(--deep);
+  outline-offset: 2px;
+}
+
+.required .autocomplete,
+.autocomplete .notice,
+.post .required .warnings,
+dd.required {
+  color: var(--ink);
+}
+
+/* header & primary navigation */
+#header {
+  position: relative;
+  background-color: var(--bg);
+  background-image: url("https://i.pinimg.com/1200x/d6/09/3a/d6093a3c833c2c8c186881057ae77074.jpg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  border-bottom: 2px solid var(--deep);
+}
+
+#header .heading {
+  height: 20em;
+}
+
+#header h1 sup,
+#header .button,
+#header .landmark,
+#header .logo {
+  display: none;
+}
+
+#header .heading a {
+  display: inline-block;
+  color: var(--white);
+  padding: 0.5em 0 0 1em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+}
+
+#header .primary {
+  background: none;
+  box-shadow: none;
+}
+
+#header .primary li {
+  border: none;
+}
+
+#header .primary li:not(.search) > a,
+#greeting li > a {
+  color: var(--ink) !important;
+  background: var(--mid);
+  border: 1px solid var(--deep);
+  border-radius: 1em;
+}
+
+#header .search fieldset {
+  background: transparent;
+  border: none;
+}
+
+#header .search input.text {
+  background: var(--white);
+  border: 1px solid var(--deep);
+}
+
+#header h2 {
+  background-color: var(--mid) !important;
+}
+
+/* greeting navigation & user controls */
+#greeting {
+  background: none;
+  margin-right: 0;
+  position: absolute;
+  right: 0;
+  top: 18.5em;
+}
+
+#greeting .dropdown .menu li {
+  margin: 0 0.125em !important;
+}
+
+#greeting .menu {
+  width: 16em;
+}
+
+#greeting .icon img {
+  box-shadow: 0 0 5px #000;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+}
+
+#header .dropdown .menu,
+#greeting .dropdown .menu {
+  background: var(--soft) !important;
+  border: 1px solid var(--deep);
+}
+
+#header .dropdown .menu li,
+#greeting .dropdown .menu li {
+  box-shadow: none;
+  border: none;
+}
+
+#header .dropdown .menu a,
+#greeting .dropdown .menu a {
+  background: var(--soft) !important;
+  color: var(--ink) !important;
+  font-weight: normal !important;
+  border: none !important;
+  text-shadow: none !important;
+}
+
+#header .dropdown .menu a:hover,
+#header .dropdown .menu a:focus,
+#greeting .dropdown .menu a:hover,
+#greeting .dropdown .menu a:focus {
+  background: var(--deep) !important;
+  color: var(--white) !important;
+}
+
+#header .actions a:hover,
+#header .actions a:focus,
+#header .dropdown:hover a,
+#header .open a,
+#header .primary .open a {
+  background: var(--soft) !important;
+  color: var(--ink) !important;
+}
+
+/* workskin & reading readability */
+#workskin h2 {
+  font-family: Georgia, serif;
+}
+
+dl.meta {
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+
+/* action buttons & navigation controls */
+.actions a,
+.actions a:link,
+.action,
+.action:link,
+.actions button,
+.actions input,
+input[type="submit"],
+button,
+.actions label {
+  background: linear-gradient(180deg, var(--mid) 0%, var(--soft) 100%);
+  border-style: outset;
+  border-width: 2px;
+  border-color: var(--deep);
+  color: var(--ink);
+  font-weight: bold;
+}
+
+.actions a:hover,
+.actions button:hover,
+.actions input:hover,
+.actions a:focus,
+.actions button:focus,
+.actions input:focus,
+label.action:hover,
+.action:hover,
+.action:focus {
+  background: linear-gradient(180deg, var(--deep) 0%, var(--mid) 100%);
+  box-shadow: none;
+  color: var(--white);
+  border-color: var(--deep) !important;
+}
+
+.actions a:focus-visible,
+.actions button:focus-visible,
+.actions input:focus-visible,
+button:focus-visible,
+input[type="submit"]:focus-visible,
+a.action:focus-visible {
+  outline: 2px solid var(--deep) !important;
+  outline-offset: 2px !important;
+}
+
+.current,
+a.current,
+a:link.current,
+#dashboard .current,
+.current a:visited {
+  background: var(--mid) !important;
+  color: var(--ink) !important;
+  border-color: var(--deep) !important;
+  box-shadow: none;
+}
+
+div.primary.header.module > ul.navigation.actions > li a:hover,
+div.primary.header.module > ul.navigation.actions > li input[type="submit"]:hover {
+  border: 2px outset;
+}
+
+/* forms, fieldsets & inputs */
+fieldset,
+fieldset fieldset {
+  background: var(--bg);
+  border: 2px solid var(--deep);
+  box-shadow: none;
+}
+
+fieldset.warnings {
+  margin: 0;
+  padding: 0;
+}
+
+form.verbose legend,
+.verbose form legend {
+  background: var(--mid);
+  border: 2px solid var(--deep);
+  box-shadow: none;
+  color: var(--ink);
+}
+
+.filters .expander {
+  color: var(--deep);
+}
+
+.question {
+  color: var(--ink-soft);
+  font-weight: normal;
+}
+
+.required,
+.error,
+.alert.flash,
+dd.required {
+  color: var(--ink) !important;
+}
+
+span.question {
+  background: var(--mid);
+  color: var(--ink);
+  font-weight: normal;
+  border: 2px solid var(--deep);
+  box-shadow: none;
+}
+
+/* blurbs, tags & meta lists */
+li.blurb {
+  border: 1px solid var(--deep);
+  background: var(--bg);
+}
+
+#main.dashboard > ol > li.work.own {
+  background: var(--bg);
+}
+
+ol.work.index.group > li.own {
+  background: var(--soft);
+}
+
+.own,
+.draft,
+.draft .wrapper,
+.unread,
+.child,
+.unwrangled,
+.unreviewed {
+  background: var(--soft);
+}
+
+.listbox {
+  background: var(--bg);
+  box-shadow: none;
+  border: 2px solid var(--deep);
+  color: var(--ink);
+}
+
+.listbox > .heading,
+h3.heading {
+  color: var(--ink) !important;
+}
+
+.listbox .index {
+  box-shadow: none;
+  color: var(--ink);
+}
+
+.splash .favorite li:nth-of-type(odd) a {
+  background: var(--soft);
+}
+
+.splash .favorite li:nth-of-type(odd) a:hover,
+.splash .favorite li:nth-of-type(odd) a:focus {
+  background: var(--deep) !important;
+  color: var(--white) !important;
+}
+
+/* tag categories */
+a.tag,
+a.tag:visited,
+a.tag:link {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border-radius: 0.5em;
+}
+
+a.tag:hover,
+a.tag:focus {
+  background: var(--deep) !important;
+  color: var(--white) !important;
+}
+
+.bookmark .count a {
+  border: none;
+  background-color: transparent;
+  color: var(--deep);
+}
+
+/* comments & thread layout */
+.comment div.icon {
+  box-shadow: none;
+  border: 2px solid var(--deep);
+}
+
+.comment .icon .visitor {
+  background: linear-gradient(135deg, var(--mid) 0%, var(--soft) 100%);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.comment h4.byline {
+  background: linear-gradient(180deg, var(--mid) 0%, var(--soft) 100%);
+  border: 2px solid var(--deep);
+  box-shadow: none;
+  color: var(--ink);
+}
+
+li.comment {
+  background: transparent;
+  border: 2px solid transparent;
+  border-color: var(--deep);
+}
+
+li.comment.unread {
+  border: 2px dashed transparent;
+  border-color: var(--deep);
+}
+
+.thread .even {
+  background: var(--bg);
+}
+
+/* notices, alerts & popups */
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash,
+.LV_invalid {
+  border: 1px solid transparent;
+  border-color: var(--deep);
+  background: var(--soft);
+  box-shadow: none;
+  color: var(--ink);
+}
+
+#modal .content,
+#modal .footer {
+  background: var(--soft);
+}
+
+#modal {
+  background: var(--deep);
+}
+
+/* dashboard & footer */
+#dashboard a,
+#dashboard span {
+  background: none;
+  border: none;
+  color: var(--deep);
+}
+
+#dashboard a:hover,
+#dashboard a:focus {
+  background: var(--deep) !important;
+  color: var(--white) !important;
+}
+
+#dashboard,
+#dashboard.own {
+  background: var(--panel);
+  color: var(--ink);
+  border: 2px solid var(--deep);
+  box-shadow: 0 0 2px var(--deep);
+}
+
+#dashboard .expandable.secondary {
+  background: var(--bg);
+  border: 1px solid var(--deep);
+}
+
+#dashboard a:hover,
+.statistics .index li:nth-of-type(2n),
+dl.index dd,
+.reading h4.viewed {
+  background: var(--soft);
+  color: var(--ink);
+}
+
+.toggled form,
+.dynamic form {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ink);
+}
+
+div.dynamic {
+  background: transparent;
+}
+
+#footer {
+  border-color: var(--deep);
+  background: var(--mist);
+}
+
+#footer .heading,
+#footer a,
+#footer button,
+#footer li {
+  color: var(--deep) !important;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--white);
+}
+
+/* decorative module headers & backgrounds */
+.home .header h2 {
+  text-align: left;
+  color: var(--ink);
+}
+
+.userstuff h3,
+.faq .categories h3 {
+  border-bottom: 0.25em double var(--deep);
+}
+
+/* wrapper & shadow cleanup */
+.wrapper {
+  box-shadow: none;
+}
+
+/* mobile dropdown alignment */
+@media (max-width: 700px) {
+
+  #header .heading {
+    height: 10em;
+  }
+
+  #header .primary,
+  #greeting {
+    position: relative;
+  }
+
+  #greeting {
+    background: var(--bg);
+  }
+
+  #header .menu,
+  #greeting .menu {
+    width: auto !important;
+    min-width: 16em;
+  }
+
+  #header .primary .dropdown .menu {
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  #greeting .dropdown .menu {
+    right: 0 !important;
+    left: auto !important;
+  }
+
+}
