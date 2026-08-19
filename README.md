@@ -54,6 +54,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **Coral** | Made from a Gravity Falls AU workskin. It scares me! | [`skins/coral.css`](skins/coral.css) |
 | **Crimson** | Has mountains | [`skins/crimson.css`](skins/crimson.css) |
 | **Denim** | Shades of blue and gray, quite comfortable | [`skins/denim.css`](skins/denim.css) |
+| **Mocha** | It's brown. All of it | [`skins/mocha.css`](skins/mocha.css) |
 | **Purple** | Very, uh, dark purpled. Not bad | [`skins/purple.css`](skins/purple.css) |
 | **Seventeen** | OTW's 17th anniversary skin, with some patches | [`skins/seventeen.css`](skins/seventeen.css) |
 | **Slate** | Slate-ish, but quite low-contrast, theme | [`skins/slate.css`](skins/slate.css) |
