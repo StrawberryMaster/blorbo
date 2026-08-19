@@ -31,12 +31,12 @@ div,
 span,
 label,
 legend {
-  color: #b3ab98;
+  color: #d8d4ca;
 }
 
 a,
 a:link {
-  color: darkgoldenrod;
+  color: #d0980c;
   text-decoration: none;
 }
 
@@ -60,14 +60,14 @@ a:focus {
   margin: 0 auto;
   padding: 1.25em;
   box-sizing: border-box;
-  color: #b3ab98;
+  color: #d8d4ca;
 }
 
 #workskin .userstuff {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  color: #b3ab98;
+  color: #d8d4ca;
 }
 
 #workskin > div:nth-child(1) > h2 {
@@ -91,11 +91,11 @@ div.userstuff {
 }
 
 #header li a {
-  color: darkgoldenrod !important;
+  color: #d0980c !important;
 }
 
 #header h1 a {
-  color: darkgoldenrod !important;
+  color: #d0980c !important;
 }
 
 #header .heading a span {
@@ -108,7 +108,7 @@ div.userstuff {
 
 #header ul.navigation li ul li a:hover {
   background: #01030F !important;
-  color: darkgoldenrod !important;
+  color: #d0980c !important;
   cursor: pointer;
 }
 
@@ -135,11 +135,11 @@ button:focus {
 
 /* tags & blurbs */
 .tags a {
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
 }
 
 .tags a:hover {
-  color: darkgoldenrod !important;
+  color: #d0980c !important;
   background: none !important;
 }
 
@@ -163,19 +163,19 @@ li.blurb,
   background: rgba(1, 3, 15, 0.85) !important;
   border: 1px solid #1e2448 !important;
   border-radius: 6px !important;
-  color: #b3ab98;
+  color: #d8d4ca;
 }
 
 dl.meta {
   background: rgba(3, 7, 31, 0.8) !important;
   border: 1px solid #1e2448 !important;
-  color: #b3ab98;
+  color: #d8d4ca;
 }
 
 /* chapter navigation */
 #main li.chapter.next > a,
 #main li.chapter.previous > a {
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
   text-decoration: none !important;
 }
 
@@ -204,7 +204,7 @@ dl.meta {
   background-color: #03071F !important;
   border: 1px solid #1e2448 !important;
   border-radius: 4px !important;
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
   padding: 0.35em 0.75em !important;
   display: inline-block !important;
   font-size: 0.9em !important;
@@ -226,8 +226,8 @@ dl.meta {
 #main .actions label:hover {
   background: #01030F !important;
   background-color: #01030F !important;
-  border-color: darkgoldenrod !important;
-  color: darkgoldenrod !important;
+  border-color: #d0980c !important;
+  color: #d0980c !important;
   box-shadow: 0 0 4px rgba(184, 134, 11, 0.4) !important;
   cursor: pointer !important;
   text-decoration: none !important;
@@ -235,7 +235,7 @@ dl.meta {
 
 span.submit.actions input.button[type="submit"][value="Search"] {
   background: transparent !important;
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
   border: none !important;
   box-shadow: none !important;
   text-shadow: none !important;
@@ -243,7 +243,7 @@ span.submit.actions input.button[type="submit"][value="Search"] {
 }
 
 span.submit.actions input.button[type="submit"][value="Search"]:hover {
-  color: darkgoldenrod !important;
+  color: #d0980c !important;
   cursor: pointer;
 }
 
@@ -272,7 +272,7 @@ fieldset.listbox {
   background-color: #03071F !important;
   border: 1px solid #1e2448 !important;
   border-radius: 6px !important;
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
 }
 
 legend,
@@ -281,7 +281,7 @@ form.verbose legend,
 fieldset legend,
 .comment h4.byline {
   background: #03071F !important;
-  color: darkgoldenrod !important;
+  color: #d0980c !important;
   border: 1px solid #1e2448 !important;
   padding: 0.2em 0.6em !important;
   border-radius: 4px !important;
@@ -293,7 +293,7 @@ textarea,
 select,
 #work_search_language_id {
   background: #1d1d20 !important;
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
   border: 1.6px solid #555 !important;
   border-top-color: #999 !important;
   padding: 0.25em 0.4em !important;
@@ -307,7 +307,7 @@ textarea:focus,
 select:focus,
 #work_search_language_id:focus {
   outline: none !important;
-  border-color: darkgoldenrod !important;
+  border-color: #d0980c !important;
 }
 
 input::placeholder,
@@ -341,7 +341,7 @@ textarea::placeholder {
   max-width: 100% !important;
   box-sizing: border-box !important;
   background: #1d1d20 !important;
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
   border: 1.6px solid #555 !important;
   border-top-color: #999 !important;
   padding: 0.15em 0.25em !important;
@@ -473,7 +473,7 @@ label.action input[type=checkbox]:checked {
 .kudos_error {
   background-color: #03071F !important;
   border: 1px solid #03071F !important;
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
   padding: 10px !important;
   border-radius: 4px !important;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4) !important;
@@ -484,14 +484,14 @@ label.action input[type=checkbox]:checked {
 .kudos_error,
 .required,
 .LV_invalid {
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4) !important;
 }
 
 .LV_invalid_field {
   background-color: #03071F !important;
   border-color: #03071F !important;
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4) !important;
 }
 
@@ -499,7 +499,7 @@ input.LV_invalid_field:focus,
 textarea.LV_invalid_field:focus {
   background-color: #03071F !important;
   border-color: #03071F !important;
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4) !important;
 }
 
@@ -510,14 +510,14 @@ textarea.LV_invalid_field:focus {
   background-image: none !important;
   background: #03071F !important;
   border: #000000 !important;
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4) !important;
 }
 
 p.required.notice {
   background: #03071F !important;
   border: #000000 !important;
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4) !important;
 }
 
@@ -526,16 +526,16 @@ p.required.notice {
 #dashboard.own {
   background: #03071F !important;
   border-color: transparent !important;
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
 }
 
 #dashboard a {
-  color: #b3ab98 !important;
+  color: #d8d4ca !important;
 }
 
 #dashboard a:hover,
 #dashboard .current {
-  color: darkgoldenrod !important;
+  color: #d0980c !important;
 }
 
 #new_tag_search > fieldset:nth-child(1) > dl:nth-child(1) > dd:nth-child(6) > fieldset:nth-child(1),
