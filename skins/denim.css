@@ -1,0 +1,493 @@
+/* Denim, a blue & grey skin
+ * adapted from I_Made_A_Mistake's https://archiveofourown.org/works/39264033/chapters/98249784
+ * @author: StrawberryMaster
+ */
+
+/* global variables & base typography */
+:root {
+  --navy: #28557D;
+  --navy-soft: #6181A0;
+  --blue: #7295B5;
+  --blue-soft: #6E95B5;
+  --paper: #EEE;
+  --page: #1E3449;
+  --ink: #111111;
+  --ink-soft: #222222;
+  --ink-light: #F0F0F0;
+  --link-dark: #0a579f;
+  --white: #FFFFFF;
+}
+
+/* global base & typography */
+body {
+  font-family: Georgia, serif;
+  color: var(--ink);
+}
+
+#outer {
+  background: var(--page);
+}
+
+#main {
+  background: var(--blue);
+  color: var(--ink);
+}
+
+#inner .filters,
+#inbox-form,
+.works-index .index,
+.collections-index .index {
+  width: 100%;
+  max-width: 100%;
+}
+
+#inner .filters dt {
+  width: 95%;
+}
+
+/* links & interactive text */
+a,
+a:link,
+a.tag {
+  color: var(--ink);
+}
+
+a:visited,
+.actions a:visited,
+.action a:link,
+.action a:visited,
+.listbox .heading a:visited,
+span.series .divider {
+  color: var(--ink-soft);
+}
+
+#main a:focus-visible,
+#main a:focus {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.required .autocomplete,
+.autocomplete .notice,
+.post .required .warnings,
+dd.required {
+  color: var(--ink);
+}
+
+/* header & primary navigation */
+#header {
+  background-color: var(--navy);
+  background-image: url("https://i.pinimg.com/originals/2d/59/07/2d5907347a59d8a6277a9112cb97401f.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: var(--ink-light);
+}
+
+#header .logo {
+  display: none;
+}
+
+#header ul.primary {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+#outer #header a {
+  background: transparent;
+  color: var(--ink-light);
+}
+
+#outer #header .actions .current,
+#outer #header .actions a:hover,
+#outer #header .actions a:focus,
+#outer #header ul.actions .menu a:hover,
+#outer #header ul.actions .menu a:focus {
+  border: 1px solid #111;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+#header .menu {
+  background: var(--navy);
+}
+
+/* greeting navigation & user controls */
+#greeting p.icon img {
+  display: none;
+}
+
+/* workskin & reading readability */
+#workskin {
+  font-size: 100%;
+  color: var(--ink-light);
+  background: var(--navy);
+  padding: 15px;
+}
+
+#workskin a {
+  color: var(--link-dark);
+  text-decoration: underline;
+}
+
+#workskin hr {
+  width: 100%;
+  height: 2px;
+  border: none;
+  border-top: 2px solid #000;
+}
+
+div.preface {
+  margin: 0.5em 0 0.1em;
+  padding: 0.2em 0.2em 0;
+}
+
+/* action buttons & navigation controls */
+.actions a,
+.actions a:link,
+.action,
+.action:link,
+.actions button,
+.actions input,
+input[type="submit"],
+button,
+.actions label {
+  background: var(--navy);
+  border: 1px solid #000;
+  background-image: none;
+  box-shadow: none;
+  color: var(--ink-light);
+  font-weight: bold;
+}
+
+.actions a:hover,
+.actions button:hover,
+.actions input:hover,
+.actions a:focus,
+.actions button:focus,
+.actions input:focus,
+label.action:hover,
+.action:hover,
+.action:focus {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: #111;
+  box-shadow: none;
+}
+
+.actions a:focus-visible,
+.actions button:focus-visible,
+.actions input:focus-visible,
+button:focus-visible,
+input[type="submit"]:focus-visible,
+a.action:focus-visible {
+  outline: 2px solid var(--navy) !important;
+  outline-offset: 2px !important;
+}
+
+.current,
+a.current,
+a:link.current,
+.current a:visited,
+.actions a:active {
+  background: var(--blue-soft);
+  border-color: #555;
+  color: var(--ink);
+  box-shadow: -1px -1px 3px #000;
+}
+
+/* forms, fieldsets & inputs */
+fieldset,
+fieldset fieldset {
+  background: var(--paper);
+  border: 2px solid var(--navy);
+  box-shadow: none;
+}
+
+fieldset.warnings {
+  margin: 0;
+  padding: 0;
+}
+
+form.verbose legend,
+.verbose form legend {
+  background: var(--blue);
+  color: var(--ink);
+  border: 2px solid var(--navy);
+  box-shadow: none;
+}
+
+.required,
+.error,
+.alert.flash,
+dd.required {
+  color: var(--ink) !important;
+}
+
+span.question {
+  background: var(--blue);
+  color: var(--ink);
+  border: 2px solid var(--navy);
+  box-shadow: none;
+  font-weight: normal;
+}
+
+.filters .expander {
+  color: var(--navy);
+}
+
+input,
+textarea,
+select {
+  background: var(--white);
+  border: 1px solid var(--navy-soft);
+  color: var(--ink);
+  box-shadow: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background: var(--paper);
+  border: 1px solid var(--navy);
+}
+
+/* blurbs, tags & meta lists */
+li.blurb {
+  color: var(--ink);
+  background: var(--paper);
+  border-top: 2px solid #000;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+li.blurb .warnings strong {
+  font-weight: bold;
+  font-style: italic;
+}
+
+li.blurb .relationships {
+  font-weight: bold;
+  color: var(--navy);
+}
+
+li.blurb .tags {
+  max-height: 10em;
+  overflow-y: auto;
+}
+
+.listbox {
+  background: var(--paper);
+  box-shadow: none;
+  border: 2px solid var(--navy);
+  color: var(--ink);
+}
+
+.listbox .index {
+  background: var(--paper);
+  box-shadow: none;
+  color: var(--ink);
+}
+
+.splash .favorite li:nth-of-type(odd) a {
+  background: var(--paper);
+}
+
+a.tag:hover,
+a.tag:focus {
+  background: var(--navy);
+  color: var(--ink-light) !important;
+}
+
+/* comments & thread layout */
+.comment h4.byline {
+  background: #ddd;
+  color: #000;
+  border: 1px solid var(--navy);
+  box-shadow: none;
+}
+
+.thread .odd {
+  background: var(--navy);
+  color: var(--ink-light);
+  border: 1px solid #000;
+}
+
+.thread .even {
+  background: var(--paper);
+  color: var(--navy);
+  border: 1px solid #000;
+}
+
+li.comment {
+  background: var(--paper);
+  border: 1px solid var(--navy);
+}
+
+.comment div.icon {
+  box-shadow: none;
+  border: 2px solid var(--navy);
+}
+
+/* notices, alerts & popups */
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash,
+.LV_invalid {
+  background: var(--paper);
+  border: 1px solid var(--navy);
+  box-shadow: none;
+  color: var(--ink);
+}
+
+#modal .content,
+#modal .footer {
+  background: var(--paper);
+}
+
+#modal {
+  background: var(--navy);
+}
+
+/* dashboard & footer */
+#dashboard {
+  background: var(--navy);
+  color: var(--ink-light);
+}
+
+#dashboard a,
+#dashboard span {
+  color: var(--ink-light);
+  background: #222;
+}
+
+#dashboard a:hover {
+  background: #222;
+  color: var(--ink-light);
+}
+
+#dashboard .secondary {
+  background: var(--navy-soft);
+  color: var(--ink);
+}
+
+#dashboard .expandable.secondary {
+  background: var(--blue);
+  border: 1px solid var(--navy);
+}
+
+#dashboard .current,
+#outer .current {
+  background: var(--blue-soft);
+  border-color: #555;
+  color: var(--ink);
+  box-shadow: -1px -1px 3px #000;
+}
+
+dl.index dd,
+.own,
+.draft,
+.draft .unread,
+.child,
+.unwrangled,
+.unreviewed,
+.ui-sortable li:hover {
+  background: var(--blue-soft);
+  border-color: #555;
+  color: var(--ink);
+  box-shadow: -1px -1px 3px #000;
+}
+
+.draft {
+  border: 2px double #000;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.toggled form {
+  background: var(--paper);
+}
+
+#footer,
+#footer .group {
+  background: var(--navy);
+  color: var(--ink-light);
+  border-top: 1px solid #000;
+}
+
+#footer a,
+#footer button,
+#footer li {
+  color: var(--ink-light);
+}
+
+.group {
+  background: var(--paper);
+  color: var(--navy);
+  border-top: 1px solid #000;
+  box-shadow: none;
+}
+
+/* decorative module headers & backgrounds */
+#workskin h2,
+.splash .module h3,
+.system .latest h3,
+.system .tweets h3 {
+  color: var(--navy);
+}
+
+.splash .favorite li a:hover {
+  background: var(--navy);
+  color: var(--ink-light);
+}
+
+.splash .news li {
+  border-bottom: 1px solid var(--navy);
+}
+
+div.dynamic {
+  background: transparent;
+}
+
+.dynamic form {
+  border: 2px solid var(--navy);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: none;
+}
+
+/* wrapper & shadow cleanup */
+.wrapper {
+  box-shadow: none;
+}
+
+/* mobile dropdown alignment */
+@media (max-width: 700px) {
+
+  #header .primary,
+  #greeting {
+    position: relative;
+  }
+
+  #header .menu {
+    width: auto !important;
+    min-width: 12em;
+  }
+
+  #header .primary .dropdown .menu {
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  #greeting .dropdown .menu {
+    right: 0 !important;
+    left: auto !important;
+  }
+
+}

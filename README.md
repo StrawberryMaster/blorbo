@@ -53,6 +53,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **Constellations** | The original Constellations theme, but with a lot less shadows | [`skins/constellations.css`](skins/constellations.css) |
 | **Coral** | Made from a Gravity Falls AU workskin. It scares me! | [`skins/coral.css`](skins/coral.css) |
 | **Crimson** | Has mountains | [`skins/crimson.css`](skins/crimson.css) |
+| **Denim** | Shades of blue and gray, quite comfortable | [`skins/denim.css`](skins/denim.css) |
 | **Purple** | Very, uh, dark purpled. Not bad | [`skins/purple.css`](skins/purple.css) |
 | **Slate** | Slate-ish, but quite low-contrast, theme | [`skins/slate.css`](skins/slate.css) |
 | **Starlight** | Constellations if it was darker | [`skins/starlight.css`](skins/starlight.css) |
