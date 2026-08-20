@@ -97,7 +97,7 @@ a:focus {
 }
 
 #header .primary a {
-  color: #d65345;
+  color: #df7a6f;
 }
 
 #greeting {
@@ -321,7 +321,7 @@ a.tag:link {
 h5.fandoms.heading a.tag,
 dd.fandom.tags a {
   background: #0b090a;
-  color: #d65345 !important;
+  color: #e6958c !important;
   border: 1px solid #38201c;
 }
 
