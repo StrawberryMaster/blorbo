@@ -49,35 +49,75 @@ a.tag:hover,
   color: #2365bd;
 }
 
+#header #greeting .user a,
+#header #greeting .user a:link,
+#header #greeting .user a:visited {
+  background: #3d6fb2 !important;
+  color: #ffffff !important;
+  border: 1px solid #193c89 !important;
+  border-radius: 4px;
+}
+
+#header #greeting .user a:hover,
+#header #greeting .user a:focus,
+#header #greeting .user .dropdown:hover > a {
+  background: #193c89 !important;
+  color: #ffffff !important;
+  border-color: #102244 !important;
+}
+
 #header ul.primary {
   background: #5ba7ed;
   border-bottom: 2px solid #536da7;
 }
 
-#header .primary a {
+#header .primary > li > a,
+#header .primary .dropdown > a {
   color: #ffffff !important;
 }
 
-#header .actions a:hover,
-#header .actions a:focus,
-#header .dropdown:hover a,
-#header .open a {
+#header .primary > li > a:hover,
+#header .primary > li > a:focus,
+#header .primary .dropdown:hover > a,
+#header .primary .open > a {
+  background: #193c89 !important;
   color: #ffffff !important;
-  background: #3d6fb2;
 }
 
 #header .menu,
-#header .dropdown:hover .menu {
-  background: #ffffff;
-  border: 1px solid #536da7;
+#header .dropdown:hover .menu,
+#header .dropdown-menu {
+  background: #ffffff !important;
+  border: 1px solid #536da7 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+#header .menu li {
+  background: transparent !important;
+  border: none !important;
 }
 
 #header .menu a,
-#header .dropdown:hover .menu a {
-  color: #111111;
+#header .menu a:link,
+#header .menu a:visited,
+#header .dropdown:hover .menu a,
+#header .dropdown-menu a {
+  background: #ffffff !important;
+  color: #102244 !important;
+  border: none !important;
+  border-radius: 0 !important;
 }
 
-#header .primary a,
+#header .menu a:hover,
+#header .menu a:focus,
+#header .menu li:hover > a,
+#header .dropdown:hover .menu a:hover,
+#header .dropdown-menu a:hover {
+  background: #193c89 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
 #header .primary input,
 #header .search input {
   border-color: #536da7 !important;
