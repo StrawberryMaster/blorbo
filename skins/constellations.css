@@ -345,6 +345,11 @@ li.comment {
   background: #0d0e1f;
 }
 
+h4.heading.byline a,
+.comment h4.byline a {
+  color: #0b0c1b !important;
+}
+
 .comment div.icon {
   border-bottom: 5px solid #f3bc70;
   box-shadow: none;
