@@ -38,12 +38,13 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **Lagoon** | Fresh aqua/teal theme | [`skins/lagoon.css`](skins/lagoon.css) |
 | **Lilac** | Soft-ish lavender & cream | [`skins/lilac.css`](skins/lilac.css) |
 | **Medieval** | You've seen this one already. | [`skins/medieval.css`](skins/medieval.css) |
+| **Pinstripe** | Has a diagonal pinstripe | [`skins/pinstripe.css`](skins/pinstripe.css) |
+
 | **Rose** | Light burgundy-rose theme. Not too far from the base skin | [`skins/rose.css`](skins/rose.css) |
 | **Snow Blue** | Ice-y blue colors everywhere | [`skins/snowblue.css`](skins/snowblue.css) |
 | **Stars** | Starry theme built from a Byler theme | [`skins/stars.css`](skins/stars.css) |
 | **Trout** | Has more than one fish in it | [`skins/trout.css`](skins/trout.css) |
 | **Wave** | Wave after wave | [`skins/wave.css`](skins/wave.css) |
-| **Pinstripe** | Has a diagonal pinstripe | [`skins/pinstripe.css`](skins/pinstripe.css) |
 
 ### Dark themes
 | Skin name | Description | Links |
