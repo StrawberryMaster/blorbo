@@ -38,6 +38,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **Lagoon** | Fresh aqua/teal theme | [`skins/lagoon.css`](skins/lagoon.css) |
 | **Lilac** | Soft-ish lavender & cream | [`skins/lilac.css`](skins/lilac.css) |
 | **Medieval** | You've seen this one already. | [`skins/medieval.css`](skins/medieval.css) |
+| **Moss** | A muted forest-green theme | [`skins/moss.css`](skins/moss.css) |
 | **Rose** | Light burgundy-rose theme. Not too far from the base skin | [`skins/rose.css`](skins/rose.css) |
 | **Snow Blue** | Ice-y blue colors everywhere | [`skins/snowblue.css`](skins/snowblue.css) |
 | **Stars** | Starry theme built from a Byler theme | [`skins/stars.css`](skins/stars.css) |
