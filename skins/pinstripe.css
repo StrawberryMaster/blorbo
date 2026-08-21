@@ -1,0 +1,429 @@
+/* A warm pinstripe skin with a diagonal-stripe palette
+ * @author: StrawberryMaster
+ */
+
+/* global variables & base typography */
+:root {
+  --stripe-bg: #d8d1c3;
+  --stripe-line: #c8c0b0;
+  --card: #ece8df;
+  --card-inner: #f3f0e8;
+  --card-border: #c9c2b3;
+  --card-shadow: rgba(0, 0, 0, 0.12);
+  --text: #2b2b2b;
+  --muted: #5a554e;
+  --heading: #2b2b2b;
+  --link: #3d3d3d;
+  --link-hover-bg: #2e2a24;
+  --link-hover-text: #f0ece2;
+  --header-bg: #2e2a24;
+  --header-text: #e8e4dc;
+  --nav-active: #e0ddd5;
+  --button-bg: #e9e5dc;
+  --button-border: #b8b0a0;
+  --button-text: #2b2b2b;
+  --input-bg: #ffffff;
+  --input-border: #b8b0a0;
+}
+
+/* global base & typography */
+html,
+body,
+#outer,
+#inner,
+#main {
+  background-color: var(--stripe-bg);
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--stripe-line) 0 1px,
+    transparent 1px 8px
+  );
+  color: var(--text);
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: bold;
+  color: var(--heading);
+}
+
+.wrapper {
+  box-shadow: none;
+}
+
+::selection {
+  background: var(--header-bg);
+  color: var(--header-text);
+}
+
+::-moz-selection {
+  background: var(--header-bg);
+  color: var(--header-text);
+}
+
+/* links & interactive states */
+a,
+a:link,
+a.tag {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:visited,
+a.tag:visited {
+  color: #5c564e;
+}
+
+a:hover,
+a:focus {
+  background: var(--link-hover-bg);
+  color: var(--link-hover-text);
+  text-decoration: none;
+}
+
+/* header & navigation */
+#header {
+  background: var(--header-bg);
+  border-bottom: 2px solid #1a1815;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+#header h1 a,
+#header h1 a:visited,
+#header .heading a,
+#header .heading a:visited {
+  color: var(--header-text);
+}
+
+#header .primary {
+  background: linear-gradient(to bottom, #3a3632, #2e2a24);
+  box-shadow: none;
+  border-top: 1px solid #4a4540;
+  border-bottom: 1px solid #1a1815;
+}
+
+#header .primary a:hover,
+#header .primary a:focus {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff !important;
+}
+
+#header .menu,
+#header .dropdown .menu,
+#greeting .dropdown .menu {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+#header .dropdown .menu a,
+#greeting .dropdown .menu a {
+  color: var(--text) !important;
+  background: transparent !important;
+}
+
+#header .dropdown .menu a:hover,
+#header .dropdown .menu a:focus,
+#greeting .dropdown .menu a:hover,
+#greeting .dropdown .menu a:focus {
+  background: var(--header-bg) !important;
+  color: var(--header-text) !important;
+}
+
+#header #search .text,
+input#site_search {
+  background: var(--input-bg);
+  color: var(--text);
+  border: 1px solid var(--input-border);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+#header #search .button {
+  background: transparent;
+  color: var(--header-text);
+  border: none;
+  box-shadow: none;
+}
+
+/* greeting navigation & user controls */
+#greeting {
+  background: transparent;
+  color: var(--header-text);
+}
+
+#greeting a,
+#greeting a:link,
+#greeting a:visited {
+  color: var(--header-text);
+}
+
+#greeting .dropdown:hover a,
+#greeting .open a {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* workskin & reading readability */
+#workskin {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  padding: 1.5em;
+  line-height: 1.7;
+  font-size: 1.05em;
+  box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+#workskin h2,
+#workskin h3,
+#workskin h4 {
+  color: var(--heading);
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 0.3em;
+}
+
+#workskin a {
+  color: #2b2b2b;
+  text-decoration: underline;
+}
+
+#workskin a:hover,
+#workskin a:focus {
+  background: var(--header-bg);
+  color: var(--header-text);
+}
+
+/* action buttons & navigation controls */
+.actions a,
+.action,
+.actions button,
+.actions input,
+input[type="submit"],
+button,
+#header .actions a {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--button-border);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  text-shadow: none;
+}
+
+.actions a:hover,
+.action:hover,
+.actions button:hover,
+.actions input:hover,
+input[type="submit"]:hover,
+button:hover,
+.actions a:focus,
+.actions button:focus,
+input[type="submit"]:focus,
+button:focus {
+  background: var(--header-bg);
+  color: var(--header-text);
+  border-color: var(--header-bg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.current,
+a.current,
+.current a:visited,
+#dashboard .current,
+#outer .current,
+span.unread,
+.replied {
+  background: var(--nav-active);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  font-weight: bold;
+}
+
+/* forms, fieldsets & inputs */
+fieldset,
+input,
+textarea,
+select,
+form dl,
+.toggled form {
+  background: var(--card-inner);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+}
+
+input,
+textarea,
+select {
+  background: var(--input-bg);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 4px 6px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--header-bg);
+  outline: 1px solid var(--header-bg);
+  background: #ffffff;
+}
+
+fieldset fieldset.listbox {
+  background: var(--card);
+  box-shadow: none;
+}
+
+/* blurbs, tags & meta lists */
+li.blurb,
+dl.meta,
+div.comment,
+li.comment,
+.bookmark .user,
+.listbox,
+fieldset fieldset.listbox,
+form blockquote.userstuff,
+.toggled form,
+#dashboard .secondary,
+.secondary {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  box-shadow: 0 1px 4px var(--card-shadow);
+}
+
+a.tag {
+  background: transparent;
+  color: var(--link);
+  border: none;
+  box-shadow: none;
+}
+
+a.tag:hover,
+a.tag:focus {
+  background: var(--header-bg);
+  color: var(--header-text);
+  border-radius: 3px;
+}
+
+.blurb .header {
+  border-bottom: 1px solid var(--card-border);
+}
+
+.stats,
+.byline,
+.datetime,
+dl.meta {
+  color: var(--muted);
+}
+
+/* comments & thread layout */
+li.comment,
+.comment h4.byline {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+}
+
+.comment h4.byline {
+  background: var(--card-inner);
+  border-bottom: 1px solid var(--card-border);
+  border-radius: 4px 4px 0 0;
+}
+
+.comment div.icon {
+  border-bottom: 3px solid var(--header-bg);
+}
+
+.thread .even {
+  background: var(--card-inner);
+}
+
+/* notices, alerts & popups */
+.notice,
+.alert.flash,
+#modal,
+.ui-sortable li,
+div.dynamic,
+#ui-datepicker-div {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+.caution {
+  background: #fff3e0;
+  color: #6d4c00;
+  border-color: #e6c87a;
+}
+
+/* dashboard & footer */
+#dashboard,
+#dashboard.own {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+#dashboard ul,
+#dashboard .secondary {
+  background: transparent;
+  border-color: var(--card-border);
+  box-shadow: none;
+}
+
+#dashboard a:hover,
+#dashboard a:focus {
+  background: var(--nav-active);
+  color: var(--text);
+}
+
+#footer {
+  background: var(--header-bg);
+  color: var(--header-text);
+  border-top: 1px solid #1a1815;
+}
+
+#footer a,
+#footer .heading {
+  color: var(--header-text);
+}
+
+#footer a:hover,
+#footer a:focus {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* mobile & responsive adjustments */
+@media (max-width: 700px) {
+  #workskin {
+    padding: 1em;
+    font-size: 1em;
+  }
+
+  html,
+  body,
+  #outer,
+  #inner,
+  #main {
+    background-image: none;
+    background-color: var(--stripe-bg);
+  }
+}

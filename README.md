@@ -43,6 +43,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **Stars** | Starry theme built from a Byler theme | [`skins/stars.css`](skins/stars.css) |
 | **Trout** | Has more than one fish in it | [`skins/trout.css`](skins/trout.css) |
 | **Wave** | Wave after wave | [`skins/wave.css`](skins/wave.css) |
+| **Pinstripe** | Has a diagonal pinstripe | [`skins/pinstripe.css`](skins/pinstripe.css) |
 
 ### Dark themes
 | Skin name | Description | Links |
@@ -71,6 +72,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **New York Times** | A NYT-inspired stealth mode skin | [`skins/nytimes.css`](skins/nytimes.css) |
 | **Rick and Morty** | Dark space theme with Rick's blue and Morty's yellow | [`skins/rickandmorty.css`](skins/rickandmorty.css) |
 | **Windows XP** | Windows XP Luna Blue-like skin | [`skins/xp.css`](skins/xp.css) |
+| **Windows 98** | Windows 98 gray + navy/teal classic | [`skins/98.css`](skins/98.css) |
 
 ---
 
