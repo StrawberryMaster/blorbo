@@ -75,6 +75,8 @@ a:focus-visible,
 /* header & navigation */
 #header {
   position: relative;
+  z-index: 500;
+  overflow: visible;
   background-color: var(--soft);
   background-image: url("https://i.pinimg.com/1200x/21/e0/64/21e064a8293ec1e9c7779c6511c473c9.jpg");
   background-repeat: no-repeat;
@@ -82,6 +84,13 @@ a:focus-visible,
   background-size: cover;
   border-bottom: 3px solid var(--deep);
   box-shadow: inset 0 -1px 0 rgba(90, 53, 16, 0.18);
+}
+
+#outer.wrapper,
+#inner.wrapper,
+#main {
+  position: relative;
+  z-index: 1;
 }
 
 #header .heading {
@@ -108,10 +117,19 @@ a:focus-visible,
 }
 
 #header .primary {
+  position: relative;
+  z-index: 450;
+  overflow: visible;
   background: rgba(255, 248, 231, 0.92);
   box-shadow: none;
   border-top: 1px solid rgba(201, 168, 74, 0.6);
   backdrop-filter: blur(2px);
+}
+
+#header .dropdown,
+#greeting .dropdown {
+  position: relative;
+  z-index: 501;
 }
 
 #header .primary li {
@@ -172,11 +190,18 @@ a:focus-visible,
 
 #header .dropdown .menu,
 #greeting .dropdown .menu {
+  position: absolute;
+  z-index: 999;
   background: var(--card) !important;
   border: 1px solid var(--border);
   box-shadow: 2px 2px 8px rgba(90, 53, 16, 0.18);
   border-radius: 0.6em;
   overflow: hidden;
+}
+
+#header .primary .menu,
+#greeting .menu {
+  z-index: 999;
 }
 
 #header .dropdown .menu li,

@@ -90,12 +90,21 @@ a:focus-visible,
 
 /* header & navigation */
 #header {
+  position: relative;
+  z-index: 500;
+  overflow: visible;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 4px;
-  overflow: hidden;
   box-shadow: 0 4px 16px rgba(62, 50, 38, 0.14);
   margin-top: 0.8em;
+}
+
+#outer.wrapper,
+#inner.wrapper,
+#main {
+  position: relative;
+  z-index: 1;
 }
 
 #header .heading {
@@ -109,6 +118,8 @@ a:focus-visible,
   border-bottom: 4px solid var(--deep);
   position: relative;
   width: 100%;
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
 }
 
 #header .heading::after {
@@ -156,6 +167,9 @@ a:focus-visible,
 }
 
 #header .primary {
+  position: relative;
+  z-index: 450;
+  overflow: visible;
   background: var(--panel);
   box-shadow: none;
   border-top: 1px solid var(--border);
@@ -164,6 +178,13 @@ a:focus-visible,
   align-items: center;
   gap: 0.15em;
   padding: 0.35em 0.5em;
+  border-radius: 0 0 4px 4px;
+}
+
+#header .dropdown,
+#greeting .dropdown {
+  position: relative;
+  z-index: 501;
 }
 
 #header .primary li {
@@ -235,11 +256,18 @@ a:focus-visible,
 
 #header .dropdown .menu,
 #greeting .dropdown .menu {
+  position: absolute;
+  z-index: 999;
   background: var(--card) !important;
   border: 1px solid var(--border);
   box-shadow: 0 6px 18px rgba(62, 50, 38, 0.18);
   border-radius: 3px;
   overflow: hidden;
+}
+
+#header .primary .menu,
+#greeting .menu {
+  z-index: 999;
 }
 
 #header .dropdown .menu li,
