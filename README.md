@@ -39,12 +39,12 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **Lilac** | Soft-ish lavender & cream | [`skins/lilac.css`](skins/lilac.css) |
 | **Medieval** | You've seen this one already. | [`skins/medieval.css`](skins/medieval.css) |
 | **Moss** | A muted forest-green theme | [`skins/moss.css`](skins/moss.css) |
+| **Pinstripe** | Has a diagonal pinstripe | [`skins/pinstripe.css`](skins/pinstripe.css) |
 | **Rose** | Light burgundy-rose theme. Not too far from the base skin | [`skins/rose.css`](skins/rose.css) |
 | **Snow Blue** | Ice-y blue colors everywhere | [`skins/snowblue.css`](skins/snowblue.css) |
 | **Stars** | Starry theme built from a Byler theme | [`skins/stars.css`](skins/stars.css) |
 | **Trout** | Has more than one fish in it | [`skins/trout.css`](skins/trout.css) |
 | **Wave** | Wave after wave | [`skins/wave.css`](skins/wave.css) |
-| **Pinstripe** | Has a diagonal pinstripe | [`skins/pinstripe.css`](skins/pinstripe.css) |
 
 ### Dark themes
 | Skin name | Description | Links |
@@ -71,6 +71,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **IRC** | Retro mIRC/irssi terminal log theme | [`skins/irc.css`](skins/irc.css) |
 | **MySpace** | 2000s MySpace is back, baby! | [`skins/myspace.css`](skins/myspace.css) |
 | **New York Times** | A NYT-inspired stealth mode skin | [`skins/nytimes.css`](skins/nytimes.css) |
+| **Pooh** | Cozy honey-yellow Winnie the Pooh theme | [`skins/pooh.css`](skins/pooh.css) |
 | **Rick and Morty** | Dark space theme with Rick's blue and Morty's yellow | [`skins/rickandmorty.css`](skins/rickandmorty.css) |
 | **Windows XP** | Windows XP Luna Blue-like skin | [`skins/xp.css`](skins/xp.css) |
 | **Windows 98** | Windows 98 gray + navy/teal classic | [`skins/98.css`](skins/98.css) |
