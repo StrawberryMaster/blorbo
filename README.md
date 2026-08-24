@@ -45,6 +45,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **Stars** | Starry theme built from a Byler theme | [`skins/stars.css`](skins/stars.css) |
 | **Trout** | Has more than one fish in it | [`skins/trout.css`](skins/trout.css) |
 | **Wave** | Wave after wave | [`skins/wave.css`](skins/wave.css) |
+| **Dune** | Beige-ish forest hill under a pale moon | [`skins/dune.css`](skins/dune.css) |
 
 ### Dark themes
 | Skin name | Description | Links |
