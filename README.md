@@ -74,6 +74,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **New York Times** | A NYT-inspired stealth mode skin | [`skins/nytimes.css`](skins/nytimes.css) |
 | **Pooh** | Cozy honey-yellow Winnie the Pooh theme | [`skins/pooh.css`](skins/pooh.css) |
 | **Rick and Morty** | Dark space theme with Rick's blue and Morty's yellow | [`skins/rickandmorty.css`](skins/rickandmorty.css) |
+| **Omori** | An Omori theme mixed with the Windows XP theme | [`skins/omori.css`](skins/omori.css) |
 | **Windows XP** | Windows XP Luna Blue-like skin | [`skins/xp.css`](skins/xp.css) |
 | **Windows 98** | Windows 98 gray + navy/teal classic | [`skins/98.css`](skins/98.css) |
 

@@ -1,0 +1,622 @@
+/* An Omori theme mixed with the Windows XP theme
+ * @author: StrawberryMaster
+ */
+
+/* global variables & base typography */
+:root {
+  --omori-blue: #0055e9;
+  --omori-blue-dark: #003ca8;
+  --omori-blue-light: #4d8cff;
+  --omori-cream: #ece8da;
+  --omori-paper: #fffff5;
+  --omori-gray: #aaa9a1;
+  --omori-gray-dark: #89867c;
+  --omori-black: #000000;
+  --omori-ink: #171717;
+  --omori-purple: #8400c2;
+  --omori-green: #008000;
+  --omori-red: #c00000;
+}
+
+/* global base & typography */
+html,
+body,
+#outer,
+#inner,
+#main {
+  background: var(--omori-cream);
+  color: var(--omori-ink);
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font-family: Tahoma, Verdana, sans-serif;
+}
+
+body {
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading,
+legend,
+label,
+form dt {
+  color: var(--omori-blue-dark);
+}
+
+.wrapper {
+  box-shadow: none;
+}
+
+::selection {
+  background: var(--omori-blue);
+  color: #ffffff;
+}
+
+/* links & interactive states */
+a,
+a:link {
+  color: var(--omori-blue-dark);
+  text-decoration: none;
+}
+
+a:visited {
+  color: #4b2a91;
+}
+
+a:hover,
+a:focus,
+a.tag:hover,
+a.tag:focus {
+  background: var(--omori-blue);
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+/* header & navigation */
+#header {
+  background: #111111 url("https://i.pinimg.com/originals/a0/a0/18/a0a018f730b33cb86f4a143b73c95a7a.jpg") center / cover no-repeat;
+  border-bottom: 4px solid var(--omori-blue);
+  margin: 0;
+  position: relative;
+}
+
+#header .heading {
+  min-height: 18em;
+}
+
+#header .logo,
+#header h1 sup,
+#header h1 a span,
+#greeting .icon,
+#header .button,
+#header .landmark {
+  display: none !important;
+}
+
+#header h1,
+#header .heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  position: relative;
+}
+
+#header h1 a {
+  color: #ffffff !important;
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  text-indent: -9999px;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+#header .primary {
+  background: linear-gradient(#1767ed, var(--omori-blue-dark));
+  border-top: 1px solid var(--omori-blue-light);
+  border-bottom: 2px solid #002d96;
+  box-shadow: inset 0 1px #b9d0ff, 0 1px 3px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: static;
+  width: 100%;
+  z-index: 10;
+}
+
+#header .primary li,
+#header .primary li a,
+#greeting li,
+#greeting li a {
+  color: #ffffff;
+}
+
+#header .primary li a,
+#greeting li > a {
+  text-shadow: 0 1px #002d96;
+}
+
+#header .dropdown .menu,
+#greeting .dropdown .menu {
+  background: var(--omori-paper);
+  border: 1px solid var(--omori-blue-dark);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);
+  z-index: 100;
+}
+
+#header .dropdown .menu a,
+#greeting .dropdown .menu a {
+  color: var(--omori-ink) !important;
+}
+
+#header .dropdown .menu a:hover,
+#header .dropdown .menu a:focus,
+#greeting .dropdown .menu a:hover,
+#greeting .dropdown .menu a:focus {
+  background: var(--omori-blue) !important;
+  color: #ffffff !important;
+}
+
+#greeting {
+  background: rgba(0, 0, 0, 0.78);
+  border-bottom: 1px solid var(--omori-blue-light);
+  color: #ffffff;
+}
+
+#greeting a {
+  color: #ffffff !important;
+}
+
+#header #search .text,
+form.search input[type="text"],
+form.search input[type="submit"] {
+  background: var(--omori-paper) !important;
+  border: 1px solid var(--omori-blue-dark);
+  color: var(--omori-ink) !important;
+}
+
+/* workskin & reading readability */
+#workskin {
+  background: var(--omori-cream);
+  color: var(--omori-black);
+  font-family: "MS Reference Sans Serif", "Trebuchet MS", Tahoma, sans-serif;
+  font-size: 1.05em;
+  line-height: 1.6;
+  overflow-x: auto;
+  padding: 1.25em;
+}
+
+#workskin body,
+#workskin div {
+  color: var(--omori-black);
+}
+
+#workskin em {
+  font-style: normal;
+  text-decoration: underline;
+}
+
+#workskin .shelltable {
+  width: 100%;
+  min-width: 800px;
+}
+
+#workskin .chatboxshell {
+  background: var(--omori-blue);
+  border: 5px solid var(--omori-blue);
+  border-radius: 10px 10px 0 0;
+  outline: 1px solid var(--omori-black);
+}
+
+#workskin .chatboxmessageshell {
+  background: var(--omori-cream);
+}
+
+#workskin .chatbox-row1 {
+  background: var(--omori-blue);
+  color: #ffffff;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 1.25em;
+  letter-spacing: 0;
+  line-height: 40px;
+  min-height: 40px;
+  overflow: hidden;
+  padding: 0 5px;
+}
+
+#workskin .row1left {
+  height: 32px;
+  margin: 4px 6px 4px 0;
+  vertical-align: middle;
+}
+
+#workskin .row1right {
+  height: 32px;
+  margin: 4px 0 4px 6px;
+  vertical-align: middle;
+}
+
+#workskin .warninglevel {
+  float: right;
+  font-size: 0.85em;
+  line-height: 28px;
+}
+
+#workskin .chatbox-row2 {
+  border-bottom: 1px solid var(--omori-gray);
+  font-family: "MS Reference Sans Serif", "Trebuchet MS", sans-serif;
+  font-size: 0.9375em;
+  height: 23px;
+  padding-top: 5px;
+}
+
+#workskin .basilprofile,
+#workskin .sunnyprofile,
+#workskin .aubreyprofile,
+#workskin .heroprofile,
+#workskin .kelprofile {
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 5px solid var(--omori-cream);
+  min-width: 80px;
+  padding: 6px;
+  vertical-align: top;
+}
+
+#workskin .profilepic {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+#workskin .basilprofile { background-image: url("https://i.imgur.com/ylhVulD.png"); }
+#workskin .sunnyprofile { background-image: url("https://i.imgur.com/065lRi7.png"); }
+#workskin .aubreyprofile { background-image: url("https://i.imgur.com/2uRevnr.png"); }
+#workskin .heroprofile { background-image: url("https://i.imgur.com/Qf2iFIb.png"); }
+#workskin .kelprofile { background-image: url("https://i.imgur.com/XzMc3wF.png"); }
+
+#workskin .row3textbox,
+#workskin .row3chat,
+#workskin .bottombar {
+  border: 5px solid var(--omori-cream);
+}
+
+#workskin .row3textbox {
+  padding: 0;
+  width: 100%;
+}
+
+#workskin .chatbox-row3 {
+  background: var(--omori-cream);
+  padding: 0;
+}
+
+#workskin .row3chat,
+#workskin .bottombarinner {
+  border-collapse: collapse;
+}
+
+#workskin .row3textboxinner {
+  background: #ffffff;
+  border: 3px solid;
+  border-color: var(--omori-black) var(--omori-paper) var(--omori-paper) var(--omori-black);
+  font-family: "MS Reference Sans Serif", "Trebuchet MS", sans-serif;
+  font-size: 0.875em;
+  min-height: 110px;
+  padding: 5px;
+}
+
+#workskin .row3textboxinner > div {
+  margin-bottom: 4px;
+}
+
+#workskin .row3editbox {
+  border: 1px solid var(--omori-gray-dark);
+  margin: 0 0 5px;
+  text-align: center;
+  width: 100%;
+}
+
+#workskin .row3editbox img {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+#workskin .bottombarright {
+  text-align: center;
+  width: 100%;
+}
+
+#workskin .bottombarinnercell,
+#workskin .bottombaroutercell {
+  min-width: 95px;
+}
+
+#workskin .bottombarinnercell {
+  border: 1px solid var(--omori-gray-dark);
+}
+
+#workskin .bottombar img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+#workskin .messagesunny,
+#workskin .messagebasil,
+#workskin .messageaubrey,
+#workskin .messagehero,
+#workskin .messagekel {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.1875em;
+  font-weight: bold;
+}
+
+#workskin .messagesunny { color: var(--omori-purple); }
+#workskin .messagebasil { color: var(--omori-green); }
+#workskin .messageaubrey { color: var(--omori-red); }
+#workskin .messagehero { color: #0000cc; }
+#workskin .messagekel { color: var(--omori-black); }
+
+#workskin .warningshell {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 550px;
+  width: 60%;
+}
+
+#workskin .warningbox {
+  color: var(--omori-black);
+  min-height: 125px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+#workskin .warningicon {
+  vertical-align: middle;
+}
+
+#workskin .warningbox > img,
+#workskin .warningreceivedtext + img {
+  height: auto;
+  max-width: 100%;
+}
+
+#workskin .warningreceivedtable {
+  margin-left: 10px;
+}
+
+#workskin .warningreceivedtext {
+  padding-left: 10px;
+  text-align: left;
+}
+
+/* action buttons & navigation controls */
+.actions a,
+.actions a:link,
+.actions a:visited,
+.action,
+.action:link,
+.actions button,
+.actions input,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button,
+.current,
+.actions label {
+  background: linear-gradient(#4d8cff, var(--omori-blue-dark));
+  border: 1px solid #002d96;
+  border-radius: 3px;
+  box-shadow: inset 0 1px #cfe0ff, 0 1px 2px rgba(0, 0, 0, 0.25);
+  color: #ffffff !important;
+  font-weight: bold;
+  padding: 0.35em 0.75em;
+  text-decoration: none;
+}
+
+.actions a:hover,
+.actions a:focus,
+.actions button:hover,
+.actions input:hover,
+.action:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: var(--omori-blue);
+  border-color: var(--omori-black);
+  color: #ffffff !important;
+}
+
+.current,
+a.current,
+#dashboard .current {
+  background: linear-gradient(#1767ed, #003ca8) !important;
+  border-color: #002d96 !important;
+  color: #ffffff !important;
+}
+
+/* forms, fieldsets & inputs */
+fieldset,
+form dl,
+fieldset fieldset,
+form blockquote.userstuff,
+.listbox {
+  background: var(--omori-cream);
+  border: 1px solid var(--omori-gray-dark);
+  color: var(--omori-black);
+}
+
+input,
+textarea,
+select {
+  background: #ffffff;
+  border: 1px solid var(--omori-gray-dark);
+  color: var(--omori-black);
+  padding: 3px 5px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--omori-blue);
+  outline: 1px solid var(--omori-blue);
+}
+
+/* blurbs, tags & meta lists */
+li.blurb,
+.listbox li.blurb,
+dl.meta,
+li.comment {
+  background: var(--omori-paper);
+  border: 1px solid var(--omori-gray-dark);
+  color: var(--omori-black);
+}
+
+li.blurb,
+li.comment {
+  border-radius: 4px;
+  margin-bottom: 1em;
+}
+
+dl.meta {
+  font-size: 90%;
+}
+
+a.tag {
+  background: #dce8ff;
+  border: 1px solid var(--omori-blue);
+  border-radius: 2px;
+  display: inline-block;
+  margin: 2px 0;
+  padding: 2px 6px;
+}
+
+.tags li.warnings a.tag { background: #ffd6d6; border-color: var(--omori-red); color: #700000 !important; }
+.tags li.relationships a.tag { background: #d8f0d8; border-color: var(--omori-green); color: #005500 !important; }
+.tags li.characters a.tag { background: #dce8ff; border-color: var(--omori-blue); }
+.tags li.freeforms a.tag { background: #eadcff; border-color: var(--omori-purple); color: #4b176b !important; }
+
+/* comments & thread layout */
+.comment h4.byline,
+h4.heading.byline {
+  background: var(--omori-blue);
+  border-bottom: 1px solid var(--omori-blue-dark);
+  color: #ffffff;
+  padding: 4px 8px;
+}
+
+.comment h4.byline a {
+  background: var(--omori-blue);
+  color: #ffffff !important;
+}
+
+.comment div.icon {
+  border-bottom: 3px solid var(--omori-blue);
+}
+
+.thread .even {
+  background: #ddd8c8;
+}
+
+/* notices, alerts & popups */
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash {
+  background: #dce8ff;
+  border: 1px solid var(--omori-blue-dark);
+  color: var(--omori-black);
+  padding: 10px;
+}
+
+.notice a,
+.comment_notice a,
+.kudos_notice a,
+ul.notes a,
+.caution a,
+.error a,
+.comment_error a,
+.kudos_error a,
+.alert.flash a {
+  color: var(--omori-blue-dark);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#modal {
+  background: var(--omori-cream);
+  border: 2px solid var(--omori-blue);
+  color: var(--omori-black);
+}
+
+/* dashboard & footer */
+#dashboard,
+#dashboard.own {
+  background: var(--omori-paper);
+  border: 2px solid var(--omori-blue);
+  color: var(--omori-black);
+}
+
+#dashboard a {
+  color: var(--omori-blue-dark);
+}
+
+#dashboard a:hover,
+#dashboard a:focus {
+  background: var(--omori-blue);
+  color: #ffffff !important;
+}
+
+#footer {
+  background: linear-gradient(#1767ed, var(--omori-blue-dark));
+  border-top: 3px solid #002d96;
+  color: #ffffff;
+}
+
+#footer a,
+#footer .heading,
+#footer button {
+  color: #ffffff !important;
+}
+
+#footer a:hover,
+#footer button:hover {
+  background: #ffffff;
+  color: var(--omori-blue-dark) !important;
+}
+
+/* mobile & responsive adjustments */
+@media (max-width: 700px) {
+  #header .heading {
+    min-height: 11em;
+  }
+
+  #header .primary,
+  #greeting {
+    position: relative;
+  }
+
+  #workskin {
+    padding: 0.75em;
+  }
+}
