@@ -62,6 +62,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **Seventeen** | OTW's 17th anniversary skin, with some patches | [`skins/seventeen.css`](skins/seventeen.css) |
 | **Slate** | Slate-ish, but quite low-contrast, theme | [`skins/slate.css`](skins/slate.css) |
 | **Starlight** | Constellations if it was darker | [`skins/starlight.css`](skins/starlight.css) |
+| **Spider-Man** | Slight Web-slinging reds and steel blues | [`skins/spiderman.css`](skins/spiderman.css) |
 | **Vampire** | Similar to Blue Plaid in its origins, but with a more gothic feel | [`skins/vampire.css`](skins/vampire.css) |
 
 ### Other themes

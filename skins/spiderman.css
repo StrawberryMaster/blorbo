@@ -1,0 +1,1697 @@
+/* From https://raw.githubusercontent.com/anonymouscara2612-byte/Spider-Man-AO3-Skin/refs/heads/main/CSS%20Code
+ * @author: anonymouscara2612-byte
+ * adjusted for readability & other cleanups
+ */
+
+/* global base & typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+  font-family: "Century Gothic", "Merriweather", "Times New Roman", sans-serif;
+  border-bottom: none;
+  font-weight: normal;
+  color: #CFCBCE;
+}
+
+#outer {
+  background: #181B26;
+  background-image: url("https://64.media.tumblr.com/c598767a892d9b872701d3c5f2f4fee2/403affc474cc3530-d3/s1280x1920/a6d6dc6eb58aef198e529dde42afa5235cc792ca.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+/* header & navigation */
+#header h1.heading a::before {
+  content: " ☢ archive of our own ☢ ";
+  color: #CFCBCE !important;
+  font-size: 1.1em;
+  padding: .5em;
+  text-shadow: none;
+}
+
+#header .heading {
+  height: 4em;
+  color: #CFCBCE;
+}
+
+#header .logo,
+#header .heading sup,
+#header h1.heading span {
+  display: none;
+}
+
+/* greeting navigation & user controls */
+#greeting img.icon {
+  height: 22px;
+  width: 22px;
+  border-radius: 25px;
+  border: 1px solid #181B26;
+}
+
+/* links & interactive states */
+#main {
+  color: #CFCBCE;
+}
+
+#main a {
+  color: #CFCBCE;
+}
+
+#main a:hover {
+  color: #DBC3C3;
+}
+
+#header ul.primary {
+  box-shadow: none;
+  padding-top: 55px;
+  padding-bottom: 55px;
+  color: #875F62;
+  background: #141B30 url("https://64.media.tumblr.com/99d193251c66830548e626de9b2f6238/403affc474cc3530-a7/s640x960/0165a8d8a8061501c164ab546f51861ec53f3356.png");
+  background-attachment: fixed;
+  background-size: 100%;
+  background-repeat: repeat;
+  border-radius: 15px;
+  border: 1px solid #181B26;
+}
+
+#greeting .menu {
+  width: 12em !important;
+}
+
+#header .menu {
+  width: 20em;
+  background: #181B26;
+  border: 1px solid #181B26;
+  font-family: "Century Gothic", "Merriweather", "Times New Roman", sans-serif;
+  border-bottom: none;
+  font-weight: normal;
+  color: #CFCBCE;
+}
+
+#header .dropdown .menu a:hover,
+#header .dropdown .menu a:focus {
+  background: #181B26;
+  color: #DBC3C3;
+}
+
+#header a.dropdown-toggle,
+#greeting .user > li:nth-of-type(3) a {
+  color: #CFCBCE !important;
+  font-family: "Century Gothic", "Merriweather", "Times New Roman", sans-serif;
+  border-bottom: none;
+  font-weight: normal;
+}
+
+#header .menu li a {
+  color: #CFCBCE !important;
+}
+
+#header .menu li {
+  border-bottom: none;
+}
+
+#header .dropdown:hover a,
+#greeting .user > li:nth-of-type(3) a:hover {
+  background: transparent;
+  color: #DBC3C3 !important;
+}
+
+/* dashboard & footer */
+#footer {
+  background: url("https://64.media.tumblr.com/febe4e42a2f88ac203e63837225f6e5e/403affc474cc3530-93/s1280x1920/e57c6e50aa9f7859eb0a8ce772c7bf7e6da33719.png");
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  border-top: 1px solid #9C6A6D;
+  box-shadow: none;
+}
+
+#footer .heading {
+  font-variant: small-caps;
+  color: #CFCBCE;
+}
+
+#footer li,
+#footer li a,
+#footer button {
+  text-decoration: none;
+  color: #CFCBCE;
+}
+
+/* splash modules */
+.favorite.module.odd h3.heading,
+.latest.news.module h3.heading span.title,
+.random.readings.module h3.heading span.title,
+.latest.messages.module h3.heading span.title,
+.social.module h3.heading {
+  color: #CFCBCE;
+  font-variant: small-caps;
+}
+
+.favorite.module.odd h3.heading,
+.latest.news.module h3.heading,
+.latest.messages.module.odd h3.heading,
+.social.module h3.heading {
+  border-bottom: none;
+  background: rgba(17, 18, 28, 0.75);
+}
+
+.splash .favorite li:nth-of-type(2n+1) a,
+.splash .favorite li:nth-of-type(2n+2) a {
+  background: rgba(17, 18, 28, 0.75);
+  color: #CFCBCE;
+}
+
+.splash .favorite li:nth-of-type(2n+1) a::before,
+.splash .favorite li:nth-of-type(2n+2) a::before {
+  content: " 🕷️ ";
+  color: transparent !important;
+  text-shadow: 0 0 0 #CFCBCE;
+}
+
+.splash .favorite li:nth-of-type(2n+1) a:hover,
+.splash .favorite li:nth-of-type(2n+2) a:hover {
+  background: #181B26;
+  color: #DBC3C3 !important;
+}
+
+.splash .favorite li:nth-of-type(2n+1) a:hover::before,
+.splash .favorite li:nth-of-type(2n+2) a:hover::before {
+  content: " ☣︎ ";
+  color: transparent !important;
+  text-shadow: 0 0 0 #DBC3C3;
+}
+
+.splash .favorite {
+  position: relative;
+  padding-bottom: 22px;
+}
+
+.splash .favorite::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 80px;
+  background-image: url("https://64.media.tumblr.com/aad582286ced9d82cdfb498f0d0178e9/403affc474cc3530-fa/s1280x1920/e0742d577c286bd8a2c58aeb66bd9b47268f22d1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.splash .favorite {
+  position: relative;
+}
+
+.splash .favorite::after {
+  content: " 𝒲𝒾𝓉𝒽 𝑔𝓇𝑒𝒶𝓉 𝓅𝑜𝓌𝑒𝓇 𝒸𝑜𝓂𝑒𝓈 𝑔𝓇𝑒𝒶𝓉 𝓇𝑒𝓈𝓅𝑜𝓃𝓈𝒾𝒷𝒾𝓁𝒾𝓉𝓎 ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  font-size: 13px;
+  color: #CFCBCE;
+  background: rgba(17, 18, 28, 0.75);
+  opacity: 0.9;
+  white-space: pre;
+}
+
+.news.index.group li.post.group {
+  background: rgba(17, 18, 28, 0.75);
+  border: 1px solid transparent;
+  padding: 0.4em;
+  margin-bottom: 2em;
+  color: #CFCBCE;
+}
+
+.splash .news blockquote p:first-child {
+  padding-left: 100px;
+  background: url("https://64.media.tumblr.com/5aaf145ac814e143e12d57055fac62e0/403affc474cc3530-ee/s1280x1920/99a988e4910e7708587fb02e1072063596e6ddb4.png");
+  background-size: 80px 80px;
+  background-position-x: left;
+  background-position-y: top;
+  background-repeat: no-repeat;
+}
+
+.social.module p {
+  padding-left: 83px;
+  background: url("https://64.media.tumblr.com/466c22f00da1bc15ecb16548e25a5a8b/403affc474cc3530-1e/s1280x1920/28b5119023d9a950fd0ee3b22fba730a4e04a510.jpg");
+  background-size: 80px 80px;
+  background-position-x: left;
+  background-position-y: top;
+  background-repeat: no-repeat;
+}
+
+/* notices, alerts & popups */
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash,
+.LV_invalid {
+  background: #181B26;
+  border-radius: 8px;
+  border: 2px solid #181B26;
+  padding: 1em;
+  color: #CFCBCE;
+}
+
+/* action buttons & navigation controls */
+.actions a,
+.actions a:link,
+.action,
+.action:link,
+.actions button,
+.actions input,
+input[type="submit"],
+button,
+.current,
+.actions label {
+  background: rgba(30, 33, 46, 0.7);
+  border: 0.5px dashed #592929;
+  color: #CFCBCE;
+  border-radius: 8px;
+}
+
+.actions a:hover,
+.actions button:hover,
+.actions input:hover,
+.actions a:focus,
+.actions button:focus,
+.actions input:focus,
+label.action:hover,
+.action:hover,
+.action:focus,
+.actions a:active,
+.current,
+a.current,
+a:link.current,
+.current a:visited {
+  background: #181B26;
+  border: 1px solid transparent;
+  color: #DBC3C3 !important;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+/* forms, fieldsets & inputs */
+fieldset,
+fieldset dl dl,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff {
+  background: #181B26;
+  border: 2px solid #181B26;
+  border-radius: 8px;
+  color: #CFCBCE;
+}
+
+fieldset.warnings,
+fieldset fieldset {
+  background: #181B26;
+}
+
+.filters dl {
+  border: none;
+  background: transparent;
+}
+
+.javascript .filters fieldset {
+  background-image: url("https://64.media.tumblr.com/c598767a892d9b872701d3c5f2f4fee2/403affc474cc3530-d3/s1280x1920/a6d6dc6eb58aef198e529dde42afa5235cc792ca.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: #CFCBCE;
+}
+
+.filtering .filters {
+  background: #181B26;
+  color: #CFCBCE;
+}
+
+input,
+textarea,
+select {
+  background: rgba(30, 33, 46, 0.7);
+  color: #CFCBCE;
+  border: 2px solid #181B26;
+  border-radius: 8px;
+  padding-left: .5em;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.autocomplete div.dropdown ul,
+.search [role="tooltip"] {
+  background: #929EAD;
+  color: #210E0E;
+  padding-left: .5em;
+  border-color: #592929;
+}
+
+.footnote,
+p.character_counter {
+  color: #CFCBCE;
+}
+
+.autocomplete.dropdown {
+  background: transparent;
+}
+
+.autocomplete.dropdown p.notice {
+  background: #181B26;
+  padding: 0 !important;
+  color: #CFCBCE;
+}
+
+.required,
+.error,
+.alert.flash,
+label,
+dt.notes {
+  color: #DBC3C3;
+}
+
+form.verbose legend,
+.verbose form legend {
+  background: #181B26;
+  border: 2px solid #181B26;
+  border-radius: 8px;
+  color: #CFCBCE;
+}
+
+span.question {
+  background: #1C203D;
+  border: 1px solid #1C203D;
+  padding: 1px;
+  color: #CFCBCE;
+  font-family: "Century Gothic", "Times New Roman", sans-serif;
+}
+
+input[type="checkbox"],
+.actions li label input[type="checkbox"] {
+  appearance: none;
+  background: #1C203D;
+  border: 1px solid #1C203D;
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+}
+
+input[type="checkbox"]:checked,
+.actions li label input[type="checkbox"]:checked {
+  background: #CFCBCE;
+}
+
+input[type=radio] {
+  appearance: none;
+  background: #1C203D;
+  border: 1px solid #1C203D;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+input[type=radio]:checked {
+  background: #CFCBCE;
+}
+
+.filters .indicator:before {
+  background: #1C203D;
+  border: 1px solid #1C203D;
+  background-image: none;
+}
+
+.filters [type="checkbox"]:checked + .indicator:before {
+  background: #CFCBCE;
+  background-image: none;
+  color: #CFCBCE;
+}
+
+.filters [type="radio"]:checked + .indicator:before {
+  background: #CFCBCE;
+  background-image: none;
+}
+
+.filters .exclude [type="checkbox"]:checked + .indicator:before {
+  background: #CFCBCE;
+  background-image: none;
+  color: #CFCBCE;
+}
+
+.filters .more dd.search,
+dd.autocomplete li.input {
+  max-width: 10.7em;
+}
+
+.resp-sharing-button--bluesky,
+.resp-sharing-button--tumblr {
+  background: #0F1014 !important;
+  border: 1px solid #592929 !important;
+  border-radius: 8px;
+  color: #CFCBCE !important;
+}
+
+.toggled form,
+.dynamic form,
+div.dynamic {
+  background: transparent;
+  border: none;
+  color: #CFCBCE;
+}
+
+#bookmark-form.post.bookmark form fieldset h4.heading {
+  color: #CFCBCE;
+}
+
+.dynamic form p.footnote {
+  margin-bottom: 1em;
+  color: #CFCBCE;
+}
+
+.bookmark .user {
+  background: #181B26;
+  border: 1px solid #181B26;
+  color: #CFCBCE;
+}
+
+.reading h4.viewed {
+  background: #181B26;
+  border: 1px solid #181B26;
+  border-radius: 8px;
+  padding: .5em;
+  margin: .5em;
+  color: #CFCBCE;
+}
+
+dl.index dd {
+  background: transparent;
+  color: #CFCBCE;
+}
+
+dl.subscription.index.group {
+  background: #181B26;
+  padding: 1em;
+  color: #CFCBCE;
+}
+
+#main.users-edit.dashboard.region dl,
+#main.pseuds-edit.dashboard.region dl,
+#main.users-change_username.dashboard.region dl,
+#main.users-change_password.dashboard.region dl,
+#main.users-change_email.dashboard.region dl,
+dl.meta,
+form dl {
+  background: rgba(17, 18, 28, 0.75);
+  border: 2px solid rgba(17, 18, 28, 0.75);
+  border-radius: 8px;
+  color: #CFCBCE;
+}
+
+.wrapper {
+  background: transparent;
+}
+
+.bio.module {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 1em;
+  width: 97%;
+  border: 2px solid #181B26;
+  border-radius: 8px;
+  background: #181B26;
+  color: #CFCBCE;
+}
+
+.bio.module h3.heading {
+  visibility: hidden;
+}
+
+.bio.module h3.heading::before {
+  visibility: visible;
+  content: " A note from the user:";
+  font-size: 150%;
+  text-decoration: underline;
+  color: #CFCBCE;
+}
+
+div.preface .module::after {
+  content: "";
+  background-image: url("https://64.media.tumblr.com/bec5bd525aef53de0451c543d1f6f39c/403affc474cc3530-7b/s640x960/f50ce9ae93404a0254d5c38b10678079c12e985c.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 3px auto 0;
+}
+
+/* user icons */
+img[src$="/images/skins/iconsets/default/icon_user.png"] {
+  box-sizing: border-box;
+  content: url("https://64.media.tumblr.com/950aed4ef9f0a358443728535774c2e3/403affc474cc3530-ae/s540x810/ccf52290aa9f8c66f92d173e69cf0b9646c459cf.jpg");
+}
+
+.index .skins .icon,
+.skins .primary .icon {
+  background: url("https://64.media.tumblr.com/8cc0d646e2ef5ab15947ad6e06aebe7c/403affc474cc3530-92/s1280x1920/605b46d467eb9b97845fbb90de1bdcabec4b63fa.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.comment .icon .visitor {
+  background: url("https://64.media.tumblr.com/950aed4ef9f0a358443728535774c2e3/403affc474cc3530-ae/s540x810/ccf52290aa9f8c66f92d173e69cf0b9646c459cf.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* comments & thread layout */
+.comment div.icon {
+  background: #181B26;
+  border-bottom: 5px solid #181B26;
+  border-radius: 8px 0px 0px 0px;
+}
+
+.comment h4.byline {
+  background: #181B26;
+  border-radius: 8px;
+  color: #CFCBCE;
+}
+
+div.comment {
+  border: none;
+}
+
+li.comment {
+  background: #181B26;
+  border: 2px solid #181B26;
+  border-radius: 8px;
+  color: #CFCBCE;
+}
+
+.thread .even {
+  background: #1E212E;
+}
+
+ol.comment.index.group .read {
+  background: #181B26;
+  background-size: contain;
+  background-repeat: repeat;
+  color: #CFCBCE;
+}
+
+ol.comment.index.group .unread {
+  background: #1E212E;
+  color: #CFCBCE;
+}
+
+.replied {
+  border: 1px solid #181B26;
+  border-radius: 8px;
+  background: #592929 !important;
+  color: #CFCBCE !important;
+}
+
+span.unread {
+  border: 1px solid #181B26;
+  border-radius: 8px;
+  background: #592929 !important;
+  color: #CFCBCE !important;
+}
+
+.draft {
+  border: 2px dashed #181B26;
+  background: transparent;
+  color: #CFCBCE;
+}
+
+.draft.work .wrapper {
+  background: #181B26;
+}
+
+#previewpane fieldset {
+  border: none;
+  background: none;
+  color: #CFCBCE;
+}
+
+.child,
+.unwrangled,
+.unreviewed {
+  background: #181B26;
+  color: #CFCBCE;
+}
+
+.ui-sortable li {
+  background: transparent;
+  border: transparent;
+  color: #CFCBCE;
+}
+
+.ui-sortable li:hover {
+  background: #181B26;
+  border: none;
+  border-radius: 8px;
+}
+
+#stat_chart svg rect:first-of-type {
+  filter: opacity(0%);
+}
+
+#stat_chart svg text {
+  font-family: "Century Gothic", "Merriweather", "Times New Roman", sans-serif;
+}
+
+.listbox {
+  margin-top: 2em;
+}
+
+.statistics .index li:nth-of-type(2n) {
+  background: #181B26;
+  color: #CFCBCE;
+}
+
+table {
+  background: #181B26;
+  color: #CFCBCE;
+}
+
+thead {
+  background: #181B26;
+  color: #DBC3C3;
+  font-weight: bold;
+  font-size: 120%;
+  border-bottom: 2px solid #181B26;
+}
+
+th,
+tr,
+td {
+  background: #181B26;
+  color: #CFCBCE;
+  border-color: #181B26;
+}
+
+span.requested.offered {
+  color: #CFCBCE;
+  background: #181B26;
+}
+
+span.requested {
+  color: #CFCBCE;
+}
+
+#dashboard.own,
+.dashboard .own {
+  background: rgba(17, 18, 28, 0.75);
+  border: 3px solid transparent;
+  box-shadow: none;
+  color: #CFCBCE;
+  border-radius: 8px;
+}
+
+#dashboard a {
+  color: #CFCBCE;
+  border: 1px solid transparent;
+}
+
+#dashboard .current {
+  background: #1E212E;
+  border: 3px solid transparent;
+  color: #DBC3C3 !important;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+#dashboard a:hover {
+  background: #181B26;
+  color: #DBC3C3;
+  border: 1px solid #181B26;
+}
+
+#dashboard ul {
+  border-top: none;
+}
+
+.listbox,
+fieldset fieldset.listbox {
+  background: rgba(17, 18, 28, 0.75);
+  border: 1px solid transparent;
+  box-shadow: none;
+  border-radius: 8px;
+  color: #CFCBCE;
+}
+
+.listbox .index {
+  background: transparent;
+  box-shadow: none;
+}
+
+.listbox > .heading {
+  font-variant: small-caps;
+  color: #CFCBCE;
+}
+
+/* blurbs, tags & workskin */
+li.blurb {
+  background: rgba(17, 18, 28, 0.75);
+  border: 3px solid transparent;
+  margin-bottom: 2em;
+  box-shadow: none;
+  color: #CFCBCE;
+  border-radius: 8px;
+}
+
+#workskin {
+  background: rgba(17, 18, 28, 0.9);
+  margin-top: 2em;
+  padding: 1.2em;
+  color: #CFCBCE;
+  border-radius: 18px;
+}
+
+ul#chapter_index.expandable.secondary {
+  background-color: #181B26 !important;
+}
+
+ul.expandable.secondary:not(#chapter_index) {
+  background-color: #181B26 !important;
+}
+
+a.tag,
+a.tag:visited,
+a.tag:link,
+li.added.tag {
+  display: inline-block;
+  border-radius: 8px;
+  border: none;
+  color: #B0B6BF;
+  background: rgba(0, 0, 0, 0);
+}
+
+ul.tags li a:before {
+  content: " 🕸️ ";
+  color: transparent !important;
+  text-shadow: 0 0 0 #B4C2D4;
+}
+
+h5.fandoms.heading a.tag {
+  border: none !important;
+  box-shadow: none !important;
+  color: #CFCBCE !important;
+}
+
+h5.fandoms.heading a.tag:hover {
+  background: #181B26;
+  border: none !important;
+  box-shadow: none !important;
+  color: #DBC3C3 !important;
+}
+
+.commas li:after {
+  content: "";
+}
+
+a.tag:hover {
+  background: #181B26;
+  color: #DBC3C3 !important;
+}
+
+h2 a.tag {
+  border: none !important;
+  box-shadow: none !important;
+  color: #96A0B3 !important;
+}
+
+ul.tags li.warnings,
+ul.tags li.relationships,
+ul.tags li.characters,
+ul.tags li.freeforms {
+  float: left !important;
+  color: #B8BFD1;
+}
+
+li.warnings + li.relationships,
+li.relationships + li.characters,
+li.characters + li.freeforms,
+li.warnings + li.characters,
+li.warnings + li.freeforms,
+li.relationships + li.freeforms {
+  clear: left;
+}
+
+ul.tags li {
+  margin: 0;
+}
+
+ul.tags li a.tag {
+  line-height: 1.7;
+  color: #B4C0D4;
+}
+
+.commas li:after {
+  content: "   ";
+}
+
+.blurb .datetime {
+  display: block;
+  padding-bottom: 18px;
+  background: url("https://64.media.tumblr.com/e69b341e5c60ed28bc137c8131b75984/403affc474cc3530-e2/s1280x1920/0a909cd27cf552aaa353f3c71093c6d73ecb8493.png") no-repeat center bottom;
+  background-size: 30px auto;
+}
+
+ul.tags li.warnings:first-child:before {
+  content: "Archive Warnings: ";
+  color: #B0B6BF;
+  font-weight: normal;
+  font-variant: small-caps;
+}
+
+li.warnings + li.relationships:before {
+  content: "Relationships: ";
+  color: #B0B6BF;
+  font-variant: small-caps;
+}
+
+li.relationships + li.characters:before {
+  content: "Characters: ";
+  color: #B0B6BF;
+  font-variant: small-caps;
+}
+
+li.characters + li.freeforms:before {
+  content: "Additional Tags: ";
+  color: #B0B6BF;
+  font-variant: small-caps;
+}
+
+li.warnings + li.characters:before {
+  content: "Characters: ";
+  color: #B0B6BF;
+  font-variant: small-caps;
+}
+
+li.warnings + li.freeforms:before {
+  content: "Additional Tags: ";
+  color: #B0B6BF;
+  font-variant: small-caps;
+}
+
+li.relationships + li.freeforms:before {
+  content: "Additional Tags: ";
+  color: #B0B6BF;
+  font-variant: small-caps;
+}
+
+.relationships .tag {
+  background: transparent;
+  color: #CFCBCE;
+}
+
+.filters .expander {
+  color: #CFCBCE;
+  border: 1px solid #592929;
+  border-radius: 8px;
+  margin-bottom: .5em;
+  background-color: rgba(30, 33, 46, 0.7);
+}
+
+.filters .expanded .expander {
+  background: #181B26 !important;
+  background-image: none !important;
+  color: #CFCBCE;
+}
+
+form dt {
+  border-bottom: none;
+  color: #CFCBCE;
+}
+
+p.kudos {
+  background-image: none !important;
+  background-color: rgba(30, 33, 46, 0.5);
+  position: relative;
+  padding-left: 60px;
+  min-height: 80px;
+  color: #CFCBCE;
+}
+
+p.kudos::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  transform: translateY(-50%);
+  width: 65px;
+  height: 65px;
+  background: url("https://64.media.tumblr.com/834fb75f7d7ef46ecbdeca941eb207b8/403affc474cc3530-1d/s1280x1920/fca871cfe36a48e310c9480098296016bd4f9c54.png") no-repeat center center;
+  background-size: contain;
+}
+
+/* required-tags pills */
+:root {
+  --text: #B4C0D4;
+  --text-sub: #DBC3C3;
+  --none: #D6B4B4;
+  --g: #D6B4B4;
+  --t: #D6B4B4;
+  --m: #181B26;
+  --e: #522A2A;
+  --ff: #D6B4B4;
+  --fm: #D6B4B4;
+  --gen: #D6B4B4;
+  --mm: #D6B4B4;
+  --other: #D6B4B4;
+  --multi: #522A2A;
+  --cntw: #522A2A;
+  --warn: #522A2A;
+  --ext: #522A2A;
+  --wip: #522A2A;
+  --fin: #522A2A;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: 5px;
+}
+
+.blurb .header:has(ul.required-tags) .heading {
+  margin-left: 0;
+}
+
+.blurb ul.required-tags,
+.blurb ul.required-tags li,
+.blurb ul.required-tags li a,
+.blurb ul.required-tags li span,
+.blurb ul.required-tags li + li + li,
+.blurb ul.required-tags li + li + li + li {
+  display: block;
+  position: unset;
+  width: unset;
+  height: unset;
+  margin: unset;
+  padding: unset;
+  border: unset;
+  background: unset;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: capitalize;
+  line-height: 1;
+  color: var(--text);
+}
+
+.blurb ul.required-tags {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.3em;
+  margin-top: 0.35em;
+  margin-bottom: 0;
+}
+
+.blurb ul.required-tags > li > a > span.warnings,
+.blurb ul.required-tags > li > a > span:not(:is(.warning-yes,
+.warning-choosenotto))::before {
+  display: block;
+  margin-block: 0.15em;
+  padding-block: 0.25em;
+  padding-inline: 0.35em;
+  border-radius: var(--border-radius);
+  color: var(--text);
+  background: transparent !important;
+  border-width: var(--border-width);
+  border-style: var(--border-style);
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .warning-yes::before,
+.required-tags .rating-explicit::before {
+  color: var(--text-sub) !important;
+  font-weight: bold;
+}
+
+.blurb ul.required-tags > li > a > span:not(.warnings) > span.text {
+  display: none;
+}
+
+.index:not(.prompt) .blurb ul.required-tags > li:has(.warnings):not(:has(.warning-yes,
+.warning-choosenotto)),
+.index:not(.prompt) .blurb ul.required-tags > li > a > :is(.warning-yes,
+.warning-choosenotto) > span.text {
+  display: none;
+}
+
+.required-tags .warning-choosenotto {
+  background: transparent !important;
+  border-color: var(--m) !important;
+}
+
+.index:not(.prompt) .required-tags .warning-choosenotto::before {
+  content: "No Warnings";
+  font-weight: bold;
+}
+
+.required-tags .warning-yes {
+  background: transparent !important;
+  border-color: var(--m) !important;
+}
+
+.index:not(.prompt) .required-tags .warning-yes::before {
+  content: "Warnings";
+  font-weight: bold;
+}
+
+.required-tags .warning-no {
+  background: transparent !important;
+  border-color: var(--m) !important;
+}
+
+.required-tags .external-work::before {
+  content: "External Work";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .complete-no[Title*="in Progress" i]::before {
+  content: "In Progress";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .complete-no[Title*="Unfulfilled" i]::before {
+  content: "Unfulfilled";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .complete-yes[Title*="Complete" i]::before {
+  content: "Complete";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .complete-yes[Title*="Filled" i]::before {
+  content: "Fulfilled";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category-femslash::before {
+  content: "F/F";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category-het::before {
+  content: "F/M";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category-gen::before {
+  content: "Gen";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category-slash::before {
+  content: "M/M";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category-multi::before {
+  content: "Multi";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category-other::before {
+  content: "Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category-none::before {
+  content: "No Category";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="F/M" i]::before {
+  content: "F/F, F/M";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="Gen" i]::before {
+  content: "F/F, Gen";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="M/M" i]::before {
+  content: "F/F, M/M";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="Other" i]::before {
+  content: "F/F, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/M" i][Title*="Gen" i]::before {
+  content: "F/M, Gen";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/M" i][Title*="M/M" i]::before {
+  content: "F/M, M/M";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/M" i][Title*="Other" i]::before {
+  content: "F/M, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="M/M" i][Title*="Gen" i]::before {
+  content: "M/M, Gen";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="Gen" i][Title*="Other" i]::before {
+  content: "Gen, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="M/M" i][Title*="Other" i]::before {
+  content: "M/M, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="F/M" i][Title*="Gen" i]::before {
+  content: "F/F, F/M, Gen";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="F/M" i][Title*="M/M" i]::before {
+  content: "F/F, F/M, M/M";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="F/M" i][Title*="Other" i]::before {
+  content: "F/F, F/M, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="M/M" i][Title*="Gen" i]::before {
+  content: "F/F, M/M, Gen";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="Gen" i][Title*="Other" i]::before {
+  content: "F/F, Gen, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/M" i][Title*="M/M" i][Title*="Gen" i]::before {
+  content: "F/M, M/M, Gen";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/M" i][Title*="Gen" i][Title*="Other" i]::before {
+  content: "F/M, Gen, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="M/M" i][Title*="Other" i]::before {
+  content: "F/F, M/M, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/M" i][Title*="M/M" i][Title*="Other" i]::before {
+  content: "F/M, M/M, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="Gen" i][Title*="M/M" i][Title*="Other" i]::before {
+  content: "M/M, Gen, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="F/M" i][Title*="Gen" i][Title*="M/M" i]::before {
+  content: "F/F, F/M, M/M, Gen";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="F/M" i][Title*="Gen" i][Title*="Other" i]::before {
+  content: "F/F, F/M, Gen, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="F/M" i][Title*="M/M" i][Title*="Other" i]::before {
+  content: "F/F, F/M, M/M, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="M/M" i][Title*="Gen" i][Title*="Other" i]::before {
+  content: "F/F, M/M, Gen, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/M" i][Title*="M/M" i][Title*="Gen" i][Title*="Other" i]::before {
+  content: "F/M, M/M, Gen, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .category[Title*="F/F" i][Title*="F/M" i][Title*="Gen" i][Title*="M/M" i][Title*="Other" i]::before {
+  content: "F/F, F/M, M/M, Gen, Other";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating-general-audience::before {
+  content: "Gen";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating-teen::before {
+  content: "Teen";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating-mature::before {
+  content: "Mature";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating-explicit::before {
+  content: "Explicit";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating-notrated::before {
+  content: "Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Teen" i]::before {
+  content: "Gen, Teen";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Mature" i]::before {
+  content: "Gen, Mature";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Explicit" i]::before {
+  content: "Gen, Explicit";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Not Rated" i]::before {
+  content: "Gen, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Teen" i][Title*="Mature" i]::before {
+  content: "Teen, Mature";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Teen" i][Title*="Explicit" i]::before {
+  content: "Teen, Explicit";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Teen" i][Title*="Not Rated" i]::before {
+  content: "Teen, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Mature" i][Title*="Explicit" i]::before {
+  content: "Mature, Explicit";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Mature" i][Title*="Not Rated" i]::before {
+  content: "Mature, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Explicit" i][Title*="Not Rated" i]::before {
+  content: "Explicit, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Teen" i][Title*="Mature" i]::before {
+  content: "Gen, Teen, Mature";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Teen" i][Title*="Explicit" i]::before {
+  content: "Gen, Teen, Explicit";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Teen" i][Title*="Not Rated" i]::before {
+  content: "Gen, Teen, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Mature" i][Title*="Explicit" i]::before {
+  content: "Gen, Mature, Explicit";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Mature" i][Title*="Not Rated" i]::before {
+  content: "Gen, Mature, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Teen" i][Title*="Mature" i][Title*="Explicit" i]::before {
+  content: "Teen, Mature, Explicit";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Teen" i][Title*="Mature" i][Title*="Not Rated" i]::before {
+  content: "Teen, Mature, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Explicit" i][Title*="Not Rated" i]::before {
+  content: "Gen, Explicit, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Teen" i][Title*="Explicit" i][Title*="Not Rated" i]::before {
+  content: "Teen, Explicit, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Mature" i][Title*="Explicit" i][Title*="Not Rated" i]::before {
+  content: "Mature, Explicit, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Teen" i][Title*="Mature" i][Title*="Explicit" i]::before {
+  content: "Gen, Teen, Mature, Explicit";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Teen" i][Title*="Mature" i][Title*="Not Rated" i]::before {
+  content: "Gen, Teen, Mature, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Teen" i][Title*="Explicit" i][Title*="Not Rated" i]::before {
+  content: "Gen, Teen, Explicit, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Mature" i][Title*="Explicit" i][Title*="Not Rated" i]::before {
+  content: "Gen, Mature, Explicit, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Teen" i][Title*="Mature" i][Title*="Explicit" i][Title*="Not Rated" i]::before {
+  content: "Teen, Mature, Explicit, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+.required-tags .rating[Title*="Gen" i][Title*="Teen" i][Title*="Mature" i][Title*="Explicit" i][Title*="Not Rated" i]::before {
+  content: "Gen, Teen, Mature, Explicit, Not Rated";
+  background: transparent !important;
+  border-color: var(--m) !important;
+  font-weight: bold;
+}
+
+img[src$="/images/lockblue.png"] {
+  content: url("https://i.ibb.co/kVCsBwzY/zerafina-icon-lock-01.png");
+  filter: brightness(0) saturate(100%) invert(14%) sepia(82%) saturate(300%) hue-rotate(330deg) brightness(60%) contrast(110%);
+}
+
+/* readability & AO3 compatibility fixes */
+html,
+body,
+#outer {
+  background-color: #181B26;
+  color: #CFCBCE;
+}
+
+#inner,
+#main {
+  background-color: transparent;
+  color: #CFCBCE;
+}
+
+/* override AO3 defaults that force unreadable colors on header links */
+#header a,
+#header a:link,
+#header a:visited,
+#header .primary .open a,
+#header .primary .dropdown:hover a,
+#header .primary .dropdown a:focus,
+#header .user a,
+#header .user a:link,
+#header .user a:visited,
+#greeting a,
+#greeting a:link,
+#greeting a:visited,
+#greeting .user a,
+#greeting .user a:link,
+#greeting .user a:visited {
+  color: #CFCBCE !important;
+}
+
+#header a:hover,
+#header a:focus,
+#header .user a:hover,
+#header .user a:focus,
+#header .primary .dropdown a:hover,
+#greeting a:hover,
+#greeting a:focus,
+#greeting .user a:hover,
+#greeting .user a:focus {
+  color: #DBC3C3 !important;
+  background: transparent;
+}
+
+/* visible control boundaries (original used invisible #181B26 / transparent) */
+input,
+textarea,
+select {
+  border-color: #592929;
+}
+
+fieldset,
+fieldset dl dl,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff,
+form.verbose legend,
+.verbose form legend {
+  border-color: #592929;
+}
+
+.actions a:hover,
+.actions button:hover,
+.actions input:hover,
+.actions a:focus,
+.actions button:focus,
+.actions input:focus,
+label.action:hover,
+.action:hover,
+.action:focus,
+.current,
+a.current,
+a:link.current {
+  border-color: #9C6A6D;
+}
+
+#workskin {
+  border: 1px solid #592929;
+}
+
+.comment h4.byline a,
+.comment h4.byline a:link {
+  color: #CFCBCE !important;
+}
+
+.comment h4.byline a:hover,
+.comment h4.byline a:focus {
+  color: #DBC3C3 !important;
+}
+
+/* mobile & responsive adjustments */
+@media (max-width: 700px) {
+  #header .heading {
+    height: 3em;
+  }
+
+  #header ul.primary {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  #workskin {
+    padding: 0.9em;
+  }
+
+  ul.tags li.warnings,
+  ul.tags li.relationships,
+  ul.tags li.characters,
+  ul.tags li.freeforms {
+    float: none !important;
+  }
+
+  .splash .favorite::before {
+    display: none;
+  }
+
+  .splash .news blockquote p:first-child,
+  .social.module p {
+    padding-left: 0;
+    background: none;
+  }
+}
