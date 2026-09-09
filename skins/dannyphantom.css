@@ -349,7 +349,7 @@ button,
   background: rgba(15, 18, 23, 0.9);
   border: 1px solid var(--accent);
   color: var(--text);
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .actions a:hover,
@@ -498,6 +498,10 @@ li.blurb,
 
 .blurb .header {
   border-bottom: 1px solid var(--accent);
+}
+
+.wrapper {
+    border-radius: 8px;
 }
 
 dl.meta,
