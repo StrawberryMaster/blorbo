@@ -820,10 +820,10 @@ h5.fandoms.heading a.tag {
 }
 
 h5.fandoms.heading a.tag:hover {
-  background: #181B26;
+  background: #2e3240;
   border: none !important;
   box-shadow: none !important;
-  color: #DBC3C3 !important;
+  color: #e6e2e2 !important;
 }
 
 .commas li:after {
@@ -831,8 +831,8 @@ h5.fandoms.heading a.tag:hover {
 }
 
 a.tag:hover {
-  background: #181B26;
-  color: #DBC3C3 !important;
+  background: #2e3240;
+  color: #e6e2e2 !important;
 }
 
 h2 a.tag {
