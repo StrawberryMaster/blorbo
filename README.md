@@ -68,6 +68,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | Skin name | Description | Links |
 | :--- | :--- | :--- |
 | **AOL** | Inspired by early 2000s AOL | [`skins/aol.css`](skins/aol.css) |
+| **Danny Phantom** | Ghost-ish white and green with some glow | [`skins/dannyphantom.css`](skins/dannyphantom.css) |
 | **Disco** | A dark-ish Disco Elysium skin | [`skins/disco.css`](skins/disco.css) |
 | **IRC** | Retro mIRC/irssi terminal log theme | [`skins/irc.css`](skins/irc.css) |
 | **MySpace** | 2000s MySpace is back, baby! | [`skins/myspace.css`](skins/myspace.css) |
