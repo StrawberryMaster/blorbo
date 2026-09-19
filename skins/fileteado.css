@@ -1,0 +1,777 @@
+/* From https://raw.githubusercontent.com/nxxtsemester/fileteado-porteno-siteskin/refs/heads/main/Day%20Version
+ * @author: nxxtsemester
+ * adjusted for readability & other cleanups
+ */
+
+/* global variables & base typography */
+:root {
+  --bg: #c7b49d;
+  --parchment: #f0e4d4;
+  --parchment-light: #fdf8ef;
+  --parchment-deep: #eee3d1;
+  --card: #dfd0bb;
+  --card-deep: #ddcdb2;
+  --ink: #111111;
+  --red: #700000;
+  --crimson: #bc0732;
+  --link: #1a4fa0;
+}
+
+/* global base & typography */
+html,
+body {
+  background: var(--bg);
+  background-color: var(--bg);
+  color: var(--ink);
+}
+
+#outer,
+#outer.wrapper {
+  background: var(--bg);
+  background-image: url("https://pbs.twimg.com/media/HOgd63fW4AErCD4.jpg");
+  background-size: 100%;
+  background-repeat: repeat;
+  color: var(--ink);
+}
+
+#inner,
+#inner.wrapper,
+#main {
+  background: transparent;
+  color: var(--ink);
+}
+
+/* links & interactive states */
+a,
+a:link {
+  color: var(--link);
+}
+
+a:visited {
+  color: #5a2a7a;
+}
+
+a:hover,
+a:focus {
+  color: var(--red);
+}
+
+#workskin a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+#workskin a:hover,
+#workskin a:focus {
+  color: var(--red);
+}
+
+.blurb h4 a:link,
+.blurb h4 img {
+  color: var(--link);
+  vertical-align: bottom;
+}
+
+.blurb h4 a:visited {
+  color: #5a2a7a;
+}
+
+.blurb h4 a:hover,
+.blurb h4 a:focus {
+  color: var(--red);
+}
+
+a.rss span {
+  background-image: url("https://zerafinacss.github.io/ao3/imageset/muted.png");
+  background-size: 200px 835px;
+}
+
+/* header & navigation */
+#header h1.heading a::before {
+  display: inline-block;
+  width: 280px;
+  height: 100px;
+  content: " ";
+  background-image: url("https://pbs.twimg.com/media/HOgd2QdW8AAP-Ce.jpg");
+  background-size: 280px 100px;
+}
+
+#header .logo {
+  display: none;
+}
+
+#header h1.heading span {
+  display: none;
+}
+
+#header .primary {
+  background: url("https://pbs.twimg.com/media/HOgi9gfWYAEux3A.jpg");
+  background-size: auto 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--parchment-deep);
+  box-shadow: none;
+}
+
+#header .primary a {
+  color: var(--ink);
+}
+
+#header #search .text {
+  margin: 0.2857em 0.429em;
+  background-color: var(--parchment-deep);
+  background-image: none;
+  box-shadow: #896533 inset 0 0 5px;
+  color: var(--ink);
+}
+
+#header #search .button {
+  margin: 0;
+  box-shadow: inset #93753d 0 0 5px;
+  border-radius: 5px;
+}
+
+#header a,
+#header fieldset,
+#header form,
+#header p,
+#header li,
+#header h1,
+#small_login dl {
+  background: url("https://pbs.twimg.com/media/HOgd63fW4AErCD4.jpg");
+  font-size: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#header .actions a:hover,
+#header .actions a:focus,
+#header .open a {
+  background: #e1cfb7;
+  border-radius: 10px;
+}
+
+#header .dropdown:hover a {
+  background: none;
+}
+
+#header .menu li {
+  border-bottom: 1px solid #b39b7b;
+  margin: 0 0.25em;
+  text-align: left;
+}
+
+#header .menu,
+#small_login {
+  position: absolute;
+  width: 20em;
+  z-index: 55;
+  background-image: url("https://pbs.twimg.com/media/HOgd63fW4AErCD4.jpg");
+  background-color: var(--parchment-deep);
+}
+
+#header .menu a {
+  color: var(--ink);
+}
+
+.search [role="tooltip"] {
+  background: #ede2d0;
+  border: 1px solid #c8b594;
+  color: var(--ink);
+  padding: 0.15em;
+  position: absolute;
+  left: -999em;
+  font-size: 0.75em;
+  z-index: 1;
+}
+
+.primary .icon {
+  position: absolute;
+  top: 0;
+  border-radius: 50px;
+}
+
+/* greeting navigation & user controls */
+#greeting img.icon {
+  display: inline-block;
+}
+
+/* workskin & reading readability */
+#workskin {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+  font-size: 1.05em;
+  color: var(--ink);
+  background: #f7efe0;
+  border: 30px solid transparent;
+  border-image: url("https://pbs.twimg.com/media/HPDw9WLXgAA5U_z.jpg") 15% round;
+  padding: 1em;
+}
+
+p.kudos {
+  padding-left: 9em;
+  background: url("https://pbs.twimg.com/media/HOgdwEgWkAAUizR.jpg");
+  background-size: 120px 145px;
+  background-repeat: no-repeat;
+  min-height: 112px;
+}
+
+/* action buttons & navigation controls */
+.actions a,
+.actions a:link,
+.action,
+.action:link,
+.actions button,
+.actions input,
+input[type="submit"],
+button,
+.current,
+.actions label {
+  background: var(--parchment-deep);
+  border: 5px solid transparent;
+  border-image: url("https://pbs.twimg.com/media/HOgi5nwWgAA50Qx.jpg") 7% round;
+  color: var(--ink);
+}
+
+.actions a:hover,
+.actions button:hover,
+.actions input:hover,
+.actions a:focus,
+.actions button:focus,
+.actions input:focus,
+label.action:hover,
+.action:hover,
+.action:focus,
+.actions a:active,
+.current,
+a.current,
+a:link.current,
+.current a:visited {
+  background: #f0e4d3;
+  border: 5px solid transparent;
+  border-image: url("https://pbs.twimg.com/media/HOgi5nwWgAA50Qx.jpg") 7% round;
+  color: var(--ink) !important;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.javascript .work.navigation .download .secondary {
+  background: #eee1d1;
+  border: 2px solid #bbb;
+  box-shadow: 2px 2px 5px #bbb;
+}
+
+/* forms, fieldsets & inputs */
+form dl,
+fieldset dl dl,
+fieldset fieldset fieldset,
+fieldset fieldset dl dl,
+dd.hideme,
+form blockquote.userstuff {
+  background: transparent;
+  border: 40px solid transparent;
+  border-image: url("https://pbs.twimg.com/media/HPDw9WLXgAA5U_z.jpg") 18% round;
+}
+
+fieldset {
+  display: block;
+  background: url("https://pbs.twimg.com/media/HOgd63fW4AErCD4.jpg");
+  background-color: var(--parchment);
+  border: 2px solid #f3efec;
+  margin: 0.643em;
+  padding: 0.643em;
+  box-shadow: inset 1px 0 5px #999;
+  color: var(--ink);
+}
+
+fieldset fieldset {
+  background: var(--parchment);
+  clear: right;
+  box-shadow: inset #8b765b 0 0 5px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  background: var(--parchment-light);
+  color: var(--ink);
+  border: 1px solid var(--crimson);
+  border-radius: 10px;
+  box-shadow: inset 0 1px 2px #ab8e67;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #5c554b;
+}
+
+form.filters dl {
+  margin: 0.25em;
+  border: none !important;
+}
+
+form.verbose legend,
+.verbose form legend {
+  height: auto;
+  width: auto;
+  font-size: 100%;
+  background: var(--parchment);
+  border: 2px solid #f3efec;
+  padding: 0.5em;
+  box-shadow: none;
+  opacity: 1;
+  color: #830a28;
+}
+
+.toggled form {
+  padding: 0.5em;
+  border: 2px solid #ebddc3;
+  border-radius: 10px;
+  background: #ebddc3;
+  box-shadow: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a98f6e;
+}
+
+::-webkit-scrollbar-track {
+  background: #c5b297;
+}
+
+/* blurbs, tags & meta lists */
+li.blurb {
+  background-image: url("https://pbs.twimg.com/media/HOgd63fW4AErCD4.jpg");
+  background-color: var(--card);
+  background-size: 18%;
+  border: 18px solid transparent;
+  border-image: url("https://pbs.twimg.com/media/HOgi9f2XYAASVWc.jpg") 20% round;
+  margin-bottom: 2em;
+  box-shadow: none;
+  color: var(--ink);
+}
+
+.blurb .header .heading {
+  display: block;
+  background: transparent;
+  margin: 0.375em 5.25em 0 65px;
+  color: var(--ink);
+}
+
+.blurb blockquote,
+.blurb dl.stats,
+.bookmark dl.stats,
+.bookmark .user .byline,
+.bookmark div.user .datetime,
+dl.stats dt,
+.blurb .datetime {
+  margin: 0.643em auto;
+  text-align: justify;
+  color: var(--ink);
+}
+
+dl.stats dd {
+  white-space: nowrap;
+  padding-right: 0.5em;
+  color: var(--ink);
+}
+
+dl.meta {
+  border: none;
+  clear: right;
+  padding: 1.286em 0.75em;
+  margin: 10px;
+  position: relative;
+  overflow: hidden;
+  color: var(--ink);
+}
+
+dl.index dd {
+  width: auto;
+  float: none;
+  clear: right;
+  margin: 0 0.25em 0.643em 2.5em;
+  padding: 0.375em 0.15em 0.15em;
+  overflow: visible;
+  background: var(--card);
+  color: var(--ink);
+}
+
+a.tag,
+a.tag:visited,
+a.tag:link {
+  display: inline-block;
+  padding: 2px 5px;
+  margin: 2px 0;
+  border-radius: 5px;
+}
+
+a.tag:hover,
+.listbox .heading a.tag:visited:hover {
+  background: #fdfdfd85;
+  color: var(--ink);
+}
+
+.commas li::after {
+  content: "";
+}
+
+ul.tags li.warnings:first-child::before {
+  content: "☆☆☆ ";
+}
+
+.warnings .tag {
+  background: #4b86d1;
+  color: #f3f0e5 !important;
+  border: 1px solid #4b86d1;
+}
+
+.warnings .tag:hover {
+  background: #f3f0e5 !important;
+  color: #2f5fa3 !important;
+  border: 1px solid #4b86d1;
+}
+
+.relationships .tag {
+  background: #b92042;
+  color: #f3f0e5 !important;
+  border: 1px solid #b92042;
+}
+
+.relationships .tag:hover {
+  background: #f3f0e5 !important;
+  color: #b92042 !important;
+  border: 1px solid #b92042;
+}
+
+.characters .tag {
+  background: #eebf55;
+  color: var(--ink) !important;
+  border: 1px solid #eebf55;
+}
+
+.characters .tag:hover {
+  background: #f3f0e5 !important;
+  color: #7a5a00 !important;
+  border: 1px solid #eebf55;
+}
+
+.freeforms .tag {
+  background: #4ba774;
+  color: var(--ink) !important;
+  border: 1px solid #4ba774;
+}
+
+.freeforms .tag:hover {
+  background: #f3f0e5 !important;
+  color: #1f6b43 !important;
+  border: 1px solid #4ba774;
+}
+
+.required-tags .rating-notrated,
+.required-tags .rating-general-audience,
+.required-tags .rating-explicit,
+.required-tags .rating-mature,
+.required-tags .rating-teen,
+.required-tags .category-femslash,
+.required-tags .category-gen,
+.required-tags .category-slash,
+.required-tags .category-none,
+.required-tags .category-het,
+.required-tags .category-multi,
+.required-tags .category-other,
+.required-tags .complete-no,
+.required-tags .complete-yes,
+.required-tags .warning-yes,
+.required-tags .warning-no,
+.required-tags .warning-choosenotto,
+.required-tags .external-work,
+.status .private .text,
+.status .public,
+.status .hidden,
+.status .rec,
+.status .count,
+.index .mystery .icon,
+.index .tag .icon,
+.index .tagset .icon,
+.comment .icon .anonymous,
+.comment .icon .visitor,
+.abbreviated .icon .visitor,
+.abbreviated .icon .anonymous,
+.admin .primary .icon,
+.tagset .primary .icon,
+.tag .primary .icon,
+#symbols-key dl img,
+#bookmark-symbols-key img,
+img[src$="/images/skins/iconsets/default/icon_user.png"],
+img[src$="/images/skins/iconsets/default/icon_collection.png"],
+img[src$="/images/lockblue.png"] {
+  background-image: url("https://zerafinacss.github.io/ao3/imageset/muted.png");
+  background-size: 200px 835px;
+}
+
+.listbox,
+fieldset fieldset.listbox {
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid transparent;
+  box-shadow: none;
+  border-radius: 5px;
+  color: var(--ink);
+}
+
+.listbox .index {
+  width: auto;
+  padding: 0.643em;
+  margin: 0;
+  float: none;
+  clear: right;
+  background-image: url("https://pbs.twimg.com/media/HOgd63fW4AErCD4.jpg");
+  background-color: var(--card);
+  background-size: 18%;
+  box-shadow: inset 1px 1px 3px #bbb;
+  color: var(--ink);
+}
+
+.statistics .index li:nth-of-type(even) {
+  background: #e1cfb9;
+}
+
+.skins .primary .icon,
+.index .picture .icon {
+  background: url("https://pbs.twimg.com/media/HO6QXK8W8AEoFYd.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.splash .favorite li:nth-of-type(odd) a {
+  background: #e7d8c0;
+  color: var(--ink);
+}
+
+.splash .favorite li:nth-of-type(odd) a:hover {
+  background: #7da2c18a;
+  color: var(--ink);
+}
+
+.splash .favorite::after {
+  content: "𝓂𝒾 𝒷𝓊ℯ𝓃ℴ𝓈 𝒶𝒾𝓇ℯ𝓈 𝓆𝓊ℯ𝓇𝒾𝒹ℴ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -21px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink);
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+.news.index.group li.post.group {
+  background: url("https://pbs.twimg.com/media/HOgd63fW4AErCD4.jpg");
+  background-color: var(--card);
+  background-size: contain;
+  background-repeat: repeat;
+  border: 20px solid transparent;
+  border-image: url("https://pbs.twimg.com/media/HOgi9f2XYAASVWc.jpg") 20% round;
+  padding: 0.5em;
+  margin-bottom: 2em;
+  color: var(--ink);
+}
+
+.splash .news blockquote p:first-child {
+  padding-left: 100px;
+  background: url("https://pbs.twimg.com/media/HO45UXVWsAAlFix.jpg");
+  background-size: 85px 105px;
+  background-position-x: left;
+  background-position-y: top;
+  background-repeat: no-repeat;
+}
+
+.social.module p {
+  padding-left: 83px;
+  background: url("https://64.media.tumblr.com/b2a29a4dd9e7bf3b9f09127210b81db7/5e4cd89d4544ce19-49/s1280x1920/fb4fe5344fdd0d2282a31eee1f745a7b6a7c10c6.png");
+  background-size: 80px 90px;
+  background-position-x: left;
+  background-position-y: top;
+  background-repeat: no-repeat;
+}
+
+.social.module p {
+  padding-left: 83px;
+  background: url("https://pbs.twimg.com/media/HO6QXK3W0AAPnQd.jpg");
+  background-size: 80px 80px;
+  background-position-x: left;
+  background-position-y: top;
+  background-repeat: no-repeat;
+}
+
+/* comments & thread layout */
+li.comment {
+  position: relative;
+  background: #f7efe0;
+  border: 1px solid var(--crimson);
+  border-radius: 10px;
+  overflow: visible;
+  text-align: start;
+  color: var(--ink);
+}
+
+.comment h4.byline {
+  background: var(--card-deep);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 0.25em 0.25em 0.25em 108px;
+  margin: 0 auto -0.25em;
+  color: var(--ink);
+}
+
+.comment h4.byline a {
+  color: var(--red) !important;
+}
+
+.comment .icon {
+  height: 90px;
+  width: 90px;
+  border-radius: 15px;
+}
+
+.thread .even {
+  background: #e9dcc6;
+  margin: 0;
+  color: var(--ink);
+}
+
+/* notices, alerts & popups */
+.qtip-content,
+.notice:not(.required),
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.notice a {
+  color: var(--red);
+}
+
+form .notice,
+form ul.notes {
+  box-shadow: inset 0 0 3px #816a4c;
+}
+
+.notice,
+.comment_notice,
+.kudos_notice,
+ul.notes,
+.caution,
+.error,
+.comment_error,
+.kudos_error,
+.alert.flash,
+.LV_invalid {
+  border: 2px solid #f3efec;
+  background: var(--parchment);
+  color: var(--ink);
+  padding: 10px;
+}
+
+/* dashboard & footer */
+#dashboard.own,
+.dashboard .own,
+#dashboard,
+.reading h4.viewed {
+  background-image: url("https://pbs.twimg.com/media/HOgd63fW4AErCD4.jpg");
+  background-color: var(--parchment-deep);
+  background-size: 18%;
+  border: 18px solid transparent;
+  border-image: url("https://pbs.twimg.com/media/HOgi9f2XYAASVWc.jpg") 20% round;
+  box-shadow: none;
+  color: var(--ink);
+}
+
+#dashboard .current {
+  background: #dfd1bb;
+  color: var(--ink);
+  font-weight: bold;
+}
+
+#dashboard a {
+  color: var(--ink);
+}
+
+#dashboard a:hover {
+  background: #dfd1bb;
+  color: #900000;
+}
+
+#dashboard .secondary {
+  background: #d9cab7;
+  padding: 0.375em 0 0.625em;
+  box-shadow: inset 2px 2px 5px #a1845d;
+  color: var(--ink);
+}
+
+#footer {
+  background: url("https://pbs.twimg.com/media/HOgdzHHWcAAgDqC.jpg");
+  background-color: var(--bg);
+  background-size: 100%;
+  background-position-x: right;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  border-top: 0 solid #a00;
+  box-shadow: none;
+  color: var(--ink);
+}
+
+#footer .heading {
+  display: block;
+  color: var(--ink);
+}
+
+#footer a,
+#footer button {
+  color: var(--ink);
+  display: inline;
+  text-decoration: underline;
+  line-height: 1.5;
+  white-space: normal;
+  text-underline-position: under;
+}
+
+#footer .menu {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+}
+
+/* mobile & responsive adjustments */
+@media (max-width: 700px) {
+  #workskin {
+    border-width: 15px;
+    padding: 0.75em;
+  }
+
+  li.blurb,
+  .news.index.group li.post.group {
+    border-width: 10px;
+  }
+
+  form dl,
+  fieldset dl dl,
+  fieldset fieldset fieldset,
+  fieldset fieldset dl dl,
+  dd.hideme,
+  form blockquote.userstuff {
+    border-width: 15px;
+  }
+
+  .comment h4.byline {
+    padding-left: 0.5em;
+  }
+}

@@ -29,7 +29,9 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | Skin name | Description | Links |
 | :--- | :--- | :--- |
 | **Backrooms** | Inspired by the movie of same name | [`skins/backrooms.css`](skins/backrooms.css) |
+| **Dune** | Beige-ish forest hill under a pale moon | [`skins/dune.css`](skins/dune.css) |
 | **Facebook** | Based off the original thefacebook palette | [`skins/facebook.css`](skins/facebook.css) |
+| **Fileteado Porteño** | Ornate Argentine fileteado framesthe e | [`skins/fileteado.css`](skins/fileteado.css) |
 | **Frantic** | Vaguely based on the Bryan Ferry album of same name | [`skins/frantic.css`](skins/frantic.css) |
 | **Icy Sunset** | Some kind of icy sunset theme | [`skins/icysunset.css`](skins/icysunset.css) |
 | **Larry** | Heavily-watered down from what once was a One Direction-inspired theme?| [`skins/larry.css`](skins/larry.css) |
@@ -45,7 +47,6 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **Stars** | Starry theme built from a Byler theme | [`skins/stars.css`](skins/stars.css) |
 | **Trout** | Has more than one fish in it | [`skins/trout.css`](skins/trout.css) |
 | **Wave** | Wave after wave | [`skins/wave.css`](skins/wave.css) |
-| **Dune** | Beige-ish forest hill under a pale moon | [`skins/dune.css`](skins/dune.css) |
 
 ### Dark themes
 | Skin name | Description | Links |
