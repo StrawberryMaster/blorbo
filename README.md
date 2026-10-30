@@ -37,6 +37,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **Larry** | Heavily-watered down from what once was a One Direction-inspired theme?| [`skins/larry.css`](skins/larry.css) |
 | **LCARS** | Oooh, Star Trek | [`skins/lcars.css`](skins/lcars.css) |
 | **Keira** | Trippy. | [`skins/keira.css`](skins/keira.css) |
+| **Kids** | Muted 90s street palette with a Kids (1995) banner | [`skins/kids.css`](skins/kids.css) |
 | **Lagoon** | Fresh aqua/teal theme | [`skins/lagoon.css`](skins/lagoon.css) |
 | **Lilac** | Soft-ish lavender & cream | [`skins/lilac.css`](skins/lilac.css) |
 | **Medieval** | You've seen this one already. | [`skins/medieval.css`](skins/medieval.css) |
