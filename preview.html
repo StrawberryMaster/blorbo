@@ -2,13 +2,30 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>blorbo — AO3 skin preview</title>
+    <title>blorbo (skin preview)</title>
     <meta name="description"
-        content="Preview a blorbo AO3 site skin against a real work page; switch skins from the bar at the top.">
+        content="Preview an AO3 site skin against a real work page, switching skins from the bar at the top">
     <meta name="author" content="StrawberryMaster">
+    <meta name="theme-color" content="#003366">
 
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://strawberrymaster.github.io/blorbo/preview">
+    <meta property="og:title" content="blorbo (skin preview)">
+    <meta property="og:description"
+        content="Preview an AO3 site skin against a real work page, switching skins from the bar at the top">
+    <meta property="og:image" content="https://i.pinimg.com/1200x/8d/26/02/8d2602c769b47d98c0307e5ceb38ee10.jpg">
+    <meta property="og:site_name" content="blorbo (skin preview)">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="blorbo (skin preview)">
+    <meta name="twitter:description"
+        content="Preview an AO3 site skin against a real work page, switching skins from the bar at the top">
+    <meta name="twitter:image" content="https://i.pinimg.com/1200x/8d/26/02/8d2602c769b47d98c0307e5ceb38ee10.jpg">
+
+    <link rel="icon" type="image/x-icon" href="https://strawberrymaster.github.io/files/wizardry.ico">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/ao3/1_site_screen_.css">
     <link rel="stylesheet" type="text/css" media="only screen and (max-width: 62em), handheld"
         href="assets/ao3/4_site_midsize.handheld_.css">
@@ -17,76 +34,112 @@
 
     <style>
         #previewbar {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            z-index: 99999;
-            display: flex;
+            z-index: 999;
+            display: flex !important;
             align-items: center;
-            gap: 10px;
-            padding: 5px 12px;
-            background: #232830 !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45) !important;
+            justify-content: flex-end;
+            gap: 12px;
+            margin: 0 !important;
+            padding: 4px 48px !important;
+            background: #900 !important;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.07), rgba(0, 0, 0, 0.12)) !important;
+            border: 0 !important;
+            border-bottom: 1px solid #550000 !important;
+            box-shadow: inset 0 -6px 10px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.25) !important;
             font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif !important;
+            font-size: 11px !important;
+            line-height: 1.4 !important;
+            color: #ffcccc !important;
+            text-align: left !important;
+            text-transform: none !important;
+            letter-spacing: normal !important;
         }
 
         #previewbar,
-        #previewbar * {
+        #previewbar *,
+        #previewbar *::before,
+        #previewbar *::after {
             box-sizing: border-box;
         }
 
         #previewbar .previewbar-label {
-            color: #a9b6c3 !important;
-            font-size: 12px !important;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
+            flex: 0 0 auto;
+            color: #ffd9d9 !important;
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.02em !important;
+            text-transform: none !important;
             white-space: nowrap;
         }
 
         #previewbar .previewbar-hint {
-            flex: 1;
+            flex: 1 1 auto;
             min-width: 0;
-            color: #7d8894 !important;
-            font-size: 12px !important;
+            color: #f0c4c4 !important;
+            font-size: 11px !important;
+            font-style: italic !important;
+            font-weight: 400 !important;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
         #previewbar button#skin-toggle {
+            -webkit-appearance: none;
             appearance: none;
+            flex: 0 0 auto;
+            display: inline-flex !important;
+            align-items: center;
+            gap: 6px;
+            height: auto !important;
+            margin: 0 !important;
+            padding: 2px 8px 3px !important;
             cursor: pointer;
             font-family: inherit !important;
-            font-size: 13px !important;
-            font-weight: 700;
-            line-height: 1.3;
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            line-height: 1.4 !important;
             white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin: 0;
-            padding: 6px 12px;
-            border-radius: 4px;
-            background: #3a434c !important;
-            color: #e6ebf0 !important;
-            border: 1px solid #565f6a !important;
-            text-shadow: none;
-            box-shadow: none;
+            color: #444 !important;
+            background: #eee !important;
+            background-image: linear-gradient(#fff 2%, #ddd 95%, #bbb 100%) !important;
+            border: 1px solid #bbb !important;
+            border-bottom-color: #aaa !important;
+            border-radius: 0.25em !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+            text-transform: none !important;
+            letter-spacing: normal !important;
         }
 
         #previewbar button#skin-toggle:hover,
         #previewbar button#skin-toggle:focus-visible,
         #previewbar button#skin-toggle[aria-expanded="true"] {
-            background: #49545f !important;
-            color: #ffffff !important;
-            border-color: #7f8a96 !important;
+            color: #900 !important;
+            background-image: linear-gradient(#fff 2%, #f0f0f0 95%, #ccc 100%) !important;
+            border-color: #999 !important;
+            box-shadow: inset 2px 2px 2px #bbb !important;
+        }
+
+        #previewbar button#skin-toggle:focus-visible {
+            outline: 2px solid #ffd9d9;
+            outline-offset: 1px;
+        }
+
+        #previewbar #skin-toggle-name {
+            min-width: 0;
+            max-width: 11em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         #previewbar #skin-toggle .skin-toggle-caret {
-            font-size: 10px;
-            color: #8fa0b0 !important;
+            color: #666 !important;
+            font-size: 9px;
+            line-height: 1;
             transition: transform 0.15s ease;
         }
 
@@ -95,100 +148,168 @@
         }
 
         #skin-menu {
-            position: fixed;
-            top: 46px;
-            right: 12px;
-            z-index: 100000;
-            min-width: 270px;
-            max-width: 320px;
-            max-height: min(70vh, 620px);
+            position: absolute;
+            top: calc(100% + 4px);
+            right: 48px;
+            z-index: 1000;
+            width: min(320px, calc(100vw - 2em));
+            max-height: min(70vh, 560px);
             overflow-y: auto;
-            padding: 8px;
-            border-radius: 6px;
-            background: #262c33 !important;
-            border: 1px solid #4b5560 !important;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5) !important;
+            overscroll-behavior: contain;
+            margin: 0 !important;
+            padding: 6px !important;
+            background: #fbfbfb !important;
+            background-image: linear-gradient(to bottom, #fdfdfd 0%, #efefef 100%) !important;
+            border: 1px solid #ccc !important;
+            border-radius: 0.25em !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28) !important;
             font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif !important;
+            font-size: 12px !important;
+            color: #2a2a2a !important;
+            text-align: left !important;
+            text-transform: none !important;
+            letter-spacing: normal !important;
         }
 
         #skin-menu[hidden] {
-            display: none;
+            display: none !important;
         }
 
         #skin-menu .skin-section-label {
-            color: #7d8894 !important;
+            margin: 8px 4px 2px !important;
+            padding: 3px 2px 2px !important;
+            color: #900 !important;
             font-size: 11px !important;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin: 10px 4px 4px;
+            font-weight: 700 !important;
+            text-transform: none !important;
+            letter-spacing: normal !important;
+            border-bottom: 1px solid #e0e0e0 !important;
         }
 
         #skin-menu .skin-section-label:first-of-type {
-            margin-top: 2px;
+            margin-top: 2px !important;
         }
 
         #skin-menu button.skin-item {
+            -webkit-appearance: none;
             appearance: none;
-            display: block;
+            display: flex !important;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 8px;
             width: 100%;
-            text-align: left;
+            height: auto !important;
+            margin: 0 !important;
+            padding: 5px 8px !important;
             cursor: pointer;
+            text-align: left !important;
             font-family: inherit !important;
-            font-size: 13px !important;
-            font-weight: normal;
-            line-height: 1.4;
+            font-size: 12px !important;
+            font-weight: 400 !important;
+            line-height: 1.4 !important;
+            color: #2a2a2a !important;
+            background: transparent !important;
+            background-image: none !important;
+            border: 0 !important;
+            border-radius: 3px !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+            text-transform: none !important;
+            letter-spacing: normal !important;
             white-space: nowrap;
             overflow: hidden;
+        }
+
+        #skin-menu button.skin-item>span:first-child {
+            flex: 1 1 auto;
+            min-width: 0;
+            overflow: hidden;
             text-overflow: ellipsis;
-            margin: 1px 0;
-            padding: 7px 10px;
-            border-radius: 4px;
-            background: transparent !important;
-            color: #dce3ea !important;
-            border: none !important;
-            text-shadow: none;
-            box-shadow: none;
+            white-space: nowrap;
         }
 
         #skin-menu button.skin-item:hover,
         #skin-menu button.skin-item:focus-visible {
-            background: #3a434c !important;
-            color: #ffffff !important;
+            background: #eee !important;
+            color: #900 !important;
+        }
+
+        #skin-menu button.skin-item:focus-visible {
+            outline: 2px solid #900;
+            outline-offset: -2px;
         }
 
         #skin-menu button.skin-item.active {
-            background: #3b82f6 !important;
+            background: #900 !important;
             color: #ffffff !important;
-            font-weight: 700;
+            font-weight: 700 !important;
+        }
+
+        #skin-menu button.skin-item.active:focus-visible {
+            outline-color: #ffd9d9;
         }
 
         #skin-menu button.skin-item .skin-item-file {
-            color: #8fa0b0 !important;
-            font-size: 11px !important;
-            margin-left: 8px;
+            flex: 0 0 auto;
+            color: #777 !important;
+            font-size: 10px !important;
+            font-weight: 400 !important;
         }
 
         #skin-menu button.skin-item.active .skin-item-file {
-            color: #d9e6f5 !important;
+            color: #ffcccc !important;
         }
 
         #skin-menu .skin-menu-note {
-            color: #7d8894 !important;
-            font-size: 11px !important;
-            border-top: 1px solid #3a434c !important;
-            margin-top: 8px;
-            padding: 8px 4px 2px;
+            margin: 8px 2px 2px !important;
+            padding: 6px 4px 2px !important;
+            color: #666 !important;
+            font-size: 10px !important;
+            font-style: italic;
+            border-top: 1px solid #e0e0e0 !important;
         }
 
-        #previewbar-spacer {
-            height: 44px;
+        @media (max-width: 62em) {
+
+            #previewbar {
+                padding-left: 3.5% !important;
+                padding-right: 3.5% !important;
+            }
+
+            #skin-menu {
+                right: 3.5%;
+            }
+        }
+
+        @media (max-width: 42em) {
+
+            #previewbar {
+                gap: 8px;
+            }
+
+            #previewbar .previewbar-hint {
+                display: none !important;
+            }
+
+            #previewbar .previewbar-label {
+                flex: 1 1 auto;
+                min-width: 0;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            #previewbar #skin-toggle-name {
+                max-width: 8em;
+            }
+
+            #skin-menu {
+                width: min(320px, calc(100vw - 7%));
+            }
         }
 
         @media print {
 
             #previewbar,
-            #previewbar-spacer,
             #skin-menu {
                 display: none !important;
             }
@@ -198,16 +319,15 @@
 
 <body class="logged-in javascript">
 
-    <div id="previewbar">
-        <span class="previewbar-label">blorbo skin preview</span>
-        <span class="previewbar-hint">skins layer over AO3's default skin, like the real site</span>
-        <button id="skin-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+    <div id="previewbar" role="region" aria-label="Skin preview">
+        <span class="previewbar-label">blorbo (skin preview)</span>
+        <span class="previewbar-hint">these skins layer over AO3's default skin, fun fact!</span>
+        <button id="skin-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="skin-menu">
             <span id="skin-toggle-name">AO3 Default</span>
-            <span class="skin-toggle-caret">&#9662;</span>
+            <span class="skin-toggle-caret" aria-hidden="true">&#9662;</span>
         </button>
+        <div id="skin-menu" hidden></div>
     </div>
-    <div id="previewbar-spacer"></div>
-    <div id="skin-menu" hidden></div>
 
     <div id="outer" class="wrapper">
         <ul id="skiplinks">
@@ -221,7 +341,8 @@
         <header id="header" class="region">
             <h1 class="heading">
                 <a href="https://archiveofourown.org/"><span>Archive of Our Own</span><img alt="Archive of Our Own"
-                        class="logo" src="https://archiveofourown.org/images/ao3_logos/logo_42.png"></a>
+                        class="logo"
+                        src="https://web.archive.org/web/20261026164247if_/https://archiveofourown.org/images/ao3_logos/logo_42.png"></a>
             </h1>
 
             <nav id="greeting" aria-label="User">
@@ -247,8 +368,8 @@
                     </li>
                     <li><a rel="nofollow" href="https://archiveofourown.org/users/logout">Log Out</a></li>
                 </ul>
-                <p class="icon"><a href="https://archiveofourown.org/users/bobbydorpz"><img
-                            alt="example pfp" class="icon"
+                <p class="icon"><a href="https://archiveofourown.org/users/bobbydorpz"><img alt="example pfp"
+                            class="icon"
                             src="https://i.pinimg.com/736x/90/d8/7c/90d87cbfebbc11ec95c6dbf9a7cb4428.jpg"></a>
                 </p>
             </nav>
@@ -953,19 +1074,23 @@
                     <ul class="menu">
                         <li>
                             <form class="button_to" method="post" action="https://archiveofourown.org/skins/unset">
-                                <button type="submit">Default</button></form>
+                                <button type="submit">Default</button>
+                            </form>
                         </li>
                         <li>
                             <form class="button_to" method="post" action="https://archiveofourown.org/skins/891/set">
-                                <button type="submit">Low Vision Default</button></form>
+                                <button type="submit">Low Vision Default</button>
+                            </form>
                         </li>
                         <li>
                             <form class="button_to" method="post" action="https://archiveofourown.org/skins/929/set">
-                                <button type="submit">Reversi</button></form>
+                                <button type="submit">Reversi</button>
+                            </form>
                         </li>
                         <li>
                             <form class="button_to" method="post" action="https://archiveofourown.org/skins/932/set">
-                                <button type="submit">Snow Blue</button></form>
+                                <button type="submit">Snow Blue</button>
+                            </form>
                         </li>
                     </ul>
                 </li>
@@ -1008,255 +1133,292 @@
     <script>
         'use strict';
 
-        const STORAGE_KEY = 'blorbo-preview-skin';
-        const STATIC_CATALOG = [
-            {
-                group: 'Light', skins: [
-                    ['Backrooms', 'backrooms.css'], ['Facebook', 'facebook.css'], ['Frantic', 'frantic.css'], ['Icy Sunset', 'icysunset.css'],
-                    ['Larry', 'larry.css'], ['LCARS', 'lcars.css'], ['Keira', 'keira.css'], ['Kids', 'kids.css'], ['Lagoon', 'lagoon.css'],
-                    ['Lilac', 'lilac.css'], ['Medieval', 'medieval.css'], ['Moss', 'moss.css'], ['Rose', 'rose.css'],
-                    ['Snow Blue', 'snowblue.css'],
-                    ['Stars', 'stars.css'], ['Trout', 'trout.css'], ['Wave', 'wave.css'], ['Pinstripe', 'pinstripe.css'], ['Dune', 'dune.css'], ['Fileteado Porteño', 'fileteado.css']
-                ]
-            },
-            {
-                group: 'Dark', skins: [
-                    ['Blue Plaid', 'blueplaid.css'], ['Breach', 'breach.css'], ['Cinema', 'cinema.css'],
-                    ['Constellations', 'constellations.css'], ['Coral', 'coral.css'], ['Crimson', 'crimson.css'],
-                    ['Danny Phantom', 'dannyphantom.css'],
-                    ['Denim', 'denim.css'], ['Gilded', 'gilded.css'], ['Mocha', 'mocha.css'], ['Purple', 'purple.css'], ['Seventeen', 'seventeen.css'], ['Slate', 'slate.css'], ['Skyfall', 'skyfall.css'], ['Spider-Man', 'spiderman.css'], ['Starlight', 'starlight.css'],
-                    ['Vampire', 'vampire.css']
-                ]
-            },
-            {
-                group: 'Other', skins: [
-                    ['AOL', 'aol.css'], ['Disco', 'disco.css'], ['IRC', 'irc.css'], ['MySpace', 'myspace.css'], ['New York Times', 'nytimes.css'], ['Pooh', 'pooh.css'],
-                    ['Rick and Morty', 'rickandmorty.css'], ['Omori', 'omori.css'], ['Windows XP', 'xp.css'], ['Windows 98', '98.css']
-                ]
+        (() => {
+            const STORAGE_KEY = 'blorbo-preview-skin';
+            const STATIC_CATALOG = [
+                {
+                    group: 'Light', skins: [
+                        ['Backrooms', 'backrooms.css'], ['Facebook', 'facebook.css'], ['Frantic', 'frantic.css'], ['Icy Sunset', 'icysunset.css'],
+                        ['Larry', 'larry.css'], ['LCARS', 'lcars.css'], ['Keira', 'keira.css'], ['Kids', 'kids.css'], ['Lagoon', 'lagoon.css'],
+                        ['Lilac', 'lilac.css'], ['Medieval', 'medieval.css'], ['Moss', 'moss.css'], ['Rose', 'rose.css'],
+                        ['Snow Blue', 'snowblue.css'],
+                        ['Stars', 'stars.css'], ['Trout', 'trout.css'], ['Wave', 'wave.css'], ['Pinstripe', 'pinstripe.css'], ['Dune', 'dune.css'], ['Fileteado Porteño', 'fileteado.css']
+                    ]
+                },
+                {
+                    group: 'Dark', skins: [
+                        ['Blue Plaid', 'blueplaid.css'], ['Breach', 'breach.css'], ['Cinema', 'cinema.css'],
+                        ['Constellations', 'constellations.css'], ['Coral', 'coral.css'], ['Crimson', 'crimson.css'],
+                        ['Danny Phantom', 'dannyphantom.css'],
+                        ['Denim', 'denim.css'], ['Gilded', 'gilded.css'], ['Mocha', 'mocha.css'], ['Purple', 'purple.css'], ['Seventeen', 'seventeen.css'], ['Slate', 'slate.css'], ['Skyfall', 'skyfall.css'], ['Spider-Man', 'spiderman.css'], ['Starlight', 'starlight.css'],
+                        ['Vampire', 'vampire.css']
+                    ]
+                },
+                {
+                    group: 'Other', skins: [
+                        ['AOL', 'aol.css'], ['Disco', 'disco.css'], ['IRC', 'irc.css'], ['MySpace', 'myspace.css'], ['New York Times', 'nytimes.css'], ['Pooh', 'pooh.css'],
+                        ['Rick and Morty', 'rickandmorty.css'], ['Omori', 'omori.css'], ['Windows XP', 'xp.css'], ['Windows 98', '98.css']
+                    ]
+                }
+            ];
+
+            const skinToggle = document.getElementById('skin-toggle');
+            const skinToggleName = document.getElementById('skin-toggle-name');
+            const skinMenu = document.getElementById('skin-menu');
+
+            let skinLinkElement = document.getElementById('active-skin-link');
+            let activeSkin = null;
+            let activeButton = null;
+            const skinLookup = new Map();
+
+            /**
+             * Get or create the single reusable <link> stylesheet node
+             */
+            function getSkinLink() {
+                if (!skinLinkElement) {
+                    skinLinkElement = document.createElement('link');
+                    skinLinkElement.id = 'active-skin-link';
+                    skinLinkElement.rel = 'stylesheet';
+                    skinLinkElement.type = 'text/css';
+                    document.head.appendChild(skinLinkElement);
+                }
+                return skinLinkElement;
             }
-        ];
 
-        let activeSkin = '';
-        let currentCatalog = [];
+            /**
+             * Factory function for skin menu items
+             */
+            function createSkinButton(name, file, fileHint) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'skin-item';
+                btn.dataset.file = file;
+                btn.setAttribute('aria-pressed', 'false');
+                btn.title = file ? `skins/${file}` : 'AO3 default skin';
 
-        function skinName(file) {
-            const entry = currentCatalog.flatMap(function (group) {return group.skins;})
-                .find(function (s) {return s[1] === file;});
-            return entry ? entry[0] : 'AO3 Default';
-        }
+                const label = document.createElement('span');
+                label.textContent = name;
+                btn.appendChild(label);
 
-        function makeSkinItem(name, file, fileHint) {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'skin-item';
-            btn.dataset.file = file;
-            btn.setAttribute('aria-pressed', 'false');
-            const text = document.createElement('span');
-            text.textContent = name;
-            btn.appendChild(text);
-            if (fileHint) {
-                const hint = document.createElement('span');
-                hint.className = 'skin-item-file';
-                hint.textContent = fileHint;
-                btn.appendChild(hint);
+                if (fileHint) {
+                    const hint = document.createElement('span');
+                    hint.className = 'skin-item-file';
+                    hint.textContent = fileHint;
+                    btn.appendChild(hint);
+                }
+                return btn;
             }
-            btn.title = file ? 'skins/' + file : 'AO3 default skin';
-            return btn;
-        }
 
-        function renderCatalog(catalog) {
-            currentCatalog = catalog;
-            const menu = document.getElementById('skin-menu');
-            menu.textContent = '';
+            /**
+             * Build and render the dropdown menu
+             */
+            function renderCatalog(catalog) {
+                skinLookup.clear();
+                skinLookup.set('', 'AO3 Default');
 
-            menu.appendChild(makeSkinItem('AO3 Default', '', ''));
+                const fragment = document.createDocumentFragment();
+                fragment.appendChild(createSkinButton('AO3 Default', '', ''));
 
-            catalog.forEach(function (group) {
-                const label = document.createElement('div');
-                label.className = 'skin-section-label';
-                label.textContent = group.group + ' themes';
-                menu.appendChild(label);
+                for (const group of catalog) {
+                    const label = document.createElement('div');
+                    label.className = 'skin-section-label';
+                    label.textContent = `${group.group} themes`;
+                    fragment.appendChild(label);
 
-                group.skins.forEach(function (skin) {
-                    menu.appendChild(makeSkinItem(skin[0], skin[1], skin[1]));
-                });
-            });
+                    for (const [name, file] of group.skins) {
+                        skinLookup.set(file, name);
+                        fragment.appendChild(createSkinButton(name, file, file));
+                    }
+                }
 
-            const note = document.createElement('div');
-            note.className = 'skin-menu-note';
-            note.textContent = 'Choice is remembered; share with ?skin=file.css';
-            menu.appendChild(note);
+                const note = document.createElement('div');
+                note.className = 'skin-menu-note';
+                note.textContent = 'Choice is remembered; share with ?skin=file.css';
+                fragment.appendChild(note);
 
-            applySkin(initialSelection());
-        }
-
-        function initialSelection() {
-            const params = new URLSearchParams(window.location.search);
-            if (params.has('skin') && params.get('skin') !== '') {
-                return params.get('skin');
+                skinMenu.replaceChildren(fragment);
+                applySkin(getInitialSkin());
             }
-            try {
-                return localStorage.getItem(STORAGE_KEY) || '';
-            } catch (err) {
+
+            /**
+             * Determine initial skin
+             */
+            function getInitialSkin() {
+                const params = new URLSearchParams(window.location.search);
+                const requested = params.get('skin');
+                if (requested && skinLookup.has(requested)) {
+                    return requested;
+                }
+                try {
+                    const saved = localStorage.getItem(STORAGE_KEY);
+                    if (saved && skinLookup.has(saved)) return saved;
+                } catch { /* storage inaccessible */}
                 return '';
             }
-        }
 
-        function applySkin(file) {
-            activeSkin = file;
+            /**
+             * Apply a skin to the DOM
+             */
+            function applySkin(file) {
+                if (activeSkin === file) return;
+                activeSkin = file;
 
-            const existingLinks = document.querySelectorAll('link[data-type="skin"], link#active-skin-link, link[href*="skins/"]');
-            existingLinks.forEach(function (link) {
-                if (link.parentNode) {
-                    link.parentNode.removeChild(link);
+                // update stylesheet link
+                const link = getSkinLink();
+                if (file) {
+                    link.href = `skins/${encodeURIComponent(file)}`;
+                    link.disabled = false;
+                } else {
+                    link.disabled = true;
+                    link.removeAttribute('href');
+                }
+
+                if (activeButton) {
+                    activeButton.classList.remove('active');
+                    activeButton.setAttribute('aria-pressed', 'false');
+                }
+
+                const nextBtn = skinMenu.querySelector(`button.skin-item[data-file="${CSS.escape(file)}"]`);
+                if (nextBtn) {
+                    nextBtn.classList.add('active');
+                    nextBtn.setAttribute('aria-pressed', 'true');
+                    activeButton = nextBtn;
+                }
+
+                skinToggleName.textContent = skinLookup.get(file) || 'AO3 Default';
+            }
+
+            /**
+             * Persist selection to storage and URL params
+             */
+            function commitSkin(file) {
+                applySkin(file);
+                try {
+                    localStorage.setItem(STORAGE_KEY, file);
+                } catch { /* storage quota or blocked */}
+
+                const url = new URL(window.location.href);
+                if (file) {
+                    url.searchParams.set('skin', file);
+                } else {
+                    url.searchParams.delete('skin');
+                }
+                history.replaceState(null, '', url.pathname + url.search + url.hash);
+            }
+
+            /**
+             * Menu state toggling
+             */
+            const isMenuOpen = () => skinToggle.getAttribute('aria-expanded') === 'true';
+            const openMenu = () => {
+                skinMenu.hidden = false;
+                skinToggle.setAttribute('aria-expanded', 'true');
+            };
+            const closeMenu = (returnFocus = false) => {
+                skinMenu.hidden = true;
+                skinToggle.setAttribute('aria-expanded', 'false');
+                if (returnFocus) skinToggle.focus();
+            };
+
+            skinToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                isMenuOpen() ? closeMenu() : openMenu();
+            });
+
+            skinMenu.addEventListener('click', (e) => {
+                const item = e.target.closest('button.skin-item');
+                if (item) {
+                    commitSkin(item.dataset.file || '');
+                    closeMenu(true);
                 }
             });
 
-            if (file) {
-                const link = document.createElement('link');
-                link.id = 'active-skin-link';
-                link.setAttribute('data-type', 'skin');
-                link.rel = 'stylesheet';
-                link.type = 'text/css';
-                link.href = 'skins/' + encodeURIComponent(file);
-                document.head.appendChild(link);
-            }
-
-            document.querySelectorAll('#skin-menu button.skin-item').forEach(function (btn) {
-                const on = btn.dataset.file === file;
-                btn.classList.toggle('active', on);
-                btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-            });
-            document.getElementById('skin-toggle-name').textContent = skinName(file);
-        }
-
-        function commitSkin(file) {
-            applySkin(file);
-            try {
-                localStorage.setItem(STORAGE_KEY, file);
-            } catch (err) { /* ignore */}
-            const params = new URLSearchParams(window.location.search);
-            if (file) {
-                params.set('skin', file);
-            } else {
-                params.delete('skin');
-            }
-            const qs = params.toString();
-            history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : ''));
-        }
-
-        function parseReadmeCatalog(md) {
-            const groups = [];
-            let current = null;
-            md.split(/\r?\n/).forEach(function (line) {
-                const heading = line.match(/^###\s+(.+?)\s+themes\s*$/);
-                if (heading) {
-                    current = {group: heading[1], skins: []};
-                    groups.push(current);
-                    return;
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isMenuOpen()) {
+                    closeMenu(true);
                 }
-                if (!current) return;
-                const row = line.match(/^\s*\|\s*\*\*(.+?)\*\*\s*\|.*skins\/([\w.-]+\.css)/);
-                if (row) current.skins.push([row[1], row[2]]);
             });
-            const named = groups.filter(function (group) {
-                return group.skins.length > 0 &&
-                    (group.group === 'Light' || group.group === 'Dark' || group.group === 'Other');
-            });
-            return named.length > 0 ? named : null;
-        }
 
-        const skinToggle = document.getElementById('skin-toggle');
-        const skinMenu = document.getElementById('skin-menu');
+            document.addEventListener('click', (e) => {
+                // close skin menu if clicked outside
+                if (isMenuOpen() && !skinMenu.contains(e.target) && !skinToggle.contains(e.target)) {
+                    closeMenu();
+                }
 
-        function menuIsOpen() {return skinToggle.getAttribute('aria-expanded') === 'true';}
-        function openMenu() {skinMenu.hidden = false; skinToggle.setAttribute('aria-expanded', 'true');}
-        function closeMenu() {skinMenu.hidden = true; skinToggle.setAttribute('aria-expanded', 'false');}
+                const navDropdown = e.target.closest('#header .dropdown');
+                if (navDropdown) {
+                    const firstAnchor = navDropdown.querySelector('a');
+                    if (firstAnchor && (e.target === firstAnchor || firstAnchor.contains(e.target))) {
+                        e.preventDefault();
+                        const wasOpen = navDropdown.classList.contains('open');
+                        document.querySelectorAll('#header .dropdown.open').forEach(d => d.classList.remove('open'));
+                        if (!wasOpen) navDropdown.classList.add('open');
+                        return;
+                    }
+                } else {
+                    document.querySelectorAll('#header .dropdown.open').forEach(d => d.classList.remove('open'));
+                }
 
-        skinToggle.addEventListener('click', function (e) {
-            e.stopPropagation();
-            if (menuIsOpen()) {closeMenu();} else {openMenu();}
-        });
-
-        skinMenu.addEventListener('click', function (e) {
-            const item = e.target.closest('button.skin-item');
-            if (item) {
-                commitSkin(item.dataset.file || '');
-                closeMenu();
-            }
-        });
-
-        document.addEventListener('click', function (e) {
-            if (menuIsOpen() && !e.target.closest('#skin-menu') && !e.target.closest('#skin-toggle')) {
-                closeMenu();
-            }
-        });
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && menuIsOpen()) closeMenu();
-        });
-
-        document.addEventListener('click', function (e) {
-            const navDropdown = e.target.closest('#header .dropdown');
-            if (navDropdown) {
-                const firstAnchor = navDropdown.querySelector('a');
-                if (firstAnchor && (e.target === firstAnchor || firstAnchor.contains(e.target))) {
+                if (e.target.closest('.download button, .download .download-toggle')) {
                     e.preventDefault();
-                    const wasOpen = navDropdown.classList.contains('open');
-                    document.querySelectorAll('#header .dropdown.open').forEach(function (d) {
-                        d.classList.remove('open');
-                    });
-                    if (!wasOpen) navDropdown.classList.add('open');
+                    const downloadLi = e.target.closest('.download');
+                    if (downloadLi) {
+                        downloadLi.querySelector('.secondary')?.classList.toggle('hidden');
+                        downloadLi.querySelector('button')?.classList.toggle('expanded');
+                    }
                     return;
                 }
-            } else {
-                document.querySelectorAll('#header .dropdown.open').forEach(function (d) {
-                    d.classList.remove('open');
-                });
-            }
 
-            if (e.target.closest('.download button, .download .download-toggle')) {
-                e.preventDefault();
-                const downloadLi = e.target.closest('.download');
-                if (downloadLi) {
-                    const sec = downloadLi.querySelector('.secondary');
-                    const btn = downloadLi.querySelector('button');
-                    if (sec) sec.classList.toggle('hidden');
-                    if (btn) btn.classList.toggle('expanded');
+                if (e.target.closest('.bookmark_form_placement_open, .bookmark_form_placement_close')) {
+                    e.preventDefault();
+                    document.getElementById('bookmark_form_placement')?.classList.toggle('hidden');
+                    return;
                 }
-                return;
-            }
 
-            if (e.target.closest('.bookmark_form_placement_open, .bookmark_form_placement_close')) {
-                const bookmarkPlacement = document.getElementById('bookmark_form_placement');
-                if (bookmarkPlacement) {
-                    bookmarkPlacement.classList.toggle('hidden');
+                // prevent dead hash jumps
+                const anchor = e.target.closest('a');
+                if (anchor && anchor.getAttribute('href') === '#') {
+                    e.preventDefault();
                 }
-                e.preventDefault();
-                return;
+            });
+
+            document.addEventListener('submit', (e) => e.preventDefault());
+
+            /**
+             * Parser for README markdown catalog
+             */
+            function parseReadmeCatalog(md) {
+                const groups = [];
+                let current = null;
+
+                for (const line of md.split(/\r?\n/)) {
+                    const heading = line.match(/^###\s+(.+?)\s+themes\s*$/);
+                    if (heading) {
+                        current = {group: heading[1], skins: []};
+                        groups.push(current);
+                        continue;
+                    }
+                    if (!current) continue;
+                    const row = line.match(/^\s*\|\s*\*\*(.+?)\*\*\s*\|.*skins\/([\w.-]+\.css)/);
+                    if (row) current.skins.push([row[1], row[2]]);
+                }
+
+                const valid = groups.filter(g => g.skins.length > 0 && ['Light', 'Dark', 'Other'].includes(g.group));
+                return valid.length > 0 ? valid : null;
             }
 
-            const anchor = e.target.closest('a');
-            if (anchor && anchor.getAttribute('href') === '#') {
-                e.preventDefault();
-            }
-        });
+            renderCatalog(STATIC_CATALOG);
 
-        document.addEventListener('submit', function (e) {
-            e.preventDefault();
-        });
-
-        renderCatalog(STATIC_CATALOG);
-
-        (async function refreshFromReadme() {
-            try {
-                const response = await fetch('./README.md');
-                if (!response.ok) return;
-                const catalog = parseReadmeCatalog(await response.text());
-                if (catalog) renderCatalog(catalog);
-            } catch (err) {
-                return; // fallback to static catalog
-            }
+            (async () => {
+                try {
+                    const res = await fetch('./README.md');
+                    if (!res.ok) return;
+                    const catalog = parseReadmeCatalog(await res.text());
+                    if (catalog) renderCatalog(catalog);
+                } catch {
+                    /* fallback to static catalog */
+                }
+            })();
         })();
     </script>
 </body>
