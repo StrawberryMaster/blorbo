@@ -115,7 +115,7 @@ a:focus,
 #header .heading a:link,
 #header .heading a:visited {
   color: var(--gold-bright) !important;
-  font-family: "Brush Script MT", "Segoe Script", "Lucida Handwriting", cursive;
+  font-family: "Comic Sans MS", cursive;
   font-size: 2.4em;
   line-height: 1.1;
   text-shadow:

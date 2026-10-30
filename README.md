@@ -31,7 +31,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **Backrooms** | Inspired by the movie of same name | [`skins/backrooms.css`](skins/backrooms.css) |
 | **Dune** | Beige-ish forest hill under a pale moon | [`skins/dune.css`](skins/dune.css) |
 | **Facebook** | Based off the original thefacebook palette | [`skins/facebook.css`](skins/facebook.css) |
-| **Fileteado Porteño** | Ornate Argentine fileteado framesthe e | [`skins/fileteado.css`](skins/fileteado.css) |
+| **Fileteado Porteño** | Ornate Argentine fileteado frames | [`skins/fileteado.css`](skins/fileteado.css) |
 | **Frantic** | Vaguely based on the Bryan Ferry album of same name | [`skins/frantic.css`](skins/frantic.css) |
 | **Icy Sunset** | Some kind of icy sunset theme | [`skins/icysunset.css`](skins/icysunset.css) |
 | **Larry** | Heavily-watered down from what once was a One Direction-inspired theme?| [`skins/larry.css`](skins/larry.css) |
