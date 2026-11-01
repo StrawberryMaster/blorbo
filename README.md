@@ -45,6 +45,7 @@ Not sure which skin you want? Open **[preview.html](https://strawberrymaster.git
 | **Pinstripe** | Has a diagonal pinstripe | [`skins/pinstripe.css`](skins/pinstripe.css) |
 | **Rose** | Light burgundy-rose theme. Not too far from the base skin | [`skins/rose.css`](skins/rose.css) |
 | **Snow Blue** | Ice-y blue colors everywhere | [`skins/snowblue.css`](skins/snowblue.css) |
+| **Squidge World** | Beige-and-sage theme inspired by Squidgeworld | [`skins/squidgeworld.css`](skins/squidgeworld.css) |
 | **Stars** | Starry theme built from a Byler theme | [`skins/stars.css`](skins/stars.css) |
 | **Trout** | Has more than one fish in it | [`skins/trout.css`](skins/trout.css) |
 | **Wave** | Wave after wave | [`skins/wave.css`](skins/wave.css) |
